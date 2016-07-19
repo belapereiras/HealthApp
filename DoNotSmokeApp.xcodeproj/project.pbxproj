@@ -11,9 +11,7 @@
 		1BC6B15D1D3D5AB200567865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B15B1D3D5AB200567865 /* Main.storyboard */; };
 		1BC6B15F1D3D5AB200567865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B15E1D3D5AB200567865 /* Assets.xcassets */; };
 		1BC6B1621D3D5AB200567865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B1601D3D5AB200567865 /* LaunchScreen.storyboard */; };
-		1BC6B16E1D3E85DF00567865 /* CravingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6B16D1D3E85DF00567865 /* CravingsViewController.swift */; };
 		1BC6B1701D3E860300567865 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6B16F1D3E860300567865 /* ProgressViewController.swift */; };
-		1BC6B1721D3E862100567865 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6B1711D3E862100567865 /* ActivitiesViewController.swift */; };
 		1BC6B1741D3E864500567865 /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6B1731D3E864500567865 /* AchievementsViewController.swift */; };
 		1BC6B1761D3E86A000567865 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6B1751D3E86A000567865 /* TabBarViewController.swift */; };
 		1BC6B1791D3E875400567865 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B1771D3E875400567865 /* Lato-Regular.ttf */; };
@@ -29,9 +27,7 @@
 		1BC6B15E1D3D5AB200567865 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BC6B1611D3D5AB200567865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BC6B1631D3D5AB200567865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1BC6B16D1D3E85DF00567865 /* CravingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CravingsViewController.swift; sourceTree = "<group>"; };
 		1BC6B16F1D3E860300567865 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
-		1BC6B1711D3E862100567865 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
 		1BC6B1731D3E864500567865 /* AchievementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
 		1BC6B1751D3E86A000567865 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = ../TabBarViewController.swift; sourceTree = "<group>"; };
 		1BC6B1771D3E875400567865 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
@@ -82,10 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				1BC6B1751D3E86A000567865 /* TabBarViewController.swift */,
-				1BC6B16D1D3E85DF00567865 /* CravingsViewController.swift */,
 				1BC6B16F1D3E860300567865 /* ProgressViewController.swift */,
 				1BC6B1731D3E864500567865 /* AchievementsViewController.swift */,
-				1BC6B1711D3E862100567865 /* ActivitiesViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -197,8 +191,6 @@
 			files = (
 				1BC6B1741D3E864500567865 /* AchievementsViewController.swift in Sources */,
 				1BC6B1581D3D5AB200567865 /* AppDelegate.swift in Sources */,
-				1BC6B1721D3E862100567865 /* ActivitiesViewController.swift in Sources */,
-				1BC6B16E1D3E85DF00567865 /* CravingsViewController.swift in Sources */,
 				1BC6B1761D3E86A000567865 /* TabBarViewController.swift in Sources */,
 				1BC6B1701D3E860300567865 /* ProgressViewController.swift in Sources */,
 			);
