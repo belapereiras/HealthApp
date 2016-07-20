@@ -19,6 +19,8 @@
 		1BC6B17A1D3E875400567865 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B1781D3E875400567865 /* Lato-Semibold.ttf */; };
 		1BC6B17E1D3E8D2D00567865 /* SF-UI-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B17C1D3E8D2D00567865 /* SF-UI-Text-Regular.otf */; };
 		1BC6B1801D3E8D6400567865 /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B17F1D3E8D6400567865 /* SF-UI-Display-Light.otf */; };
+		D1F0A35D1D40038F002C83A8 /* HealthAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A35C1D40038F002C83A8 /* HealthAchievement.swift */; };
+		D1F0A35F1D4003B4002C83A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A35E1D4003B4002C83A8 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		1BC6B1781D3E875400567865 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		1BC6B17C1D3E8D2D00567865 /* SF-UI-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Regular.otf"; sourceTree = "<group>"; };
 		1BC6B17F1D3E8D6400567865 /* SF-UI-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Light.otf"; sourceTree = "<group>"; };
+		D1F0A35C1D40038F002C83A8 /* HealthAchievement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAchievement.swift; sourceTree = "<group>"; };
+		D1F0A35E1D4003B4002C83A8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,8 @@
 		1BC6B16B1D3D615B00567865 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D1F0A35C1D40038F002C83A8 /* HealthAchievement.swift */,
+				D1F0A35E1D4003B4002C83A8 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -205,6 +211,8 @@
 				1BC6B1581D3D5AB200567865 /* AppDelegate.swift in Sources */,
 				1BC6B1761D3E86A000567865 /* TabBarViewController.swift in Sources */,
 				1BC6B1701D3E860300567865 /* ProgressViewController.swift in Sources */,
+				D1F0A35D1D40038F002C83A8 /* HealthAchievement.swift in Sources */,
+				D1F0A35F1D4003B4002C83A8 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

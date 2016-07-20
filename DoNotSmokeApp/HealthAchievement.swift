@@ -53,7 +53,7 @@ struct HealthBenefit {
 // HealthAchievement
 // class to manage the benefits
 class HealthAchievement {
-
+    
     var healthBenefit: [HealthBenefit] = []
     static var healthAchievement = HealthAchievement()
     var startingDay: NSDate {
@@ -86,5 +86,5 @@ class HealthAchievement {
         return healthAchievement
     }
     
-
+    
 }
