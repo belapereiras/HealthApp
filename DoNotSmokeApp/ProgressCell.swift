@@ -12,5 +12,7 @@ class ProgressCell: UICollectionViewCell {
     
     @IBOutlet var cellImage: UIImageView!
     
+    @IBOutlet var cellTitle: UILabel!
     
+    @IBOutlet var cellText: UILabel!
 }
