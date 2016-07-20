@@ -9,6 +9,25 @@
 import UIKit
 
 class ProgressViewController: UIViewController {
+    
+    @IBOutlet var collectionView: UICollectionView!
+    
+    
+// MARK: ARRAYS
+    
+    var progressImages = [UIImage(named: "20minutesHeart"), UIImage(named: "2hoursHeart"), UIImage(named: "8hoursProgress"), UIImage(named: "12hoursProgress"), UIImage(named: "24hoursProgress"), UIImage(named: "48hoursProgress"), UIImage(named: "3daysProgress"), UIImage(named: "2to3weeksProgress"), UIImage(named: "1to9monthsProgress"), UIImage(named: "1yearProgress"), UIImage(named: "5yearsProgress"), UIImage(named: "10yearsProgress"), UIImage(named: "15yearsProgress")]
+    
+// MARK: COLLECTION VIEW
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return self.progressImages.count
+    }
+    
+// MARK: COLLECTION VIEW CELL
+    
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
