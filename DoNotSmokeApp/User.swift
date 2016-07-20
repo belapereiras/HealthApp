@@ -15,25 +15,27 @@ struct Connection {
 
 class User {
     
+    var quitDay: NSDate
     var name: String
     var cigarettesPerDay, cigarettesPerPack: Int
     var packPrice: Float
     var connections: [Connection] = []
     var healthAchievements: HealthAchievement
     
-    init(name: String, cigarettesPerDay: Int, cigarettesPerPack: Int, packPrice: Float, connection1Name: String, connection2Name: String,connection1Email: String, connection2Email: String) {
+    init(quitDay: NSDate, name: String, cigarettesPerDay: Int, cigarettesPerPack: Int, packPrice: Float, connection1Name: String, connection2Name: String,connection1Email: String, connection2Email: String) {
         
+        self.quitDay = quitDay
         self.name = name
         self.cigarettesPerDay = cigarettesPerDay
         self.cigarettesPerPack = cigarettesPerPack
         self.packPrice = packPrice
         healthAchievements = HealthAchievement.getHASingleton()
-        createConnection(connection1Name, email: connection1Email)
-        createConnection(connection2Name, email: connection2Email)
+        addConnection(connection1Name, email: connection1Email)
+        addConnection(connection2Name, email: connection2Email)
         
     }
     
-    func createConnection(name: String, email: String) {
+    func addConnection(name: String, email: String) {
         let connection = Connection(name: name, email: email)
         connections.append(connection)
     }

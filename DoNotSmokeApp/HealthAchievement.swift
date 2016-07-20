@@ -30,26 +30,6 @@ enum HealthEnum: Double {
     
 }
 
-// Health Benefit
-// Struct with the benefits info
-
-struct HealthBenefit {
-    
-    var name, description: String
-    var benefitNumber: HealthEnum {
-        didSet {
-            completionTime = benefitNumber.rawValue
-        }
-    }
-    var completionTime: Double?
-    
-    init(name: String, description: String, benefitNumber: HealthEnum) {
-        self.name = name
-        self.description = description
-        self.benefitNumber = benefitNumber
-    }
-}
-
 // HealthAchievement
 // class to manage the benefits
 class HealthAchievement {
@@ -71,7 +51,7 @@ class HealthAchievement {
     }
     
     func createHealhBenefit(name: String, description: String, benefitNumber: HealthEnum) -> HealthBenefit {
-        let healthBenefit = HealthBenefit(name: name, description: description, benefitNumber: benefitNumber)
+        let healthBenefit = HealthBenefit(name: name, description: description, healthNumber: benefitNumber)
         return healthBenefit
     }
     

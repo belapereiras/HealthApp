@@ -21,6 +21,9 @@
 		1BC6B1801D3E8D6400567865 /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B17F1D3E8D6400567865 /* SF-UI-Display-Light.otf */; };
 		D1F0A35D1D40038F002C83A8 /* HealthAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A35C1D40038F002C83A8 /* HealthAchievement.swift */; };
 		D1F0A35F1D4003B4002C83A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A35E1D4003B4002C83A8 /* User.swift */; };
+		D1F0A3611D400A5E002C83A8 /* MoneyAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A3601D400A5E002C83A8 /* MoneyAchievement.swift */; };
+		D1F0A3631D400CBB002C83A8 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A3621D400CBB002C83A8 /* DateManager.swift */; };
+		D1F0A3651D400FB7002C83A8 /* Benefit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A3641D400FB7002C83A8 /* Benefit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		1BC6B17F1D3E8D6400567865 /* SF-UI-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Light.otf"; sourceTree = "<group>"; };
 		D1F0A35C1D40038F002C83A8 /* HealthAchievement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAchievement.swift; sourceTree = "<group>"; };
 		D1F0A35E1D4003B4002C83A8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D1F0A3601D400A5E002C83A8 /* MoneyAchievement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyAchievement.swift; sourceTree = "<group>"; };
+		D1F0A3621D400CBB002C83A8 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		D1F0A3641D400FB7002C83A8 /* Benefit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Benefit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +117,11 @@
 		1BC6B16B1D3D615B00567865 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D1F0A35C1D40038F002C83A8 /* HealthAchievement.swift */,
 				D1F0A35E1D4003B4002C83A8 /* User.swift */,
+				D1F0A3621D400CBB002C83A8 /* DateManager.swift */,
+				D1F0A3601D400A5E002C83A8 /* MoneyAchievement.swift */,
+				D1F0A35C1D40038F002C83A8 /* HealthAchievement.swift */,
+				D1F0A3641D400FB7002C83A8 /* Benefit.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -208,10 +217,13 @@
 			files = (
 				1BC6B1741D3E864500567865 /* AchievementsViewController.swift in Sources */,
 				1BAE02EA1D3FF6EC009C2BC7 /* ProgressCell.swift in Sources */,
+				D1F0A3611D400A5E002C83A8 /* MoneyAchievement.swift in Sources */,
+				D1F0A3651D400FB7002C83A8 /* Benefit.swift in Sources */,
 				1BC6B1581D3D5AB200567865 /* AppDelegate.swift in Sources */,
 				1BC6B1761D3E86A000567865 /* TabBarViewController.swift in Sources */,
 				1BC6B1701D3E860300567865 /* ProgressViewController.swift in Sources */,
 				D1F0A35D1D40038F002C83A8 /* HealthAchievement.swift in Sources */,
+				D1F0A3631D400CBB002C83A8 /* DateManager.swift in Sources */,
 				D1F0A35F1D4003B4002C83A8 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
