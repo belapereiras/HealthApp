@@ -26,6 +26,16 @@ class ProgressViewController: UIViewController {
     
 // MARK: COLLECTION VIEW CELL
     
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! ProgressCell
+        
+        cell.cellImage.image = self.progressImages[indexPath.row]
+    
+        return cell
+    }
+
+    
 
     
 
