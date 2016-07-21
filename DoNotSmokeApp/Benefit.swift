@@ -36,7 +36,7 @@ class HealthBenefit: Benefit {
 class MoneyBenefit: Benefit {
 
     var name, description: String
-    var completionTime: NSTimeInterval?
+    var savingCompletion: Double?
     
     init(name: String, description: String) {
         self.name = name

@@ -39,4 +39,18 @@ class User {
         let connection = Connection(name: name, email: email)
         connections.append(connection)
     }
+    
+    func hoursSmokeFree() -> Double {
+        
+    }
+    
+    func cigarettesNotSmoked() -> Int {
+        
+    }
+    
+    func moneySavings() -> Double {
+        
+    }
+    
+    
 }

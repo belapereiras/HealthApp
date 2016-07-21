@@ -11,20 +11,33 @@ import Foundation
 
 class DateManager {
     
-    func timeSinceQuitDay(quitDay: NSDate) -> NSTimeInterval {
+    func timeSinceQuitDayInSeconds(quitDay: NSDate) -> NSTimeInterval {
         let timePassedSinceQuitDay = quitDay.timeIntervalSinceNow
         return timePassedSinceQuitDay
     }
     
-    func timeInHours(timeInSeconds: NSTimeInterval) -> Double {
-        let timeInHours = timeInSeconds/60
-        return timeInHours
+    func timeSinceQuitDayInHours(quitDay: NSDate) -> NSTimeInterval {
+        let timePassedSinceQuitDay = quitDay.timeIntervalSinceNow.hours
+        return timePassedSinceQuitDay
     }
     
-    func timeInDays(timeInSeconds: NSTimeInterval) -> Double {
-        let timeInHour = timeInHours(timeInSeconds)
-        let timeInDays = timeInHour*24
-        return timeInDays
+    func timeSinceQuitDayInDays(quitDay: NSDate) -> NSTimeInterval {
+        let timePassedSinceQuitDay = quitDay.timeIntervalSinceNow.days
+        return timePassedSinceQuitDay
     }
+    
+    func timeSinceQuitDayInMonths(quitDay: NSDate) -> NSTimeInterval {
+        let timePassedSinceQuitDay = quitDay.timeIntervalSinceNow.months
+        return timePassedSinceQuitDay
+    }
+    
+}
+
+extension Double {
+    
+    var minutes: Double { return self / 60 }
+    var hours: Double {return self.minutes / 60 }
+    var days: Double { return self.hours / 24 }
+    var months: Double { return self.days / 30 }
     
 }

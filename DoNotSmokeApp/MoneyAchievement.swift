@@ -10,4 +10,9 @@ import Foundation
 
 class MoneyAchievement {
     
+    var savingsBenefits: [MoneyBenefit] = []
+    
+    
+    
+    
 }

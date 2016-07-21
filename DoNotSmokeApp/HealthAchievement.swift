@@ -66,5 +66,16 @@ class HealthAchievement {
         return healthAchievement
     }
     
+    func benefitsAchieved(timePassed: NSTimeInterval) -> [HealthBenefit] {
+        
+        let time = timePassed
+        var benefitsAchieved: [HealthBenefit] = []
+        for benefit in healthBenefit {
+            if benefit.completionTime == time || benefit.completionTime < time {
+                benefitsAchieved.append(benefit)
+            }
+        }
+        return benefitsAchieved
+    }
     
 }
