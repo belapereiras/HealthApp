@@ -18,11 +18,12 @@ class User {
     var quitDay: NSDate
     var name: String
     var cigarettesPerDay, cigarettesPerPack: Int
-    var packPrice: Float
+    var packPrice: Double
     var connections: [Connection] = []
     var healthAchievements: HealthAchievement
+    var dateManager: DateManager
     
-    init(quitDay: NSDate, name: String, cigarettesPerDay: Int, cigarettesPerPack: Int, packPrice: Float, connection1Name: String, connection2Name: String,connection1Email: String, connection2Email: String) {
+    init(quitDay: NSDate, name: String, cigarettesPerDay: Int, cigarettesPerPack: Int, packPrice: Double, connection1Name: String, connection2Name: String,connection1Email: String, connection2Email: String) {
         
         self.quitDay = quitDay
         self.name = name
@@ -30,6 +31,7 @@ class User {
         self.cigarettesPerPack = cigarettesPerPack
         self.packPrice = packPrice
         healthAchievements = HealthAchievement.getHASingleton()
+        self.dateManager = DateManager()
         addConnection(connection1Name, email: connection1Email)
         addConnection(connection2Name, email: connection2Email)
         
@@ -40,16 +42,21 @@ class User {
         connections.append(connection)
     }
     
-    func hoursSmokeFree() -> Double {
+    func cigarettesNotSmoked() -> Double {
         
-    }
-    
-    func cigarettesNotSmoked() -> Int {
+        let daysWithoutSmoking = dateManager.timeSinceQuitDayInDays(quitDay)
+        let cigarettesNotSmoked = Double(cigarettesPerDay) * daysWithoutSmoking
+        return cigarettesNotSmoked
         
     }
     
     func moneySavings() -> Double {
         
+        let daysWithoutSmoking = dateManager.timeSinceQuitDayInDays(quitDay)
+        let numberOfPacksSmokedPerDay = cigarettesPerDay / cigarettesPerPack
+        let savings = Double(numberOfPacksSmokedPerDay) * daysWithoutSmoking
+        
+        return savings
     }
     
     
