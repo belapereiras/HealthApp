@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Lato-Semibold.ttf">
@@ -44,10 +45,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Progress View Controller-->
+        <!--ProgressScene-->
         <scene sceneID="2uj-hD-4M3">
             <objects>
-                <viewController id="PEm-xP-a09" customClass="ProgressViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ProgressScene" id="PEm-xP-a09" customClass="ProgressViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NXZ-bC-hnR"/>
                         <viewControllerLayoutGuide type="bottom" id="j1X-Hn-EYM"/>
@@ -283,10 +284,10 @@
             </objects>
             <point key="canvasLocation" x="172" y="486"/>
         </scene>
-        <!--Tab Bar View Controller-->
+        <!--TabBarController-->
         <scene sceneID="Hrb-PY-BRa">
             <objects>
-                <tabBarController id="cIm-Ry-u1B" customClass="TabBarViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController title="TabBarController" id="cIm-Ry-u1B" customClass="TabBarViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleAspectFit" itemPositioning="fill" id="JJW-MI-Jok">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -304,11 +305,11 @@
             </objects>
             <point key="canvasLocation" x="-492" y="486"/>
         </scene>
-        <!--Contract View Controller-->
+        <!--ContractScreen-->
         <scene sceneID="1WX-jO-EwP">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xX1-g6-NMo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="1pr-rM-eYK" customClass="ContractViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="ContractScreen" id="1pr-rM-eYK" customClass="ContractViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AzF-m6-QBa"/>
                         <viewControllerLayoutGuide type="bottom" id="Vgj-cm-SXh"/>
@@ -317,135 +318,288 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Eu," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfZ-tz-ceU">
-                                <rect key="frame" x="51" y="28" width="35" height="30"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1RR-w7-ACB">
-                                <rect key="frame" x="85" y="26" width="235" height="30"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=", que fumo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKt-Jv-gXk">
-                                <rect key="frame" x="323" y="28" width="110" height="30"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Pc-af-gGh">
-                                <rect key="frame" x="426" y="26" width="73" height="30"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="cigarros por dia e gasto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZc-e1-WSo">
-                                <rect key="frame" x="51" y="62" width="227" height="30"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y0L-eo-rX5">
-                                <rect key="frame" x="278" y="59" width="73" height="30"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="reais por maço," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbw-31-fae">
-                                <rect key="frame" x="354" y="62" width="150" height="30"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="prometo parar de fumar a partir de agora." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQh-gu-afs">
-                                <rect key="frame" x="51" y="92" width="399" height="30"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Se eu fumar, as pessoas abaixo serão notificadas imediatamente." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBq-aE-atG">
-                                <rect key="frame" x="51" y="131" width="466" height="28"/>
-                                <fontDescription key="fontDescription" name="SFUIText-LightItalic" family="SF UI Text" pointSize="13"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Com a ajuda delas, me tornarei um ex-fumante!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5G0-vV-ck0">
-                                <rect key="frame" x="93" y="148" width="350" height="28"/>
-                                <fontDescription key="fontDescription" name="SFUIText-LightItalic" family="SF UI Text" pointSize="13"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mah-k4-Fwl">
-                                <rect key="frame" x="51" y="185" width="59" height="30"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y4h-0I-V4A">
-                                <rect key="frame" x="104" y="185" width="178" height="30"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Is-fY-Kd0">
-                                <rect key="frame" x="291" y="185" width="54" height="30"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T6c-RM-Ow2">
-                                <rect key="frame" x="336" y="185" width="178" height="30"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzr-fG-Hj5">
-                                <rect key="frame" x="51" y="217" width="59" height="30"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PoJ-6P-HQX">
-                                <rect key="frame" x="104" y="217" width="178" height="30"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vH8-H3-MtP">
-                                <rect key="frame" x="291" y="217" width="54" height="30"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7EP-1K-vdx">
-                                <rect key="frame" x="336" y="217" width="178" height="30"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Compartilhe este contrato:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JU6-Nv-whs">
-                                <rect key="frame" x="199" y="260" width="170" height="21"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="rob-3V-cO2" userLabel="1stLineContract">
+                                <rect key="frame" x="72" y="40" width="456" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eu," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfZ-tz-ceU">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="JWE-Ts-Nmu"/>
+                                            <constraint firstAttribute="width" constant="35" id="sFh-TK-qR6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1RR-w7-ACB">
+                                        <rect key="frame" x="36" y="0.0" width="235" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="235" id="0hl-Iy-FM1"/>
+                                            <constraint firstAttribute="height" constant="30" id="VlE-pA-fHC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=", que fumo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKt-Jv-gXk">
+                                        <rect key="frame" x="272" y="0.0" width="110" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Moq-BQ-sCV"/>
+                                            <constraint firstAttribute="width" constant="110" id="S39-B7-J9v"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Pc-af-gGh">
+                                        <rect key="frame" x="383" y="0.0" width="73" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="v9u-SC-eX7"/>
+                                            <constraint firstAttribute="width" constant="73" id="zIc-66-vZs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="QBz-DC-rLE" userLabel="2ndLineContract">
+                                <rect key="frame" x="72" y="72" width="456" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cigarros por dia e gasto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZc-e1-WSo">
+                                        <rect key="frame" x="0.0" y="0.0" width="227" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="BL8-rI-mLT"/>
+                                            <constraint firstAttribute="width" constant="227" id="V27-7P-nLb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y0L-eo-rX5">
+                                        <rect key="frame" x="230" y="0.0" width="73" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="73" id="94o-Ru-Oys"/>
+                                            <constraint firstAttribute="height" constant="30" id="wtc-22-DZb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reais por maço," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbw-31-fae">
+                                        <rect key="frame" x="306" y="0.0" width="150" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="Fbh-US-CDi"/>
+                                            <constraint firstAttribute="height" constant="30" id="mqZ-WJ-Qlu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h4O-1Z-cTw" userLabel="3rdLineContract">
+                                <rect key="frame" x="72" y="104" width="399" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="prometo parar de fumar a partir de agora." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQh-gu-afs">
+                                        <rect key="frame" x="0.0" y="0.0" width="399" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="1QI-OJ-KNm"/>
+                                            <constraint firstAttribute="width" constant="399" id="vFq-sd-Oxp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8dM-PA-zwE" userLabel="PsLine">
+                                <rect key="frame" x="0.0" y="154" width="600" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Se eu fumar, as pessoas abaixo serão notificadas imediatamente." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBq-aE-atG">
+                                        <rect key="frame" x="102" y="0.0" width="396" height="30"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-LightItalic" family="SF UI Text" pointSize="13"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Com a ajuda delas, me tornarei um ex-fumante!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5G0-vV-ck0">
+                                        <rect key="frame" x="156" y="30" width="289" height="30"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-LightItalic" family="SF UI Text" pointSize="13"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zG7-Xw-u9p" userLabel="helper1name">
+                                <rect key="frame" x="72" y="234" width="237" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mah-k4-Fwl">
+                                        <rect key="frame" x="0.0" y="0.0" width="59" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="cFP-vb-CxV"/>
+                                            <constraint firstAttribute="width" constant="59" id="r3U-Nz-d6u"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y4h-0I-V4A">
+                                        <rect key="frame" x="59" y="0.0" width="178" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="F4U-mE-Aew"/>
+                                            <constraint firstAttribute="width" constant="178" id="Zgd-E9-LV4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QYp-Gk-N9s" userLabel="helper1mail">
+                                <rect key="frame" x="314" y="234" width="232" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Is-fY-Kd0">
+                                        <rect key="frame" x="0.0" y="0.0" width="54" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="54" id="6eE-gp-wps"/>
+                                            <constraint firstAttribute="height" constant="30" id="jrQ-PF-CSs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T6c-RM-Ow2">
+                                        <rect key="frame" x="54" y="0.0" width="178" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="178" id="2fS-k7-01c"/>
+                                            <constraint firstAttribute="height" constant="30" id="sFP-lg-QOs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Compartilhe este contrato:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JU6-Nv-whs">
+                                <rect key="frame" x="212" y="324" width="177" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="177" id="CfC-xV-8rw"/>
+                                    <constraint firstAttribute="height" constant="18" id="klF-qq-S08"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHl-CG-bAc">
-                                <rect key="frame" x="226" y="280" width="39" height="30"/>
-                                <state key="normal" backgroundImage="facebookButton"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7w-cg-VwB">
-                                <rect key="frame" x="265" y="280" width="39" height="30"/>
-                                <state key="normal" backgroundImage="twitterButton"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H26-T4-JhU">
-                                <rect key="frame" x="304" y="280" width="39" height="30"/>
-                                <state key="normal" backgroundImage="mailButton"/>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M9n-04-8OM" userLabel="shareContract">
+                                <rect key="frame" x="242" y="344" width="117" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHl-CG-bAc">
+                                        <rect key="frame" x="0.0" y="0.0" width="39" height="30"/>
+                                        <state key="normal" backgroundImage="facebookButton"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7w-cg-VwB">
+                                        <rect key="frame" x="39" y="0.0" width="39" height="30"/>
+                                        <state key="normal" backgroundImage="twitterButton"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H26-T4-JhU">
+                                        <rect key="frame" x="78" y="0.0" width="39" height="30"/>
+                                        <state key="normal" backgroundImage="mailButton"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GL9-OG-BtA" userLabel="helper2name">
+                                <rect key="frame" x="72" y="269" width="237" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbz-DT-3Rb">
+                                        <rect key="frame" x="0.0" y="0.0" width="59" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="C1o-y3-8vv"/>
+                                            <constraint firstAttribute="width" constant="59" id="ei1-hk-FB1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ct4-EV-7DZ">
+                                        <rect key="frame" x="59" y="0.0" width="178" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="P3C-cZ-RsI"/>
+                                            <constraint firstAttribute="width" constant="178" id="tRh-Gg-DJC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jcE-7V-ggr" userLabel="helper2mail">
+                                <rect key="frame" x="314" y="269" width="232" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bka-44-bHl">
+                                        <rect key="frame" x="0.0" y="0.0" width="54" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="54" id="7Rg-aY-vvJ"/>
+                                            <constraint firstAttribute="height" constant="30" id="K2P-d2-LGq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Yk-Lh-SO3">
+                                        <rect key="frame" x="54" y="0.0" width="178" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="VgZ-ln-N9P"/>
+                                            <constraint firstAttribute="width" constant="178" id="zmW-Vi-HHk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zG7-Xw-u9p" firstAttribute="centerX" secondItem="qvn-Zb-NJm" secondAttribute="centerX" id="0f0-AU-Io4"/>
+                            <constraint firstItem="JU6-Nv-whs" firstAttribute="centerX" secondItem="qvn-Zb-NJm" secondAttribute="centerX" id="37F-jI-vlM"/>
+                            <constraint firstItem="Y4h-0I-V4A" firstAttribute="top" secondItem="8dM-PA-zwE" secondAttribute="bottom" constant="20" id="6cL-Zm-dgj"/>
+                            <constraint firstItem="QYp-Gk-N9s" firstAttribute="leading" secondItem="zG7-Xw-u9p" secondAttribute="trailing" constant="5" id="C9x-WD-Kzv"/>
+                            <constraint firstItem="GL9-OG-BtA" firstAttribute="top" secondItem="zG7-Xw-u9p" secondAttribute="bottom" constant="5" id="FLV-zM-rVE"/>
+                            <constraint firstItem="8dM-PA-zwE" firstAttribute="centerX" secondItem="qvn-Zb-NJm" secondAttribute="centerX" id="HbG-tF-po4"/>
+                            <constraint firstItem="jcE-7V-ggr" firstAttribute="top" secondItem="QYp-Gk-N9s" secondAttribute="bottom" constant="5" id="IMn-JH-faC"/>
+                            <constraint firstItem="h4O-1Z-cTw" firstAttribute="leading" secondItem="QBz-DC-rLE" secondAttribute="leading" id="Ibl-1f-Cvk"/>
+                            <constraint firstItem="8dM-PA-zwE" firstAttribute="top" secondItem="QYp-Gk-N9s" secondAttribute="bottom" constant="20" id="Jvn-xO-0e7"/>
+                            <constraint firstItem="QBz-DC-rLE" firstAttribute="centerX" secondItem="qvn-Zb-NJm" secondAttribute="centerX" id="MB4-Qu-v1f"/>
+                            <constraint firstItem="QYp-Gk-N9s" firstAttribute="height" secondItem="zG7-Xw-u9p" secondAttribute="height" id="O14-NO-DtO"/>
+                            <constraint firstItem="rob-3V-cO2" firstAttribute="top" secondItem="AzF-m6-QBa" secondAttribute="bottom" constant="20" id="O7r-jg-Am5"/>
+                            <constraint firstItem="jcE-7V-ggr" firstAttribute="leading" secondItem="GL9-OG-BtA" secondAttribute="trailing" constant="5" id="O9o-0y-2Ze"/>
+                            <constraint firstItem="GL9-OG-BtA" firstAttribute="leading" secondItem="zG7-Xw-u9p" secondAttribute="leading" id="Oh6-Xd-4ei"/>
+                            <constraint firstItem="zG7-Xw-u9p" firstAttribute="top" secondItem="8dM-PA-zwE" secondAttribute="bottom" constant="-29" id="Pvj-7E-D6l"/>
+                            <constraint firstItem="jcE-7V-ggr" firstAttribute="trailing" secondItem="QYp-Gk-N9s" secondAttribute="trailing" id="QBZ-gl-COF"/>
+                            <constraint firstItem="8dM-PA-zwE" firstAttribute="top" secondItem="h4O-1Z-cTw" secondAttribute="bottom" constant="20" id="Srs-nz-VuA"/>
+                            <constraint firstItem="QBz-DC-rLE" firstAttribute="top" secondItem="rob-3V-cO2" secondAttribute="bottom" constant="2" id="USl-Eh-phr"/>
+                            <constraint firstItem="8dM-PA-zwE" firstAttribute="height" secondItem="qvn-Zb-NJm" secondAttribute="height" multiplier="0.1:1" id="Vw3-Cf-BrJ"/>
+                            <constraint firstItem="8dM-PA-zwE" firstAttribute="width" secondItem="qvn-Zb-NJm" secondAttribute="width" id="W6e-bg-xDN"/>
+                            <constraint firstItem="M9n-04-8OM" firstAttribute="top" secondItem="JU6-Nv-whs" secondAttribute="bottom" constant="2" id="XaM-Fa-b1p"/>
+                            <constraint firstItem="h4O-1Z-cTw" firstAttribute="centerX" secondItem="qvn-Zb-NJm" secondAttribute="centerX" id="ZcK-Yt-Rvk"/>
+                            <constraint firstItem="zG7-Xw-u9p" firstAttribute="leading" secondItem="h4O-1Z-cTw" secondAttribute="leading" id="csu-CZ-IXq"/>
+                            <constraint firstItem="QYp-Gk-N9s" firstAttribute="width" secondItem="zG7-Xw-u9p" secondAttribute="width" id="hPx-xX-OcL"/>
+                            <constraint firstItem="h4O-1Z-cTw" firstAttribute="top" secondItem="QBz-DC-rLE" secondAttribute="bottom" constant="2" id="ieK-zV-FOm"/>
+                            <constraint firstItem="QYp-Gk-N9s" firstAttribute="top" secondItem="8dM-PA-zwE" secondAttribute="bottom" constant="20" id="lg4-0g-jbu"/>
+                            <constraint firstItem="zG7-Xw-u9p" firstAttribute="top" secondItem="8dM-PA-zwE" secondAttribute="bottom" constant="20" id="rTK-vU-Eqe"/>
+                            <constraint firstItem="rob-3V-cO2" firstAttribute="centerX" secondItem="qvn-Zb-NJm" secondAttribute="centerX" id="xQv-gg-BJZ"/>
+                            <constraint firstItem="M9n-04-8OM" firstAttribute="centerX" secondItem="qvn-Zb-NJm" secondAttribute="centerX" id="xXi-wM-Jgp"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ZcK-Yt-Rvk"/>
+                                <exclude reference="Jvn-xO-0e7"/>
+                                <exclude reference="0f0-AU-Io4"/>
+                                <exclude reference="Pvj-7E-D6l"/>
+                                <exclude reference="O14-NO-DtO"/>
+                                <exclude reference="hPx-xX-OcL"/>
+                                <exclude reference="O9o-0y-2Ze"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="facebookButton" destination="xHl-CG-bAc" id="YDu-Ex-T3U"/>
                         <outlet property="helper1Mail" destination="T6c-RM-Ow2" id="tpC-AJ-1Xm"/>
                         <outlet property="helper1Name" destination="Y4h-0I-V4A" id="MJD-O3-hn4"/>
-                        <outlet property="helper2Mail" destination="7EP-1K-vdx" id="h0R-MA-VXk"/>
-                        <outlet property="helper2Name" destination="PoJ-6P-HQX" id="gZr-fN-Em7"/>
                         <outlet property="mailButton" destination="H26-T4-JhU" id="AEo-XW-5as"/>
                         <outlet property="nbrPerDay" destination="9Pc-af-gGh" id="BNf-th-f8U"/>
                         <outlet property="nbrPerPack" destination="Y0L-eo-rX5" id="QnY-xn-xq8"/>
@@ -456,10 +610,10 @@
             </objects>
             <point key="canvasLocation" x="-492" y="1140"/>
         </scene>
-        <!--Achievements View Controller-->
+        <!--AchievementsScene-->
         <scene sceneID="9De-rR-nze">
             <objects>
-                <viewController id="6LL-a7-2og" customClass="AchievementsViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="AchievementsScene" id="6LL-a7-2og" customClass="AchievementsViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x5x-e5-J78"/>
                         <viewControllerLayoutGuide type="bottom" id="fQH-Ex-ykh"/>

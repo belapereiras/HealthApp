@@ -42,10 +42,10 @@ class ContractViewController: UIViewController {
         
 // MARK: LANDSCAPE MODE ONLY
 
-        let value = UIInterfaceOrientation.LandscapeLeft.rawValue
-        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+    let value = UIInterfaceOrientation.LandscapeLeft.rawValue
+    UIDevice.currentDevice().setValue(value, forKey: "orientation")
         
-        ContractViewController.attemptRotationToDeviceOrientation()
+    ContractViewController.attemptRotationToDeviceOrientation()
 
     }
 
