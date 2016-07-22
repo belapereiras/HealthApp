@@ -10,6 +10,8 @@ import UIKit
 
 class ContractViewController: UIViewController {
     
+// MARK: STORYBOARD
+    
     @IBOutlet var smokerName: UITextField!
     
     @IBOutlet var nbrPerDay: UITextField!
@@ -33,27 +35,26 @@ class ContractViewController: UIViewController {
     
     @IBOutlet var mailButton: UIButton!
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+// MARK: LANDSCAPE MODE ONLY
 
-        // Do any additional setup after loading the view.
+        let value = UIInterfaceOrientation.LandscapeLeft.rawValue
+        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        
+        ContractViewController.attemptRotationToDeviceOrientation()
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.LandscapeLeft
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func shouldAutorotate() -> Bool {
+        return true
     }
-    */
-
 }

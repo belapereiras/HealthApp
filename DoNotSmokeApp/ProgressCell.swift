@@ -10,6 +10,8 @@ import UIKit
 
 class ProgressCell: UICollectionViewCell {
     
+// MARK: STORYBOARD
+    
     @IBOutlet var cellImage: UIImageView!
     
     @IBOutlet var cellTitle: UILabel!
