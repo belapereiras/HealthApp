@@ -476,7 +476,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Compartilhe este contrato:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JU6-Nv-whs">
-                                <rect key="frame" x="212" y="324" width="177" height="18"/>
+                                <rect key="frame" x="211.5" y="324" width="177" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="177" id="CfC-xV-8rw"/>
                                     <constraint firstAttribute="height" constant="18" id="klF-qq-S08"/>
@@ -550,6 +550,13 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ0-XC-4Wv">
+                                <rect key="frame" x="266" y="520" width="93" height="30"/>
+                                <state key="normal" title="Concordo"/>
+                                <connections>
+                                    <action selector="agreedContract:" destination="1pr-rM-eYK" eventType="touchUpInside" id="Ky7-vN-xtH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -597,6 +604,7 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="euLabel" destination="WfZ-tz-ceU" id="xsq-xX-shg"/>
                         <outlet property="facebookButton" destination="xHl-CG-bAc" id="YDu-Ex-T3U"/>
                         <outlet property="helper1Mail" destination="T6c-RM-Ow2" id="tpC-AJ-1Xm"/>
                         <outlet property="helper1Name" destination="Y4h-0I-V4A" id="MJD-O3-hn4"/>
@@ -605,6 +613,7 @@
                         <outlet property="nbrPerPack" destination="Y0L-eo-rX5" id="QnY-xn-xq8"/>
                         <outlet property="smokerName" destination="1RR-w7-ACB" id="KTG-tq-fdx"/>
                         <outlet property="twitterButton" destination="Y7w-cg-VwB" id="LIE-6O-4KC"/>
+                        <segue destination="cIm-Ry-u1B" kind="show" id="rWs-Jl-UgX"/>
                     </connections>
                 </viewController>
             </objects>

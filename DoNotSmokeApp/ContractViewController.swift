@@ -35,10 +35,16 @@ class ContractViewController: UIViewController {
     
     @IBOutlet var mailButton: UIButton!
     
+    @IBOutlet var euLabel: UILabel!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(view.frame.width)
+        print(view.frame.height)
+        
+        euLabel.font = UIFont(name: "", size: view.frame.width * 0.035211)
+        
         
 // MARK: LANDSCAPE MODE ONLY
 
@@ -57,4 +63,10 @@ class ContractViewController: UIViewController {
     override func shouldAutorotate() -> Bool {
         return true
     }
+    
+    
+    @IBAction func agreedContract(sender: AnyObject) {
+    }
+    
+    
 }
