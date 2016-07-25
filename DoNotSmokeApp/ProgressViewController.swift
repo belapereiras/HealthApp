@@ -13,7 +13,9 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var notSmokingFor: UILabel!
     @IBOutlet var notSmokedCigarrettes: UILabel!
-    @IBOutlet var timeWithoutSmoking: UILabel!
+   
+    @IBOutlet var unityOfTimeWithoutSmoking: UILabel!
+    
     @IBOutlet var savedMoney: UILabel!
     var healthAchievement = HealthAchievement.getHASingleton()
     var user = User()
