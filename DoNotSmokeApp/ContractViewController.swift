@@ -38,12 +38,14 @@ class ContractViewController: UIViewController {
         guard let cigarretesSmokerPerDay = nbrPerDay.text else { return }
         guard let cigarsPerPack = cigarettesPerPack.text else { return }
         
+        
         userDic["Name"] = smokerName.text
         userDic["CigarettesPerPack"] = Int(cigarsPerPack)! as NSNumber
         userDic["CigarettesSmokedPerDay"] = Int(cigarretesSmokerPerDay)! as NSNumber
         userDic["QuitDay"] = NSDate().timeIntervalSinceReferenceDate as NSNumber
         userDic["PackPrice"] = Double(pricePerPack)! as NSNumber
-        userDic["FirstTime"] = false
+        let firstTime = NSNumber.init(bool: false)
+        userDic["FirstTime"] = firstTime
         
         do {
             try plist.addValuesToPlistFile(userDic)
@@ -56,6 +58,23 @@ class ContractViewController: UIViewController {
     }
    
     @IBAction func FacebookAction(sender: AnyObject) {
+        
+        performSegueWithIdentifier("contractToController", sender: sender)
+
     }
     
+    override func viewWillAppear(animated: Bool) {
+        let plist = Plist(name: "UserPropertyList")!
+        let userDic = plist.getValuesInPlistFile()!
+        if (userDic["FirstTime"] != nil) {
+            let firstTime = userDic["FirstTime"] as! NSNumber
+            firstTime.boolValue
+            print(firstTime)
+            if !firstTime.boolValue {
+                performSegueWithIdentifier("contractToController", sender: nil)
+            }
+        } else {
+            print("NIL VALUE")
+        }
+    }
 }

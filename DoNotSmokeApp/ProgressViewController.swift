@@ -17,7 +17,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var savedMoney: UILabel!
     var healthAchievement = HealthAchievement.getHASingleton()
     var user = User()
-    var timer: dispatch_source_t!
+    var timer, timer2, timer3: dispatch_source_t!
     
     
     @IBOutlet var popUpBackground: UIView!
@@ -52,28 +52,73 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         return cell
     }
     
-    func updateNotSmokingAndSavingsLabels() {
+    func updateNotSmokingTimeLabel() {
         let queue = dispatch_queue_create("com.domain.app.timer", nil)
         timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
-        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 1 * NSEC_PER_SEC) // every 60 seconds, with leeway of 1 second
+        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 1 * NSEC_PER_SEC)
         dispatch_source_set_event_handler(timer) {
-            guard let plist = Plist(name: "UserPropertyList") else { print("DEU RUIIIM");return }
-            guard let dic = plist.getValuesInPlistFile() else { print("DEU RUIIIM"); return }
-            let quitDay = Double(dic["QuitDay"] as! NSNumber)
-            guard let timeNotSmokingInMinutes = self.user?.dateManager.timeSinceQuitDayInMinutes(quitDay) else { return }
-            print(timeNotSmokingInMinutes)
+            guard let quitday = self.user?.quitDay else { return }
+            guard var timeNotSmoking = self.user?.dateManager.timeSinceQuitDayInMinutes(quitday) else { return }
+            var unity = "minutos"
+            if timeNotSmoking > 60 {
+                timeNotSmoking = (self.user?.dateManager.timeSinceQuitDayInHours(quitday))!
+                unity = "horas"
+                if timeNotSmoking > 24 {
+                    timeNotSmoking = (self.user?.dateManager.timeSinceQuitDayInDays(quitday))!
+                    unity = "dias"
+                    if timeNotSmoking > 30 {
+                        timeNotSmoking = (self.user?.dateManager.timeSinceQuitDayInDays(quitday))!
+                        unity = "meses"
+                    }
+                }
+                
+            }
+            print(timeNotSmoking)
             dispatch_async(dispatch_get_main_queue(), {
                 print("entrei2")
-                self.notSmokingFor.text = String(timeNotSmokingInMinutes)
+                self.notSmokingFor.text = String(timeNotSmoking)
+                self.unityOfTimeWithoutSmoking.text = unity
             })
         }
         dispatch_resume(timer)
     }
     
+    func updateMoneySavingsLabel() {
+        let queue = dispatch_queue_create("com.domain.app.timer2", nil)
+        timer2 = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
+        dispatch_source_set_timer(timer2, DISPATCH_TIME_NOW, 86400 * NSEC_PER_SEC, 0)
+        dispatch_source_set_event_handler(timer2) {
+            if self.user?.dateManager.timeSinceQuitDayInDays((self.user?.quitDay)!) > 1 {
+                guard let savings = self.user?.moneySavings() else { return }
+                dispatch_async(dispatch_get_main_queue(), {
+                    print(savings)
+                    self.savedMoney.text = String(savings)
+                })
+            }
+        }
+        dispatch_resume(timer2)
+    }
+    
+    func updateCigarettesNotSmokedLabel() {
+        let queue = dispatch_queue_create("com.domain.app.timer3", nil)
+        timer3 = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
+        dispatch_source_set_timer(timer3, DISPATCH_TIME_NOW, 86400 * NSEC_PER_SEC, 0)
+        dispatch_source_set_event_handler(timer3) {
+            if self.user?.dateManager.timeSinceQuitDayInDays((self.user?.quitDay)!) > 1 {
+                guard let notSmokedCigarrette = self.user?.cigarettesNotSmoked() else { return }
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.notSmokedCigarrettes.text = String(notSmokedCigarrette)
+                })
+            }
+        }
+        dispatch_resume(timer3)
+        
+    }
+    
     override func viewDidLoad() {
-        updateNotSmokingAndSavingsLabels()
-        
-        
+        updateNotSmokingTimeLabel()
+        updateMoneySavingsLabel()
+        updateCigarettesNotSmokedLabel()
     }
     
     
