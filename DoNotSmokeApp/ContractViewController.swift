@@ -44,7 +44,6 @@ class ContractViewController: UIViewController {
         userDic["QuitDay"] = NSDate().timeIntervalSinceReferenceDate as NSNumber
         userDic["PackPrice"] = Double(pricePerPack)! as NSNumber
         userDic["FirstTime"] = false
-        print(NSDate().timeIntervalSinceReferenceDate as NSNumber)
         
         do {
             try plist.addValuesToPlistFile(userDic)

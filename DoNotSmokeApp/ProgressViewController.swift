@@ -13,9 +13,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var notSmokingFor: UILabel!
     @IBOutlet var notSmokedCigarrettes: UILabel!
-   
     @IBOutlet var unityOfTimeWithoutSmoking: UILabel!
-    
     @IBOutlet var savedMoney: UILabel!
     var healthAchievement = HealthAchievement.getHASingleton()
     var user = User()
@@ -57,7 +55,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
             print(timeNotSmokingInMinutes)
             dispatch_async(dispatch_get_main_queue(), {
                 print("entrei2")
-                self.unityOfTimeWithoutSmoking.text = String(timeNotSmokingInMinutes)
+                self.notSmokingFor.text = String(timeNotSmokingInMinutes)
             })
         }
         dispatch_resume(timer)
