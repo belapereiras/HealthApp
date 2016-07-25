@@ -16,15 +16,10 @@ class ContractViewController: UIViewController {
     
     @IBOutlet var nbrPerDay: UITextField!
     
-    @IBOutlet var nbrPerPack: UITextField!
-    
-    
-    @IBOutlet var helper1Name: UITextField!
+    @IBOutlet var pricePerPack: UITextField!
+   
     
     @IBOutlet var helper1Mail: UITextField!
-    
-    
-    @IBOutlet var helper2Name: UITextField!
     
     @IBOutlet var helper2Mail: UITextField!
     
@@ -35,35 +30,12 @@ class ContractViewController: UIViewController {
     
     @IBOutlet var mailButton: UIButton!
     
-    @IBOutlet var euLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(view.frame.width)
-        print(view.frame.height)
-        
-        euLabel.font = UIFont(name: "", size: view.frame.width * 0.035211)
-        
-        
-// MARK: LANDSCAPE MODE ONLY
-
-    let value = UIInterfaceOrientation.LandscapeLeft.rawValue
-    UIDevice.currentDevice().setValue(value, forKey: "orientation")
-        
-    ContractViewController.attemptRotationToDeviceOrientation()
 
     }
 
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.LandscapeLeft
-    }
-    
-    
-    override func shouldAutorotate() -> Bool {
-        return true
-    }
-    
     
     @IBAction func agreedContract(sender: AnyObject) {
     }
