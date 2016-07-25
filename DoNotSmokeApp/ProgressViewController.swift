@@ -143,7 +143,6 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         popUpText.hidden = true
     }
     
-    
     @IBAction func longPressCell(sender: AnyObject) {
 //        if sender.state == .Began {
 //            print ("começou long")
@@ -173,6 +172,6 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
 //        }
 //        
     }
-        
+
 
 }
