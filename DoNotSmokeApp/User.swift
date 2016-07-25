@@ -15,8 +15,8 @@ struct Connection {
 
 class User {
     
-    private var quitDay: NSDate
-    private var name: String
+    var quitDay: NSTimeInterval
+    var name: String
     var cigarettesPerDay, cigarettesPerPack: Int
     var packPrice: Double
     var connections: [Connection] = []
@@ -42,7 +42,7 @@ class User {
         guard let data = Plist(name: "UserPropertyList") else { return nil }
         guard let userInfo: NSDictionary = data.getValuesInPlistFile() else { return nil }
         let quitDayTimeInterval = Double(userInfo["QuitDay"] as! NSNumber)
-        self.quitDay = NSDate(timeIntervalSinceReferenceDate: quitDayTimeInterval)
+        self.quitDay = quitDayTimeInterval
         self.name = String(userInfo["Name"])
         self.cigarettesPerDay = Int(userInfo["CigarettesSmokedPerDay"] as! NSNumber)
         self.cigarettesPerPack = Int(userInfo["CigarettesPerPack"] as! NSNumber)

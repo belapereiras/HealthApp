@@ -25,18 +25,24 @@ class DateManager {
         return timePassedSinceQuitDay
     }
     
-    func timeSinceQuitDayInHours(quitDay: NSDate) -> NSTimeInterval {
-        let timePassedSinceQuitDay = quitDay.timeIntervalSinceNow.hours
+    func timeSinceQuitDayInHours(quitDay: NSTimeInterval) -> NSTimeInterval {
+        let today = NSDate().timeIntervalSinceReferenceDate.hours
+        let quitday = quitDay.hours
+        let timePassedSinceQuitDay = today - quitday
         return timePassedSinceQuitDay
     }
     
-    func timeSinceQuitDayInDays(quitDay: NSDate) -> NSTimeInterval {
-        let timePassedSinceQuitDay = quitDay.timeIntervalSinceNow.days
+    func timeSinceQuitDayInDays(quitDay: NSTimeInterval) -> NSTimeInterval {
+        let today = NSDate().timeIntervalSinceReferenceDate.days
+        let quitday = quitDay.days
+        let timePassedSinceQuitDay = today - quitday
         return timePassedSinceQuitDay
     }
     
-    func timeSinceQuitDayInMonths(quitDay: NSDate) -> NSTimeInterval {
-        let timePassedSinceQuitDay = quitDay.timeIntervalSinceNow.months
+    func timeSinceQuitDayInMonths(quitDay: NSTimeInterval) -> NSTimeInterval {
+        let today = NSDate().timeIntervalSinceReferenceDate.months
+        let quitday = quitDay.months
+        let timePassedSinceQuitDay = today - quitday
         return timePassedSinceQuitDay
     }
     
