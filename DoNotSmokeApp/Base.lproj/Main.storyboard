@@ -463,6 +463,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jx4-RD-WOg">
                                         <rect key="frame" x="0.0" y="0.0" width="39" height="30"/>
                                         <state key="normal" backgroundImage="facebookButton"/>
+                                        <connections>
+                                            <action selector="FacebookAction:" destination="o2y-bv-QbG" eventType="touchUpInside" id="c6f-fA-PGB"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Grn-2z-gPw">
                                         <rect key="frame" x="39" y="0.0" width="39" height="30"/>
@@ -533,7 +536,7 @@
                     </view>
                     <connections>
                         <outlet property="cigarettesPerPack" destination="bTp-zW-RiO" id="MGK-Bn-LiU"/>
-                        <outlet property="facebookButton" destination="jx4-RD-WOg" id="r0Y-ki-icl"/>
+                        <outlet property="facebookButton" destination="jx4-RD-WOg" id="HPD-ox-Jhd"/>
                         <outlet property="helper1Mail" destination="7tM-3b-DMK" id="FiA-Ig-crh"/>
                         <outlet property="helper2Mail" destination="Gp2-Rv-4hY" id="VU4-OQ-efW"/>
                         <outlet property="mailButton" destination="WgT-1s-4ub" id="gBB-ww-btZ"/>

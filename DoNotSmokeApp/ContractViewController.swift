@@ -54,5 +54,8 @@ class ContractViewController: UIViewController {
         performSegueWithIdentifier("contractToController", sender: sender)
         
     }
+   
+    @IBAction func FacebookAction(sender: AnyObject) {
+    }
     
 }
