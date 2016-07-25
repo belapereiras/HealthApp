@@ -473,6 +473,10 @@
                                         <state key="normal" backgroundImage="mailButton"/>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="GpY-lb-Z2g"/>
+                                    <constraint firstAttribute="width" constant="117" id="cCV-nm-2oi"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wmv-2c-hN9">
                                 <rect key="frame" x="220" y="519" width="160" height="36"/>
