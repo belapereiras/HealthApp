@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProgressViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ProgressViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var notSmokingFor: UILabel!
@@ -18,16 +18,12 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     var healthAchievement = HealthAchievement.getHASingleton()
     var user = User()
     var timer, timer2, timer3: dispatch_source_t!
-    
-    
+
     @IBOutlet var popUpBackground: UIView!
     @IBOutlet var popUp: UIView!
     @IBOutlet var popUpImage: UIImageView!
     @IBOutlet var popUpTitle: UILabel!
     @IBOutlet var popUpText: UILabel!
-
-    
-    
 
 // MARK: ARRAYS
     
@@ -50,6 +46,21 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         //cell.cellText.text = healthAchievement.healthBenefit[indexPath.row].description
 
         return cell
+    }
+    
+
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
+        popUpBackground.hidden = false
+        popUp.hidden = false
+        
+        popUpImage.image = self.progressImages[indexPath.row]
+        popUpImage.hidden = false
+        
+        popUpTitle.text = healthAchievement.healthBenefit[indexPath.row].name
+        popUpTitle.hidden = false
+        
+        popUpText.text = healthAchievement.healthBenefit[indexPath.row].description
+        popUpText.hidden = false
     }
     
     func updateNotSmokingTimeLabel() {
@@ -119,12 +130,49 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         updateNotSmokingTimeLabel()
         updateMoneySavingsLabel()
         updateCigarettesNotSmokedLabel()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ProgressViewController.handleTap(_:)))
+        self.popUpBackground.addGestureRecognizer(tap)
+    }
+    
+    func handleTap (sender: UIGestureRecognizer) {
+        popUpBackground.hidden = true
+        popUp.hidden = true
+        popUpImage.hidden = true
+        popUpTitle.hidden = true
+        popUpText.hidden = true
     }
     
     
     @IBAction func longPressCell(sender: AnyObject) {
+//        if sender.state == .Began {
+//            print ("começou long")
+//            let p = sender.locationInView(self.collectionView)
+//            if let indexPath : NSIndexPath = (self.collectionView?.indexPathForItemAtPoint(p))!{
+//                
+//                popUpBackground.hidden = false
+//                popUp.hidden = false
+//                
+//                popUpImage.image = self.progressImages[indexPath.row]
+//                popUpImage.hidden = false
+//                
+//                popUpTitle.text = healthAchievement.healthBenefit[indexPath.row].name
+//                popUpTitle.hidden = false
+//                
+//                popUpText.text = healthAchievement.healthBenefit[indexPath.row].description
+//                popUpText.hidden = false
+//                
+//            }
+//        } else if sender.state == .Ended {
+//            print ("acabou")
+//            popUpBackground.hidden = true
+//            popUp.hidden = true
+//            popUpImage.hidden = true
+//            popUpTitle.hidden = true
+//            popUpText.hidden = true
+//        }
+//        
     }
-    
-    
+        
 
 }
