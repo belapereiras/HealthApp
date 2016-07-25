@@ -9,6 +9,7 @@
     <customFonts key="customFonts">
         <mutableArray key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
         <mutableArray key="Lato-Semibold.ttf">
             <string>Lato-Semibold</string>
@@ -174,8 +175,32 @@
                                 <color key="textColor" red="0.39607843139999999" green="0.68627450980000004" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VGJ-S9-X20">
-                                <rect key="frame" x="0.0" y="273" width="630" height="278"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stickerBar" translatesAutoresizingMaskIntoConstraints="NO" id="tSL-KV-cVr">
+                                <rect key="frame" x="267" y="244" width="180" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="2UJ-V8-2Bo"/>
+                                    <constraint firstAttribute="height" constant="20" id="G1c-0O-z4q"/>
+                                    <constraint firstAttribute="width" constant="180" id="dXu-hw-SYl"/>
+                                    <constraint firstAttribute="width" constant="200" id="fsy-UV-I2l"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2UJ-V8-2Bo"/>
+                                        <exclude reference="fsy-UV-I2l"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selfie com o novo sticker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5L-yD-Vqq">
+                                <rect key="frame" x="267" y="244" width="180" height="20"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gYC-LL-z32">
+                                <rect key="frame" x="150" y="180" width="30" height="30"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGJ-S9-X20" userLabel="CollectionView">
+                                <rect key="frame" x="0.0" y="273" width="602" height="278"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jH7-Km-LbF">
                                         <rect key="frame" x="0.0" y="5" width="600" height="278"/>
@@ -214,6 +239,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="VZo-Ab-WLM" secondAttribute="bottom" id="FYh-xC-RBh"/>
                                                     <constraint firstItem="h5w-4w-eGd" firstAttribute="leading" secondItem="VZo-Ab-WLM" secondAttribute="trailing" constant="15" id="LMO-iy-m9j"/>
@@ -227,6 +253,7 @@
                                                 <connections>
                                                     <outlet property="cellImage" destination="VZo-Ab-WLM" id="7Bt-EH-7CW"/>
                                                     <outlet property="cellTitle" destination="h5w-4w-eGd" id="5OC-L5-fca"/>
+                                                    <outletCollection property="gestureRecognizers" destination="7nZ-3J-8mL" appends="YES" id="C3f-OY-sCJ"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -272,9 +299,6 @@
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="4lF-BO-Hu8" appends="YES" id="NRl-jc-AUs"/>
-                                        </connections>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -290,6 +314,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="o5L-yD-Vqq" firstAttribute="centerY" secondItem="tSL-KV-cVr" secondAttribute="centerY" id="2X0-vZ-iQI"/>
                             <constraint firstItem="ndb-qL-hTg" firstAttribute="height" secondItem="aft-16-pLk" secondAttribute="height" multiplier="0.6:1" id="3K3-fR-OKt"/>
                             <constraint firstItem="aDf-wD-qa4" firstAttribute="top" secondItem="CvV-gO-eeB" secondAttribute="bottom" constant="10" id="5cz-LQ-afd"/>
                             <constraint firstItem="KBR-Zb-ZJ9" firstAttribute="width" secondItem="aft-16-pLk" secondAttribute="width" id="60V-DW-0d4"/>
@@ -314,17 +339,26 @@
                             <constraint firstItem="dCO-f9-JjO" firstAttribute="top" secondItem="qhy-04-wl0" secondAttribute="bottom" constant="-10" id="TkF-wM-M4G"/>
                             <constraint firstItem="77d-6j-0on" firstAttribute="centerX" secondItem="aft-16-pLk" secondAttribute="centerX" id="XQt-6e-Bw9"/>
                             <constraint firstItem="VGJ-S9-X20" firstAttribute="bottom" secondItem="j1X-Hn-EYM" secondAttribute="top" id="YJK-mB-JGF"/>
+                            <constraint firstItem="o5L-yD-Vqq" firstAttribute="height" secondItem="tSL-KV-cVr" secondAttribute="height" id="YVj-eh-hKj"/>
                             <constraint firstItem="qhy-04-wl0" firstAttribute="centerX" secondItem="aft-16-pLk" secondAttribute="centerX" id="ZFv-eK-tcJ"/>
+                            <constraint firstItem="o5L-yD-Vqq" firstAttribute="centerX" secondItem="tSL-KV-cVr" secondAttribute="centerX" id="aCA-mT-PXF"/>
+                            <constraint firstItem="tSL-KV-cVr" firstAttribute="trailing" secondItem="dCO-f9-JjO" secondAttribute="trailing" id="af0-uL-OHC"/>
                             <constraint firstItem="CvV-gO-eeB" firstAttribute="top" secondItem="qhy-04-wl0" secondAttribute="bottom" constant="40" id="bgc-gX-4Fa"/>
+                            <constraint firstItem="tSL-KV-cVr" firstAttribute="top" secondItem="dCO-f9-JjO" secondAttribute="bottom" constant="80" id="dkx-ab-NUx"/>
                             <constraint firstItem="qhy-04-wl0" firstAttribute="top" secondItem="77d-6j-0on" secondAttribute="bottom" constant="10" id="ekb-HZ-BEJ"/>
                             <constraint firstItem="KBR-Zb-ZJ9" firstAttribute="leading" secondItem="aft-16-pLk" secondAttribute="leadingMargin" constant="-20" id="f24-3T-JKw"/>
+                            <constraint firstItem="o5L-yD-Vqq" firstAttribute="width" secondItem="tSL-KV-cVr" secondAttribute="width" id="f9c-Rv-rNx"/>
+                            <constraint firstItem="tSL-KV-cVr" firstAttribute="width" secondItem="aft-16-pLk" secondAttribute="width" multiplier="0.2:1" id="fYl-O1-X1k"/>
                             <constraint firstItem="KBR-Zb-ZJ9" firstAttribute="centerX" secondItem="aft-16-pLk" secondAttribute="centerX" id="hDZ-mx-58x"/>
                             <constraint firstItem="j1X-Hn-EYM" firstAttribute="top" secondItem="KBR-Zb-ZJ9" secondAttribute="bottom" constant="-20" id="ha3-O4-4br"/>
                             <constraint firstItem="VGJ-S9-X20" firstAttribute="centerX" secondItem="qhy-04-wl0" secondAttribute="centerX" id="iuu-le-ouE"/>
                             <constraint firstItem="ndb-qL-hTg" firstAttribute="width" secondItem="aft-16-pLk" secondAttribute="width" multiplier="0.8:1" id="jsf-r4-MMn"/>
                             <constraint firstItem="ndb-qL-hTg" firstAttribute="centerX" secondItem="aft-16-pLk" secondAttribute="centerX" id="kIP-rp-5op"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KBR-Zb-ZJ9" secondAttribute="trailing" constant="-20" id="p6Y-Mh-fJg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tSL-KV-cVr" secondAttribute="trailing" id="uDW-qF-sE5"/>
+                            <constraint firstItem="dCO-f9-JjO" firstAttribute="top" secondItem="tSL-KV-cVr" secondAttribute="bottom" constant="60" id="y9l-lK-fUO"/>
                             <constraint firstItem="VGJ-S9-X20" firstAttribute="leading" secondItem="aft-16-pLk" secondAttribute="leading" id="ylQ-8t-YD6"/>
+                            <constraint firstItem="tSL-KV-cVr" firstAttribute="height" secondItem="aft-16-pLk" secondAttribute="height" multiplier="0.3:1" id="yln-fx-nEo"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -336,6 +370,10 @@
                                 <exclude reference="XQt-6e-Bw9"/>
                                 <exclude reference="ZFv-eK-tcJ"/>
                                 <exclude reference="6hn-UF-2Cn"/>
+                                <exclude reference="fYl-O1-X1k"/>
+                                <exclude reference="uDW-qF-sE5"/>
+                                <exclude reference="yln-fx-nEo"/>
+                                <exclude reference="y9l-lK-fUO"/>
                             </mask>
                         </variation>
                     </view>
@@ -354,9 +392,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D3a-P1-qwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="4lF-BO-Hu8">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="7nZ-3J-8mL">
                     <connections>
-                        <action selector="longPressCell:" destination="PEm-xP-a09" id="4be-eW-XkE"/>
+                        <action selector="longPressCell:" destination="PEm-xP-a09" id="dgk-If-V4B"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
@@ -653,6 +691,7 @@
     <resources>
         <image name="facebookButton" width="39" height="30"/>
         <image name="mailButton" width="39" height="30"/>
+        <image name="stickerBar" width="199" height="21"/>
         <image name="twitterButton" width="39" height="30"/>
     </resources>
 </document>
