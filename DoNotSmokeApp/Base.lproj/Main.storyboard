@@ -276,7 +276,6 @@
                         <outlet property="notSmokedCigarrettes" destination="fpb-X2-Vys" id="0tq-eF-Fzo"/>
                         <outlet property="notSmokingFor" destination="HTw-Yn-cJL" id="vfl-gg-E06"/>
                         <outlet property="savedMoney" destination="aDf-wD-qa4" id="qdw-Hb-ztp"/>
-                        <outlet property="timeWithoutSmoking" destination="Zy3-bA-58v" id="TDP-rm-yMD"/>
                         <outlet property="unityOfTimeWithoutSmoking" destination="Zy3-bA-58v" id="iNM-xD-SGa"/>
                     </connections>
                 </viewController>
@@ -385,8 +384,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bTp-zW-RiO">
-                                <rect key="frame" x="390" y="190" width="50" height="28"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bTp-zW-RiO">
+                                <rect key="frame" x="390" y="195" width="50" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="4gU-93-kbD"/>
                                     <constraint firstAttribute="height" constant="28" id="VjP-hI-9on"/>
@@ -497,7 +496,7 @@
                             <constraint firstItem="pO6-pG-FpN" firstAttribute="centerX" secondItem="kgn-Xa-bKS" secondAttribute="centerX" id="DzJ-ay-tOb"/>
                             <constraint firstItem="bfd-be-odm" firstAttribute="top" secondItem="Vg0-f5-f3w" secondAttribute="bottom" constant="10" id="EFw-Ey-Wym"/>
                             <constraint firstItem="DBj-jS-fX6" firstAttribute="leading" secondItem="SRH-Z7-NOY" secondAttribute="leading" id="H8N-74-fm4"/>
-                            <constraint firstItem="bTp-zW-RiO" firstAttribute="top" secondItem="rJ8-jb-8hh" secondAttribute="bottom" constant="5" id="Nib-j3-ruk"/>
+                            <constraint firstItem="bTp-zW-RiO" firstAttribute="top" secondItem="rJ8-jb-8hh" secondAttribute="bottom" constant="10" id="Nib-j3-ruk"/>
                             <constraint firstItem="rJ8-jb-8hh" firstAttribute="centerX" secondItem="kgn-Xa-bKS" secondAttribute="centerX" id="R6p-nN-ysM"/>
                             <constraint firstItem="CbJ-mh-Sg5" firstAttribute="centerX" secondItem="kgn-Xa-bKS" secondAttribute="centerX" id="T3B-Ol-ddf"/>
                             <constraint firstItem="dh4-bb-0aP" firstAttribute="top" secondItem="pO6-pG-FpN" secondAttribute="bottom" constant="2" id="Ua8-1s-zZ4"/>
