@@ -122,6 +122,8 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     
+    @IBAction func longPressCell(sender: AnyObject) {
+    }
     
     
 
