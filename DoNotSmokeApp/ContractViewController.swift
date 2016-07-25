@@ -13,21 +13,12 @@ class ContractViewController: UIViewController {
 // MARK: STORYBOARD
     
     @IBOutlet var smokerName: UITextField!
-    
     @IBOutlet var nbrPerDay: UITextField!
-    
     @IBOutlet var pricePerPack: UITextField!
-   
-    
     @IBOutlet var helper1Mail: UITextField!
-    
     @IBOutlet var helper2Mail: UITextField!
-    
-    
     @IBOutlet var facebookButton: UIButton!
-    
     @IBOutlet var twitterButton: UIButton!
-    
     @IBOutlet var mailButton: UIButton!
     
     
@@ -38,7 +29,20 @@ class ContractViewController: UIViewController {
 
     
     @IBAction func agreedContract(sender: AnyObject) {
+        
+        guard let plist = Plist(name: "UserPropertyList") else { return }
+        guard let userDic = plist.getMutablePListFile() else { return }
+        guard let pricePerPack = pricePerPack.text else { return }
+        guard let cigarretesSmokerPerDay = nbrPerDay.text else { return }
+        
+        userDic["Name"] = smokerName.text
+        //userDic["CigarettesPerPack"] = Int(cigarettesPerPack)! as NSNumber
+        userDic["CigarettesSmokedPerDay"] = Int(cigarretesSmokerPerDay)! as NSNumber
+        userDic["Quitday"] = NSDate().timeIntervalSinceReferenceDate as NSNumber
+        userDic["Packprice"] = Int(pricePerPack)! as NSNumber
+        
     }
+    
     
     
 }
