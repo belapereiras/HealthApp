@@ -19,6 +19,15 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     var user = User()
     var timer: dispatch_source_t!
     
+    
+    @IBOutlet var popUpBackground: UIView!
+    @IBOutlet var popUp: UIView!
+    @IBOutlet var popUpImage: UIImageView!
+    @IBOutlet var popUpTitle: UILabel!
+    @IBOutlet var popUpText: UILabel!
+
+    
+    
 
 // MARK: ARRAYS
     
@@ -63,6 +72,8 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         updateNotSmokingAndSavingsLabels()
+        
+        
     }
     
     
