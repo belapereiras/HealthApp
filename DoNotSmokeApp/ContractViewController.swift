@@ -15,6 +15,7 @@ class ContractViewController: UIViewController {
     @IBOutlet var smokerName: UITextField!
     @IBOutlet var nbrPerDay: UITextField!
     @IBOutlet var pricePerPack: UITextField!
+    @IBOutlet var cigarettesPerPack: UITextField!
     @IBOutlet var helper1Mail: UITextField!
     @IBOutlet var helper2Mail: UITextField!
     @IBOutlet var facebookButton: UIButton!
