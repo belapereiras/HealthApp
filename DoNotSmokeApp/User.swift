@@ -15,7 +15,6 @@ struct Connection {
 
 class User {
     
-    static var user = User()
     private var quitDay: NSDate
     private var name: String
     var cigarettesPerDay, cigarettesPerPack: Int
@@ -38,7 +37,7 @@ class User {
 //        
 //    }
 
-    private init?() {
+    init?() {
         
         guard let data = Plist(name: "UserPropertyList") else { return nil }
         guard let userInfo: NSDictionary = data.getValuesInPlistFile() else { return nil }
@@ -74,10 +73,6 @@ class User {
         
         return savings
     }
-    
-    static func getUserSingleton() -> User? {
-        guard let user = self.user else { return nil }
-        return user
-    }
+
     
 }

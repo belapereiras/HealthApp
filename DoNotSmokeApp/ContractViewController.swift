@@ -25,6 +25,7 @@ class ContractViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
 
     }
 
@@ -35,15 +36,24 @@ class ContractViewController: UIViewController {
         guard let userDic = plist.getMutablePListFile() else { return }
         guard let pricePerPack = pricePerPack.text else { return }
         guard let cigarretesSmokerPerDay = nbrPerDay.text else { return }
+        guard let cigarsPerPack = cigarettesPerPack.text else { return }
         
         userDic["Name"] = smokerName.text
-        //userDic["CigarettesPerPack"] = Int(cigarettesPerPack)! as NSNumber
+        userDic["CigarettesPerPack"] = Int(cigarsPerPack)! as NSNumber
         userDic["CigarettesSmokedPerDay"] = Int(cigarretesSmokerPerDay)! as NSNumber
-        userDic["Quitday"] = NSDate().timeIntervalSinceReferenceDate as NSNumber
-        userDic["Packprice"] = Int(pricePerPack)! as NSNumber
+        userDic["QuitDay"] = NSDate().timeIntervalSinceReferenceDate as NSNumber
+        userDic["PackPrice"] = Double(pricePerPack)! as NSNumber
+        userDic["FirstTime"] = false
+        print(NSDate().timeIntervalSinceReferenceDate as NSNumber)
+        
+        do {
+            try plist.addValuesToPlistFile(userDic)
+        } catch {
+            print(error)
+        }
+        
+        performSegueWithIdentifier("contractToController", sender: sender)
         
     }
-    
-    
     
 }

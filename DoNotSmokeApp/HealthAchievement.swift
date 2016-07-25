@@ -72,52 +72,52 @@ class HealthAchievement {
                             "Pode ter levado bastante tempo, mas agora seu risco de contrair câncer de pulmão já caiu pela metade! Assim como o risco de outros tipor de câncer, é claro.",
                             "Agora seu risco de ter uma doença cardíaca é exatamente o mesmo que de uma pessoa que nunca fumou. Parabéns por ter chegado até aqui!"]
         for progress in progressTitle {
-            let index = progressTitle.indexOf(progress)
-            let description = progressText[index!]
-            let benefit: HealthEnum
-            switch index! {
+            guard let index = progressTitle.indexOf(progress) else { break }
+            let description = progressText[index]
+            let benefitEnum: HealthEnum
+            switch index {
             case 0:
-                benefit = .firstBenefit
+                benefitEnum = .firstBenefit
                 break
             case 1:
-                benefit = .secondBenefit
+                benefitEnum = .secondBenefit
+                break
             case 2:
-                benefit = .thirdBenefit
+                benefitEnum = .thirdBenefit
                 break
             case 3:
-                benefit = .fourthBenefit
+                benefitEnum = .fourthBenefit
                 break
             case 4:
-                benefit = .fifthBenefit
+                benefitEnum = .fifthBenefit
                 break
             case 5:
-                benefit = .sixthBenefit
+                benefitEnum = .sixthBenefit
                 break
             case 6:
-                benefit = .seventhBenefit
+                benefitEnum = .seventhBenefit
                 break
             case 7:
-                benefit = .eighthBenefit
+                benefitEnum = .eighthBenefit
                 break
             case 8:
-                benefit = .ninethBenefit
+                benefitEnum = .ninethBenefit
                 break
             case 9:
-                benefit = .tenthBenefit
+                benefitEnum = .tenthBenefit
                 break
             case 10:
-                benefit = .eleventhBenefit
+                benefitEnum = .eleventhBenefit
                 break
             case 11:
-                benefit = .twelfthBenefit
-                break
-            case 12:
-                benefit = .thirteenthBenefit
+                benefitEnum = .twelfthBenefit
                 break
             default:
-                benefit = .firstBenefit
+                benefitEnum = .thirteenthBenefit
+                break
             }
-            createHealhBenefit(progress, description: description, benefitNumber: benefit)
+            let benefit = createHealhBenefit(progress, description: description, benefitNumber: benefitEnum)
+            healthBenefit.append(benefit)
         }
     }
     
