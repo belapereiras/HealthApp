@@ -47,7 +47,7 @@
         <!--ProgressScene-->
         <scene sceneID="2uj-hD-4M3">
             <objects>
-                <viewController title="ProgressScene" id="PEm-xP-a09" customClass="ProgressViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProgressScene" title="ProgressScene" id="PEm-xP-a09" customClass="ProgressViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NXZ-bC-hnR"/>
                         <viewControllerLayoutGuide type="bottom" id="j1X-Hn-EYM"/>
@@ -286,7 +286,7 @@
         <!--TabBarController-->
         <scene sceneID="Hrb-PY-BRa">
             <objects>
-                <tabBarController title="TabBarController" id="cIm-Ry-u1B" customClass="TabBarViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" title="TabBarController" id="cIm-Ry-u1B" customClass="TabBarViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleAspectFit" itemPositioning="fill" id="JJW-MI-Jok">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -304,10 +304,10 @@
             </objects>
             <point key="canvasLocation" x="-492" y="486"/>
         </scene>
-        <!--Contract View Controller-->
+        <!--ContractScene-->
         <scene sceneID="77A-up-vXw">
             <objects>
-                <viewController id="o2y-bv-QbG" customClass="ContractViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContractScene" title="ContractScene" id="o2y-bv-QbG" customClass="ContractViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pQk-9P-9Zp"/>
                         <viewControllerLayoutGuide type="bottom" id="szV-tT-kRh"/>
@@ -364,7 +364,7 @@
                                     <constraint firstAttribute="width" constant="45" id="gwF-p9-uq6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reais por maço, prometo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gC-Ug-KWX">
                                 <rect key="frame" x="210" y="132" width="231" height="24"/>
