@@ -26,6 +26,8 @@
 		D1F0A3611D400A5E002C83A8 /* MoneyAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A3601D400A5E002C83A8 /* MoneyAchievement.swift */; };
 		D1F0A3631D400CBB002C83A8 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A3621D400CBB002C83A8 /* DateManager.swift */; };
 		D1F0A3651D400FB7002C83A8 /* Benefit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A3641D400FB7002C83A8 /* Benefit.swift */; };
+		D1F0A3671D42B03F002C83A8 /* UserPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1F0A3661D42B03E002C83A8 /* UserPropertyList.plist */; };
+		D1F0A3691D42B20F002C83A8 /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A3681D42B20F002C83A8 /* Plist.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		D1F0A3601D400A5E002C83A8 /* MoneyAchievement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyAchievement.swift; sourceTree = "<group>"; };
 		D1F0A3621D400CBB002C83A8 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		D1F0A3641D400FB7002C83A8 /* Benefit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Benefit.swift; sourceTree = "<group>"; };
+		D1F0A3661D42B03E002C83A8 /* UserPropertyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserPropertyList.plist; sourceTree = "<group>"; };
+		D1F0A3681D42B20F002C83A8 /* Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,8 @@
 				D1F0A35C1D40038F002C83A8 /* HealthAchievement.swift */,
 				D1F0A3641D400FB7002C83A8 /* Benefit.swift */,
 				D1F0A3601D400A5E002C83A8 /* MoneyAchievement.swift */,
+				D1F0A3661D42B03E002C83A8 /* UserPropertyList.plist */,
+				D1F0A3681D42B20F002C83A8 /* Plist.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -204,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1F0A3671D42B03F002C83A8 /* UserPropertyList.plist in Resources */,
 				1BC6B17A1D3E875400567865 /* Lato-Semibold.ttf in Resources */,
 				1BC6B1621D3D5AB200567865 /* LaunchScreen.storyboard in Resources */,
 				1BAE02ED1D429D3F009C2BC7 /* SF-UI-Text-LightItalic.otf in Resources */,
@@ -227,6 +234,7 @@
 				D1F0A3611D400A5E002C83A8 /* MoneyAchievement.swift in Sources */,
 				1BAE02EF1D42AF95009C2BC7 /* ContractViewController.swift in Sources */,
 				D1F0A3651D400FB7002C83A8 /* Benefit.swift in Sources */,
+				D1F0A3691D42B20F002C83A8 /* Plist.swift in Sources */,
 				1BC6B1581D3D5AB200567865 /* AppDelegate.swift in Sources */,
 				1BC6B1761D3E86A000567865 /* TabBarViewController.swift in Sources */,
 				1BC6B1701D3E860300567865 /* ProgressViewController.swift in Sources */,

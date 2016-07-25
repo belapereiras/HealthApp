@@ -15,26 +15,42 @@ struct Connection {
 
 class User {
     
-    var quitDay: NSDate
-    var name: String
+    static var user = User()
+    private var quitDay: NSDate
+    private var name: String
     var cigarettesPerDay, cigarettesPerPack: Int
     var packPrice: Double
     var connections: [Connection] = []
     var healthAchievements: HealthAchievement
     var dateManager: DateManager
     
-    init(quitDay: NSDate, name: String, cigarettesPerDay: Int, cigarettesPerPack: Int, packPrice: Double, connection1Name: String, connection2Name: String,connection1Email: String, connection2Email: String) {
+//    init(quitDay: NSDate, name: String, cigarettesPerDay: Int, cigarettesPerPack: Int, packPrice: Double, connection1Name: String, connection2Name: String,connection1Email: String, connection2Email: String) {
+//        
+//        self.quitDay = quitDay
+//        self.name = name
+//        self.cigarettesPerDay = cigarettesPerDay
+//        self.cigarettesPerPack = cigarettesPerPack
+//        self.packPrice = packPrice
+//        healthAchievements = HealthAchievement.getHASingleton()
+//        self.dateManager = DateManager()
+//        addConnection(connection1Name, email: connection1Email)
+//        addConnection(connection2Name, email: connection2Email)
+//        
+//    }
+
+    private init?() {
         
-        self.quitDay = quitDay
-        self.name = name
-        self.cigarettesPerDay = cigarettesPerDay
-        self.cigarettesPerPack = cigarettesPerPack
-        self.packPrice = packPrice
+        guard let data = Plist(name: "UserPropertyList") else { return nil }
+        guard let userInfo: NSDictionary = data.getValuesInPlistFile() else { return nil }
+        let quitDayTimeInterval = Double(userInfo["QuitDay"] as! NSNumber)
+        self.quitDay = NSDate(timeIntervalSinceReferenceDate: quitDayTimeInterval)
+        self.name = String(userInfo["Name"])
+        self.cigarettesPerDay = Int(userInfo["CigarettesSmokedPerDay"] as! NSNumber)
+        self.cigarettesPerPack = Int(userInfo["CigarettesPerPack"] as! NSNumber)
+        self.packPrice = Double(userInfo["PackPrice"] as! NSNumber)
         healthAchievements = HealthAchievement.getHASingleton()
-        self.dateManager = DateManager()
-        addConnection(connection1Name, email: connection1Email)
-        addConnection(connection2Name, email: connection2Email)
-        
+        dateManager = DateManager()
+    
     }
     
     func addConnection(name: String, email: String) {
@@ -59,5 +75,9 @@ class User {
         return savings
     }
     
+    static func getUserSingleton() -> User? {
+        guard let user = self.user else { return nil }
+        return user
+    }
     
 }

@@ -8,16 +8,20 @@
 
 import Foundation
 
-protocol Benefit {
+class Benefit {
     
-    var name : String{ get set }
-    var description: String{ get set }
+    var name : String
+    var description: String
+    
+    init(name: String, description: String) {
+        self.name = name
+        self.description = description
+    }
     
 }
 
 class HealthBenefit: Benefit {
     
-    var name, description: String
     var completionTime: NSTimeInterval?
     var healthNumber: HealthEnum {
         didSet {
@@ -26,21 +30,23 @@ class HealthBenefit: Benefit {
     }
     
     init(name: String, description: String, healthNumber: HealthEnum) {
-        self.name = name
-        self.description = description
         self.healthNumber = healthNumber
-        
+        super.init(name: name, description: description)
     }
 }
 
 class MoneyBenefit: Benefit {
 
-    var name, description: String
     var savingCompletion: Double?
+    var savingNumber: Double {
+        didSet {
+            self.savingCompletion = savingNumber
+        }
+    }
     
-    init(name: String, description: String) {
-        self.name = name
-        self.description = description        
+    init(name: String, description: String, savingNumber: Double) {
+        self.savingNumber = savingNumber
+        super.init(name: name, description: description)
     }
     
 }
