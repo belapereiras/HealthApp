@@ -461,7 +461,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="topRated" id="hQC-2v-ZWf"/>
+                    <tabBarItem key="tabBarItem" title="Progresso" image="Progress" id="hQC-2v-ZWf"/>
                     <connections>
                         <outlet property="collectionView" destination="jH7-Km-LbF" id="aJD-hx-ZNc"/>
                         <outlet property="notSmokedCigarrettes" destination="fpb-X2-Vys" id="0tq-eF-Fzo"/>
@@ -765,7 +765,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="56t-8S-Z5q"/>
+                    <tabBarItem key="tabBarItem" title="Stickers" image="Achievements" id="56t-8S-Z5q"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rtw-Ze-lcH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -773,6 +773,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Achievements" width="26" height="26"/>
+        <image name="Progress" width="23" height="21"/>
         <image name="check" width="26" height="26"/>
         <image name="facebookButton" width="39" height="30"/>
         <image name="mailButton" width="39" height="30"/>
