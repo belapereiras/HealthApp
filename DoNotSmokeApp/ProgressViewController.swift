@@ -57,7 +57,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
             print(timeNotSmokingInMinutes)
             dispatch_async(dispatch_get_main_queue(), {
                 print("entrei2")
-                self.timeWithoutSmoking.text = String(timeNotSmokingInMinutes)
+                self.unityOfTimeWithoutSmoking.text = String(timeNotSmokingInMinutes)
             })
         }
         dispatch_resume(timer)
