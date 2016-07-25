@@ -18,6 +18,8 @@ class ContractViewController: UIViewController {
     
     @IBOutlet var pricePerPack: UITextField!
    
+    @IBOutlet var cigarettesPerPack: UITextField!
+    
     
     @IBOutlet var helper1Mail: UITextField!
     

@@ -38,6 +38,9 @@
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
+            <string>SFUIText-Regular</string>
+            <string>SFUIText-Regular</string>
+            <string>SFUIText-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -314,7 +317,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vg0-f5-f3w" userLabel="1stLine">
-                                <rect key="frame" x="160" y="94" width="281" height="28"/>
+                                <rect key="frame" x="160" y="60" width="281" height="28"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eu," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5os-NO-BQR">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="28"/>
@@ -340,7 +343,7 @@
                                 </subviews>
                             </stackView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SRH-Z7-NOY">
-                                <rect key="frame" x="160" y="127" width="50" height="28"/>
+                                <rect key="frame" x="160" y="93" width="50" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="ZpW-uI-jaP"/>
                                     <constraint firstAttribute="height" constant="28" id="ahB-k6-raA"/>
@@ -349,52 +352,67 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cigarros por dia e gasto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfd-be-odm">
-                                <rect key="frame" x="217" y="132" width="224" height="24"/>
+                                <rect key="frame" x="217" y="98" width="224" height="24"/>
                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DBj-jS-fX6">
-                                <rect key="frame" x="160" y="160" width="45" height="30"/>
+                                <rect key="frame" x="160" y="126" width="45" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="2yu-uD-dXy"/>
+                                    <constraint firstAttribute="height" constant="28" id="2yu-uD-dXy"/>
                                     <constraint firstAttribute="width" constant="45" id="gwF-p9-uq6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reais por maço, prometo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gC-Ug-KWX">
-                                <rect key="frame" x="210" y="166" width="231" height="24"/>
+                                <rect key="frame" x="210" y="132" width="231" height="24"/>
                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="parar de fumar a partir de hoje." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJ8-jb-8hh">
-                                <rect key="frame" x="160" y="198" width="280" height="23"/>
+                                <rect key="frame" x="160" y="162" width="280" height="23"/>
                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* número de cigarros por maço:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIB-1P-q63">
+                                <rect key="frame" x="160" y="200" width="224.5" height="18"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bTp-zW-RiO">
+                                <rect key="frame" x="390" y="190" width="50" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="4gU-93-kbD"/>
+                                    <constraint firstAttribute="height" constant="28" id="VjP-hI-9on"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Se eu fumar, as pessoas abaixo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3PO-ms-NEl">
-                                <rect key="frame" x="190" y="251" width="220" height="18"/>
+                                <rect key="frame" x="190" y="255" width="220" height="18"/>
                                 <fontDescription key="fontDescription" name="SFUIText-LightItalic" family="SF UI Text" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="serão notificadas imediatamente." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k70-kj-8ie">
-                                <rect key="frame" x="183" y="269" width="233" height="18"/>
+                                <rect key="frame" x="183" y="273" width="233" height="18"/>
                                 <fontDescription key="fontDescription" name="SFUIText-LightItalic" family="SF UI Text" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Com a ajuda delas, serei um ex-fumante!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKj-Wm-26f">
-                                <rect key="frame" x="157" y="287" width="286.5" height="18"/>
+                                <rect key="frame" x="157" y="291" width="286.5" height="18"/>
                                 <fontDescription key="fontDescription" name="SFUIText-LightItalic" family="SF UI Text" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CbJ-mh-Sg5" userLabel="helper1">
-                                <rect key="frame" x="174" y="335" width="253" height="30"/>
+                                <rect key="frame" x="174" y="339" width="253" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhV-Gm-ajh">
                                         <rect key="frame" x="0.0" y="0.0" width="53" height="30"/>
@@ -414,7 +432,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Md-Gj-Ljq" userLabel="helper2">
-                                <rect key="frame" x="174" y="375" width="253" height="30"/>
+                                <rect key="frame" x="174" y="379" width="253" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSC-nL-laD">
                                         <rect key="frame" x="0.0" y="0.0" width="53" height="30"/>
@@ -434,13 +452,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compartilhe este contrato:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pO6-pG-FpN">
-                                <rect key="frame" x="216" y="435" width="167.5" height="18"/>
+                                <rect key="frame" x="216" y="439" width="167.5" height="18"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dh4-bb-0aP" userLabel="shareContract">
-                                <rect key="frame" x="241" y="455" width="117" height="30"/>
+                                <rect key="frame" x="241" y="459" width="117" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jx4-RD-WOg">
                                         <rect key="frame" x="0.0" y="0.0" width="39" height="30"/>
@@ -457,8 +475,11 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wmv-2c-hN9">
-                                <rect key="frame" x="242" y="515" width="116" height="30"/>
-                                <state key="normal" title="Estou de acordo!"/>
+                                <rect key="frame" x="220" y="519" width="160" height="36"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
+                                <state key="normal" title="Estou de acordo!">
+                                    <color key="titleColor" red="0.050447162828947366" green="0.71764705882352942" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="agreedContract:" destination="o2y-bv-QbG" eventType="touchUpInside" id="mUq-cy-TzI"/>
                                 </connections>
@@ -467,24 +488,28 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="SRH-Z7-NOY" firstAttribute="leading" secondItem="Vg0-f5-f3w" secondAttribute="leading" id="33L-aC-FXw"/>
+                            <constraint firstItem="HIB-1P-q63" firstAttribute="top" secondItem="rJ8-jb-8hh" secondAttribute="bottom" constant="15" id="4yg-li-qev"/>
                             <constraint firstItem="DBj-jS-fX6" firstAttribute="trailing" secondItem="Vg0-f5-f3w" secondAttribute="trailing" id="6ed-5i-6Lg"/>
                             <constraint firstItem="0Md-Gj-Ljq" firstAttribute="leading" secondItem="CbJ-mh-Sg5" secondAttribute="leading" id="APb-EW-9y0"/>
+                            <constraint firstItem="bTp-zW-RiO" firstAttribute="trailing" secondItem="rJ8-jb-8hh" secondAttribute="trailing" id="DEI-JJ-TRd"/>
                             <constraint firstItem="mKj-Wm-26f" firstAttribute="centerX" secondItem="kgn-Xa-bKS" secondAttribute="centerX" id="DvT-ZW-1wg"/>
                             <constraint firstItem="pO6-pG-FpN" firstAttribute="centerX" secondItem="kgn-Xa-bKS" secondAttribute="centerX" id="DzJ-ay-tOb"/>
                             <constraint firstItem="bfd-be-odm" firstAttribute="top" secondItem="Vg0-f5-f3w" secondAttribute="bottom" constant="10" id="EFw-Ey-Wym"/>
                             <constraint firstItem="DBj-jS-fX6" firstAttribute="leading" secondItem="SRH-Z7-NOY" secondAttribute="leading" id="H8N-74-fm4"/>
+                            <constraint firstItem="bTp-zW-RiO" firstAttribute="top" secondItem="rJ8-jb-8hh" secondAttribute="bottom" constant="5" id="Nib-j3-ruk"/>
                             <constraint firstItem="rJ8-jb-8hh" firstAttribute="centerX" secondItem="kgn-Xa-bKS" secondAttribute="centerX" id="R6p-nN-ysM"/>
                             <constraint firstItem="CbJ-mh-Sg5" firstAttribute="centerX" secondItem="kgn-Xa-bKS" secondAttribute="centerX" id="T3B-Ol-ddf"/>
                             <constraint firstItem="dh4-bb-0aP" firstAttribute="top" secondItem="pO6-pG-FpN" secondAttribute="bottom" constant="2" id="Ua8-1s-zZ4"/>
                             <constraint firstItem="k70-kj-8ie" firstAttribute="centerX" secondItem="kgn-Xa-bKS" secondAttribute="centerX" id="UsW-XO-me3"/>
                             <constraint firstItem="k70-kj-8ie" firstAttribute="top" secondItem="3PO-ms-NEl" secondAttribute="bottom" id="YCn-OG-46c"/>
-                            <constraint firstItem="rJ8-jb-8hh" firstAttribute="top" secondItem="2gC-Ug-KWX" secondAttribute="bottom" constant="8" id="aBj-I8-q20"/>
+                            <constraint firstItem="HIB-1P-q63" firstAttribute="leading" secondItem="rJ8-jb-8hh" secondAttribute="leading" id="Zao-mb-TYY"/>
+                            <constraint firstItem="rJ8-jb-8hh" firstAttribute="top" secondItem="2gC-Ug-KWX" secondAttribute="bottom" constant="6" id="aBj-I8-q20"/>
                             <constraint firstItem="CbJ-mh-Sg5" firstAttribute="top" secondItem="mKj-Wm-26f" secondAttribute="bottom" constant="30" id="aCP-im-TcN"/>
-                            <constraint firstItem="3PO-ms-NEl" firstAttribute="top" secondItem="rJ8-jb-8hh" secondAttribute="bottom" constant="30" id="ayA-9Z-4UO"/>
+                            <constraint firstItem="3PO-ms-NEl" firstAttribute="top" secondItem="rJ8-jb-8hh" secondAttribute="bottom" constant="70" id="ayA-9Z-4UO"/>
                             <constraint firstItem="Vg0-f5-f3w" firstAttribute="centerX" secondItem="kgn-Xa-bKS" secondAttribute="centerX" id="byg-tT-Oze"/>
                             <constraint firstItem="0Md-Gj-Ljq" firstAttribute="top" secondItem="CbJ-mh-Sg5" secondAttribute="bottom" constant="10" id="c5r-t2-0za"/>
                             <constraint firstItem="rJ8-jb-8hh" firstAttribute="centerX" secondItem="kgn-Xa-bKS" secondAttribute="centerX" id="cp6-tp-fks"/>
-                            <constraint firstItem="Vg0-f5-f3w" firstAttribute="top" secondItem="pQk-9P-9Zp" secondAttribute="bottom" constant="74" id="cw6-SV-1dt"/>
+                            <constraint firstItem="Vg0-f5-f3w" firstAttribute="top" secondItem="pQk-9P-9Zp" secondAttribute="bottom" constant="40" id="cw6-SV-1dt"/>
                             <constraint firstItem="mKj-Wm-26f" firstAttribute="top" secondItem="k70-kj-8ie" secondAttribute="bottom" id="gIL-fd-pZC"/>
                             <constraint firstItem="rJ8-jb-8hh" firstAttribute="leading" secondItem="DBj-jS-fX6" secondAttribute="leading" id="iUM-FM-TVZ"/>
                             <constraint firstItem="Wmv-2c-hN9" firstAttribute="centerX" secondItem="kgn-Xa-bKS" secondAttribute="centerX" id="kaM-Ub-dJp"/>
@@ -507,6 +532,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="cigarettesPerPack" destination="bTp-zW-RiO" id="MGK-Bn-LiU"/>
                         <outlet property="facebookButton" destination="jx4-RD-WOg" id="r0Y-ki-icl"/>
                         <outlet property="helper1Mail" destination="7tM-3b-DMK" id="FiA-Ig-crh"/>
                         <outlet property="helper2Mail" destination="Gp2-Rv-4hY" id="VU4-OQ-efW"/>
