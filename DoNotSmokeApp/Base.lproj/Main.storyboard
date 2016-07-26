@@ -343,11 +343,11 @@
                                         <color key="textColor" red="1" green="0.71764705882352942" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fq-Dh-Wl0">
-                                        <rect key="frame" x="120" y="80" width="240" height="200"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fq-Dh-Wl0">
+                                        <rect key="frame" x="120" y="80" width="240" height="230"/>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="8Di-OI-pqU"/>
+                                            <constraint firstAttribute="height" constant="230" id="8Di-OI-pqU"/>
                                             <constraint firstAttribute="width" constant="240" id="ux2-Do-J3V"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
@@ -367,10 +367,12 @@
                                     <constraint firstAttribute="trailing" secondItem="enq-Iy-END" secondAttribute="trailing" constant="25" id="Z83-PK-D38"/>
                                     <constraint firstItem="6fq-Dh-Wl0" firstAttribute="leading" secondItem="ndb-qL-hTg" secondAttribute="leading" constant="20" id="c5G-md-XLo"/>
                                     <constraint firstItem="6fq-Dh-Wl0" firstAttribute="centerX" secondItem="ndb-qL-hTg" secondAttribute="centerX" id="ejI-41-7d4"/>
+                                    <constraint firstItem="6fq-Dh-Wl0" firstAttribute="top" secondItem="rpk-vb-7SC" secondAttribute="bottom" id="g1P-6r-mt0"/>
                                     <constraint firstItem="rpk-vb-7SC" firstAttribute="leading" secondItem="ndb-qL-hTg" secondAttribute="leading" constant="20" id="gOP-BG-nZA"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="Cr3-MX-btN"/>
                                         <exclude reference="Rpq-W9-R9g"/>
                                         <exclude reference="UlI-Dx-dtx"/>
                                         <exclude reference="W35-Rw-zmW"/>
