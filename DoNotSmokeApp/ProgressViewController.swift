@@ -56,7 +56,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         popUpBackground.hidden = false
         popUp.hidden = false
         
-        popUpImage.image = self.progressImages[indexPath.row]
+        popUpImage.image = self.coloredProgressImages[indexPath.row]
         popUpImage.hidden = false
         
         popUpTitle.text = healthAchievement.healthBenefit[indexPath.row].name
@@ -69,27 +69,45 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     func updateNotSmokingTimeLabel() {
         let queue = dispatch_queue_create("com.domain.app.timer", nil)
         timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
-        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 1 * NSEC_PER_SEC)
+        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0)
         dispatch_source_set_event_handler(timer) {
             guard let quitday = self.user?.quitDay else { return }
-            guard var timeNotSmoking = self.user?.dateManager.timeSinceQuitDayInMinutes(quitday) else { return }
-            var unity = "minutos"
+            guard var timeNotSmoking = self.user?.dateManager.timeSinceQuitDayInSeconds(quitday) else { return }
+            var unity = "segundos"
+            if timeNotSmoking < 2 {
+                unity = "segundo"
+            }
             if timeNotSmoking > 60 {
-                timeNotSmoking = (self.user?.dateManager.timeSinceQuitDayInHours(quitday))!
-                unity = "horas"
-                if timeNotSmoking > 24 {
-                    timeNotSmoking = (self.user?.dateManager.timeSinceQuitDayInDays(quitday))!
-                    unity = "dias"
-                    if timeNotSmoking > 30 {
+                timeNotSmoking = (self.user?.dateManager.timeSinceQuitDayInMinutes(quitday))!
+                unity = "minutos"
+                if timeNotSmoking < 2 {
+                    unity = "minuto"
+                } else {
+                    unity = "minutos"
+                }
+                if timeNotSmoking > 60 {
+                    timeNotSmoking = (self.user?.dateManager.timeSinceQuitDayInHours(quitday))!
+                    if timeNotSmoking < 2 {
+                        unity = "hora"
+                    } else {
+                        unity = "horas"
+                    }
+                    if timeNotSmoking > 24 {
                         timeNotSmoking = (self.user?.dateManager.timeSinceQuitDayInDays(quitday))!
-                        unity = "meses"
+                        if timeNotSmoking < 2 {
+                            unity = "dia"
+                        } else {
+                            unity = "dias"
+                        }
+                        
                     }
                 }
             }
             print(timeNotSmoking)
             dispatch_async(dispatch_get_main_queue(), {
                 print("entrei2")
-                self.notSmokingFor.text = String(timeNotSmoking)
+                let timeNotSmokingTrim = Int(timeNotSmoking)
+                self.notSmokingFor.text = String(timeNotSmokingTrim)
                 self.unityOfTimeWithoutSmoking.text = unity
             })
         }
