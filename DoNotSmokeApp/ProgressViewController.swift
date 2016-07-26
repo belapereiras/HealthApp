@@ -56,6 +56,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
 
         popUpTitle.text = healthAchievement.healthBenefit[indexPath.row].name
         popUpText.text = healthAchievement.healthBenefit[indexPath.row].description
+        popUpImage.image = self.coloredProgressImages[indexPath.row]
         
         self.popUpBackground.hidden = false
         self.popUp.hidden = false
