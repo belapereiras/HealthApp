@@ -203,6 +203,5 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
 //        
     }
 
->>>>>>> origin/master
 
 }
