@@ -147,7 +147,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cigarros" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCO-f9-JjO">
-                                <rect key="frame" x="362" y="134" width="85" height="30"/>
+                                <rect key="frame" x="355" y="134" width="85" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="XhA-ND-jEW"/>
                                     <constraint firstAttribute="width" constant="85" id="enI-qa-EnV"/>
@@ -334,10 +334,6 @@
                                     <constraint firstItem="jH7-Km-LbF" firstAttribute="height" secondItem="VGJ-S9-X20" secondAttribute="height" multiplier="0.98:1" id="wWu-ja-9NR"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBR-Zb-ZJ9">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="571"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
-                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndb-qL-hTg">
                                 <rect key="frame" x="60" y="110" width="480" height="360"/>
                                 <subviews>
@@ -396,6 +392,10 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBR-Zb-ZJ9">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="571"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -418,6 +418,7 @@
                             <constraint firstItem="77d-6j-0on" firstAttribute="top" secondItem="NXZ-bC-hnR" secondAttribute="bottom" constant="30" id="JLu-KH-gTa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tSL-KV-cVr" secondAttribute="trailing" constant="5" id="Kl3-fe-fxr"/>
                             <constraint firstItem="77d-6j-0on" firstAttribute="centerX" secondItem="aft-16-pLk" secondAttribute="centerX" id="KoI-5C-Gcm"/>
+                            <constraint firstItem="dCO-f9-JjO" firstAttribute="leading" secondItem="baB-KK-Y0z" secondAttribute="leading" id="LKl-Bb-XQd"/>
                             <constraint firstItem="gYC-LL-z32" firstAttribute="top" secondItem="CvV-gO-eeB" secondAttribute="bottom" constant="-26" id="LfZ-CG-F1V"/>
                             <constraint firstItem="CvV-gO-eeB" firstAttribute="top" secondItem="XSH-oV-xA5" secondAttribute="bottom" constant="102" id="M3h-17-lJe"/>
                             <constraint firstItem="MR7-dm-wFh" firstAttribute="top" secondItem="aDf-wD-qa4" secondAttribute="bottom" constant="20" id="Mwf-zm-BO7"/>
@@ -485,12 +486,13 @@
                                 <exclude reference="Mwf-zm-BO7"/>
                                 <exclude reference="WnC-Ks-8e3"/>
                                 <exclude reference="eG7-c2-PUs"/>
+                                <exclude reference="Ien-Kk-5hc"/>
+                                <exclude reference="y9l-lK-fUO"/>
+                                <exclude reference="XcW-3H-qE9"/>
                                 <exclude reference="BFd-ej-LbJ"/>
                                 <exclude reference="LfZ-CG-F1V"/>
                                 <exclude reference="p53-zs-v4p"/>
                                 <exclude reference="zI7-Wf-UAJ"/>
-                                <exclude reference="XcW-3H-qE9"/>
-                                <exclude reference="y9l-lK-fUO"/>
                                 <exclude reference="af0-uL-OHC"/>
                                 <exclude reference="fYl-O1-X1k"/>
                                 <exclude reference="uDW-qF-sE5"/>
