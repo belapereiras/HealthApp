@@ -53,17 +53,36 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
-        popUpBackground.hidden = false
-        popUp.hidden = false
-        
         popUpImage.image = self.progressImages[indexPath.row]
-        popUpImage.hidden = false
-        
         popUpTitle.text = healthAchievement.healthBenefit[indexPath.row].name
-        popUpTitle.hidden = false
-        
         popUpText.text = healthAchievement.healthBenefit[indexPath.row].description
-        popUpText.hidden = false
+        
+        self.popUpBackground.hidden = false
+        self.popUp.hidden = false
+        self.popUpImage.hidden = false
+        self.popUpTitle.hidden = false
+        self.popUpText.hidden = false
+        
+        self.popUpBackground.alpha = 0
+        self.popUp.alpha = 0
+        self.popUpImage.alpha = 0
+        self.popUpTitle.alpha = 0
+        self.popUpText.alpha = 0
+        
+        UIView.animateWithDuration(0.3, delay: 0, options:
+            UIViewAnimationOptions.CurveEaseOut, animations: {
+                self.popUpBackground.alpha = 1.0
+                self.popUp.alpha = 1.0
+                self.popUpImage.alpha = 1.0
+                self.popUpTitle.alpha = 1.0
+                self.popUpText.alpha = 1.0
+            }, completion: { finished in
+                self.popUpBackground.hidden = false
+                self.popUp.hidden = false
+                self.popUpImage.hidden = false
+                self.popUpTitle.hidden = false
+                self.popUpText.hidden = false
+        })
     }
     
     func updateNotSmokingTimeLabel() {
@@ -166,11 +185,20 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func handleTap (sender: UIGestureRecognizer) {
-        popUpBackground.hidden = true
-        popUp.hidden = true
-        popUpImage.hidden = true
-        popUpTitle.hidden = true
-        popUpText.hidden = true
+        UIView.animateWithDuration(0.3, delay: 0, options:
+            UIViewAnimationOptions.CurveEaseOut, animations: {
+                self.popUpBackground.alpha = 0
+                self.popUp.alpha = 0
+                self.popUpImage.alpha = 0
+                self.popUpTitle.alpha = 0
+                self.popUpText.alpha = 0
+            }, completion: { finished in
+                self.popUpBackground.hidden = true
+                self.popUp.hidden = true
+                self.popUpImage.hidden = true
+                self.popUpTitle.hidden = true
+                self.popUpText.hidden = true
+        })
     }
     
     @IBAction func longPressCell(sender: AnyObject) {
