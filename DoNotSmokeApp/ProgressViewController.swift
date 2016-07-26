@@ -139,9 +139,11 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         dispatch_source_set_event_handler(timer2) {
             //if self.user?.dateManager.timeSinceQuitDayInDays((self.user?.quitDay)!) > 1 {
                 guard let savings = self.user?.moneySavings() else { return }
-                var savingString = self.trimNumbers(savings)
+            var savingString: String
                 if savings < 0.0001 {
                     savingString = "0.00"
+                } else {
+                     savingString = self.trimNumbers(savings)
                 }
                 dispatch_async(dispatch_get_main_queue(), {
                     self.savedMoney.text = String(savingString)

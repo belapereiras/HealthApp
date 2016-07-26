@@ -35,11 +35,9 @@ class HealthBenefit: Benefit {
 class MoneyBenefit: Benefit {
 
     var savingCompletion: Double?
-    var savingNumber: Double
     
-    init(name: String, description: String, savingNumber: Double) {
-        self.savingNumber = savingNumber
-        self.savingCompletion = savingNumber
+    init(name: String, description: String, savingCompletion: Double) {
+        self.savingCompletion = savingCompletion
         super.init(name: name, description: description)
     }
     
