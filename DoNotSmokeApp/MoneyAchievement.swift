@@ -11,8 +11,12 @@ import Foundation
 class MoneyAchievement {
     
     var savingsBenefits: [MoneyBenefit] = []
+    static var moneyAchievement = MoneyAchievement()
     
+    private init() {}
     
-    
+    static func getMASingleton() -> MoneyAchievement {
+        return moneyAchievement
+    }
     
 }

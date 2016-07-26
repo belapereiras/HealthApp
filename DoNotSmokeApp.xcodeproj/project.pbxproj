@@ -131,8 +131,8 @@
 				D1F0A35E1D4003B4002C83A8 /* User.swift */,
 				D1F0A3621D400CBB002C83A8 /* DateManager.swift */,
 				D1F0A35C1D40038F002C83A8 /* HealthAchievement.swift */,
-				D1F0A3641D400FB7002C83A8 /* Benefit.swift */,
 				D1F0A3601D400A5E002C83A8 /* MoneyAchievement.swift */,
+				D1F0A3641D400FB7002C83A8 /* Benefit.swift */,
 				D1F0A3681D42B20F002C83A8 /* Plist.swift */,
 				D136F4D21D468A390032B85D /* UserPropertyList.plist */,
 			);

@@ -135,29 +135,38 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     func updateMoneySavingsLabel() {
         let queue = dispatch_queue_create("com.domain.app.timer2", nil)
         timer2 = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
-        dispatch_source_set_timer(timer2, DISPATCH_TIME_NOW, 86400 * NSEC_PER_SEC, 0)
+        dispatch_source_set_timer(timer2, DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC, 0)
         dispatch_source_set_event_handler(timer2) {
-            if self.user?.dateManager.timeSinceQuitDayInDays((self.user?.quitDay)!) > 1 {
+            //if self.user?.dateManager.timeSinceQuitDayInDays((self.user?.quitDay)!) > 1 {
                 guard let savings = self.user?.moneySavings() else { return }
+                let savingString = self.trimNumbers(savings)
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.savedMoney.text = String(savings)
+                    self.savedMoney.text = String(savingString)
                 })
-            }
+            //}
         }
         dispatch_resume(timer2)
+    }
+    
+    func trimNumbers(number: Double) -> String {
+        let numberString = String(number)
+        print(numberString)
+        let trimmedNumber = numberString.substringWithRange(numberString.startIndex..<numberString.startIndex.advancedBy(4))
+        return trimmedNumber
     }
     
     func updateCigarettesNotSmokedLabel() {
         let queue = dispatch_queue_create("com.domain.app.timer3", nil)
         timer3 = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
-        dispatch_source_set_timer(timer3, DISPATCH_TIME_NOW, 86400 * NSEC_PER_SEC, 0)
+        dispatch_source_set_timer(timer3, DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC, 0)
         dispatch_source_set_event_handler(timer3) {
-            if self.user?.dateManager.timeSinceQuitDayInDays((self.user?.quitDay)!) > 1 {
+            //if self.user?.dateManager.timeSinceQuitDayInDays((self.user?.quitDay)!) > 1 {
                 guard let notSmokedCigarrette = self.user?.cigarettesNotSmoked() else { return }
+                let notSmoked = Int(notSmokedCigarrette)
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.notSmokedCigarrettes.text = String(notSmokedCigarrette)
+                    self.notSmokedCigarrettes.text = String(notSmoked)
                 })
-            }
+            //}
         }
         dispatch_resume(timer3)
     }
@@ -246,6 +255,4 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
 //        }
 //        
     }
-
-
 }

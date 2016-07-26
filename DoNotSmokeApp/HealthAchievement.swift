@@ -14,19 +14,19 @@ import Foundation
 
 enum HealthEnum: Double {
     
-    case firstBenefit = 60
-    case secondBenefit = 120
-    case thirdBenefit = 43200
-    case fourthBenefit = 26400
-    case fifthBenefit = 172800
-    case sixthBenefit = 259200
-    case seventhBenefit = 0
-    case eighthBenefit = 1
-    case ninethBenefit = 2
-    case tenthBenefit = 3
-    case eleventhBenefit = 4
-    case twelfthBenefit = 5
-    case thirteenthBenefit = 6
+    case firstBenefit = 1200
+    case secondBenefit = 7200
+    case thirdBenefit = 28800
+    case fourthBenefit = 43200
+    case fifthBenefit = 86400
+    case sixthBenefit = 172800
+    case seventhBenefit = 259200
+    case eighthBenefit = 1814400
+    case ninethBenefit = 23328000
+    case tenthBenefit = 31536000
+    case eleventhBenefit = 157680000
+    case twelfthBenefit = 315360000
+    case thirteenthBenefit = 473040000
     
 }
 
