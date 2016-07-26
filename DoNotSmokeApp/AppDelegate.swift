@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let userDic = plist.getValuesInPlistFile() else { return true }
         let firstTime = userDic["FirstTime"] as! NSNumber
         if !firstTime.boolValue {
-            let identifier = "ProgressScene"
+            let identifier = "TabBarController"
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier(identifier)
             self.window?.rootViewController = vc
