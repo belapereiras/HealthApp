@@ -139,7 +139,10 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         dispatch_source_set_event_handler(timer2) {
             //if self.user?.dateManager.timeSinceQuitDayInDays((self.user?.quitDay)!) > 1 {
                 guard let savings = self.user?.moneySavings() else { return }
-                let savingString = self.trimNumbers(savings)
+                var savingString = self.trimNumbers(savings)
+                if savings < 0.0001 {
+                    savingString = "0.00"
+                }
                 dispatch_async(dispatch_get_main_queue(), {
                     self.savedMoney.text = String(savingString)
                 })
@@ -151,7 +154,12 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     func trimNumbers(number: Double) -> String {
         let numberString = String(number)
         print(numberString)
-        let trimmedNumber = numberString.substringWithRange(numberString.startIndex..<numberString.startIndex.advancedBy(4))
+        let trimmedNumber: String
+        if number >= 1000 {
+            trimmedNumber = numberString.substringWithRange(numberString.startIndex..<numberString.startIndex.advancedBy(6))
+        } else {
+            trimmedNumber = numberString.substringWithRange(numberString.startIndex..<numberString.startIndex.advancedBy(4))
+        }
         return trimmedNumber
     }
     

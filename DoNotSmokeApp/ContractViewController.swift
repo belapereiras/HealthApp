@@ -28,7 +28,6 @@ class ContractViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
 
     }
-
     
     @IBAction func agreedContract(sender: AnyObject) {
         
@@ -37,7 +36,6 @@ class ContractViewController: UIViewController {
         guard let pricePerPack = pricePerPack.text else { return }
         guard let cigarretesSmokerPerDay = nbrPerDay.text else { return }
         guard let cigarsPerPack = cigarettesPerPack.text else { return }
-        
         
         userDic["Name"] = smokerName.text
         userDic["CigarettesPerPack"] = Int(cigarsPerPack)! as NSNumber
@@ -59,7 +57,7 @@ class ContractViewController: UIViewController {
    
     @IBAction func FacebookAction(sender: AnyObject) {
         
-        performSegueWithIdentifier("contractToController", sender: sender)
+        //performSegueWithIdentifier("contractToController", sender: sender)
 
     }
     

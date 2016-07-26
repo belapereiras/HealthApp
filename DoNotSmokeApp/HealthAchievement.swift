@@ -43,7 +43,6 @@ class HealthAchievement {
         set(date) {
             self.startingDay = date
         }
-        
     }
     
     private init(){
@@ -118,6 +117,7 @@ class HealthAchievement {
             }
             let benefit = createHealhBenefit(progress, description: description, benefitNumber: benefitEnum)
             healthBenefit.append(benefit)
+            print(benefit.completionTime)
         }
     }
     
@@ -130,7 +130,7 @@ class HealthAchievement {
         let time = timePassed
         var benefitsAchieved: [HealthBenefit] = []
         for benefit in healthBenefit {
-            if benefit.completionTime == time || benefit.completionTime < time {
+            if benefit.completionTime <= time {
                 benefitsAchieved.append(benefit)
             }
         }

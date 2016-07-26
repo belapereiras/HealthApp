@@ -22,15 +22,12 @@ class Benefit {
 
 class HealthBenefit: Benefit {
     
-    var completionTime: NSTimeInterval?
-    var healthNumber: HealthEnum {
-        didSet {
-            completionTime = healthNumber.rawValue
-        }
-    }
+    var completionTime: NSTimeInterval!
+    var healthNumber: HealthEnum
     
     init(name: String, description: String, healthNumber: HealthEnum) {
         self.healthNumber = healthNumber
+        self.completionTime = healthNumber.rawValue
         super.init(name: name, description: description)
     }
 }
@@ -38,14 +35,11 @@ class HealthBenefit: Benefit {
 class MoneyBenefit: Benefit {
 
     var savingCompletion: Double?
-    var savingNumber: Double {
-        didSet {
-            self.savingCompletion = savingNumber
-        }
-    }
+    var savingNumber: Double
     
     init(name: String, description: String, savingNumber: Double) {
         self.savingNumber = savingNumber
+        self.savingCompletion = savingNumber
         super.init(name: name, description: description)
     }
     

@@ -15,6 +15,12 @@ class MoneyAchievement {
     
     private init() {}
     
+    private func initialSetup() {
+    
+    }
+    
+    
+    
     static func getMASingleton() -> MoneyAchievement {
         return moneyAchievement
     }

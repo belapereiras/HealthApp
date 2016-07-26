@@ -66,7 +66,7 @@ struct Plist {
         }
     }
     
-    // Get the values from the plist file as a NSMutableDictionary to modify values
+    // Get the values from the plist file as a NSMutableDictionary to modify it
     func getMutablePListFile() -> NSMutableDictionary? {
         let fileManager = NSFileManager.defaultManager()
         if fileManager.fileExistsAtPath(destPath!) {
@@ -89,7 +89,4 @@ struct Plist {
             throw PlistError.FileDoesNotExist
         }
     }
-    
-    
-    
 }
