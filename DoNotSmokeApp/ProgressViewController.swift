@@ -103,9 +103,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
                     }
                 }
             }
-            print(timeNotSmoking)
             dispatch_async(dispatch_get_main_queue(), {
-                print("entrei2")
                 let timeNotSmokingTrim = Int(timeNotSmoking)
                 self.notSmokingFor.text = String(timeNotSmokingTrim)
                 self.unityOfTimeWithoutSmoking.text = unity
@@ -122,7 +120,6 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
             if self.user?.dateManager.timeSinceQuitDayInDays((self.user?.quitDay)!) > 1 {
                 guard let savings = self.user?.moneySavings() else { return }
                 dispatch_async(dispatch_get_main_queue(), {
-                    print(savings)
                     self.savedMoney.text = String(savings)
                 })
             }

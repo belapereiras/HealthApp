@@ -64,17 +64,5 @@ class ContractViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        let plist = Plist(name: "UserPropertyList")!
-        let userDic = plist.getValuesInPlistFile()!
-        if (userDic["FirstTime"] != nil) {
-            let firstTime = userDic["FirstTime"] as! NSNumber
-            firstTime.boolValue
-            print(firstTime)
-            if !firstTime.boolValue {
-                performSegueWithIdentifier("contractToController", sender: nil)
-            }
-        } else {
-            print("NIL VALUE")
-        }
     }
 }
