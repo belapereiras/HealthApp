@@ -131,6 +131,8 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         updateMoneySavingsLabel()
         updateCigarettesNotSmokedLabel()
         
+        popUp.layer.cornerRadius = 20
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(ProgressViewController.handleTap(_:)))
         self.popUpBackground.addGestureRecognizer(tap)
     }
