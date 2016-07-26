@@ -15,12 +15,17 @@ class DateManager {
     
     // INPUT: the date the user started smoking (quitDay)
     // OUTPUT: Today - quitDay
+    
+    func timeSinceQuitDayInSeconds(quitDay: NSTimeInterval) -> NSTimeInterval {
+        let today = NSDate().timeIntervalSinceReferenceDate
+        let quitday = quitDay
+        let timePassedSinceQuitDay = today - quitday
+        return timePassedSinceQuitDay
+    }
 
     func timeSinceQuitDayInMinutes(quitDay: NSTimeInterval) -> NSTimeInterval {
         let today = NSDate().timeIntervalSinceReferenceDate.minutes
-        print(today)
         let quitday = quitDay.minutes
-        print(quitday)
         let timePassedSinceQuitDay = today - quitday
         return timePassedSinceQuitDay
     }

@@ -14,8 +14,8 @@ import Foundation
 
 enum HealthEnum: Double {
     
-    case firstBenefit = 1200
-    case secondBenefit = 28800
+    case firstBenefit = 60
+    case secondBenefit = 120
     case thirdBenefit = 43200
     case fourthBenefit = 26400
     case fifthBenefit = 172800
@@ -125,7 +125,7 @@ class HealthAchievement {
         return healthAchievement
     }
     
-    func benefitsAchieved(timePassed: NSTimeInterval) -> [HealthBenefit] {
+    func benefitsAchieved(timePassed: NSTimeInterval) -> [HealthBenefit]? {
         
         let time = timePassed
         var benefitsAchieved: [HealthBenefit] = []
@@ -134,9 +134,22 @@ class HealthAchievement {
                 benefitsAchieved.append(benefit)
             }
         }
-        return benefitsAchieved
+        if benefitsAchieved.count > 0 {
+            return benefitsAchieved
+        } else {
+            return nil
+        }
+        
     }
     
+//    func adjustBenefitVector(benefitsAchieved: [HealthBenefit]) {
+//        let benefits = benefitsAchieved
+//        let range = 0..<benefits.endIndex
+//        healthBenefit.removeRange(range)
+//        healthBenefit.appendContentsOf(benefits)
+//    }
+//    
+
 }
 
 
