@@ -64,7 +64,7 @@ class HealthAchievement {
                             "o nível de monóxido de carbono no seu corpo está caindo! E com isso, a quantidade de oxigênio no seu sangue tá quaaase chegando a um valor normal. Falta bem pouquinho!",
                             "fumantes tem 70% mais risco de ter a chamada Doença Arterial Coronariana, que afeta os principais vasos sanguíneos do coração. A boa notícia? O risco de você ter já começou a diminuir! Também estão diminuindo as chances de um ataque cardíaco. Isso tudo em um diazinho só ein..",
                             "seu olfato e paladar estão ficando mais sensíveis. Já já você vai notar a diferença!",
-                            "????????",
+                            "A essa altura, já não há mais nicotina no seu corpo. O que é ótimo!! Daqui a pouco você vai sentir o efeito dessa limpa: um pouquinho de dor de cabeça, talvez enjôo, ansiedade... Mas se você já foi capaz de chegar até aqui, PARABÉNS! Vamos em frente!",
                             "você vai começar a sentir que tem mais fôlego para realizar atividades físicas. Sua circulação sanguínea e funções cardíacas vão melhorar bastante a partir de agora! Além disso, seus pulmões estão ficando limpos, o que vai te ajudar a  respirar bem mais fácil!",
                             "Seus pulmões agora estão funcionando à todo vapor! Mais um pouquinho, sua tosse e falta de ar vão começar a desaparecer. Ao final desse progresso você já não vai nem mais saber o que é abstinência. Quase lá!!",
                             "Seu risco de ter doenças cardíacas já caiu pela metade! Isso significa que um fumante tem 2x mais chances de desenvolver qualquer tipo de doença cardíaca do que você. Que orgulho!!",

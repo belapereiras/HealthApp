@@ -327,47 +327,55 @@
                                 <rect key="frame" x="60" y="110" width="480" height="360"/>
                                 <subviews>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rpk-vb-7SC">
-                                        <rect key="frame" x="20" y="20" width="140" height="120"/>
+                                        <rect key="frame" x="20" y="20" width="80" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="2qm-on-mvz"/>
-                                            <constraint firstAttribute="width" constant="140" id="Nr4-V3-KUo"/>
+                                            <constraint firstAttribute="height" constant="60" id="2qm-on-mvz"/>
+                                            <constraint firstAttribute="width" constant="80" id="Nr4-V3-KUo"/>
                                         </constraints>
                                     </imageView>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enq-Iy-END">
-                                        <rect key="frame" x="263" y="70" width="192" height="21"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enq-Iy-END">
+                                        <rect key="frame" x="263" y="20" width="192" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="192" id="Fut-ci-T5P"/>
-                                            <constraint firstAttribute="height" constant="21" id="hM4-GA-yFe"/>
+                                            <constraint firstAttribute="height" constant="40" id="hM4-GA-yFe"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="22"/>
                                         <color key="textColor" red="1" green="0.71764705882352942" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fq-Dh-Wl0">
-                                        <rect key="frame" x="90" y="160" width="300" height="185"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fq-Dh-Wl0">
+                                        <rect key="frame" x="120" y="80" width="240" height="200"/>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="185" id="8Di-OI-pqU"/>
-                                            <constraint firstAttribute="width" constant="300" id="ux2-Do-J3V"/>
+                                            <constraint firstAttribute="height" constant="200" id="8Di-OI-pqU"/>
+                                            <constraint firstAttribute="width" constant="240" id="ux2-Do-J3V"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="enq-Iy-END" firstAttribute="top" secondItem="ndb-qL-hTg" secondAttribute="top" constant="70" id="9QV-l0-Ccb"/>
+                                    <constraint firstItem="enq-Iy-END" firstAttribute="top" secondItem="ndb-qL-hTg" secondAttribute="top" constant="20" id="9QV-l0-Ccb"/>
+                                    <constraint firstItem="6fq-Dh-Wl0" firstAttribute="centerY" secondItem="ndb-qL-hTg" secondAttribute="centerY" id="Cr3-MX-btN"/>
+                                    <constraint firstItem="6fq-Dh-Wl0" firstAttribute="centerX" secondItem="ndb-qL-hTg" secondAttribute="centerX" id="Fqc-Zc-Uhv"/>
                                     <constraint firstItem="6fq-Dh-Wl0" firstAttribute="centerX" secondItem="ndb-qL-hTg" secondAttribute="centerX" id="Rpq-W9-R9g"/>
                                     <constraint firstItem="6fq-Dh-Wl0" firstAttribute="top" secondItem="rpk-vb-7SC" secondAttribute="bottom" constant="20" id="UlI-Dx-dtx"/>
+                                    <constraint firstItem="6fq-Dh-Wl0" firstAttribute="leading" secondItem="ndb-qL-hTg" secondAttribute="leading" constant="100" id="W35-Rw-zmW"/>
                                     <constraint firstItem="rpk-vb-7SC" firstAttribute="top" secondItem="ndb-qL-hTg" secondAttribute="top" constant="20" id="YiU-B0-IP3"/>
                                     <constraint firstAttribute="trailing" secondItem="enq-Iy-END" secondAttribute="trailing" constant="25" id="Z83-PK-D38"/>
                                     <constraint firstItem="6fq-Dh-Wl0" firstAttribute="leading" secondItem="ndb-qL-hTg" secondAttribute="leading" constant="20" id="c5G-md-XLo"/>
+                                    <constraint firstItem="6fq-Dh-Wl0" firstAttribute="centerX" secondItem="ndb-qL-hTg" secondAttribute="centerX" id="ejI-41-7d4"/>
                                     <constraint firstItem="rpk-vb-7SC" firstAttribute="leading" secondItem="ndb-qL-hTg" secondAttribute="leading" constant="20" id="gOP-BG-nZA"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="Rpq-W9-R9g"/>
+                                        <exclude reference="UlI-Dx-dtx"/>
+                                        <exclude reference="W35-Rw-zmW"/>
                                         <exclude reference="c5G-md-XLo"/>
+                                        <exclude reference="ejI-41-7d4"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -555,7 +563,7 @@
                                     <constraint firstAttribute="width" constant="50" id="ZpW-uI-jaP"/>
                                     <constraint firstAttribute="height" constant="28" id="ahB-k6-raA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cigarros por dia e gasto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfd-be-odm">
@@ -570,7 +578,7 @@
                                     <constraint firstAttribute="height" constant="28" id="2yu-uD-dXy"/>
                                     <constraint firstAttribute="width" constant="45" id="gwF-p9-uq6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reais por maço, prometo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gC-Ug-KWX">
