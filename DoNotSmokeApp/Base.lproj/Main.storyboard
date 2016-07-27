@@ -963,11 +963,82 @@
                                     <outlet property="delegate" destination="dfX-1U-hUz" id="exZ-rd-1Tm"/>
                                 </connections>
                             </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3JN-3p-m3I">
+                                <rect key="frame" x="420" y="413" width="150" height="29"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F61-5R-T5g">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="Nch-j6-RsU"/>
+                                            <constraint firstAttribute="width" constant="30" id="PRd-2P-lJS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="Rolo"/>
+                                        <connections>
+                                            <action selector="saveToCameraRoll:" destination="dfX-1U-hUz" eventType="touchUpInside" id="8RN-Dc-Jm5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mls-oj-1nA">
+                                        <rect key="frame" x="30" y="0.0" width="30" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="C9g-oC-6Vc"/>
+                                            <constraint firstAttribute="height" constant="29" id="LDe-Ek-8t8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="Mail"/>
+                                        <connections>
+                                            <action selector="mailShare:" destination="dfX-1U-hUz" eventType="touchUpInside" id="m6b-Ep-8uw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsb-AG-w8t">
+                                        <rect key="frame" x="60" y="0.0" width="50" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="9zj-3y-Iqg"/>
+                                            <constraint firstAttribute="width" constant="50" id="R5P-zh-amZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="Twitter"/>
+                                        <connections>
+                                            <action selector="twitterShare:" destination="dfX-1U-hUz" eventType="touchUpInside" id="kgn-IN-aXt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVc-dQ-1si">
+                                        <rect key="frame" x="110" y="0.0" width="40" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="6RM-F6-39Y"/>
+                                            <constraint firstAttribute="height" constant="29" id="EGb-kn-4Mr"/>
+                                            <constraint firstAttribute="width" constant="40" id="Lfl-CH-AAH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="Face"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="6RM-F6-39Y"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="facebookShare:" destination="dfX-1U-hUz" eventType="touchUpInside" id="Bnh-oO-Tyo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="166" id="fUA-4Q-z2A"/>
+                                    <constraint firstAttribute="height" constant="29" id="nna-gl-1pW"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fUA-4Q-z2A"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="3JN-3p-m3I" secondAttribute="trailing" constant="10" id="1WT-Pn-0yM"/>
                             <constraint firstItem="KeJ-EF-KMl" firstAttribute="top" secondItem="y8o-KK-aoC" secondAttribute="bottom" constant="10" id="1hf-bn-Mwv"/>
+                            <constraint firstItem="3JN-3p-m3I" firstAttribute="top" secondItem="y8o-KK-aoC" secondAttribute="bottom" constant="13" id="20q-lz-ULt"/>
                             <constraint firstItem="hEx-T7-M9G" firstAttribute="centerX" secondItem="DtQ-b2-WG7" secondAttribute="centerX" id="2cr-O8-W10"/>
+                            <constraint firstItem="3JN-3p-m3I" firstAttribute="trailing" secondItem="y8o-KK-aoC" secondAttribute="trailing" id="3Mm-IZ-TXw"/>
                             <constraint firstItem="hEx-T7-M9G" firstAttribute="top" secondItem="KeJ-EF-KMl" secondAttribute="bottom" id="AuY-Yx-tzk"/>
                             <constraint firstItem="y8o-KK-aoC" firstAttribute="top" secondItem="DtQ-b2-WG7" secondAttribute="topMargin" constant="65" id="Cbr-XY-Ers"/>
                             <constraint firstItem="hEx-T7-M9G" firstAttribute="width" secondItem="DtQ-b2-WG7" secondAttribute="width" id="KCt-RW-sh8"/>
@@ -979,6 +1050,11 @@
                             <constraint firstItem="aSH-rQ-FJj" firstAttribute="top" secondItem="KMd-n1-egt" secondAttribute="bottom" id="eiS-MR-lnU"/>
                             <constraint firstAttribute="leadingMargin" secondItem="aSH-rQ-FJj" secondAttribute="leading" id="g2d-gy-HBg"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="3Mm-IZ-TXw"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="AvailableStickersCollectionView" destination="hEx-T7-M9G" id="Jfg-0S-Gnh"/>

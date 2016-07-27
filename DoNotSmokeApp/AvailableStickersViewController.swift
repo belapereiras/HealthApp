@@ -44,4 +44,17 @@ class AvailableStickersViewController: UIViewController {
     
     @IBAction func cancelStickersCollage(sender: AnyObject) {
     }
+    
+    
+    @IBAction func saveToCameraRoll(sender: AnyObject) {
+    }
+    
+    @IBAction func mailShare(sender: AnyObject) {
+    }
+    
+    @IBAction func twitterShare(sender: AnyObject) {
+    }
+    
+    @IBAction func facebookShare(sender: AnyObject) {
+    }
 }
