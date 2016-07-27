@@ -914,8 +914,9 @@
                                     <action selector="openCameraAgain:" destination="dfX-1U-hUz" eventType="touchUpInside" id="rVP-bA-zLQ"/>
                                 </connections>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hEx-T7-M9G" userLabel="AvailableStickersCollectionView">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hEx-T7-M9G" userLabel="AvailableStickersCollectionView">
                                 <rect key="frame" x="0.0" y="443" width="600" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="SJo-lG-oAM"/>
                                 </constraints>
