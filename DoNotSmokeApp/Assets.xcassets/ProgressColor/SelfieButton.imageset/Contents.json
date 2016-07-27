@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "stickerBar.png",
+      "filename" : "SelfieButton.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "stickerBar@2x.png",
+      "filename" : "SelfieButton@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "stickerBar@3x.png",
+      "filename" : "SelfieButton@3x.png",
       "scale" : "3x"
     }
   ],

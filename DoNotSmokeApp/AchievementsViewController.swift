@@ -9,7 +9,40 @@
 import UIKit
 
 class AchievementsViewController: UIViewController {
+    
+    @IBOutlet var cameraButton: UIButton!
+    @IBOutlet var segmentedControl: UISegmentedControl!
+    
+    @IBOutlet var stickersView: UIView!
+    @IBOutlet var stickersCollectionView: UICollectionView!
+    
+    @IBOutlet var selfiesView: UIView!
+    @IBOutlet var selfiesCollectionView: UICollectionView!
+    
+    
+// MARK: ARRAYS
+    
+    var achievementsStickers = [UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "DinnerForTwo"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"), UIImage(named: "TeamTee"), UIImage(named: "Netflix"), UIImage(named: "Perfume")]
+    
+// MARK: COLLECTION VIEW
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.achievementsStickers.count
+    }
 
+// MARK: COLLECTION VIEW CELL
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! AchievementsCell
+        
+        cell.cellImageStickers.image = self.achievementsStickers[indexPath.row]
+        
+        return cell
+    }
+
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,15 +54,21 @@ class AchievementsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func changeView(sender: UISegmentedControl) {
+        
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            selfiesView.hidden = true
+            stickersView.hidden = false
+        case 1:
+            selfiesView.hidden = false
+            stickersView.hidden = true
+        default:
+            break;
+        }
+    
+        
     }
-    */
-
+    
+    
 }

@@ -10,6 +10,7 @@
 		1BAE02EA1D3FF6EC009C2BC7 /* ProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE02E91D3FF6EC009C2BC7 /* ProgressCell.swift */; };
 		1BAE02ED1D429D3F009C2BC7 /* SF-UI-Text-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE02EC1D429D3F009C2BC7 /* SF-UI-Text-LightItalic.otf */; };
 		1BAE02EF1D42AF95009C2BC7 /* ContractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE02EE1D42AF95009C2BC7 /* ContractViewController.swift */; };
+		1BB3E2941D47D6CF00820DDB /* AchievementsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB3E2931D47D6CF00820DDB /* AchievementsCell.swift */; };
 		1BC6B1581D3D5AB200567865 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC6B1571D3D5AB200567865 /* AppDelegate.swift */; };
 		1BC6B15D1D3D5AB200567865 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B15B1D3D5AB200567865 /* Main.storyboard */; };
 		1BC6B15F1D3D5AB200567865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B15E1D3D5AB200567865 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		1BAE02E91D3FF6EC009C2BC7 /* ProgressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressCell.swift; sourceTree = "<group>"; };
 		1BAE02EC1D429D3F009C2BC7 /* SF-UI-Text-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-LightItalic.otf"; sourceTree = "<group>"; };
 		1BAE02EE1D42AF95009C2BC7 /* ContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractViewController.swift; sourceTree = "<group>"; };
+		1BB3E2931D47D6CF00820DDB /* AchievementsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementsCell.swift; sourceTree = "<group>"; };
 		1BC6B1541D3D5AB200567865 /* DoNotSmokeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoNotSmokeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BC6B1571D3D5AB200567865 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BC6B15C1D3D5AB200567865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +80,15 @@
 			name = Progress;
 			sourceTree = "<group>";
 		};
+		1BB3E2921D47D66E00820DDB /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				1BC6B1731D3E864500567865 /* AchievementsViewController.swift */,
+				1BB3E2931D47D6CF00820DDB /* AchievementsCell.swift */,
+			);
+			name = Achievements;
+			sourceTree = "<group>";
+		};
 		1BC6B14B1D3D5AB200567865 = {
 			isa = PBXGroup;
 			children = (
@@ -110,7 +121,7 @@
 			children = (
 				1BAE02EE1D42AF95009C2BC7 /* ContractViewController.swift */,
 				1BC6B1751D3E86A000567865 /* TabBarViewController.swift */,
-				1BC6B1731D3E864500567865 /* AchievementsViewController.swift */,
+				1BB3E2921D47D66E00820DDB /* Achievements */,
 				1BAE02EB1D3FF6F8009C2BC7 /* Progress */,
 			);
 			name = Controller;
@@ -234,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BC6B1741D3E864500567865 /* AchievementsViewController.swift in Sources */,
+				1BB3E2941D47D6CF00820DDB /* AchievementsCell.swift in Sources */,
 				1BAE02EA1D3FF6EC009C2BC7 /* ProgressCell.swift in Sources */,
 				D1F0A3611D400A5E002C83A8 /* MoneyAchievement.swift in Sources */,
 				1BAE02EF1D42AF95009C2BC7 /* ContractViewController.swift in Sources */,
