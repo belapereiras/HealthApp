@@ -610,7 +610,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dh4-bb-0aP" userLabel="shareContract">
-                                <rect key="frame" x="241" y="396" width="117" height="30"/>
+                                <rect key="frame" x="261" y="396" width="78" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jx4-RD-WOg">
                                         <rect key="frame" x="0.0" y="0.0" width="39" height="30"/>
@@ -624,13 +624,6 @@
                                         <state key="normal" backgroundImage="twitterButton"/>
                                         <connections>
                                             <action selector="TwitterAction:" destination="o2y-bv-QbG" eventType="touchUpInside" id="wjX-Jh-l8C"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgT-1s-4ub">
-                                        <rect key="frame" x="78" y="0.0" width="39" height="30"/>
-                                        <state key="normal" backgroundImage="mailButton"/>
-                                        <connections>
-                                            <action selector="MailAction:" destination="o2y-bv-QbG" eventType="touchUpInside" id="W8b-YY-1tt"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -689,7 +682,6 @@
                     <connections>
                         <outlet property="cigarettesPerPack" destination="bTp-zW-RiO" id="MGK-Bn-LiU"/>
                         <outlet property="facebookButton" destination="jx4-RD-WOg" id="HPD-ox-Jhd"/>
-                        <outlet property="mailButton" destination="WgT-1s-4ub" id="gBB-ww-btZ"/>
                         <outlet property="nbrPerDay" destination="SRH-Z7-NOY" id="qNI-CA-LaF"/>
                         <outlet property="pricePerPack" destination="DBj-jS-fX6" id="wEX-JZ-IJH"/>
                         <outlet property="smokerName" destination="d4a-Wd-GON" id="fSF-iu-OYQ"/>
@@ -882,7 +874,7 @@
         <!--Available Stickers View Controller-->
         <scene sceneID="bbT-d2-2w2">
             <objects>
-                <viewController id="dfX-1U-hUz" customClass="AvailableStickersViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AvailableStickers" id="dfX-1U-hUz" customClass="AvailableStickersViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KMd-n1-egt"/>
                         <viewControllerLayoutGuide type="bottom" id="MLY-Sa-3rZ"/>
@@ -1073,7 +1065,6 @@
         <image name="StickerIcon" width="28" height="30"/>
         <image name="check" width="26" height="26"/>
         <image name="facebookButton" width="39" height="30"/>
-        <image name="mailButton" width="39" height="30"/>
         <image name="twitterButton" width="39" height="30"/>
     </resources>
 </document>
