@@ -19,6 +19,8 @@
             <string>Lato-Semibold</string>
             <string>Lato-Semibold</string>
             <string>Lato-Semibold</string>
+            <string>Lato-Semibold</string>
+            <string>Lato-Semibold</string>
         </mutableArray>
         <mutableArray key="SF-UI-Display-Light.otf">
             <string>SFUIDisplay-Light</string>
@@ -875,6 +877,103 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rtw-Ze-lcH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="816" y="486"/>
+        </scene>
+        <!--Available Stickers View Controller-->
+        <scene sceneID="bbT-d2-2w2">
+            <objects>
+                <viewController id="dfX-1U-hUz" customClass="AvailableStickersViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KMd-n1-egt"/>
+                        <viewControllerLayoutGuide type="bottom" id="MLY-Sa-3rZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DtQ-b2-WG7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSH-rQ-FJj">
+                                <rect key="frame" x="20" y="20" width="79" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="GVA-Co-FOc"/>
+                                    <constraint firstAttribute="width" constant="79" id="gxu-2b-KAA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="15"/>
+                                <state key="normal" title="Cancelar">
+                                    <color key="titleColor" red="0.99215686274509807" green="0.49803921568627452" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y8o-KK-aoC">
+                                <rect key="frame" x="25" y="65" width="550" height="335"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hEx-T7-M9G" userLabel="AvailableStickersCollectionView">
+                                <rect key="frame" x="0.0" y="451" width="600" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="SJo-lG-oAM"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WqX-ft-y8c">
+                                    <size key="itemSize" width="120" height="120"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell3" id="qPm-Bm-Coz" customClass="AvailableStickersCell" customModule="DoNotSmokeApp" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="0.0" width="120" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4ig-qg-3O7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="4ig-qg-3O7" firstAttribute="height" secondItem="qPm-Bm-Coz" secondAttribute="height" id="7hQ-wY-PH7"/>
+                                            <constraint firstItem="4ig-qg-3O7" firstAttribute="centerY" secondItem="qPm-Bm-Coz" secondAttribute="centerY" id="NhI-ii-tIG"/>
+                                            <constraint firstItem="4ig-qg-3O7" firstAttribute="width" secondItem="qPm-Bm-Coz" secondAttribute="width" id="kpQ-vz-5yM"/>
+                                            <constraint firstItem="4ig-qg-3O7" firstAttribute="centerX" secondItem="qPm-Bm-Coz" secondAttribute="centerX" id="sHI-wx-hMV"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="dfX-1U-hUz" id="POS-ML-21n"/>
+                                    <outlet property="delegate" destination="dfX-1U-hUz" id="exZ-rd-1Tm"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeJ-EF-KMl">
+                                <rect key="frame" x="25" y="410" width="116" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="K3f-Jx-CvI"/>
+                                    <constraint firstAttribute="width" constant="116" id="wWV-nm-fka"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="15"/>
+                                <state key="normal" title="Tirar outra foto">
+                                    <color key="titleColor" red="0.99215686270000003" green="0.49803921569999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KeJ-EF-KMl" firstAttribute="top" secondItem="y8o-KK-aoC" secondAttribute="bottom" constant="10" id="1hf-bn-Mwv"/>
+                            <constraint firstItem="hEx-T7-M9G" firstAttribute="centerX" secondItem="DtQ-b2-WG7" secondAttribute="centerX" id="2cr-O8-W10"/>
+                            <constraint firstItem="hEx-T7-M9G" firstAttribute="top" secondItem="KeJ-EF-KMl" secondAttribute="bottom" constant="8" id="AuY-Yx-tzk"/>
+                            <constraint firstItem="y8o-KK-aoC" firstAttribute="top" secondItem="DtQ-b2-WG7" secondAttribute="topMargin" constant="65" id="Cbr-XY-Ers"/>
+                            <constraint firstItem="hEx-T7-M9G" firstAttribute="width" secondItem="DtQ-b2-WG7" secondAttribute="width" id="KCt-RW-sh8"/>
+                            <constraint firstItem="KeJ-EF-KMl" firstAttribute="leading" secondItem="DtQ-b2-WG7" secondAttribute="leadingMargin" constant="5" id="Pdx-v1-U0k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="y8o-KK-aoC" secondAttribute="trailing" constant="5" id="Q9V-ro-lNn"/>
+                            <constraint firstItem="y8o-KK-aoC" firstAttribute="leading" secondItem="DtQ-b2-WG7" secondAttribute="leadingMargin" constant="5" id="dOW-0b-zPG"/>
+                            <constraint firstItem="y8o-KK-aoC" firstAttribute="centerX" secondItem="DtQ-b2-WG7" secondAttribute="centerX" id="deE-Q4-ttn"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="y8o-KK-aoC" secondAttribute="bottom" constant="200" id="dle-WN-tz2"/>
+                            <constraint firstItem="aSH-rQ-FJj" firstAttribute="top" secondItem="KMd-n1-egt" secondAttribute="bottom" id="eiS-MR-lnU"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="aSH-rQ-FJj" secondAttribute="leading" id="g2d-gy-HBg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="weN-ga-CoS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="816" y="1155"/>
         </scene>
     </scenes>
     <resources>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AchievementsViewController: UIViewController {
+class AchievementsViewController: UIViewController, UIImagePickerControllerDelegate {
     
     @IBOutlet var cameraButton: UIButton!
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -71,6 +71,7 @@ class AchievementsViewController: UIViewController {
     }
     
     @IBAction func openCamera(sender: AnyObject) {
+        
     }
     
 }
