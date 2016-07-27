@@ -901,6 +901,9 @@
                                 <state key="normal" title="Cancelar">
                                     <color key="titleColor" red="0.99215686274509807" green="0.49803921568627452" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelStickersCollage:" destination="dfX-1U-hUz" eventType="touchUpInside" id="hqJ-Il-Ps7"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y8o-KK-aoC">
                                 <rect key="frame" x="25" y="65" width="550" height="335"/>
@@ -915,6 +918,9 @@
                                 <state key="normal" title="Tirar outra foto">
                                     <color key="titleColor" red="0.99215686270000003" green="0.49803921569999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="openCameraAgain:" destination="dfX-1U-hUz" eventType="touchUpInside" id="rVP-bA-zLQ"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hEx-T7-M9G" userLabel="AvailableStickersCollectionView">
                                 <rect key="frame" x="0.0" y="443" width="600" height="128"/>
@@ -976,6 +982,7 @@
                     </view>
                     <connections>
                         <outlet property="AvailableStickersCollectionView" destination="hEx-T7-M9G" id="Jfg-0S-Gnh"/>
+                        <outlet property="selfieImageView" destination="y8o-KK-aoC" id="i9P-Lc-JKL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weN-ga-CoS" userLabel="First Responder" sceneMemberID="firstResponder"/>

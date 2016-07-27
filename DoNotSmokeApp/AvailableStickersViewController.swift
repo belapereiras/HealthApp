@@ -12,6 +12,8 @@ class AvailableStickersViewController: UIViewController {
 
     @IBOutlet var AvailableStickersCollectionView: UICollectionView!
     
+    @IBOutlet var selfieImageView: UIImageView!
+    
     var AvailableStickers = [UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "DinnerForTwo"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"), UIImage(named: "TeamTee"), UIImage(named: "Netflix"), UIImage(named: "Perfume")]
 
 // MARK: COLLECTION VIEW
@@ -37,20 +39,9 @@ class AvailableStickersViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func openCameraAgain(sender: AnyObject) {
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func cancelStickersCollage(sender: AnyObject) {
     }
-    */
-
 }
