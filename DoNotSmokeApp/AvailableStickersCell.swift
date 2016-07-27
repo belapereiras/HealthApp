@@ -10,4 +10,5 @@ import UIKit
 
 class AvailableStickersCell: UICollectionViewCell {
     
+    @IBOutlet var cellImage: UIImageView!
 }
