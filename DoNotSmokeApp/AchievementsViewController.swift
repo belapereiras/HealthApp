@@ -70,5 +70,7 @@ class AchievementsViewController: UIViewController {
         
     }
     
+    @IBAction func openCamera(sender: AnyObject) {
+    }
     
 }
