@@ -726,17 +726,6 @@
                                 <color key="textColor" red="0.99215686274509807" green="0.49803921568627452" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Clt-QM-igy">
-                                <rect key="frame" x="237" y="100" width="127" height="29"/>
-                                <segments>
-                                    <segment title="Stickers"/>
-                                    <segment title="Selfies"/>
-                                </segments>
-                                <color key="tintColor" red="0.39607843139999999" green="0.68627450980000004" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="changeView:" destination="6LL-a7-2og" eventType="valueChanged" id="RnN-Nj-GmI"/>
-                                </connections>
-                            </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4F7-Z2-bh0" userLabel="StickersView">
                                 <rect key="frame" x="0.0" y="150" width="600" height="401"/>
                                 <subviews>
@@ -835,6 +824,17 @@
                                     <constraint firstItem="AsA-Cd-bsa" firstAttribute="width" secondItem="2Et-2W-pGl" secondAttribute="width" id="hWR-gE-Udg"/>
                                 </constraints>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Clt-QM-igy">
+                                <rect key="frame" x="237" y="100" width="127" height="29"/>
+                                <segments>
+                                    <segment title="Stickers"/>
+                                    <segment title="Selfies"/>
+                                </segments>
+                                <color key="tintColor" red="0.39607843139999999" green="0.68627450980000004" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="changeView:" destination="6LL-a7-2og" eventType="valueChanged" id="RnN-Nj-GmI"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

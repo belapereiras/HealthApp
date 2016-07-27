@@ -52,6 +52,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        selfiesView.hidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,8 +72,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         default:
             break;
         }
-    
-        
+
     }
     
     @IBAction func openCamera(sender: AnyObject) {
