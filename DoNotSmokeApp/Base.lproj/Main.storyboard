@@ -872,7 +872,7 @@
                         <outlet property="selfiesView" destination="2Et-2W-pGl" id="rux-Z2-UoE"/>
                         <outlet property="stickersCollectionView" destination="GBU-Nj-Lpk" id="hYf-F6-0Sr"/>
                         <outlet property="stickersView" destination="4F7-Z2-bh0" id="QDc-gG-9vW"/>
-                        <segue destination="dfX-1U-hUz" kind="showDetail" identifier="AchievementToAvailable" id="Gog-x6-Wyd"/>
+                        <segue destination="dfX-1U-hUz" kind="presentation" identifier="AchievementToAvailable" id="Gog-x6-Wyd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rtw-Ze-lcH" userLabel="First Responder" sceneMemberID="firstResponder"/>
