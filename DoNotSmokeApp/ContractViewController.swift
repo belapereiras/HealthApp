@@ -17,11 +17,9 @@ class ContractViewController: UIViewController {
     @IBOutlet var nbrPerDay: UITextField!
     @IBOutlet var pricePerPack: UITextField!
     @IBOutlet var cigarettesPerPack: UITextField!
-    @IBOutlet var helper1Mail: UITextField!
-    @IBOutlet var helper2Mail: UITextField!
     @IBOutlet var facebookButton: UIButton!
     @IBOutlet var twitterButton: UIButton!
-    @IBOutlet var mailButton: UIButton!
+   
     
     
     override func viewDidLoad() {

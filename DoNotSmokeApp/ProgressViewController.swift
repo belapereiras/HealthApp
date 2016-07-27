@@ -138,16 +138,14 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         dispatch_source_set_timer(timer2, DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC, 0)
         dispatch_source_set_event_handler(timer2) {
             //if self.user?.dateManager.timeSinceQuitDayInDays((self.user?.quitDay)!) > 1 {
-                guard let savings = self.user?.moneySavings() else { return }
-            var savingString: String
-                if savings < 0.0001 {
-                    savingString = "0.00"
-                } else {
-                     savingString = self.trimNumbers(savings)
-                }
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.savedMoney.text = String(savingString)
-                })
+            guard let savings = self.user?.moneySavings() else { return }
+            var savingString: String = self.trimNumbers(savings)
+            if savings < 0.0001 {
+                savingString = "0.00"
+            }
+            dispatch_async(dispatch_get_main_queue(), {
+                self.savedMoney.text = String(savingString)
+            })
             //}
         }
         dispatch_resume(timer2)
@@ -158,9 +156,10 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         print(numberString)
         let trimmedNumber: String
         if number >= 1000 {
-            trimmedNumber = numberString.substringWithRange(numberString.startIndex..<numberString.startIndex.advancedBy(6))
+            trimmedNumber = numberString.substringWithRange(numberString.startIndex..<numberString.startIndex.advancedBy(6, limit: numberString.endIndex))
         } else {
-            trimmedNumber = numberString.substringWithRange(numberString.startIndex..<numberString.startIndex.advancedBy(4))
+            
+            trimmedNumber = numberString.substringWithRange(numberString.startIndex..<numberString.startIndex.advancedBy(4, limit: numberString.endIndex))
         }
         return trimmedNumber
     }
@@ -252,6 +251,12 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
                 self.popUpTitle.hidden = true
                 self.popUpText.hidden = true
         })
+    }
+    
+    @IBAction func goToSelfieView(sender: AnyObject) {
+        
+        
+        
     }
     
     @IBAction func longPressCell(sender: AnyObject) {

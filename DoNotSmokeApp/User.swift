@@ -70,7 +70,9 @@ class User {
         let daysWithoutSmoking = dateManager.timeSinceQuitDayInDays(quitDay)
         let numberOfPacksSmokedPerDay = cigarettesPerDay / cigarettesPerPack
         let savings = Double(numberOfPacksSmokedPerDay) * daysWithoutSmoking
-        
+//        print("daysWithoutSmoking: \(daysWithoutSmoking)")
+//        print("Savings: \(savings)")
+//        print("numberOfPacksSmokedPerDay: \(numberOfPacksSmokedPerDay)")
         return savings
     }
 
