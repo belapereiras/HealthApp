@@ -956,54 +956,54 @@
                                     <outlet property="delegate" destination="dfX-1U-hUz" id="exZ-rd-1Tm"/>
                                 </connections>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3JN-3p-m3I">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3JN-3p-m3I">
                                 <rect key="frame" x="420" y="413" width="150" height="29"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F61-5R-T5g">
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F61-5R-T5g">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="Nch-j6-RsU"/>
                                             <constraint firstAttribute="width" constant="30" id="PRd-2P-lJS"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="Rolo"/>
+                                        <state key="normal" backgroundImage="saveToCameraRoll"/>
                                         <connections>
                                             <action selector="saveToCameraRoll:" destination="dfX-1U-hUz" eventType="touchUpInside" id="8RN-Dc-Jm5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mls-oj-1nA">
-                                        <rect key="frame" x="30" y="0.0" width="30" height="29"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mls-oj-1nA">
+                                        <rect key="frame" x="40" y="0.0" width="30" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="C9g-oC-6Vc"/>
                                             <constraint firstAttribute="height" constant="29" id="LDe-Ek-8t8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="Mail"/>
+                                        <state key="normal" backgroundImage="sendEmail"/>
                                         <connections>
                                             <action selector="mailShare:" destination="dfX-1U-hUz" eventType="touchUpInside" id="m6b-Ep-8uw"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsb-AG-w8t">
-                                        <rect key="frame" x="60" y="0.0" width="50" height="29"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsb-AG-w8t">
+                                        <rect key="frame" x="80" y="0.0" width="30" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="9zj-3y-Iqg"/>
-                                            <constraint firstAttribute="width" constant="50" id="R5P-zh-amZ"/>
+                                            <constraint firstAttribute="width" constant="30" id="R5P-zh-amZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="Twitter"/>
+                                        <state key="normal" backgroundImage="sendTwitter"/>
                                         <connections>
                                             <action selector="twitterShare:" destination="dfX-1U-hUz" eventType="touchUpInside" id="kgn-IN-aXt"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVc-dQ-1si">
-                                        <rect key="frame" x="110" y="0.0" width="40" height="29"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVc-dQ-1si">
+                                        <rect key="frame" x="120" y="0.0" width="30" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="6RM-F6-39Y"/>
                                             <constraint firstAttribute="height" constant="29" id="EGb-kn-4Mr"/>
-                                            <constraint firstAttribute="width" constant="40" id="Lfl-CH-AAH"/>
+                                            <constraint firstAttribute="width" constant="30" id="Lfl-CH-AAH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="Face"/>
+                                        <state key="normal" backgroundImage="sendFacebook"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="6RM-F6-39Y"/>
@@ -1048,6 +1048,7 @@
                     </view>
                     <connections>
                         <outlet property="AvailableStickersCollectionView" destination="hEx-T7-M9G" id="Jfg-0S-Gnh"/>
+                        <outlet property="selfieImageView" destination="NgM-8G-x3U" id="t2b-Jy-2BI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weN-ga-CoS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1062,6 +1063,10 @@
         <image name="StickerIcon" width="28" height="30"/>
         <image name="check" width="26" height="26"/>
         <image name="facebookButton" width="39" height="30"/>
+        <image name="saveToCameraRoll" width="31" height="31"/>
+        <image name="sendEmail" width="32" height="31"/>
+        <image name="sendFacebook" width="31" height="31"/>
+        <image name="sendTwitter" width="32" height="31"/>
         <image name="twitterButton" width="39" height="30"/>
     </resources>
 </document>
