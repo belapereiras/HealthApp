@@ -9,6 +9,8 @@
 import UIKit
 
 class AvailableStickersViewController: UIViewController {
+    
+    var selfieImage: UIImage?
 
     @IBOutlet var AvailableStickersCollectionView: UICollectionView!
     
@@ -36,8 +38,24 @@ class AvailableStickersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadSelfieToImageView()
+        
+
         // Do any additional setup after loading the view.
     }
+    
+    func loadSelfieToImageView() {
+        print ("LOADING IMAGE TO IMAGE VIEW")
+        let vc = AchievementsViewController()
+        selfieImage = vc.selfieImageReceiver
+        selfieImageView.image = selfieImage
+        if selfieImageView.image == nil {
+            print ("TA NIL")
+        } else {
+            print ("NAO TA NIL")
+        }
+    }
+
 
     @IBAction func openCameraAgain(sender: AnyObject) {
     }

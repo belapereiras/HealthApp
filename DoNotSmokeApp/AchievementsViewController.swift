@@ -23,7 +23,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet var selfiesCollectionView: UICollectionView!
     
     var selfieImageReceiver = UIImage()
-    var botaoImagem:UIImageView = UIImageView()
+
     
 // MARK: ARRAYS
     
@@ -71,13 +71,10 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         default:
             break;
         }
-    
-        
     }
     
     @IBAction func openCamera(sender: AnyObject) {
         
-
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
             
             let selfiePicker = UIImagePickerController()
@@ -87,9 +84,28 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
             
             self.presentViewController(selfiePicker, animated: true, completion: nil)
         }
-        
-        
 
     }
     
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        
+//        print (">>>>>>>>SEGUE<<<<<<<<<<")
+//        
+//        if segue.identifier == "AchievementToAvailable" {
+//            let addStickerViewController = segue.destinationViewController as! AvailableStickersViewController
+//            addStickerViewController.selfieImage = selfieImageReceiver
+//        }
+//    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        
+        print(">>>>>>>>>>>ENTROU<<<<<<<<<<<<<")
+        
+        selfieImageReceiver = image
+        self.dismissViewControllerAnimated(true, completion: nil)
+
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+  
 }
