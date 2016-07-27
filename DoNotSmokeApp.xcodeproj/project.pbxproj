@@ -198,7 +198,7 @@
 				TargetAttributes = {
 					1BC6B1531D3D5AB200567865 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 56YN57ZN7X;
+						DevelopmentTeam = 7S5BW22U4Y;
 					};
 				};
 			};
@@ -374,7 +374,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DoNotSmokeApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bela.DoNotSmokeApp;
+				PRODUCT_BUNDLE_IDENTIFIER = StickWithMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -388,7 +388,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DoNotSmokeApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bela.DoNotSmokeApp;
+				PRODUCT_BUNDLE_IDENTIFIER = StickWithMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

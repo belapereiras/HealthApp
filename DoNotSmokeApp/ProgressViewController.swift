@@ -209,10 +209,28 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
 //        
 //    }
     
+    func notificate() {
+        
+        let benefits = healthAchievement.healthBenefit
+        for benefit in benefits {
+            let notification:UILocalNotification = UILocalNotification()
+            let timeinterval = (user?.quitDay)! + benefit.completionTime!
+            let date = NSDate(timeIntervalSinceReferenceDate: timeinterval)
+            print("**** DATA \(date) ****")
+            notification.alertAction = "Ver"
+            notification.alertBody = String(date)
+            notification.fireDate = date
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+            
+        }
+        
+    }
+    
     override func viewDidLoad() {
         updateNotSmokingTimeLabel()
         updateMoneySavingsLabel()
         updateCigarettesNotSmokedLabel()
+        notificate()
         popUp.layer.cornerRadius = 20
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(ProgressViewController.handleTap(_:)))

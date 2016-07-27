@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil))
+        
         // Override point for customization after application launch.
         guard let plist = Plist(name: "UserPropertyList") else { return true }
         guard let userDic = plist.getValuesInPlistFile() else { return true }
