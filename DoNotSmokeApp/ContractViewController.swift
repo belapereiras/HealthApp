@@ -61,6 +61,17 @@ class ContractViewController: UIViewController {
 
     }
     
+    
+    @IBAction func TwitterAction(sender: AnyObject) {
+    }
+    
+    
+    @IBAction func MailAction(sender: AnyObject) {
+    }
+    
+    
+    
+    
     override func viewWillAppear(animated: Bool) {
     }
 }
