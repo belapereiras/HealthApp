@@ -22,7 +22,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet var selfiesView: UIView!
     @IBOutlet var selfiesCollectionView: UICollectionView!
     
-    var selfieImageReceiver = UIImage()
+    //var selfieImageReceiver = UIImage()
 
     
 // MARK: ARRAYS
@@ -104,10 +104,15 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         
         print(">>>>>>>>>>>ENTROU<<<<<<<<<<<<<")
         
-        selfieImageReceiver = pickedImage
-        self.dismissViewControllerAnimated(true, completion: nil)
+        //selfieImageReceiver = pickedImage
+        //self.dismissViewControllerAnimated(true, completion: nil)
 
         let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
+        print("VIEW CONTROLLER \(vc)")
+        print("IMAGE \(pickedImage)")
+        vc.selfieImage = pickedImage
+        self.dismissViewControllerAnimated(true, completion: nil)
+
         self.presentViewController(vc, animated: true, completion: nil)
         }
     }

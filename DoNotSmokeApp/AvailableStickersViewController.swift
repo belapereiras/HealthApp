@@ -38,24 +38,27 @@ class AvailableStickersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadSelfieToImageView()
+        //loadSelfieToImageView()
+        guard let image = selfieImage else { return }
+        selfieImageView.image = image
+        
         
 
         // Do any additional setup after loading the view.
     }
-    
-    func loadSelfieToImageView() {
-        print ("LOADING IMAGE TO IMAGE VIEW")
-        let vc = AchievementsViewController()
-        selfieImage = vc.selfieImageReceiver
-        selfieImageView.image = selfieImage
-        selfieImageView.contentMode = .ScaleAspectFit
-        if selfieImageView.image == nil {
-            print ("TA NIL")
-        } else {
-            print ("NAO TA NIL")
-        }
-    }
+//    
+//    func loadSelfieToImageView() {
+//        print ("LOADING IMAGE TO IMAGE VIEW")
+//        let vc = AchievementsViewController()
+//        selfieImage = vc.selfieImageReceiver
+//        selfieImageView.image = selfieImage
+//        selfieImageView.contentMode = .ScaleAspectFit
+//        if selfieImageView.image == nil {
+//            print ("TA NIL")
+//        } else {
+//            print ("NAO TA NIL")
+//        }
+//    }
 
 
     @IBAction func openCameraAgain(sender: AnyObject) {
