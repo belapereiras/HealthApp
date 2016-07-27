@@ -99,15 +99,17 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 //        }
 //    }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
         
         print(">>>>>>>>>>>ENTROU<<<<<<<<<<<<<")
         
-        selfieImageReceiver = image
+        selfieImageReceiver = pickedImage
         self.dismissViewControllerAnimated(true, completion: nil)
 
         let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
         self.presentViewController(vc, animated: true, completion: nil)
+        }
     }
   
 }

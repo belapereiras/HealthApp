@@ -49,6 +49,7 @@ class AvailableStickersViewController: UIViewController {
         let vc = AchievementsViewController()
         selfieImage = vc.selfieImageReceiver
         selfieImageView.image = selfieImage
+        selfieImageView.contentMode = .ScaleAspectFit
         if selfieImageView.image == nil {
             print ("TA NIL")
         } else {
