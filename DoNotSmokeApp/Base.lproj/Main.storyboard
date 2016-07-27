@@ -900,9 +900,6 @@
                                     <action selector="cancelStickersCollage:" destination="dfX-1U-hUz" eventType="touchUpInside" id="hqJ-Il-Ps7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y8o-KK-aoC">
-                                <rect key="frame" x="25" y="65" width="550" height="335"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeJ-EF-KMl">
                                 <rect key="frame" x="25" y="410" width="116" height="33"/>
                                 <constraints>
@@ -1026,34 +1023,30 @@
                                     </mask>
                                 </variation>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NgM-8G-x3U">
+                                <rect key="frame" x="25" y="65" width="550" height="335"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="3JN-3p-m3I" secondAttribute="trailing" constant="10" id="1WT-Pn-0yM"/>
-                            <constraint firstItem="KeJ-EF-KMl" firstAttribute="top" secondItem="y8o-KK-aoC" secondAttribute="bottom" constant="10" id="1hf-bn-Mwv"/>
-                            <constraint firstItem="3JN-3p-m3I" firstAttribute="top" secondItem="y8o-KK-aoC" secondAttribute="bottom" constant="13" id="20q-lz-ULt"/>
                             <constraint firstItem="hEx-T7-M9G" firstAttribute="centerX" secondItem="DtQ-b2-WG7" secondAttribute="centerX" id="2cr-O8-W10"/>
-                            <constraint firstItem="3JN-3p-m3I" firstAttribute="trailing" secondItem="y8o-KK-aoC" secondAttribute="trailing" id="3Mm-IZ-TXw"/>
                             <constraint firstItem="hEx-T7-M9G" firstAttribute="top" secondItem="KeJ-EF-KMl" secondAttribute="bottom" id="AuY-Yx-tzk"/>
-                            <constraint firstItem="y8o-KK-aoC" firstAttribute="top" secondItem="DtQ-b2-WG7" secondAttribute="topMargin" constant="65" id="Cbr-XY-Ers"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="NgM-8G-x3U" secondAttribute="bottom" constant="200" id="CEy-QR-nHx"/>
+                            <constraint firstItem="NgM-8G-x3U" firstAttribute="centerX" secondItem="DtQ-b2-WG7" secondAttribute="centerX" id="FMq-IO-94j"/>
                             <constraint firstItem="hEx-T7-M9G" firstAttribute="width" secondItem="DtQ-b2-WG7" secondAttribute="width" id="KCt-RW-sh8"/>
+                            <constraint firstItem="KeJ-EF-KMl" firstAttribute="top" secondItem="NgM-8G-x3U" secondAttribute="bottom" constant="10" id="PZD-C9-l67"/>
                             <constraint firstItem="KeJ-EF-KMl" firstAttribute="leading" secondItem="DtQ-b2-WG7" secondAttribute="leadingMargin" constant="5" id="Pdx-v1-U0k"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="y8o-KK-aoC" secondAttribute="trailing" constant="5" id="Q9V-ro-lNn"/>
-                            <constraint firstItem="y8o-KK-aoC" firstAttribute="leading" secondItem="DtQ-b2-WG7" secondAttribute="leadingMargin" constant="5" id="dOW-0b-zPG"/>
-                            <constraint firstItem="y8o-KK-aoC" firstAttribute="centerX" secondItem="DtQ-b2-WG7" secondAttribute="centerX" id="deE-Q4-ttn"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="y8o-KK-aoC" secondAttribute="bottom" constant="200" id="dle-WN-tz2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NgM-8G-x3U" secondAttribute="trailing" constant="5" id="XJJ-9E-wne"/>
+                            <constraint firstItem="NgM-8G-x3U" firstAttribute="leading" secondItem="DtQ-b2-WG7" secondAttribute="leadingMargin" constant="5" id="aZx-aL-ODb"/>
+                            <constraint firstItem="3JN-3p-m3I" firstAttribute="top" secondItem="NgM-8G-x3U" secondAttribute="bottom" constant="13" id="cX2-o0-IHw"/>
                             <constraint firstItem="aSH-rQ-FJj" firstAttribute="top" secondItem="KMd-n1-egt" secondAttribute="bottom" id="eiS-MR-lnU"/>
                             <constraint firstAttribute="leadingMargin" secondItem="aSH-rQ-FJj" secondAttribute="leading" id="g2d-gy-HBg"/>
+                            <constraint firstItem="NgM-8G-x3U" firstAttribute="top" secondItem="DtQ-b2-WG7" secondAttribute="topMargin" constant="65" id="vsf-go-sAW"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="3Mm-IZ-TXw"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="AvailableStickersCollectionView" destination="hEx-T7-M9G" id="Jfg-0S-Gnh"/>
-                        <outlet property="selfieImageView" destination="y8o-KK-aoC" id="i9P-Lc-JKL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weN-ga-CoS" userLabel="First Responder" sceneMemberID="firstResponder"/>
