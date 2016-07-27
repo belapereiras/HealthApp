@@ -79,4 +79,8 @@ class AvailableStickersViewController: UIViewController {
     
     @IBAction func facebookShare(sender: AnyObject) {
     }
+    
+    @IBAction func tapGestureHandler(sender: AnyObject) {
+    }
+    
 }

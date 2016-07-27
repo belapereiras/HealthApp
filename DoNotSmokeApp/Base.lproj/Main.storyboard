@@ -1026,6 +1026,10 @@
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NgM-8G-x3U">
                                 <rect key="frame" x="25" y="65" width="550" height="335"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="tNJ-1l-Osu" appends="YES" id="Cfg-f2-Ehm"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1052,6 +1056,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weN-ga-CoS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="tNJ-1l-Osu">
+                    <connections>
+                        <action selector="tapGestureHandler:" destination="dfX-1U-hUz" id="EGX-1D-8BW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="816" y="1155"/>
         </scene>
