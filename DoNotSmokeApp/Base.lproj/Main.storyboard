@@ -957,7 +957,7 @@
                                 </connections>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3JN-3p-m3I">
-                                <rect key="frame" x="420" y="413" width="150" height="29"/>
+                                <rect key="frame" x="460" y="413" width="110" height="29"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F61-5R-T5g">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="29"/>
@@ -971,20 +971,8 @@
                                             <action selector="saveToCameraRoll:" destination="dfX-1U-hUz" eventType="touchUpInside" id="8RN-Dc-Jm5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mls-oj-1nA">
-                                        <rect key="frame" x="40" y="0.0" width="30" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="C9g-oC-6Vc"/>
-                                            <constraint firstAttribute="height" constant="29" id="LDe-Ek-8t8"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" backgroundImage="sendEmail"/>
-                                        <connections>
-                                            <action selector="mailShare:" destination="dfX-1U-hUz" eventType="touchUpInside" id="m6b-Ep-8uw"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsb-AG-w8t">
-                                        <rect key="frame" x="80" y="0.0" width="30" height="29"/>
+                                        <rect key="frame" x="40" y="0.0" width="30" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="29" id="9zj-3y-Iqg"/>
                                             <constraint firstAttribute="width" constant="30" id="R5P-zh-amZ"/>
@@ -996,7 +984,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVc-dQ-1si">
-                                        <rect key="frame" x="120" y="0.0" width="30" height="29"/>
+                                        <rect key="frame" x="80" y="0.0" width="30" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="6RM-F6-39Y"/>
                                             <constraint firstAttribute="height" constant="29" id="EGb-kn-4Mr"/>
@@ -1073,7 +1061,6 @@
         <image name="check" width="26" height="26"/>
         <image name="facebookButton" width="39" height="30"/>
         <image name="saveToCameraRoll" width="31" height="31"/>
-        <image name="sendEmail" width="32" height="31"/>
         <image name="sendFacebook" width="31" height="31"/>
         <image name="sendTwitter" width="32" height="31"/>
         <image name="twitterButton" width="39" height="30"/>
