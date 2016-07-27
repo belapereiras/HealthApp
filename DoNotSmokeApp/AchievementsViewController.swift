@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AchievementsViewController: UIViewController {
+class AchievementsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var cameraButton: UIButton!
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -19,6 +19,8 @@ class AchievementsViewController: UIViewController {
     @IBOutlet var selfiesView: UIView!
     @IBOutlet var selfiesCollectionView: UICollectionView!
     
+    var selfieImageReceiver = UIImage()
+    var botaoImagem:UIImageView = UIImageView()
     
 // MARK: ARRAYS
     
@@ -71,6 +73,18 @@ class AchievementsViewController: UIViewController {
     }
     
     @IBAction func openCamera(sender: AnyObject) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            
+            let selfiePicker = UIImagePickerController()
+            selfiePicker.delegate = self
+            selfiePicker.sourceType = UIImagePickerControllerSourceType.Camera;
+            selfiePicker.allowsEditing = false
+            
+            self.presentViewController(selfiePicker, animated: true, completion: nil)
+        }
+        
+        
     }
     
 }
