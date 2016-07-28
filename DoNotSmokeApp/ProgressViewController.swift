@@ -218,7 +218,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
             let date = NSDate(timeIntervalSinceReferenceDate: timeinterval)
             print("**** DATA \(date) ****")
             notification.alertAction = "Ver"
-            notification.alertBody = String(date)
+            notification.alertBody = "A partir de agora sua frequência cardíaca começará a cair até voltar ao nível normal. Continue assim!"
             notification.fireDate = date
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
             
