@@ -158,7 +158,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     @IBAction func twitterShare(sender: AnyObject) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            twitterSheet.setInitialText("Texto")
+            twitterSheet.setInitialText("Estou há 20 dias sem fumar e já posso comprar um livro com o dinheiro economizado! #StickWithMeApp")
             twitterSheet.addImage(finalImage)
             self.presentViewController(twitterSheet, animated: true, completion: nil)
         } else {
@@ -171,7 +171,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     @IBAction func facebookShare(sender: AnyObject) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
             let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            facebookSheet.setInitialText("Texto")
+            facebookSheet.setInitialText("Estou há 20 dias sem fumar e já posso comprar um livro com o dinheiro economizado! #StickWithMeApp")
             facebookSheet.addImage(finalImage)
             self.presentViewController(facebookSheet, animated: true, completion: nil)
         } else {
