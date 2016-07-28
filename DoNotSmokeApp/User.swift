@@ -17,7 +17,7 @@ class User {
     
     var quitDay: NSTimeInterval
     var name: String
-    var cigarettesPerDay, cigarettesPerPack: Int
+    var cigarettesPerDay, cigarettesPerPack: Double
     var packPrice: Double
     var connections: [Connection] = []
     var healthAchievements: HealthAchievement
@@ -44,8 +44,8 @@ class User {
         let quitDayTimeInterval = Double(userInfo["QuitDay"] as! NSNumber)
         self.quitDay = quitDayTimeInterval
         self.name = String(userInfo["Name"])
-        self.cigarettesPerDay = Int(userInfo["CigarettesSmokedPerDay"] as! NSNumber)
-        self.cigarettesPerPack = Int(userInfo["CigarettesPerPack"] as! NSNumber)
+        self.cigarettesPerDay = Double(userInfo["CigarettesSmokedPerDay"] as! NSNumber)
+        self.cigarettesPerPack = Double(userInfo["CigarettesPerPack"] as! NSNumber)
         self.packPrice = Double(userInfo["PackPrice"] as! NSNumber)
         healthAchievements = HealthAchievement.getHASingleton()
         dateManager = DateManager()
@@ -69,10 +69,11 @@ class User {
         
         let daysWithoutSmoking = dateManager.timeSinceQuitDayInDays(quitDay)
         let numberOfPacksSmokedPerDay = cigarettesPerDay / cigarettesPerPack
-        let savings = Double(numberOfPacksSmokedPerDay) * daysWithoutSmoking
-//        print("daysWithoutSmoking: \(daysWithoutSmoking)")
-//        print("Savings: \(savings)")
-//        print("numberOfPacksSmokedPerDay: \(numberOfPacksSmokedPerDay)")
+        let savings = numberOfPacksSmokedPerDay * daysWithoutSmoking * packPrice
+        print("|||||| cigarettesPerDay: \(cigarettesPerDay)")
+        print("|||||| daysWithoutSmoking: \(daysWithoutSmoking)")
+        print("|||||| Savings: \(savings)")
+        print("|||||| numberOfPacksSmokedPerDay: \(numberOfPacksSmokedPerDay)")
         return savings
     }
 
