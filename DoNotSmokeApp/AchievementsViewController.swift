@@ -10,7 +10,10 @@ import UIKit
 
 
 
-class AchievementsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AchievementsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+
+    var images:[UIImage] = []
+    var titles:[String]!
 
     
     @IBOutlet var cameraButton: UIButton!
@@ -32,48 +35,68 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 // MARK: COLLECTION VIEW
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        if stickersView.hidden == false {
-//        return self.achievementsStickers.count
-//        } else {
-//            let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
-//            return images.count
-//        }
         
+        if collectionView == self.stickersCollectionView {
         return self.achievementsStickers.count
+        } else {
+//            let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
+            return images.count
+        }
+
     }
 
 // MARK: COLLECTION VIEW CELL
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! AchievementsCell
+        if collectionView == self.stickersCollectionView {
         
-        cell.cellImageStickers.image = self.achievementsStickers[indexPath.row]
+        let cellStickers = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! AchievementsCell
         
-        return cell
+        cellStickers.cellImageStickers.image = self.achievementsStickers[indexPath.row]
         
-//        if selfiesView.hidden == false {
-//        
-//        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! AchievementsCell
-//        
-//        cell.cellImageStickers.image = self.achievementsStickers[indexPath.row]
-//        
-//        return cell
-//        } else {
-//            let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
-//            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! AchievementsCell
-//
-//            cell.cellImageSelfies?.image = vc.images[indexPath.row]
-//
-//            return cell
-//        }
+        return cellStickers
+        } else {
+
+            let cellSelfies = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! AchievementsCell
+
+            cellSelfies.cellImageSelfies?.image = images[indexPath.row]
+
+            return cellSelfies
+        }
     }
 
+
+    func refreshTable(){
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
+        
+        do {
+            images.removeAll()
+            titles = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(vc.imagesDirectoryPath)
+            for image in titles {
+                let data = NSFileManager.defaultManager().contentsAtPath(vc.imagesDirectoryPath.stringByAppendingString("/\(image)"))
+                let image = UIImage(data: data!)
+                images.append(image!)
+                print("IMAGES")
+                print(images)
+            }
+//            self.stickersCollectionView.reloadData()
+            self.selfiesCollectionView.reloadData()
+        } catch {
+            print("Error")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        loadImages()
+        selfiesCollectionView.delegate = self
+        stickersCollectionView.delegate = self
+        
+        selfiesCollectionView.dataSource = self
+        stickersCollectionView.dataSource = self
+
+//        refreshTable()
 
         // Do any additional setup after loading the view.
         selfiesView.hidden = true
@@ -90,6 +113,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         case 0:
             selfiesView.hidden = true
             stickersView.hidden = false
+            
         case 1:
             selfiesView.hidden = false
             stickersView.hidden = true

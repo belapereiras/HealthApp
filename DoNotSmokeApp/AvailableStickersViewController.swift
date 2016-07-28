@@ -9,13 +9,16 @@
 import UIKit
 import Social
 
+extension String {
+    func stringByAppendingPathComponent(path: String) -> String {
+        let nsSt = self as NSString
+        return nsSt.stringByAppendingPathComponent(path)
+    }
+}
 
 class AvailableStickersViewController: UIViewController, UICollectionViewDelegate {
     
-
-    let fileManager = NSFileManager.defaultManager()
-    let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
-//    var filePathToWrite = "\(paths)/SaveFile.png"
+    var imagesDirectoryPath:String! = ""
     
     var selfieImage: UIImage?
     var stickerPicked: UIImage?
@@ -51,7 +54,6 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         guard let image = selfieImage else { return }
         selfieImageView.image = image
@@ -59,6 +61,48 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         selfieImageView.contentMode = .ScaleAspectFit
 
     }
+    
+    func createImageFolder() {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        // Get the Document directory path
+        let documentDirectorPath:String = paths[0]
+        // Create a new path for the new images folder
+        imagesDirectoryPath = documentDirectorPath.stringByAppendingString("/ImagePicker")
+        var objcBool:ObjCBool = true
+        let isExist = NSFileManager.defaultManager().fileExistsAtPath(imagesDirectoryPath, isDirectory: &objcBool)
+        // If the folder with the given path doesn't exist already, create it
+        if isExist == false{
+            do{
+                try NSFileManager.defaultManager().createDirectoryAtPath(imagesDirectoryPath, withIntermediateDirectories: true, attributes: nil)
+            }catch{
+                print("Something went wrong while creating a new folder")
+            }
+        }
+    }
+    
+    func saveLocally(){
+        var imagePath = NSDate().description
+        imagePath = imagePath.stringByReplacingOccurrencesOfString(" ", withString: "")
+        imagePath = imagesDirectoryPath.stringByAppendingString("/\(imagePath).png")
+
+        let data = UIImagePNGRepresentation(finalImage!)
+        NSFileManager.defaultManager().createFileAtPath(imagePath, contents: data, attributes: nil)
+        //        dismissViewControllerAnimated(true) { () -> Void in
+        //            self.refreshTable()
+        //        }
+    }
+    
+//    func saveImage(image: UIImage, path: String) -> Bool {
+//        let pngImageData = UIImagePNGRepresentation(image)
+//        let result = pngImageData!.writeToFile(path, atomically: true)
+//        return result
+//    }
+//    
+//    func loadImageFromPath(path: String) -> UIImage? {
+//        let data = NSData(contentsOfFile: path)
+//        let image = UIImage(data: data!)
+//        return image
+//    }
 
 
     @IBAction func openCameraAgain(sender: AnyObject) {
@@ -69,18 +113,17 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         self.performSegueWithIdentifier("cancel", sender: cancelButton)
         self.tabBarController?.selectedIndex = 1
 
-
-//        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AchievementsScene") as! AchievementsViewController
-//        vc.refreshCollection()
-    
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AchievementsScene") as! AchievementsViewController
+//        vc.refreshTable()
 
     }
-    
     
     @IBAction func saveToCameraRoll(sender: AnyObject) {
         
         finalImage = selfieImageView.image
         UIImageWriteToSavedPhotosAlbum(finalImage!, nil, nil, nil)
+        saveLocally()
+
     }
     
     
