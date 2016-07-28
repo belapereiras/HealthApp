@@ -734,17 +734,17 @@
                                 <rect key="frame" x="0.0" y="150" width="600" height="401"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GBU-Nj-Lpk" userLabel="StickersCollectionView">
-                                        <rect key="frame" x="60" y="0.0" width="480" height="401"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="401"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="13x-ND-zfl">
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="30" minimumInteritemSpacing="0.0" id="13x-ND-zfl">
                                             <size key="itemSize" width="130" height="130"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="15" minY="10" maxX="0.0" maxY="30"/>
+                                            <inset key="sectionInset" minX="20" minY="10" maxX="20" maxY="30"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="3NH-kZ-Uu6" userLabel="Stickers" customClass="AchievementsCell" customModule="DoNotSmokeApp" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="10" width="130" height="130"/>
+                                                <rect key="frame" x="20" y="10" width="130" height="130"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
@@ -775,7 +775,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="GBU-Nj-Lpk" firstAttribute="width" secondItem="4F7-Z2-bh0" secondAttribute="width" multiplier="0.8:1" id="HAv-ma-ieo"/>
+                                    <constraint firstItem="GBU-Nj-Lpk" firstAttribute="width" secondItem="4F7-Z2-bh0" secondAttribute="width" id="HAv-ma-ieo"/>
                                     <constraint firstItem="GBU-Nj-Lpk" firstAttribute="centerY" secondItem="4F7-Z2-bh0" secondAttribute="centerY" id="RZH-wc-Z8y"/>
                                     <constraint firstItem="GBU-Nj-Lpk" firstAttribute="height" secondItem="4F7-Z2-bh0" secondAttribute="height" id="dfP-Mi-RBZ"/>
                                     <constraint firstItem="GBU-Nj-Lpk" firstAttribute="centerX" secondItem="4F7-Z2-bh0" secondAttribute="centerX" id="gjC-c7-oKJ"/>
@@ -860,7 +860,7 @@
                             <constraint firstItem="Clt-QM-igy" firstAttribute="top" secondItem="x5x-e5-J78" secondAttribute="bottom" constant="80" id="wIP-6B-KkO"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Stickers" image="StickerIcon" id="56t-8S-Z5q"/>
+                    <tabBarItem key="tabBarItem" title="Achievements" image="StickerIcon" id="56t-8S-Z5q"/>
                     <connections>
                         <outlet property="cameraButton" destination="Z14-qR-GgY" id="DXo-Sn-ks2"/>
                         <outlet property="segmentedControl" destination="Clt-QM-igy" id="ZOb-3G-dB9"/>
