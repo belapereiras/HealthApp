@@ -127,10 +127,13 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     @IBAction func cancelStickersCollage(sender: AnyObject) {
 
         self.performSegueWithIdentifier("cancel", sender: cancelButton)
-        self.tabBarController?.selectedIndex = 1
+        self.tabBarController?.selectedIndex = 0
 
-//        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AchievementsScene") as! AchievementsViewController
-//        vc.refresh()
+
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AchievementsScene") as! AchievementsViewController
+//        self.presentViewController(vc, animated: true, completion: nil)
+//        vc.refreshTable()
+
 
     }
     
