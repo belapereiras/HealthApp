@@ -8,20 +8,19 @@
 
 import UIKit
 
-class AvailableStickersViewController: UIViewController {
+class AvailableStickersViewController: UIViewController, UICollectionViewDelegate {
     
     var selfieImage: UIImage?
-
+    var stickerPicked: UIImage?
     @IBOutlet var AvailableStickersCollectionView: UICollectionView!
-    
     @IBOutlet var selfieImageView: UIImageView!
     
-    var AvailableStickers = [UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "DinnerForTwo"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"), UIImage(named: "TeamTee"), UIImage(named: "Netflix"), UIImage(named: "Perfume")]
+    var availableStickers = [UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "DinnerForTwo"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"), UIImage(named: "TeamTee"), UIImage(named: "Netflix"), UIImage(named: "Perfume")]
 
 // MARK: COLLECTION VIEW
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.AvailableStickers.count
+        return self.availableStickers.count
     }
 
 // MARK: COLLECTION VIEW CELL
@@ -30,10 +29,16 @@ class AvailableStickersViewController: UIViewController {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell3", forIndexPath: indexPath) as! AvailableStickersCell
         
-        cell.cellImage.image = self.AvailableStickers[indexPath.row]
+        cell.cellImage.image = self.availableStickers[indexPath.row]
         
         return cell
     }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        stickerPicked = availableStickers[indexPath.row]
+        
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +46,7 @@ class AvailableStickersViewController: UIViewController {
         //loadSelfieToImageView()
         guard let image = selfieImage else { return }
         selfieImageView.image = image
+        selfieImageView.contentMode = .ScaleAspectFit
         
         
 
@@ -82,5 +88,49 @@ class AvailableStickersViewController: UIViewController {
     
     @IBAction func tapGestureHandler(sender: AnyObject) {
     }
+    
+    func mergeStickerAndSelfie(point: CGPoint) -> UIImage? {
+        
+        guard let userImage = selfieImageView.image else {
+            print("ERROR")
+            return nil
+        }
+        guard let stickerImage = stickerPicked else {
+            print("ERROR")
+            return nil
+        }
+        let size = CGSizeMake(userImage.size.width, userImage.size.height)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        let selfieRect = CGRect(origin: CGPointZero, size: size)
+        
+        let stickerSize = CGSizeMake(stickerImage.size.width, stickerImage.size.height)
+        let stickerRect = CGRect(origin: point, size: stickerSize)
+
+        userImage.drawInRect(selfieRect)
+        stickerImage.drawInRect(stickerRect)
+        
+        let mergedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return mergedImage
+    }
+    
+//    func mergeImages (image1: UIImage, image2: UIImage) -> UIImage {
+//        
+//        let size = CGSizeMake(image1.size.width, image1.size.height);
+//        
+//        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+//        
+//        let imageRect = CGRect(origin: CGPointZero, size: size)
+//        
+//        image1.drawInRect(imageRect)
+//        image2.drawInRect(CGRect(x: CGRectGetMidX(imageRect) - (image2.size.width * 4 / 2.0), y: CGRectGetMidY(imageRect) - (image2.size.height * 4 / 2.0), width: image2.size.width * 4, height: image2.size.height * 4))
+//        
+//        let imageToSave = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        
+//        return imageToSave
+//        
+//    }
     
 }
