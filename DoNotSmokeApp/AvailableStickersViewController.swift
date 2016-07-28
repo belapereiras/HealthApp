@@ -159,6 +159,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             twitterSheet.setInitialText("Texto")
+            twitterSheet.addImage(finalImage)
             self.presentViewController(twitterSheet, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -171,6 +172,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
             let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             facebookSheet.setInitialText("Texto")
+            facebookSheet.addImage(finalImage)
             self.presentViewController(facebookSheet, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.Alert)
