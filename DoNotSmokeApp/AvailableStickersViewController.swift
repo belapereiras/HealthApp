@@ -14,6 +14,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     var stickerPicked: UIImage?
     @IBOutlet var AvailableStickersCollectionView: UICollectionView!
     @IBOutlet var selfieImageView: UIImageView!
+    @IBOutlet var cancelButton: UIButton!
     
     var availableStickers = [UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "DinnerForTwo"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"), UIImage(named: "TeamTee"), UIImage(named: "Netflix"), UIImage(named: "Perfume")]
 
@@ -71,6 +72,8 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     }
     
     @IBAction func cancelStickersCollage(sender: AnyObject) {
+        self.performSegueWithIdentifier("cancel", sender: cancelButton)
+        self.tabBarController?.selectedIndex = 1
     }
     
     

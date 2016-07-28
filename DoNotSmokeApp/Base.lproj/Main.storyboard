@@ -899,6 +899,7 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelStickersCollage:" destination="dfX-1U-hUz" eventType="touchUpInside" id="hqJ-Il-Ps7"/>
+                                    <segue destination="cIm-Ry-u1B" kind="show" identifier="cancel" id="fw7-RQ-RED"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeJ-EF-KMl">
@@ -1038,6 +1039,7 @@
                     </view>
                     <connections>
                         <outlet property="AvailableStickersCollectionView" destination="hEx-T7-M9G" id="Jfg-0S-Gnh"/>
+                        <outlet property="cancelButton" destination="aSH-rQ-FJj" id="2mc-YN-fhF"/>
                         <outlet property="selfieImageView" destination="NgM-8G-x3U" id="t2b-Jy-2BI"/>
                     </connections>
                 </viewController>
@@ -1059,6 +1061,7 @@
         <image name="twitterButton" width="39" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="fw7-RQ-RED"/>
         <segue reference="t1d-0t-7Kb"/>
     </inferredMetricsTieBreakers>
 </document>
