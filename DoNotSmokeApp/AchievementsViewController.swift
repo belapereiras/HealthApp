@@ -32,6 +32,13 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 // MARK: COLLECTION VIEW
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        if stickersView.hidden == false {
+//        return self.achievementsStickers.count
+//        } else {
+//            let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
+//            return images.count
+//        }
+        
         return self.achievementsStickers.count
     }
 
@@ -44,12 +51,29 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         cell.cellImageStickers.image = self.achievementsStickers[indexPath.row]
         
         return cell
+        
+//        if selfiesView.hidden == false {
+//        
+//        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! AchievementsCell
+//        
+//        cell.cellImageStickers.image = self.achievementsStickers[indexPath.row]
+//        
+//        return cell
+//        } else {
+//            let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
+//            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! AchievementsCell
+//
+//            cell.cellImageSelfies?.image = vc.images[indexPath.row]
+//
+//            return cell
+//        }
     }
 
-   
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        loadImages()
 
         // Do any additional setup after loading the view.
         selfiesView.hidden = true
@@ -89,15 +113,6 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        
-//        print (">>>>>>>>SEGUE<<<<<<<<<<")
-//        
-//        if segue.identifier == "AchievementToAvailable" {
-//            let addStickerViewController = segue.destinationViewController as! AvailableStickersViewController
-//            addStickerViewController.selfieImage = selfieImageReceiver
-//        }
-//    }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {

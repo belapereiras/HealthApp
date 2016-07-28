@@ -56,7 +56,6 @@ class ContractViewController: UIViewController {
    
     @IBAction func FacebookAction(sender: AnyObject) {
         
-        //performSegueWithIdentifier("contractToController", sender: sender)
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
             let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             facebookSheet.setInitialText("A partir de hoje, sou um ex-fumante! #StickWithMeApp")

@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import Social
+
 
 class AvailableStickersViewController: UIViewController, UICollectionViewDelegate {
     
+
+    let fileManager = NSFileManager.defaultManager()
+    let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+//    var filePathToWrite = "\(paths)/SaveFile.png"
+    
     var selfieImage: UIImage?
     var stickerPicked: UIImage?
+    var finalImage: UIImage?
+
     @IBOutlet var AvailableStickersCollectionView: UICollectionView!
     @IBOutlet var selfieImageView: UIImageView!
     @IBOutlet var cancelButton: UIButton!
@@ -39,52 +48,69 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         stickerPicked = availableStickers[indexPath.row]
         
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
-        //loadSelfieToImageView()
         guard let image = selfieImage else { return }
         selfieImageView.image = image
-        selfieImageView.contentMode = .ScaleAspectFit
-        
-        
 
-        // Do any additional setup after loading the view.
+        selfieImageView.contentMode = .ScaleAspectFit
+
     }
-//    
-//    func loadSelfieToImageView() {
-//        print ("LOADING IMAGE TO IMAGE VIEW")
-//        let vc = AchievementsViewController()
-//        selfieImage = vc.selfieImageReceiver
-//        selfieImageView.image = selfieImage
-//        selfieImageView.contentMode = .ScaleAspectFit
-//        if selfieImageView.image == nil {
-//            print ("TA NIL")
-//        } else {
-//            print ("NAO TA NIL")
-//        }
-//    }
 
 
     @IBAction func openCameraAgain(sender: AnyObject) {
     }
     
     @IBAction func cancelStickersCollage(sender: AnyObject) {
+
         self.performSegueWithIdentifier("cancel", sender: cancelButton)
         self.tabBarController?.selectedIndex = 1
+
+
+//        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AchievementsScene") as! AchievementsViewController
+//        vc.refreshCollection()
+    
+
     }
     
     
     @IBAction func saveToCameraRoll(sender: AnyObject) {
+        
+        finalImage = selfieImageView.image
+        UIImageWriteToSavedPhotosAlbum(finalImage!, nil, nil, nil)
     }
     
     
+    
+    @IBAction func mailShare(sender: AnyObject) {
+    }
+
+    
     @IBAction func twitterShare(sender: AnyObject) {
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
+            let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            twitterSheet.setInitialText("Texto")
+            self.presentViewController(twitterSheet, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func facebookShare(sender: AnyObject) {
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
+            let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            facebookSheet.setInitialText("Texto")
+            self.presentViewController(facebookSheet, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     func mergeStickerAndSelfie(point: CGPoint) -> UIImage? {
