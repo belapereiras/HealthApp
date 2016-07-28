@@ -213,8 +213,6 @@
 					1BC6B1531D3D5AB200567865 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = R3VU9CJ4FV;
-						DevelopmentTeam = 56YN57ZN7X;
-
 					};
 				};
 			};

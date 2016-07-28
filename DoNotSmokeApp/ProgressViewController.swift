@@ -254,9 +254,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     @IBAction func goToSelfieView(sender: AnyObject) {
-        
-        
-        
+        self.tabBarController?.selectedIndex = 1
     }
     
     @IBAction func longPressCell(sender: AnyObject) {

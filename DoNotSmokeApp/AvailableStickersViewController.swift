@@ -77,16 +77,11 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     @IBAction func saveToCameraRoll(sender: AnyObject) {
     }
     
-    @IBAction func mailShare(sender: AnyObject) {
-    }
     
     @IBAction func twitterShare(sender: AnyObject) {
     }
     
     @IBAction func facebookShare(sender: AnyObject) {
-    }
-    
-    @IBAction func tapGestureHandler(sender: AnyObject) {
     }
     
     func mergeStickerAndSelfie(point: CGPoint) -> UIImage? {

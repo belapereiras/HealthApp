@@ -485,6 +485,7 @@
                         <outlet property="popUpTitle" destination="enq-Iy-END" id="YDc-nt-0I4"/>
                         <outlet property="savedMoney" destination="aDf-wD-qa4" id="qdw-Hb-ztp"/>
                         <outlet property="unityOfTimeWithoutSmoking" destination="Zy3-bA-58v" id="iNM-xD-SGa"/>
+                        <segue destination="6LL-a7-2og" kind="show" identifier="ProgressToAchievements" id="t1d-0t-7Kb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D3a-P1-qwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -529,16 +530,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vg0-f5-f3w" userLabel="1stLine">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vg0-f5-f3w" userLabel="1stLine">
                                 <rect key="frame" x="160" y="120" width="281" height="28"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eu," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5os-NO-BQR">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Eu," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5os-NO-BQR">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="28"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d4a-Wd-GON">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d4a-Wd-GON">
                                         <rect key="frame" x="30" y="0.0" width="150" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="VkO-Tg-gWp"/>
@@ -547,7 +548,7 @@
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=", que fumo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVa-3b-32c">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=", que fumo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVa-3b-32c">
                                         <rect key="frame" x="180" y="0.0" width="101" height="28"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="20"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -699,7 +700,7 @@
         <!--AchievementsScene-->
         <scene sceneID="9De-rR-nze">
             <objects>
-                <viewController title="AchievementsScene" id="6LL-a7-2og" customClass="AchievementsViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AchievementsScene" title="AchievementsScene" id="6LL-a7-2og" customClass="AchievementsViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x5x-e5-J78"/>
                         <viewControllerLayoutGuide type="bottom" id="fQH-Ex-ykh"/>
@@ -887,12 +888,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSH-rQ-FJj">
-                                <rect key="frame" x="20" y="20" width="79" height="33"/>
+                                <rect key="frame" x="20" y="20" width="90" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="GVA-Co-FOc"/>
-                                    <constraint firstAttribute="width" constant="79" id="gxu-2b-KAA"/>
+                                    <constraint firstAttribute="width" constant="90" id="gxu-2b-KAA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="20"/>
                                 <state key="normal" title="Cancelar">
                                     <color key="titleColor" red="0.99215686274509807" green="0.49803921568627452" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -901,12 +902,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeJ-EF-KMl">
-                                <rect key="frame" x="25" y="410" width="116" height="33"/>
+                                <rect key="frame" x="25" y="410" width="140" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="K3f-Jx-CvI"/>
-                                    <constraint firstAttribute="width" constant="116" id="wWV-nm-fka"/>
+                                    <constraint firstAttribute="width" constant="140" id="wWV-nm-fka"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="20"/>
                                 <state key="normal" title="Tirar outra foto">
                                     <color key="titleColor" red="0.99215686270000003" green="0.49803921569999998" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -934,7 +935,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4ig-qg-3O7">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4ig-qg-3O7">
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                 </imageView>
                                             </subviews>
@@ -1015,9 +1016,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NgM-8G-x3U">
                                 <rect key="frame" x="25" y="65" width="550" height="335"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="tNJ-1l-Osu" appends="YES" id="Cfg-f2-Ehm"/>
-                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1044,11 +1042,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weN-ga-CoS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="tNJ-1l-Osu">
-                    <connections>
-                        <action selector="tapGestureHandler:" destination="dfX-1U-hUz" id="EGX-1D-8BW"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="816" y="1155"/>
         </scene>
@@ -1065,4 +1058,7 @@
         <image name="sendTwitter" width="32" height="31"/>
         <image name="twitterButton" width="39" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="t1d-0t-7Kb"/>
+    </inferredMetricsTieBreakers>
 </document>
