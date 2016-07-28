@@ -18,7 +18,7 @@ extension String {
 
 public var imagesGamb: [UIImage] = []
 
-class AvailableStickersViewController: UIViewController, UICollectionViewDelegate {
+class AvailableStickersViewController: UIViewController, UICollectionViewDelegate, UIGestureRecognizerDelegate {
     
     var imagesDirectoryPath:String! = ""
     
@@ -27,6 +27,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     var stickerPicked: UIImage?
     var finalImage: UIImage?
 
+    var tapGesture: UITapGestureRecognizer!
     @IBOutlet var AvailableStickersCollectionView: UICollectionView!
     @IBOutlet var selfieImageView: UIImageView!
     @IBOutlet var cancelButton: UIButton!
@@ -60,11 +61,17 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         
         createImageFolder()
 
+
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
+        tapGesture.delegate = self
+        selfieImageView.addGestureRecognizer(tapGesture)
+        //loadSelfieToImageView()
         guard let image = selfieImage else { return }
         selfieImageView.image = image
 
         selfieImageView.contentMode = .ScaleAspectFit
 
+        // Do any additional setup after loading the view.
     }
     
     
@@ -169,8 +176,17 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         }
     }
     
-    func mergeStickerAndSelfie(point: CGPoint) -> UIImage? {
+    func imageTapped(sender: UITapGestureRecognizer) {
+        print("Entrei")
+        let point = sender.locationInView(self.view)
+        if let image = mergeStickerAndSelfie(point) {
+            selfieImageView.image = image
+        }
         
+    }
+    
+    func mergeStickerAndSelfie(point: CGPoint) -> UIImage? {
+    
         guard let userImage = selfieImageView.image else {
             print("ERROR")
             return nil
@@ -179,12 +195,16 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
             print("ERROR")
             return nil
         }
+
         let size = CGSizeMake(userImage.size.width, userImage.size.height)
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         let selfieRect = CGRect(origin: CGPointZero, size: size)
         
-        let stickerSize = CGSizeMake(stickerImage.size.width, stickerImage.size.height)
-        let stickerRect = CGRect(origin: point, size: stickerSize)
+        let stickerSize = CGSizeMake(stickerImage.size.width * 3, stickerImage.size.height * 3)
+        
+        print(point)
+        let point = checkPosition(selfieRect, stickerSize: stickerSize, point: point)
+        let stickerRect = CGRect(x: point.x, y: point.y, width: stickerSize.width, height: stickerSize.height)
 
         userImage.drawInRect(selfieRect)
         stickerImage.drawInRect(stickerRect)
@@ -193,6 +213,18 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         UIGraphicsEndImageContext()
         
         return mergedImage
+    }
+    
+    func checkPosition(selfieRect: CGRect, stickerSize: CGSize, point: CGPoint) -> CGPoint {
+        let xMultiplier = selfieRect.width / stickerSize.width
+        let yMultiplier = selfieRect.height / stickerSize.height
+    
+        let newX = point.x * xMultiplier
+        let newY = point.y * yMultiplier
+        
+        let newPoint = CGPoint(x: newX, y: newY)
+        
+        return newPoint
     }
     
 //    func mergeImages (image1: UIImage, image2: UIImage) -> UIImage {
