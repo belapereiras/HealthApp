@@ -16,9 +16,12 @@ extension String {
     }
 }
 
+public var imagesGamb: [UIImage] = []
+
 class AvailableStickersViewController: UIViewController, UICollectionViewDelegate {
     
     var imagesDirectoryPath:String! = ""
+    
     
     var selfieImage: UIImage?
     var stickerPicked: UIImage?
@@ -54,6 +57,8 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        createImageFolder()
 
         guard let image = selfieImage else { return }
         selfieImageView.image = image
@@ -62,7 +67,10 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
 
     }
     
+    
+    
     func createImageFolder() {
+        print (">>>>>>>>>>>CRIOU<<<<<<<<<<<<<")
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         // Get the Document directory path
         let documentDirectorPath:String = paths[0]
@@ -74,6 +82,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         if isExist == false{
             do{
                 try NSFileManager.defaultManager().createDirectoryAtPath(imagesDirectoryPath, withIntermediateDirectories: true, attributes: nil)
+                print (">>>>>>CRIOU<<<<<<<")
             }catch{
                 print("Something went wrong while creating a new folder")
             }
@@ -113,8 +122,8 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         self.performSegueWithIdentifier("cancel", sender: cancelButton)
         self.tabBarController?.selectedIndex = 1
 
-        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AchievementsScene") as! AchievementsViewController
-//        vc.refreshTable()
+//        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AchievementsScene") as! AchievementsViewController
+//        vc.refresh()
 
     }
     
@@ -123,6 +132,10 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         finalImage = selfieImageView.image
         UIImageWriteToSavedPhotosAlbum(finalImage!, nil, nil, nil)
         saveLocally()
+        
+        let foto = finalImage
+        imagesGamb.append(foto!)
+        
 
     }
     

@@ -40,7 +40,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         return self.achievementsStickers.count
         } else {
 //            let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
-            return images.count
+            return imagesGamb.count
         }
 
     }
@@ -58,12 +58,32 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         return cellStickers
         } else {
 
-            let cellSelfies = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! AchievementsCell
+            let cellSelfies = collectionView.dequeueReusableCellWithReuseIdentifier("cell2", forIndexPath: indexPath) as! AchievementsCell
 
-            cellSelfies.cellImageSelfies?.image = images[indexPath.row]
+            cellSelfies.cellImageSelfies?.image = imagesGamb[indexPath.row]
 
             return cellSelfies
         }
+    }
+    
+    func loadImageFromPath(path: String) -> UIImage? {
+        
+        let image = UIImage(contentsOfFile: path)
+        
+        if image == nil {
+            
+            print("missing image at: \(path)")
+        }
+        print("Loading image from path: \(path)") // this is just for you to see the path in case you want to go to the directory, using Finder.
+        return image
+        
+    }
+    
+    
+    func refresh() {
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
+        let image = loadImageFromPath(vc.imagesDirectoryPath)
+        images.append(image!)
     }
 
 
@@ -71,13 +91,15 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
         
         do {
+            print (">>>>>>>ENTROU NO REFRESH<<<<<<<<<")
             images.removeAll()
+
             titles = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(vc.imagesDirectoryPath)
             for image in titles {
                 let data = NSFileManager.defaultManager().contentsAtPath(vc.imagesDirectoryPath.stringByAppendingString("/\(image)"))
                 let image = UIImage(data: data!)
                 images.append(image!)
-                print("IMAGES")
+                print(">>>>>>>>>>> APPEND NO IMAGES<<<<<<<<<")
                 print(images)
             }
 //            self.stickersCollectionView.reloadData()
@@ -89,6 +111,8 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        selfiesCollectionView.reloadData()
         
         selfiesCollectionView.delegate = self
         stickersCollectionView.delegate = self
@@ -140,8 +164,6 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-        
-        print(">>>>>>>>>>>ENTROU<<<<<<<<<<<<<")
         
         //selfieImageReceiver = pickedImage
         //self.dismissViewControllerAnimated(true, completion: nil)
