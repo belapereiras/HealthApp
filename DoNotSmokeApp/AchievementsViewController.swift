@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class AchievementsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class AchievementsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
 
     var images:[UIImage] = []
     var titles:[String]!
@@ -25,12 +25,19 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet var selfiesView: UIView!
     @IBOutlet var selfiesCollectionView: UICollectionView!
     
+    @IBOutlet var popUpBackground: UIView!
+    @IBOutlet var popUp: UIView!
+    @IBOutlet var popUpImage: UIImageView!
+    @IBOutlet var popUpText: UILabel!
+    
+    
     //var selfieImageReceiver = UIImage()
 
     
 // MARK: ARRAYS
     
     var achievementsStickers = [UIImage(named: "20dias"), UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "DinnerForTwo"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"), UIImage(named: "TeamTee"), UIImage(named: "Netflix"), UIImage(named: "Perfume")]
+    
     
 // MARK: COLLECTION VIEW
     
@@ -65,6 +72,53 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
             return cellSelfies
         }
     }
+    
+// MARK: SELECT COLLECTION VIEW CELL
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
+        
+        popUpImage.image = self.achievementsStickers[indexPath.row]
+        //popUpText.text =
+        
+        self.popUpBackground.hidden = false
+        
+        self.popUp.hidden = false
+        
+        self.popUpImage.hidden = false
+        
+        self.popUpText.hidden = false
+        
+        self.popUpBackground.alpha = 0
+        
+        self.popUp.alpha = 0
+       
+        self.popUpImage.alpha = 0
+        
+        self.popUpText.alpha = 0
+        
+        UIView.animateWithDuration(0.3, delay: 0, options:
+            UIViewAnimationOptions.CurveEaseOut, animations: {
+                
+                self.popUpBackground.alpha = 1.0
+                
+                self.popUp.alpha = 1.0
+                
+                self.popUpImage.alpha = 1.0
+                
+                self.popUpText.alpha = 1.0
+            
+            }, completion: { finished in
+                
+                self.popUpBackground.hidden = false
+                
+                self.popUp.hidden = false
+                
+                self.popUpImage.hidden = false
+                
+                self.popUpText.hidden = false
+        })
+    }
+
     
     func loadImageFromPath(path: String) -> UIImage? {
         
@@ -119,17 +173,45 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         
         selfiesCollectionView.dataSource = self
         stickersCollectionView.dataSource = self
+        
+        popUp.layer.cornerRadius = 20
+        
+        let tapOnBackground = UITapGestureRecognizer(target: self, action: #selector(ProgressViewController.handleTap(_:)))
+        self.popUpBackground.addGestureRecognizer(tapOnBackground)
 
 //        refreshTable()
 
-        // Do any additional setup after loading the view.
         selfiesView.hidden = true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func handleTap (sender: UIGestureRecognizer) {
+        UIView.animateWithDuration(0.3, delay: 0, options:
+            UIViewAnimationOptions.CurveEaseOut, animations: {
+                
+                self.popUpBackground.alpha = 0
+                
+                self.popUp.alpha = 0
+                
+                self.popUpImage.alpha = 0
+                
+                self.popUpText.alpha = 0
+            
+            }, completion: { finished in
+                
+                self.popUpBackground.hidden = true
+                
+                self.popUp.hidden = true
+                
+                self.popUpImage.hidden = true
+                
+                self.popUpText.hidden = true
+        })
     }
+
+    
+    
+    
+    
     
     @IBAction func changeView(sender: UISegmentedControl) {
         

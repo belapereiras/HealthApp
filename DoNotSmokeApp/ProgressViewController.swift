@@ -51,7 +51,8 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         return cell
     }
     
-
+// MARK: SELECT COLLECTION VIEW CELL
+    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
 
         popUpTitle.text = healthAchievement.healthBenefit[indexPath.row].name
