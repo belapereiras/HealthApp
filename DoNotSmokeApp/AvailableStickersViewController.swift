@@ -130,7 +130,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         self.tabBarController?.selectedIndex = 0
 
 
-        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AchievementsScene") as! AchievementsViewController
+        _ = self.storyboard!.instantiateViewControllerWithIdentifier("AchievementsScene") as! AchievementsViewController
 //        self.presentViewController(vc, animated: true, completion: nil)
 //        vc.refreshTable()
 
@@ -183,7 +183,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     
     func imageTapped(sender: UITapGestureRecognizer) {
         print("Entrei")
-        let point = sender.locationInView(self.view)
+        let point = sender.locationInView(self.selfieImageView)
         if let image = mergeStickerAndSelfie(point) {
             selfieImageView.image = image
         }
