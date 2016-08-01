@@ -14,7 +14,6 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 
     var images:[UIImage] = []
     var titles:[String]!
-    var savePhotos = SavePhotos.getSPSingleton()
 
     
     @IBOutlet var cameraButton: UIButton!
@@ -47,8 +46,8 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         if collectionView == self.stickersCollectionView {
         return self.achievementsStickers.count
         } else {
-
-            return images.count
+//            let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
+            return imagesGamb.count
         }
 
     }
@@ -68,7 +67,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 
             let cellSelfies = collectionView.dequeueReusableCellWithReuseIdentifier("cell2", forIndexPath: indexPath) as! AchievementsCell
 
-            cellSelfies.cellImageSelfies?.image = images[indexPath.row]
+            cellSelfies.cellImageSelfies?.image = imagesGamb[indexPath.row]
 
             return cellSelfies
         }
@@ -124,6 +123,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     func loadImageFromPath(path: String) -> UIImage? {
         
         let image = UIImage(contentsOfFile: path)
+        
         if image == nil {
             
             print("missing image at: \(path)")
@@ -135,26 +135,28 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     
     
     func refresh() {
-        let image = loadImageFromPath(savePhotos.imagesDirectoryPath)
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
+        let image = loadImageFromPath(vc.imagesDirectoryPath)
         images.append(image!)
     }
 
 
     func refreshTable(){
-//        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
         
         do {
             print (">>>>>>>ENTROU NO REFRESH<<<<<<<<<")
             images.removeAll()
 
-            titles = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(savePhotos.imagesDirectoryPath)
+            titles = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(vc.imagesDirectoryPath)
             for image in titles {
-                let data = NSFileManager.defaultManager().contentsAtPath(savePhotos.imagesDirectoryPath.stringByAppendingString("/\(image)"))
-                if data != nil {
+                let data = NSFileManager.defaultManager().contentsAtPath(vc.imagesDirectoryPath.stringByAppendingString("/\(image)"))
                 let image = UIImage(data: data!)
                 images.append(image!)
-                }
+                print(">>>>>>>>>>> APPEND NO IMAGES<<<<<<<<<")
+                print(images)
             }
+//            self.stickersCollectionView.reloadData()
             self.selfiesCollectionView.reloadData()
         } catch {
             print("Error")
@@ -164,7 +166,6 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        savePhotos.createImageFolder()
         selfiesCollectionView.reloadData()
         
         selfiesCollectionView.delegate = self
@@ -178,7 +179,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         let tapOnBackground = UITapGestureRecognizer(target: self, action: #selector(ProgressViewController.handleTap(_:)))
         self.popUpBackground.addGestureRecognizer(tapOnBackground)
 
-        refreshTable()
+//        refreshTable()
 
         selfiesView.hidden = true
     }
