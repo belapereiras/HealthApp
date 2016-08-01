@@ -16,7 +16,7 @@ class SavePhotos {
         return savePhotos
     }
     
-    var imagesDirectoryPath:String! = ""
+    var imagesDirectoryPath:String = ""
     
     func createImageFolder() {
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)

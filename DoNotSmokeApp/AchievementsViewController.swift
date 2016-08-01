@@ -67,10 +67,9 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         } else {
 
             let cellSelfies = collectionView.dequeueReusableCellWithReuseIdentifier("cell2", forIndexPath: indexPath) as! AchievementsCell
-            
-            images = images.reverse()
             cellSelfies.cellImageSelfies?.image = images[indexPath.row]
-
+            cellSelfies.cellImageSelfies?.contentMode = .ScaleAspectFit
+            
             return cellSelfies
         }
     }
@@ -148,13 +147,13 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         do {
             print (">>>>>>>ENTROU NO REFRESH<<<<<<<<<")
             images.removeAll()
-
+            
             titles = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(savePhotos.imagesDirectoryPath)
             for image in titles {
                 let data = NSFileManager.defaultManager().contentsAtPath(savePhotos.imagesDirectoryPath.stringByAppendingString("/\(image)"))
                 if data != nil {
-                let image = UIImage(data: data!)
-                images.append(image!)
+                    guard let image = UIImage(data: data!) else { break }
+                    images.insert(image, atIndex: 0)
                 }
             }
             self.selfiesCollectionView.reloadData()
