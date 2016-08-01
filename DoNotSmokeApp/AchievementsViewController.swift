@@ -82,7 +82,11 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         
         if collectionView == self.stickersCollectionView {
         popUpImage.image = self.achievementsStickers[indexPath.row]
-        popUpText.text = String(self.user.moneyAchievements.savingsBenefits[indexPath.row].savingCompletion!)
+            if indexPath.row == 0 {
+                popUpText.text = "20 dias sem fumar"
+            } else {
+                popUpText.text = String(self.user.moneyAchievements.savingsBenefits[indexPath.row - 1].savingCompletion!)
+            }
 
         
         self.popUpBackground.hidden = false
