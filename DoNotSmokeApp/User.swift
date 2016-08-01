@@ -21,7 +21,9 @@ class User {
     var packPrice: Double
     var connections: [Connection] = []
     var healthAchievements: HealthAchievement
+    var moneyAchievements: MoneyAchievement
     var dateManager: DateManager
+    static var user = User()
     
 //    init(quitDay: NSDate, name: String, cigarettesPerDay: Int, cigarettesPerPack: Int, packPrice: Double, connection1Name: String, connection2Name: String,connection1Email: String, connection2Email: String) {
 //        
@@ -37,7 +39,7 @@ class User {
 //        
 //    }
 
-    init?() {
+    private init?() {
         
         guard let data = Plist(name: "UserPropertyList") else { return nil }
         guard let userInfo: NSDictionary = data.getValuesInPlistFile() else { return nil }
@@ -48,8 +50,13 @@ class User {
         self.cigarettesPerPack = Double(userInfo["CigarettesPerPack"] as! NSNumber)
         self.packPrice = Double(userInfo["PackPrice"] as! NSNumber)
         healthAchievements = HealthAchievement.getHASingleton()
+        moneyAchievements = MoneyAchievement.getMASingleton()
         dateManager = DateManager()
     
+    }
+    
+    static func getUserSingleton() -> User {
+        return user!
     }
     
     func addConnection(name: String, email: String) {

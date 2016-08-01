@@ -13,6 +13,7 @@ import UIKit
 class AchievementsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
     
     var savePhotos = SavePhotos.getSPSingleton()
+    var user = User.getUserSingleton()
 
     var images:[UIImage] = []
     var titles:[String]!

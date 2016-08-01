@@ -16,7 +16,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var unityOfTimeWithoutSmoking: UILabel!
     @IBOutlet var savedMoney: UILabel!
     var healthAchievement = HealthAchievement.getHASingleton()
-    var user = User()
+    var user = User.getUserSingleton()
     var timer, timer2, timer3: dispatch_source_t!
 
     @IBOutlet var popUpBackground: UIView!
@@ -92,14 +92,14 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
         dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0)
         dispatch_source_set_event_handler(timer) {
-            guard let quitday = self.user?.quitDay else { return }
-            guard var timeNotSmoking = self.user?.dateManager.timeSinceQuitDayInSeconds(quitday) else { return }
+            let quitday = self.user.quitDay
+            var timeNotSmoking = self.user.dateManager.timeSinceQuitDayInSeconds(quitday)
             var unity = "segundos"
             if timeNotSmoking < 2 {
                 unity = "segundo"
             }
             if timeNotSmoking > 60 {
-                timeNotSmoking = (self.user?.dateManager.timeSinceQuitDayInMinutes(quitday))!
+                timeNotSmoking = (self.user.dateManager.timeSinceQuitDayInMinutes(quitday))
                 unity = "minutos"
                 if timeNotSmoking < 2 {
                     unity = "minuto"
@@ -107,14 +107,14 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
                     unity = "minutos"
                 }
                 if timeNotSmoking > 60 {
-                    timeNotSmoking = (self.user?.dateManager.timeSinceQuitDayInHours(quitday))!
+                    timeNotSmoking = (self.user.dateManager.timeSinceQuitDayInHours(quitday))
                     if timeNotSmoking < 2 {
                         unity = "hora"
                     } else {
                         unity = "horas"
                     }
                     if timeNotSmoking > 24 {
-                        timeNotSmoking = (self.user?.dateManager.timeSinceQuitDayInDays(quitday))!
+                        timeNotSmoking = (self.user.dateManager.timeSinceQuitDayInDays(quitday))
                         if timeNotSmoking < 2 {
                             unity = "dia"
                         } else {
@@ -139,7 +139,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         dispatch_source_set_timer(timer2, DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC, 0)
         dispatch_source_set_event_handler(timer2) {
             //if self.user?.dateManager.timeSinceQuitDayInDays((self.user?.quitDay)!) > 1 {
-            guard let savings = self.user?.moneySavings() else { return }
+            let savings = self.user.moneySavings()
             print("**** SAVINGS:\(savings)")
             var savingString: String = self.trimNumbers(savings)
             if savings < 0.0001 {
@@ -172,7 +172,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         dispatch_source_set_timer(timer3, DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC, 0)
         dispatch_source_set_event_handler(timer3) {
             //if self.user?.dateManager.timeSinceQuitDayInDays((self.user?.quitDay)!) > 1 {
-                guard let notSmokedCigarrette = self.user?.cigarettesNotSmoked() else { return }
+                let notSmokedCigarrette = self.user.cigarettesNotSmoked()
                 let notSmoked = Int(notSmokedCigarrette)
                 dispatch_async(dispatch_get_main_queue(), {
                     self.notSmokedCigarrettes.text = String(notSmoked)
@@ -215,7 +215,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         let benefits = healthAchievement.healthBenefit
         for benefit in benefits {
             let notification:UILocalNotification = UILocalNotification()
-            let timeinterval = (user?.quitDay)! + benefit.completionTime!
+            let timeinterval = (user.quitDay) + benefit.completionTime!
             let date = NSDate(timeIntervalSinceReferenceDate: timeinterval)
             print("**** DATA \(date) ****")
             notification.alertAction = "Ver"
