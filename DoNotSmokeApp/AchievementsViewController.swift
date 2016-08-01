@@ -67,7 +67,8 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         } else {
 
             let cellSelfies = collectionView.dequeueReusableCellWithReuseIdentifier("cell2", forIndexPath: indexPath) as! AchievementsCell
-
+            
+            images = images.reverse()
             cellSelfies.cellImageSelfies?.image = images[indexPath.row]
 
             return cellSelfies
@@ -134,12 +135,12 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         
     }
     
-    
-    func refresh() {
-        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
-        let image = loadImageFromPath(savePhotos.imagesDirectoryPath)
-        images.append(image!)
-    }
+//    
+//    func refresh() {
+//        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
+//        let image = loadImageFromPath(savePhotos.imagesDirectoryPath)
+//        images.append(image!)
+//    }
 
 
     func refreshTable(){
