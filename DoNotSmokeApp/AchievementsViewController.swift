@@ -68,6 +68,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         } else {
 
             let cellSelfies = collectionView.dequeueReusableCellWithReuseIdentifier("cell2", forIndexPath: indexPath) as! AchievementsCell
+
             cellSelfies.cellImageSelfies?.image = images[indexPath.row]
             cellSelfies.cellImageSelfies?.contentMode = .ScaleAspectFit
             
@@ -79,8 +80,10 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
         
+        if collectionView == self.stickersCollectionView {
         popUpImage.image = self.achievementsStickers[indexPath.row]
-        //popUpText.text =
+        popUpText.text = String(self.user.moneyAchievements.savingsBenefits[indexPath.row].savingCompletion!)
+
         
         self.popUpBackground.hidden = false
         
@@ -119,29 +122,8 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
                 
                 self.popUpText.hidden = false
         })
-    }
-
-    
-    func loadImageFromPath(path: String) -> UIImage? {
-        
-        let image = UIImage(contentsOfFile: path)
-        
-        if image == nil {
-            
-            print("missing image at: \(path)")
         }
-        print("Loading image from path: \(path)") // this is just for you to see the path in case you want to go to the directory, using Finder.
-        return image
-        
     }
-    
-//    
-//    func refresh() {
-//        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
-//        let image = loadImageFromPath(savePhotos.imagesDirectoryPath)
-//        images.append(image!)
-//    }
-
 
     func refreshTable(){
         

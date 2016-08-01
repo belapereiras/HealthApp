@@ -62,19 +62,6 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
 
         // Do any additional setup after loading the view.
     }
-   
-    
-//    func saveImage(image: UIImage, path: String) -> Bool {
-//        let pngImageData = UIImagePNGRepresentation(image)
-//        let result = pngImageData!.writeToFile(path, atomically: true)
-//        return result
-//    }
-//    
-//    func loadImageFromPath(path: String) -> UIImage? {
-//        let data = NSData(contentsOfFile: path)
-//        let image = UIImage(data: data!)
-//        return image
-//    }
 
 
     @IBAction func openCameraAgain(sender: AnyObject) {
