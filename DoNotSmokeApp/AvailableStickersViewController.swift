@@ -23,7 +23,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     @IBOutlet var selfieImageView: UIImageView!
     @IBOutlet var cancelButton: UIButton!
     
-    var availableStickers = [UIImage(named: "20dias"), UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "DinnerForTwo"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"), UIImage(named: "TeamTee"), UIImage(named: "Netflix"), UIImage(named: "Perfume")]
+    var availableStickers = [UIImage(named: "20 dias"), UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "DinnerForTwo"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"), UIImage(named: "TeamTee"), UIImage(named: "Netflix"), UIImage(named: "Perfume")]
 
 // MARK: COLLECTION VIEW
     
@@ -106,7 +106,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     @IBAction func twitterShare(sender: AnyObject) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            twitterSheet.setInitialText("Estou há 20 dias sem fumar e já posso comprar um livro com o dinheiro economizado! #StickWithMeApp")
+            twitterSheet.setInitialText("Olhe o que já posso comprar com o dinheiro economizado ao parar de fumar! #StickWithMeApp")
             twitterSheet.addImage(finalImage)
             self.presentViewController(twitterSheet, animated: true, completion: nil)
         } else {
@@ -119,7 +119,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     @IBAction func facebookShare(sender: AnyObject) {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
             let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            facebookSheet.setInitialText("Estou há 20 dias sem fumar e já posso comprar um livro com o dinheiro economizado! #StickWithMeApp")
+            facebookSheet.setInitialText("Olhe o que já posso comprar com o dinheiro economizado ao parar de fumar! #StickWithMeApp")
             facebookSheet.addImage(finalImage)
             self.presentViewController(facebookSheet, animated: true, completion: nil)
         } else {
