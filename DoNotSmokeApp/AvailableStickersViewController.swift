@@ -9,20 +9,11 @@
 import UIKit
 import Social
 
-extension String {
-    func stringByAppendingPathComponent(path: String) -> String {
-        let nsSt = self as NSString
-        return nsSt.stringByAppendingPathComponent(path)
-    }
-}
-
-public var imagesGamb: [UIImage] = []
 
 class AvailableStickersViewController: UIViewController, UICollectionViewDelegate, UIGestureRecognizerDelegate {
     
-    var imagesDirectoryPath:String! = ""
-    
-    
+    var savePhotos = SavePhotos.getSPSingleton()
+
     var selfieImage: UIImage?
     var stickerPicked: UIImage?
     var finalImage: UIImage?
@@ -58,8 +49,6 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        createImageFolder()
 
 
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
@@ -73,40 +62,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
 
         // Do any additional setup after loading the view.
     }
-    
-    
-    
-    func createImageFolder() {
-        print (">>>>>>>>>>>CRIOU<<<<<<<<<<<<<")
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        // Get the Document directory path
-        let documentDirectorPath:String = paths[0]
-        // Create a new path for the new images folder
-        imagesDirectoryPath = documentDirectorPath.stringByAppendingString("/ImagePicker")
-        var objcBool:ObjCBool = true
-        let isExist = NSFileManager.defaultManager().fileExistsAtPath(imagesDirectoryPath, isDirectory: &objcBool)
-        // If the folder with the given path doesn't exist already, create it
-        if isExist == false{
-            do{
-                try NSFileManager.defaultManager().createDirectoryAtPath(imagesDirectoryPath, withIntermediateDirectories: true, attributes: nil)
-                print (">>>>>>CRIOU<<<<<<<")
-            }catch{
-                print("Something went wrong while creating a new folder")
-            }
-        }
-    }
-    
-    func saveLocally(){
-        var imagePath = NSDate().description
-        imagePath = imagePath.stringByReplacingOccurrencesOfString(" ", withString: "")
-        imagePath = imagesDirectoryPath.stringByAppendingString("/\(imagePath).png")
-
-        let data = UIImagePNGRepresentation(finalImage!)
-        NSFileManager.defaultManager().createFileAtPath(imagePath, contents: data, attributes: nil)
-        //        dismissViewControllerAnimated(true) { () -> Void in
-        //            self.refreshTable()
-        //        }
-    }
+   
     
 //    func saveImage(image: UIImage, path: String) -> Bool {
 //        let pngImageData = UIImagePNGRepresentation(image)
@@ -130,22 +86,14 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         self.tabBarController?.selectedIndex = 0
 
 
-        _ = self.storyboard!.instantiateViewControllerWithIdentifier("AchievementsScene") as! AchievementsViewController
-//        self.presentViewController(vc, animated: true, completion: nil)
-//        vc.refreshTable()
-
-
     }
     
     @IBAction func saveToCameraRoll(sender: AnyObject) {
         
         finalImage = selfieImageView.image
         UIImageWriteToSavedPhotosAlbum(finalImage!, nil, nil, nil)
-        saveLocally()
         
-        let foto = finalImage
-        imagesGamb.append(foto!)
-        
+        savePhotos.saveLocally(finalImage!)
 
     }
     
