@@ -47,7 +47,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == self.stickersCollectionView {
-        return self.achievementsStickers.count
+            return self.achievementsStickers.count
         } else {
             return images.count
         }
