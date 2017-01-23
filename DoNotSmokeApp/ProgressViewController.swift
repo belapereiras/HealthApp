@@ -15,9 +15,9 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var notSmokedCigarrettes: UILabel!
     @IBOutlet var unityOfTimeWithoutSmoking: UILabel!
     @IBOutlet var savedMoney: UILabel!
+    
     var healthAchievement = HealthAchievement.getHASingleton()
     var user = User.getUserSingleton()
-    var timer, timer2, timer3, timer4: dispatch_source_t!
     var benefitsAchieved: [HealthBenefit] = []
 
     @IBOutlet var popUpBackground: UIView!
@@ -35,15 +35,15 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     
 // MARK: COLLECTION VIEW
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.progressImages.count
     }
     
 // MARK: COLLECTION VIEW CELL
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! ProgressCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ProgressCell
         if benefitsAchieved.count > 0 && benefitsAchieved.endIndex > indexPath.row {
             let benefitAchieved = benefitsAchieved[indexPath.row]
             cell.cellImage.image = self.coloredProgressImages[indexPath.row]
@@ -58,17 +58,17 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     
 // MARK: SELECT COLLECTION VIEW CELL
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
 
         popUpTitle.text = healthAchievement.healthBenefit[indexPath.row].name
         popUpText.text = healthAchievement.healthBenefit[indexPath.row].description
         popUpImage.image = self.coloredProgressImages[indexPath.row]
         
-        self.popUpBackground.hidden = false
-        self.popUp.hidden = false
-        self.popUpImage.hidden = false
-        self.popUpTitle.hidden = false
-        self.popUpText.hidden = false
+        self.popUpBackground.isHidden = false
+        self.popUp.isHidden = false
+        self.popUpImage.isHidden = false
+        self.popUpTitle.isHidden = false
+        self.popUpText.isHidden = false
         
         self.popUpBackground.alpha = 0
         self.popUp.alpha = 0
@@ -76,133 +76,20 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.popUpTitle.alpha = 0
         self.popUpText.alpha = 0
         
-        UIView.animateWithDuration(0.3, delay: 0, options:
-            UIViewAnimationOptions.CurveEaseOut, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0, options:
+            UIViewAnimationOptions.curveEaseOut, animations: {
                 self.popUpBackground.alpha = 1.0
                 self.popUp.alpha = 1.0
                 self.popUpImage.alpha = 1.0
                 self.popUpTitle.alpha = 1.0
                 self.popUpText.alpha = 1.0
             }, completion: { finished in
-                self.popUpBackground.hidden = false
-                self.popUp.hidden = false
-                self.popUpImage.hidden = false
-                self.popUpTitle.hidden = false
-                self.popUpText.hidden = false
+                self.popUpBackground.isHidden = false
+                self.popUp.isHidden = false
+                self.popUpImage.isHidden = false
+                self.popUpTitle.isHidden = false
+                self.popUpText.isHidden = false
         })
-    }
-    
-    func updateNotSmokingTimeLabel() {
-        let queue = dispatch_queue_create("com.domain.app.timer", nil)
-        timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
-        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0)
-        dispatch_source_set_event_handler(timer) {
-            let quitday = self.user.quitDay
-            var timeNotSmoking = self.user.dateManager.timeSinceQuitDayInSeconds(quitday)
-            var unity = "segundos"
-            if timeNotSmoking < 2 {
-                unity = "segundo"
-            }
-            if timeNotSmoking > 60 {
-                timeNotSmoking = (self.user.dateManager.timeSinceQuitDayInMinutes(quitday))
-                unity = "minutos"
-                if timeNotSmoking < 2 {
-                    unity = "minuto"
-                } else {
-                    unity = "minutos"
-                }
-                if timeNotSmoking > 60 {
-                    timeNotSmoking = (self.user.dateManager.timeSinceQuitDayInHours(quitday))
-                    if timeNotSmoking < 2 {
-                        unity = "hora"
-                    } else {
-                        unity = "horas"
-                    }
-                    if timeNotSmoking > 24 {
-                        timeNotSmoking = (self.user.dateManager.timeSinceQuitDayInDays(quitday))
-                        if timeNotSmoking < 2 {
-                            unity = "dia"
-                        } else {
-                            unity = "dias"
-                        }
-                        
-                    }
-                }
-            }
-            dispatch_async(dispatch_get_main_queue(), {
-                let timeNotSmokingTrim = Int(timeNotSmoking)
-                self.notSmokingFor.text = String(timeNotSmokingTrim)
-                self.unityOfTimeWithoutSmoking.text = unity
-            })
-        }
-        dispatch_resume(timer)
-    }
-    
-    func updateMoneySavingsLabel() {
-        let queue = dispatch_queue_create("com.domain.app.timer2", nil)
-        timer2 = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
-        dispatch_source_set_timer(timer2, DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC, 0)
-        dispatch_source_set_event_handler(timer2) {
-            //if self.user?.dateManager.timeSinceQuitDayInDays((self.user?.quitDay)!) > 1 {
-            let savings = self.user.moneySavings()
-            print("**** SAVINGS:\(savings)")
-            var savingString: String = self.trimNumbers(savings)
-            if savings < 0.0001 {
-                savingString = "0.00"
-            }
-            dispatch_async(dispatch_get_main_queue(), {
-                self.savedMoney.text = String(savingString)
-            })
-            //}
-        }
-        dispatch_resume(timer2)
-    }
-    
-    func trimNumbers(number: Double) -> String {
-        let numberString = String(number)
-        print(numberString)
-        let trimmedNumber: String
-        if number >= 1000 {
-            trimmedNumber = numberString.substringWithRange(numberString.startIndex..<numberString.startIndex.advancedBy(6, limit: numberString.endIndex))
-        } else {
-            
-            trimmedNumber = numberString.substringWithRange(numberString.startIndex..<numberString.startIndex.advancedBy(4, limit: numberString.endIndex))
-        }
-        return trimmedNumber
-    }
-    
-    func updateCigarettesNotSmokedLabel() {
-        let queue = dispatch_queue_create("com.domain.app.timer3", nil)
-        timer3 = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
-        dispatch_source_set_timer(timer3, DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC, 0)
-        dispatch_source_set_event_handler(timer3) {
-            //if self.user?.dateManager.timeSinceQuitDayInDays((self.user?.quitDay)!) > 1 {
-                let notSmokedCigarrette = self.user.cigarettesNotSmoked()
-                let notSmoked = Int(notSmokedCigarrette)
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.notSmokedCigarrettes.text = String(notSmoked)
-                })
-            //}
-        }
-        dispatch_resume(timer3)
-    }
-    
-    func updateBenefitsAchieved() {
-        let queue = dispatch_queue_create("com.domain.app.timer4", nil)
-        timer4 = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
-        dispatch_source_set_timer(timer4, DISPATCH_TIME_NOW, 1200 * NSEC_PER_SEC, 5 * NSEC_PER_SEC)
-        dispatch_source_set_event_handler(timer4) {
-            let quitday = self.user.quitDay
-            let timeNotSmoking = self.user.dateManager.timeSinceQuitDayInSeconds(quitday)
-            if let benefits = self.healthAchievement.benefitsAchieved(timeNotSmoking) {
-                self.benefitsAchieved = benefits
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.collectionView.reloadData()
-                })
-                
-            }
-        }
-        dispatch_resume(timer4)
     }
     
     func notificate() {
@@ -211,22 +98,19 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         for benefit in benefits {
             let notification:UILocalNotification = UILocalNotification()
             let timeinterval = (user.quitDay) + benefit.completionTime!
-            let date = NSDate(timeIntervalSinceReferenceDate: timeinterval)
-            print("**** DATA \(date) ****")
+            let date = Date(timeIntervalSinceReferenceDate: timeinterval)
             notification.alertAction = "Ver"
-            notification.alertBody = "A partir de agora sua frequência cardíaca começará a cair até voltar ao nível normal. Continue assim!"
+            notification.alertBody = benefit.description
             notification.fireDate = date
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
-            
+            UIApplication.shared.scheduleLocalNotification(notification)
         }
-        
     }
     
     override func viewDidLoad() {
-        updateNotSmokingTimeLabel()
-        updateMoneySavingsLabel()
-        updateCigarettesNotSmokedLabel()
-        updateBenefitsAchieved()
+        initialize_timer(with_interval: 1, handler: updateNotSmokingTimeLabel)
+        initialize_timer(with_interval: 5, handler: updateMoneySavingsLabel)
+        initialize_timer(with_interval: 1, handler: updateCigarettesNotSmokedLabel)
+        initialize_timer(with_interval: 5, handler: updateBenefitsAchieved)
         notificate()
         popUp.layer.cornerRadius = 20
         
@@ -234,28 +118,28 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.popUpBackground.addGestureRecognizer(tap)
     }
     
-    func handleTap (sender: UIGestureRecognizer) {
-        UIView.animateWithDuration(0.3, delay: 0, options:
-            UIViewAnimationOptions.CurveEaseOut, animations: {
+    func handleTap (_ sender: UIGestureRecognizer) {
+        UIView.animate(withDuration: 0.3, delay: 0, options:
+            UIViewAnimationOptions.curveEaseOut, animations: {
                 self.popUpBackground.alpha = 0
                 self.popUp.alpha = 0
                 self.popUpImage.alpha = 0
                 self.popUpTitle.alpha = 0
                 self.popUpText.alpha = 0
             }, completion: { finished in
-                self.popUpBackground.hidden = true
-                self.popUp.hidden = true
-                self.popUpImage.hidden = true
-                self.popUpTitle.hidden = true
-                self.popUpText.hidden = true
+                self.popUpBackground.isHidden = true
+                self.popUp.isHidden = true
+                self.popUpImage.isHidden = true
+                self.popUpTitle.isHidden = true
+                self.popUpText.isHidden = true
         })
     }
     
-    @IBAction func goToSelfieView(sender: AnyObject) {
+    @IBAction func goToSelfieView(_ sender: AnyObject) {
         self.tabBarController?.selectedIndex = 1
     }
     
-    @IBAction func longPressCell(sender: AnyObject) {
+    @IBAction func longPressCell(_ sender: AnyObject) {
 //        if sender.state == .Began {
 //            print ("começou long")
 //            let p = sender.locationInView(self.collectionView)
@@ -284,4 +168,60 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
 //        }
 //        
     }
+}
+
+extension ProgressViewController {
+    
+    func initialize_timer(with_interval interval: TimeInterval, handler: @escaping (Timer) -> ()) {
+        let timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true, block: handler)
+        timer.fire()
+    }
+    
+    func updateNotSmokingTimeLabel(timer: Timer) {
+            let quit_day = self.user.quitDay
+            let time_not_smoking = self.user.dateManager.stringfyed_timeSince(quit_day)
+            DispatchQueue.main.async {
+                self.notSmokingFor.text = time_not_smoking.0
+                self.unityOfTimeWithoutSmoking.text = time_not_smoking.1
+            }
+    }
+    
+    func updateMoneySavingsLabel(timer: Timer) {
+            let savings = self.user.moneySavings()
+            let savings_string = (savings == 0 || savings < 0.0001) ? "0.00" : self.trimNumbers(savings)
+            DispatchQueue.main.async {
+                self.savedMoney.text = savings_string
+            }
+    }
+    
+    func updateCigarettesNotSmokedLabel(timer: Timer) {
+        let notSmokedCigarette = self.user.cigarettesNotSmoked()
+        let notSmoked = Int(notSmokedCigarette)
+        DispatchQueue.main.async(execute: {
+            self.notSmokedCigarrettes.text = String(notSmoked)
+        })
+    }
+    
+    func updateBenefitsAchieved(timer: Timer) {
+        guard let timeNotSmoking = self.user.dateManager.tp_in_seconds else {fatalError("User must have time passed in seconds")}
+        if let benefits = self.healthAchievement.benefitsAchieved(timeNotSmoking) {
+            self.benefitsAchieved = benefits
+            DispatchQueue.main.async(execute: {
+                self.collectionView.reloadData()
+            })
+        }
+    }
+    
+    func trimNumbers(_ number: Double) -> String {
+        let numberString = String(number)
+        print(numberString)
+        let trimmedNumber: String
+        if number >= 1000 {
+            trimmedNumber = numberString.substring(with: numberString.startIndex..<numberString.characters.index(numberString.startIndex, offsetBy: 6, limitedBy: numberString.endIndex)!)
+        } else {
+            trimmedNumber = numberString.substring(with: numberString.startIndex..<numberString.characters.index(numberString.startIndex, offsetBy: 4, limitedBy: numberString.endIndex)!)
+        }
+        return trimmedNumber
+    }
+    
 }

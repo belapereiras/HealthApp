@@ -15,7 +15,6 @@ struct Connection {
 
 class User {
     
-    var quitDay: NSTimeInterval
     var name: String
     var cigarettesPerDay, cigarettesPerPack: Double
     var packPrice: Double
@@ -23,6 +22,7 @@ class User {
     var healthAchievements: HealthAchievement
     var moneyAchievements: MoneyAchievement
     var dateManager: DateManager
+    var quitDay: TimeInterval
     static var user = User()
     
 //    init(quitDay: NSDate, name: String, cigarettesPerDay: Int, cigarettesPerPack: Int, packPrice: Double, connection1Name: String, connection2Name: String,connection1Email: String, connection2Email: String) {
@@ -39,19 +39,19 @@ class User {
 //        
 //    }
 
-    private init?() {
+    fileprivate init?() {
         
         guard let data = Plist(name: "UserPropertyList") else { return nil }
         guard let userInfo: NSDictionary = data.getValuesInPlistFile() else { return nil }
         let quitDayTimeInterval = Double(userInfo["QuitDay"] as! NSNumber)
+        dateManager = DateManager()
         self.quitDay = quitDayTimeInterval
-        self.name = String(userInfo["Name"])
+        self.name = String(describing: userInfo["Name"])
         self.cigarettesPerDay = Double(userInfo["CigarettesSmokedPerDay"] as! NSNumber)
         self.cigarettesPerPack = Double(userInfo["CigarettesPerPack"] as! NSNumber)
         self.packPrice = Double(userInfo["PackPrice"] as! NSNumber)
         healthAchievements = HealthAchievement.getHASingleton()
         moneyAchievements = MoneyAchievement.getMASingleton()
-        dateManager = DateManager()
     
     }
     
@@ -59,14 +59,14 @@ class User {
         return user!
     }
     
-    func addConnection(name: String, email: String) {
+    func addConnection(_ name: String, email: String) {
         let connection = Connection(name: name, email: email)
         connections.append(connection)
     }
     
     func cigarettesNotSmoked() -> Double {
         
-        let daysWithoutSmoking = dateManager.timeSinceQuitDayInDays(quitDay)
+        let daysWithoutSmoking = dateManager.tp_in_days
         let cigarettesNotSmoked = Double(cigarettesPerDay) * daysWithoutSmoking
         return cigarettesNotSmoked
         
@@ -74,7 +74,7 @@ class User {
     
     func moneySavings() -> Double {
         
-        let daysWithoutSmoking = dateManager.timeSinceQuitDayInDays(quitDay)
+        let daysWithoutSmoking = dateManager.tp_in_days
         let numberOfPacksSmokedPerDay = cigarettesPerDay / cigarettesPerPack
         let savings = numberOfPacksSmokedPerDay * daysWithoutSmoking * packPrice
         print("|||||| cigarettesPerDay: \(cigarettesPerDay)")
@@ -83,6 +83,5 @@ class User {
         print("|||||| numberOfPacksSmokedPerDay: \(numberOfPacksSmokedPerDay)")
         return savings
     }
-
     
 }

@@ -36,7 +36,7 @@ class HealthAchievement {
     
     var healthBenefit: [HealthBenefit] = []
     static var healthAchievement = HealthAchievement()
-    var startingDay: NSDate {
+    var startingDay: Date {
         get {
             return self.startingDay
         }
@@ -45,16 +45,16 @@ class HealthAchievement {
         }
     }
     
-    private init(){
+    fileprivate init(){
         initialSetupHB()
     }
     
-    func createHealhBenefit(name: String, description: String, benefitNumber: HealthEnum) -> HealthBenefit {
+    func createHealhBenefit(_ name: String, description: String, benefitNumber: HealthEnum) -> HealthBenefit {
         let healthBenefit = HealthBenefit(name: name, description: description, healthNumber: benefitNumber)
         return healthBenefit
     }
     
-    private func initialSetupHB() {
+    fileprivate func initialSetupHB() {
         let progressTitle = ["20 minutos", "2 horas", "8 horas", "12 horas", "24 horas", "48 horas", "3 dias", "2 a 3 semanas", "1 a 9 meses", "1 ano", "5 anos", "10 anos", "15 anos"]
         
         var progressText = ["Sua frequência cardíaca começará a cair até voltar ao nível normal.",
@@ -71,7 +71,7 @@ class HealthAchievement {
                             "Pode ter levado bastante tempo, mas agora seu risco de contrair câncer de pulmão já caiu pela metade! Assim como o risco de outros tipor de câncer, é claro.",
                             "Agora seu risco de ter uma doença cardíaca é exatamente o mesmo que de uma pessoa que nunca fumou. Parabéns por ter chegado até aqui!"]
         for progress in progressTitle {
-            guard let index = progressTitle.indexOf(progress) else { break }
+            guard let index = progressTitle.index(of: progress) else { break }
             let description = progressText[index]
             let benefitEnum: HealthEnum
             switch index {
@@ -125,8 +125,8 @@ class HealthAchievement {
         return healthAchievement
     }
     
-    func benefitsAchieved(timePassed: NSTimeInterval) -> [HealthBenefit]? {
-        
+    func benefitsAchieved(_ timePassed: TimeInterval) -> [HealthBenefit]? {
+        print("benefitsAchieved")
         let time = timePassed
         var benefitsAchieved: [HealthBenefit] = []
         for benefit in healthBenefit {
@@ -134,12 +134,12 @@ class HealthAchievement {
                 benefitsAchieved.append(benefit)
             }
         }
+        print("***benefitsAchieved.count", benefitsAchieved.count)
         if benefitsAchieved.count > 0 {
             return benefitsAchieved
         } else {
             return nil
         }
-        
     }
     
 //    func adjustBenefitVector(benefitsAchieved: [HealthBenefit]) {

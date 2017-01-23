@@ -44,7 +44,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     
 // MARK: COLLECTION VIEW
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if collectionView == self.stickersCollectionView {
             return self.achievementsStickers.count
@@ -56,21 +56,21 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 
 // MARK: COLLECTION VIEW CELL
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == self.stickersCollectionView {
         
-        let cellStickers = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! AchievementsCell
+        let cellStickers = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! AchievementsCell
         
         cellStickers.cellImageStickers.image = self.achievementsStickers[indexPath.row]
         
         return cellStickers
         } else {
 
-            let cellSelfies = collectionView.dequeueReusableCellWithReuseIdentifier("cell2", forIndexPath: indexPath) as! AchievementsCell
+            let cellSelfies = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! AchievementsCell
 
             cellSelfies.cellImageSelfies?.image = images[indexPath.row]
-            cellSelfies.cellImageSelfies?.contentMode = .ScaleAspectFit
+            cellSelfies.cellImageSelfies?.contentMode = .scaleAspectFit
             
             return cellSelfies
         }
@@ -78,7 +78,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     
 // MARK: SELECT COLLECTION VIEW CELL
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         
         if collectionView == self.stickersCollectionView {
         popUpImage.image = self.achievementsStickers[indexPath.row]
@@ -89,13 +89,13 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
             }
 
         
-        self.popUpBackground.hidden = false
+        self.popUpBackground.isHidden = false
         
-        self.popUp.hidden = false
+        self.popUp.isHidden = false
         
-        self.popUpImage.hidden = false
+        self.popUpImage.isHidden = false
         
-        self.popUpText.hidden = false
+        self.popUpText.isHidden = false
         
         self.popUpBackground.alpha = 0
         
@@ -105,8 +105,8 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         
         self.popUpText.alpha = 0
         
-        UIView.animateWithDuration(0.3, delay: 0, options:
-            UIViewAnimationOptions.CurveEaseOut, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0, options:
+            UIViewAnimationOptions.curveEaseOut, animations: {
                 
                 self.popUpBackground.alpha = 1.0
                 
@@ -118,13 +118,13 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
             
             }, completion: { finished in
                 
-                self.popUpBackground.hidden = false
+                self.popUpBackground.isHidden = false
                 
-                self.popUp.hidden = false
+                self.popUp.isHidden = false
                 
-                self.popUpImage.hidden = false
+                self.popUpImage.isHidden = false
                 
-                self.popUpText.hidden = false
+                self.popUpText.isHidden = false
         })
         }
     }
@@ -135,12 +135,12 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
             print (">>>>>>>ENTROU NO REFRESH<<<<<<<<<")
             images.removeAll()
             
-            titles = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(savePhotos.imagesDirectoryPath)
+            titles = try FileManager.default.contentsOfDirectory(atPath: savePhotos.imagesDirectoryPath)
             for image in titles {
-                let data = NSFileManager.defaultManager().contentsAtPath(savePhotos.imagesDirectoryPath.stringByAppendingString("/\(image)"))
+                let data = FileManager.default.contents(atPath: savePhotos.imagesDirectoryPath + "/\(image)")
                 if data != nil {
                     guard let image = UIImage(data: data!) else { break }
-                    images.insert(image, atIndex: 0)
+                    images.insert(image, at: 0)
                 }
             }
             self.selfiesCollectionView.reloadData()
@@ -169,12 +169,12 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 
         refreshTable()
 
-        selfiesView.hidden = true
+        selfiesView.isHidden = true
     }
 
-    func handleTap (sender: UIGestureRecognizer) {
-        UIView.animateWithDuration(0.3, delay: 0, options:
-            UIViewAnimationOptions.CurveEaseOut, animations: {
+    func handleTap (_ sender: UIGestureRecognizer) {
+        UIView.animate(withDuration: 0.3, delay: 0, options:
+            UIViewAnimationOptions.curveEaseOut, animations: {
                 
                 self.popUpBackground.alpha = 0
                 
@@ -186,61 +186,61 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
             
             }, completion: { finished in
                 
-                self.popUpBackground.hidden = true
+                self.popUpBackground.isHidden = true
                 
-                self.popUp.hidden = true
+                self.popUp.isHidden = true
                 
-                self.popUpImage.hidden = true
+                self.popUpImage.isHidden = true
                 
-                self.popUpText.hidden = true
+                self.popUpText.isHidden = true
         })
     }
  
     
-    @IBAction func changeView(sender: UISegmentedControl) {
+    @IBAction func changeView(_ sender: UISegmentedControl) {
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            selfiesView.hidden = true
-            stickersView.hidden = false
+            selfiesView.isHidden = true
+            stickersView.isHidden = false
             
         case 1:
-            selfiesView.hidden = false
-            stickersView.hidden = true
+            selfiesView.isHidden = false
+            stickersView.isHidden = true
         default:
             break;
         }
 
     }
     
-    @IBAction func openCamera(sender: AnyObject) {
+    @IBAction func openCamera(_ sender: AnyObject) {
         
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
             
             let selfiePicker = UIImagePickerController()
             selfiePicker.delegate = self
-            selfiePicker.sourceType = UIImagePickerControllerSourceType.Camera;
+            selfiePicker.sourceType = UIImagePickerControllerSourceType.camera;
             selfiePicker.allowsEditing = false
             
-            self.presentViewController(selfiePicker, animated: true, completion: nil)
+            self.present(selfiePicker, animated: true, completion: nil)
         }
 
     }
     
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
         
         //selfieImageReceiver = pickedImage
         //self.dismissViewControllerAnimated(true, completion: nil)
 
-        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AvailableStickers") as! AvailableStickersViewController
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "AvailableStickers") as! AvailableStickersViewController
         print("VIEW CONTROLLER \(vc)")
         print("IMAGE \(pickedImage)")
         vc.selfieImage = pickedImage
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
 
-        self.presentViewController(vc, animated: true, completion: nil)
+        self.present(vc, animated: true, completion: nil)
         }
     }
   

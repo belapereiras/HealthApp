@@ -27,22 +27,22 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
 
 // MARK: COLLECTION VIEW
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.availableStickers.count
     }
 
 // MARK: COLLECTION VIEW CELL
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell3", forIndexPath: indexPath) as! AvailableStickersCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell3", for: indexPath) as! AvailableStickersCell
         
         cell.cellImage.image = self.availableStickers[indexPath.row]
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         stickerPicked = availableStickers[indexPath.row]
         
     }
@@ -58,24 +58,24 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         guard let image = selfieImage else { return }
         selfieImageView.image = image
 
-        selfieImageView.contentMode = .ScaleAspectFit
+        selfieImageView.contentMode = .scaleAspectFit
 
         // Do any additional setup after loading the view.
     }
 
 
-    @IBAction func openCameraAgain(sender: AnyObject) {
+    @IBAction func openCameraAgain(_ sender: AnyObject) {
     }
     
-    @IBAction func cancelStickersCollage(sender: AnyObject) {
+    @IBAction func cancelStickersCollage(_ sender: AnyObject) {
 
-        self.performSegueWithIdentifier("cancel", sender: cancelButton)
+        self.performSegue(withIdentifier: "cancel", sender: cancelButton)
         self.tabBarController?.selectedIndex = 0
 
 
     }
     
-    @IBAction func saveToCameraRoll(sender: AnyObject) {
+    @IBAction func saveToCameraRoll(_ sender: AnyObject) {
         
         finalImage = selfieImageView.image
         UIImageWriteToSavedPhotosAlbum(finalImage!, nil, nil, nil)
@@ -86,46 +86,46 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     
     
     
-    @IBAction func mailShare(sender: AnyObject) {
+    @IBAction func mailShare(_ sender: AnyObject) {
     }
 
     
-    @IBAction func twitterShare(sender: AnyObject) {
-        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
+    @IBAction func twitterShare(_ sender: AnyObject) {
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             twitterSheet.setInitialText("Olhe o que já posso comprar com o dinheiro economizado ao parar de fumar! #StickWithMeApp")
-            twitterSheet.addImage(finalImage)
-            self.presentViewController(twitterSheet, animated: true, completion: nil)
+            twitterSheet.add(finalImage)
+            self.present(twitterSheet, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
-    @IBAction func facebookShare(sender: AnyObject) {
-        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
+    @IBAction func facebookShare(_ sender: AnyObject) {
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
             let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             facebookSheet.setInitialText("Olhe o que já posso comprar com o dinheiro economizado ao parar de fumar! #StickWithMeApp")
-            facebookSheet.addImage(finalImage)
-            self.presentViewController(facebookSheet, animated: true, completion: nil)
+            facebookSheet.add(finalImage)
+            self.present(facebookSheet, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
-    func imageTapped(sender: UITapGestureRecognizer) {
+    func imageTapped(_ sender: UITapGestureRecognizer) {
         print("Entrei")
-        let point = sender.locationInView(self.selfieImageView)
+        let point = sender.location(in: self.selfieImageView)
         if let image = mergeStickerAndSelfie(point) {
             selfieImageView.image = image
         }
         
     }
     
-    func mergeStickerAndSelfie(point: CGPoint) -> UIImage? {
+    func mergeStickerAndSelfie(_ point: CGPoint) -> UIImage? {
     
         guard let userImage = selfieImageView.image else {
             print("ERROR")
@@ -136,18 +136,18 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
             return nil
         }
 
-        let size = CGSizeMake(userImage.size.width, userImage.size.height)
+        let size = CGSize(width: userImage.size.width, height: userImage.size.height)
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-        let selfieRect = CGRect(origin: CGPointZero, size: size)
+        let selfieRect = CGRect(origin: CGPoint.zero, size: size)
         
-        let stickerSize = CGSizeMake(stickerImage.size.width * 3, stickerImage.size.height * 3)
+        let stickerSize = CGSize(width: stickerImage.size.width * 3, height: stickerImage.size.height * 3)
         
         print(point)
         let point = checkPosition(selfieRect, stickerSize: stickerSize, point: point)
         let stickerRect = CGRect(x: point.x, y: point.y, width: stickerSize.width, height: stickerSize.height)
 
-        userImage.drawInRect(selfieRect)
-        stickerImage.drawInRect(stickerRect)
+        userImage.draw(in: selfieRect)
+        stickerImage.draw(in: stickerRect)
         
         let mergedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -155,7 +155,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         return mergedImage
     }
     
-    func checkPosition(selfieRect: CGRect, stickerSize: CGSize, point: CGPoint) -> CGPoint {
+    func checkPosition(_ selfieRect: CGRect, stickerSize: CGSize, point: CGPoint) -> CGPoint {
         let xMultiplier = selfieRect.width / stickerSize.width
         let yMultiplier = selfieRect.height / stickerSize.height
     

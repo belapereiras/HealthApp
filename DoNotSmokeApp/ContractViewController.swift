@@ -28,7 +28,7 @@ class ContractViewController: UIViewController {
 
     }
     
-    @IBAction func agreedContract(sender: AnyObject) {
+    @IBAction func agreedContract(_ sender: AnyObject) {
         
         guard let plist = Plist(name: "UserPropertyList") else { return }
         guard let userDic = plist.getMutablePListFile() else { return }
@@ -39,9 +39,9 @@ class ContractViewController: UIViewController {
         userDic["Name"] = smokerName.text
         userDic["CigarettesPerPack"] = Int(cigarsPerPack)! as NSNumber
         userDic["CigarettesSmokedPerDay"] = Int(cigarretesSmokerPerDay)! as NSNumber
-        userDic["QuitDay"] = NSDate().timeIntervalSinceReferenceDate as NSNumber
+        userDic["QuitDay"] = Date().timeIntervalSinceReferenceDate as NSNumber
         userDic["PackPrice"] = Double(pricePerPack)! as NSNumber
-        let firstTime = NSNumber.init(bool: false)
+        let firstTime = NSNumber.init(value: false as Bool)
         userDic["FirstTime"] = firstTime
         
         do {
@@ -50,39 +50,39 @@ class ContractViewController: UIViewController {
             print(error)
         }
         
-        performSegueWithIdentifier("contractToController", sender: sender)
+        performSegue(withIdentifier: "contractToController", sender: sender)
         
     }
    
-    @IBAction func FacebookAction(sender: AnyObject) {
+    @IBAction func FacebookAction(_ sender: AnyObject) {
         
-        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
             let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             facebookSheet.setInitialText("A partir de hoje, sou um ex-fumante! #StickWithMeApp")
-            self.presentViewController(facebookSheet, animated: true, completion: nil)
+            self.present(facebookSheet, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
 
     }
     
     
-    @IBAction func TwitterAction(sender: AnyObject) {
-        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
+    @IBAction func TwitterAction(_ sender: AnyObject) {
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             twitterSheet.setInitialText("A partir de hoje, sou um ex-fumante! #StickWithMeApp")
-            self.presentViewController(twitterSheet, animated: true, completion: nil)
+            self.present(twitterSheet, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
 
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
     }
 }

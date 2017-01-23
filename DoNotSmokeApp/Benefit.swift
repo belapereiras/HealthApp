@@ -22,7 +22,7 @@ class Benefit {
 
 class HealthBenefit: Benefit {
     
-    var completionTime: NSTimeInterval!
+    var completionTime: TimeInterval!
     var healthNumber: HealthEnum
     
     init(name: String, description: String, healthNumber: HealthEnum) {
