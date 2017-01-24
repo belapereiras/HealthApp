@@ -8,28 +8,6 @@
 
 import Foundation
 
-// Health Enum:
-// BenefitNumber
-// Raw Value = Time in seconds to the benefit be completed
-
-enum HealthEnum: Double {
-    
-    case firstBenefit = 1200
-    case secondBenefit = 7200
-    case thirdBenefit = 28800
-    case fourthBenefit = 43200
-    case fifthBenefit = 86400
-    case sixthBenefit = 172800
-    case seventhBenefit = 259200
-    case eighthBenefit = 1814400
-    case ninethBenefit = 23328000
-    case tenthBenefit = 31536000
-    case eleventhBenefit = 157680000
-    case twelfthBenefit = 315360000
-    case thirteenthBenefit = 473040000
-    
-}
-
 // HealthAchievement
 // class to manage the benefits
 class HealthAchievement {
@@ -49,75 +27,34 @@ class HealthAchievement {
         initialSetupHB()
     }
     
-    func createHealhBenefit(_ name: String, description: String, benefitNumber: HealthEnum) -> HealthBenefit {
-        let healthBenefit = HealthBenefit(name: name, description: description, healthNumber: benefitNumber)
+    func createHealhBenefit(_ title: String, _ description: String, _ interval: TimeInterval) -> HealthBenefit {
+        let healthBenefit = HealthBenefit(title: title, description: description, completion_time: interval)
         return healthBenefit
     }
     
     fileprivate func initialSetupHB() {
-        let progressTitle = ["20 minutos", "2 horas", "8 horas", "12 horas", "24 horas", "48 horas", "3 dias", "2 a 3 semanas", "1 a 9 meses", "1 ano", "5 anos", "10 anos", "15 anos"]
         
-        var progressText = ["Sua frequência cardíaca começará a cair até voltar ao nível normal.",
-                            "Sua frequência cardíaca e pressão sanguínea estão pertinho de atingir o nível normal. Ah, e sua circulação sanguínea também vai começar a melhorar! Daqui a pouco você vai sentir as pontas dos seus dedos ficarem mais quentes.",
-                            "Os níveis de nicotina e monóxido de carbono no seu sangue já caíram pela metade. Agora, os níveis de oxigênio vão se normalizar e seu cabelo e sua pele ficarão bem bonitões!",
-                            "O nível de monóxido de carbono no seu corpo está caindo! E com isso, a quantidade de oxigênio no seu sangue tá quaaase chegando a um valor normal. Falta bem pouquinho!",
-                            "Fumantes tem 70% mais risco de ter a chamada Doença Arterial Coronariana, que afeta os principais vasos sanguíneos do coração. A boa notícia? O risco de você ter já começou a diminuir! Também estão diminuindo as chances de um ataque cardíaco. Isso tudo em um diazinho só hein...",
-                            "Seu olfato e paladar estão ficando mais sensíveis. Já já você vai notar a diferença!",
-                            "A essa altura, já não há mais nicotina no seu corpo. O que é ótimo!! Daqui a pouco você vai sentir o efeito dessa limpa: um pouquinho de dor de cabeça, talvez enjôo, ansiedade... Mas se você já foi capaz de chegar até aqui, PARABÉNS! Vamos em frente!",
-                            "Você vai começar a sentir que tem mais fôlego para realizar atividades físicas. Sua circulação sanguínea e funções cardíacas vão melhorar bastante a partir de agora! Além disso, seus pulmões estão ficando limpos, o que vai te ajudar a  respirar bem mais fácil!",
-                            "Seus pulmões agora estão funcionando à todo vapor! Mais um pouquinho, sua tosse e falta de ar vão começar a desaparecer. Ao final desse progresso você já não vai nem mais saber o que é abstinência. Quase lá!!",
-                            "Seu risco de ter doenças cardíacas já caiu pela metade! Isso significa que um fumante tem 2x mais chances de desenvolver qualquer tipo de doença cardíaca do que você. Que orgulho!!",
-                            "A partir de agora as suas chances de ter um AVC vão começar a diminuir consideravelmente. Daqui a pouquinho, seus riscos serão os mesmos de uma pessoa que nunca fumou na vida!! Quem diria ein?",
-                            "Pode ter levado bastante tempo, mas agora seu risco de contrair câncer de pulmão já caiu pela metade! Assim como o risco de outros tipor de câncer, é claro.",
-                            "Agora seu risco de ter uma doença cardíaca é exatamente o mesmo que de uma pessoa que nunca fumou. Parabéns por ter chegado até aqui!"]
-        for progress in progressTitle {
-            guard let index = progressTitle.index(of: progress) else { break }
-            let description = progressText[index]
-            let benefitEnum: HealthEnum
-            switch index {
-            case 0:
-                benefitEnum = .firstBenefit
-                break
-            case 1:
-                benefitEnum = .secondBenefit
-                break
-            case 2:
-                benefitEnum = .thirdBenefit
-                break
-            case 3:
-                benefitEnum = .fourthBenefit
-                break
-            case 4:
-                benefitEnum = .fifthBenefit
-                break
-            case 5:
-                benefitEnum = .sixthBenefit
-                break
-            case 6:
-                benefitEnum = .seventhBenefit
-                break
-            case 7:
-                benefitEnum = .eighthBenefit
-                break
-            case 8:
-                benefitEnum = .ninethBenefit
-                break
-            case 9:
-                benefitEnum = .tenthBenefit
-                break
-            case 10:
-                benefitEnum = .eleventhBenefit
-                break
-            case 11:
-                benefitEnum = .twelfthBenefit
-                break
-            default:
-                benefitEnum = .thirteenthBenefit
-                break
-            }
-            let benefit = createHealhBenefit(progress, description: description, benefitNumber: benefitEnum)
+        let progress_info: [TimeInterval: (String, String)] = [1200:("20 minutos", "Sua frequência cardíaca começará a cair até voltar ao nível normal."),
+                            7200:("2 horas", "Sua frequência cardíaca e pressão sanguínea estão pertinho de atingir o nível normal. Ah, e sua circulação sanguínea também vai começar a melhorar! Daqui a pouco você vai sentir as pontas dos seus dedos ficarem mais quentes."),
+                            28800:("8 horas", "Os níveis de nicotina e monóxido de carbono no seu sangue já caíram pela metade. Agora, os níveis de oxigênio vão se normalizar e seu cabelo e sua pele ficarão bem bonitões!"),
+                            43200:("12 horas", "O nível de monóxido de carbono no seu corpo está caindo! E com isso, a quantidade de oxigênio no seu sangue tá quaaase chegando a um valor normal. Falta bem pouquinho!"),
+                            86400:("24 horas", "Fumantes tem 70% mais risco de ter a chamada Doença Arterial Coronariana, que afeta os principais vasos sanguíneos do coração. A boa notícia? O risco de você ter já começou a diminuir! Também estão diminuindo as chances de um ataque cardíaco. Isso tudo em um diazinho só hein..."),
+                            172800:("48 horas","Seu olfato e paladar estão ficando mais sensíveis. Já já você vai notar a diferença!"),
+                            259200:("3 dias", "A essa altura, já não há mais nicotina no seu corpo. O que é ótimo!! Daqui a pouco você vai sentir o efeito dessa limpa: um pouquinho de dor de cabeça, talvez enjôo, ansiedade... Mas se você já foi capaz de chegar até aqui, PARABÉNS! Vamos em frente!"),
+                            1814400:("2 a 3 semanas", "Você vai começar a sentir que tem mais fôlego para realizar atividades físicas. Sua circulação sanguínea e funções cardíacas vão melhorar bastante a partir de agora! Além disso, seus pulmões estão ficando limpos, o que vai te ajudar a  respirar bem mais fácil!"),
+                            23328000:("1 a 9 meses", "Seus pulmões agora estão funcionando à todo vapor! Mais um pouquinho, sua tosse e falta de ar vão começar a desaparecer. Ao final desse progresso você já não vai nem mais saber o que é abstinência. Quase lá!!"),
+                            31536000:("1 ano","Seu risco de ter doenças cardíacas já caiu pela metade! Isso significa que um fumante tem 2x mais chances de desenvolver qualquer tipo de doença cardíaca do que você. Que orgulho!!"),
+                            157680000:("5 anos", "A partir de agora as suas chances de ter um AVC vão começar a diminuir consideravelmente. Daqui a pouquinho, seus riscos serão os mesmos de uma pessoa que nunca fumou na vida!! Quem diria ein?"),
+                            315360000:("10 anos", "Pode ter levado bastante tempo, mas agora seu risco de contrair câncer de pulmão já caiu pela metade! Assim como o risco de outros tipor de câncer, é claro."),
+                            473040000:("15 anos", "Agora seu risco de ter uma doença cardíaca é exatamente o mesmo que de uma pessoa que nunca fumou. Parabéns por ter chegado até aqui!")]
+        
+        progress_info.forEach{ text in
+            let title = text.value.0
+            let description = text.value.1
+            let completion_time = text.key
+            
+            let benefit = createHealhBenefit(title, description, completion_time)
             healthBenefit.append(benefit)
-            print(benefit.completionTime)
         }
     }
     

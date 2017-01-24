@@ -78,10 +78,11 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     @IBAction func saveToCameraRoll(_ sender: AnyObject) {
         
         finalImage = selfieImageView.image
-        UIImageWriteToSavedPhotosAlbum(finalImage!, nil, nil, nil)
+        guard let final_image = finalImage else {fatalError("MergedImage shouldn't be nil")}
         
-        savePhotos.saveLocally(finalImage!)
-
+        UIImageWriteToSavedPhotosAlbum(final_image, nil, nil, nil)
+        savePhotos.saveLocally(final_image)
+        
     }
     
     
@@ -127,14 +128,8 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     
     func mergeStickerAndSelfie(_ point: CGPoint) -> UIImage? {
     
-        guard let userImage = selfieImageView.image else {
-            print("ERROR")
-            return nil
-        }
-        guard let stickerImage = stickerPicked else {
-            print("ERROR")
-            return nil
-        }
+        guard let userImage = selfieImageView.image else { fatalError("Selfie must not be nil") }
+        guard let stickerImage = stickerPicked else { fatalError("Sticker must not be nil") }
 
         let size = CGSize(width: userImage.size.width, height: userImage.size.height)
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)

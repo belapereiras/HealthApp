@@ -47,10 +47,10 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         if benefitsAchieved.count > 0 && benefitsAchieved.endIndex > indexPath.row {
             let benefitAchieved = benefitsAchieved[indexPath.row]
             cell.cellImage.image = self.coloredProgressImages[indexPath.row]
-            cell.cellTitle.text = benefitAchieved.name
+            cell.cellTitle.text = benefitAchieved.title
         } else {
             cell.cellImage.image = self.progressImages[indexPath.row]
-            cell.cellTitle.text = healthAchievement.healthBenefit[indexPath.row].name
+            cell.cellTitle.text = healthAchievement.healthBenefit[indexPath.row].title
         }
 
         return cell
@@ -60,7 +60,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
 
-        popUpTitle.text = healthAchievement.healthBenefit[indexPath.row].name
+        popUpTitle.text = healthAchievement.healthBenefit[indexPath.row].title
         popUpText.text = healthAchievement.healthBenefit[indexPath.row].description
         popUpImage.image = self.coloredProgressImages[indexPath.row]
         

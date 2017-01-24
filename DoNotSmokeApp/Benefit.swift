@@ -10,11 +10,11 @@ import Foundation
 
 class Benefit {
     
-    var name : String
+    var title : String
     var description: String
     
-    init(name: String, description: String) {
-        self.name = name
+    init(title: String, description: String) {
+        self.title = title
         self.description = description
     }
     
@@ -23,12 +23,10 @@ class Benefit {
 class HealthBenefit: Benefit {
     
     var completionTime: TimeInterval!
-    var healthNumber: HealthEnum
     
-    init(name: String, description: String, healthNumber: HealthEnum) {
-        self.healthNumber = healthNumber
-        self.completionTime = healthNumber.rawValue
-        super.init(name: name, description: description)
+    init(title: String, description: String, completion_time: Double) {
+        self.completionTime = completion_time
+        super.init(title: title, description: description)
     }
 }
 
@@ -38,7 +36,7 @@ class MoneyBenefit: Benefit {
     
     init(name: String, description: String, savingCompletion: Double) {
         self.savingCompletion = savingCompletion
-        super.init(name: name, description: description)
+        super.init(title: name, description: description)
     }
     
 }
