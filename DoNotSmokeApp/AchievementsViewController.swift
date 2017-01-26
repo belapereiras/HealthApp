@@ -85,7 +85,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
             if indexPath.row == 0 {
                 popUpText.text = "20 dias sem fumar"
             } else {
-                popUpText.text = String(self.user.moneyAchievements.savingsBenefits[indexPath.row - 1].savingCompletion!)
+                popUpText.text = String(self.user.moneyAchievements.benefits[indexPath.row - 1].completion_parameter)
             }
 
         

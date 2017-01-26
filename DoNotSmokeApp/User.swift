@@ -25,20 +25,10 @@ class User {
     var quitDay: TimeInterval
     static var user = User()
     
-//    init(quitDay: NSDate, name: String, cigarettesPerDay: Int, cigarettesPerPack: Int, packPrice: Double, connection1Name: String, connection2Name: String,connection1Email: String, connection2Email: String) {
-//        
-//        self.quitDay = quitDay
-//        self.name = name
-//        self.cigarettesPerDay = cigarettesPerDay
-//        self.cigarettesPerPack = cigarettesPerPack
-//        self.packPrice = packPrice
-//        healthAchievements = HealthAchievement.getHASingleton()
-//        self.dateManager = DateManager()
-//        addConnection(connection1Name, email: connection1Email)
-//        addConnection(connection2Name, email: connection2Email)
-//        
-//    }
-
+    var cigarettes_not_smoked: Double { return cigarettesPerDay * dateManager.tp_in_days }
+    var nOf_packs_smoked_perDay: Double { return cigarettesPerDay / cigarettesPerPack }
+    var savings: Double { return nOf_packs_smoked_perDay*packPrice*dateManager.tp_in_days }
+    
     fileprivate init?() {
         
         guard let data = Plist(name: "UserPropertyList") else { return nil }
@@ -56,32 +46,13 @@ class User {
     }
     
     static func getUserSingleton() -> User {
-        return user!
+        guard let u = user else { fatalError("Error getting the user") }
+        return u
     }
     
     func addConnection(_ name: String, email: String) {
         let connection = Connection(name: name, email: email)
         connections.append(connection)
-    }
-    
-    func cigarettesNotSmoked() -> Double {
-        
-        let daysWithoutSmoking = dateManager.tp_in_days
-        let cigarettesNotSmoked = Double(cigarettesPerDay) * daysWithoutSmoking
-        return cigarettesNotSmoked
-        
-    }
-    
-    func moneySavings() -> Double {
-        
-        let daysWithoutSmoking = dateManager.tp_in_days
-        let numberOfPacksSmokedPerDay = cigarettesPerDay / cigarettesPerPack
-        let savings = numberOfPacksSmokedPerDay * daysWithoutSmoking * packPrice
-        print("|||||| cigarettesPerDay: \(cigarettesPerDay)")
-        print("|||||| daysWithoutSmoking: \(daysWithoutSmoking)")
-        print("|||||| Savings: \(savings)")
-        print("|||||| numberOfPacksSmokedPerDay: \(numberOfPacksSmokedPerDay)")
-        return savings
     }
     
 }

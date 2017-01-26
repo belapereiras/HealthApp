@@ -9,7 +9,6 @@
 import UIKit
 import Social
 
-
 class AvailableStickersViewController: UIViewController, UICollectionViewDelegate, UIGestureRecognizerDelegate {
     
     var savePhotos = SavePhotos.getSPSingleton()
@@ -17,7 +16,9 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     var selfieImage: UIImage?
     var stickerPicked: UIImage?
     var finalImage: UIImage?
-
+    var user = User.getUserSingleton()
+    var benefitsAchieved: [Benefit] = []
+    
     var tapGesture: UITapGestureRecognizer!
     @IBOutlet var AvailableStickersCollectionView: UICollectionView!
     @IBOutlet var selfieImageView: UIImageView!
@@ -37,6 +38,8 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell3", for: indexPath) as! AvailableStickersCell
         
+        //TODO: - Change the cells images if the benefit has been achieved -
+        
         cell.cellImage.image = self.availableStickers[indexPath.row]
         
         return cell
@@ -49,18 +52,23 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        AvailableStickersCollectionView.delegate = self
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
         tapGesture.delegate = self
         selfieImageView.addGestureRecognizer(tapGesture)
+        initialize_timer(with_interval: 5, handler: { (timer: Timer) in
+            let savings = self.user.savings
+            if let benefits = self.user.moneyAchievements.benefits_achieved(savings) {
+                self.benefitsAchieved = benefits
+                DispatchQueue.main.async(execute: {
+                    self.AvailableStickersCollectionView.reloadData()
+                })
+            }
+        })
         //loadSelfieToImageView()
         guard let image = selfieImage else { return }
         selfieImageView.image = image
-
         selfieImageView.contentMode = .scaleAspectFit
-
-        // Do any additional setup after loading the view.
     }
 
 
@@ -68,11 +76,8 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     }
     
     @IBAction func cancelStickersCollage(_ sender: AnyObject) {
-
         self.performSegue(withIdentifier: "cancel", sender: cancelButton)
         self.tabBarController?.selectedIndex = 0
-
-
     }
     
     @IBAction func saveToCameraRoll(_ sender: AnyObject) {
@@ -83,38 +88,6 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         UIImageWriteToSavedPhotosAlbum(final_image, nil, nil, nil)
         savePhotos.saveLocally(final_image)
         
-    }
-    
-    
-    
-    @IBAction func mailShare(_ sender: AnyObject) {
-    }
-
-    
-    @IBAction func twitterShare(_ sender: AnyObject) {
-        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter){
-            let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            twitterSheet.setInitialText("Olhe o que já posso comprar com o dinheiro economizado ao parar de fumar! #StickWithMeApp")
-            twitterSheet.add(finalImage)
-            self.present(twitterSheet, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    @IBAction func facebookShare(_ sender: AnyObject) {
-        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
-            let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            facebookSheet.setInitialText("Olhe o que já posso comprar com o dinheiro economizado ao parar de fumar! #StickWithMeApp")
-            facebookSheet.add(finalImage)
-            self.present(facebookSheet, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
     }
     
     func imageTapped(_ sender: UITapGestureRecognizer) {
@@ -142,7 +115,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         let stickerRect = CGRect(x: point.x, y: point.y, width: stickerSize.width, height: stickerSize.height)
 
         userImage.draw(in: selfieRect)
-        stickerImage.draw(in: stickerRect)
+        stickerImage.draw(stickerRect)
         
         let mergedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -179,5 +152,44 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
 //        return imageToSave
 //        
 //    }
+    
+    // escolher o sticker -> sticker aparece no centro da selfie -> arrastar o sticker para posição final -> merge imagens
+    
+}
+
+
+//MARK: Extension that handles sharing in Social Medias.
+extension AvailableStickersViewController {
+    
+    @IBAction func mailShare(_ sender: AnyObject) {
+        //TODO: Share with trusted connections(contract witnesses; not implemented yet)
+    }
+    
+    
+    @IBAction func twitterShare(_ sender: AnyObject) {
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter){
+            let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            twitterSheet.setInitialText("Olhe o que já posso comprar com o dinheiro economizado ao parar de fumar! #StickWithMeApp")
+            twitterSheet.add(finalImage)
+            self.present(twitterSheet, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func facebookShare(_ sender: AnyObject) {
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
+            let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            facebookSheet.setInitialText("Olhe o que já posso comprar com o dinheiro economizado ao parar de fumar! #StickWithMeApp")
+            facebookSheet.add(finalImage)
+            self.present(facebookSheet, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
     
 }

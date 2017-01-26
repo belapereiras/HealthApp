@@ -12,31 +12,15 @@ class Benefit {
     
     var title : String
     var description: String
+    var completion_parameter: Double
     
-    init(title: String, description: String) {
+    init(title: String, description: String, completion_parameter: Double) {
         self.title = title
         self.description = description
+        self.completion_parameter = completion_parameter
     }
     
-}
-
-class HealthBenefit: Benefit {
-    
-    var completionTime: TimeInterval!
-    
-    init(title: String, description: String, completion_time: Double) {
-        self.completionTime = completion_time
-        super.init(title: title, description: description)
+    func is_achieved(_ accumulated: Double) -> Bool {
+        return completion_parameter <= accumulated
     }
-}
-
-class MoneyBenefit: Benefit {
-
-    var savingCompletion: Double?
-    
-    init(name: String, description: String, savingCompletion: Double) {
-        self.savingCompletion = savingCompletion
-        super.init(title: name, description: description)
-    }
-    
 }

@@ -18,7 +18,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     var healthAchievement = HealthAchievement.getHASingleton()
     var user = User.getUserSingleton()
-    var benefitsAchieved: [HealthBenefit] = []
+    var benefitsAchieved: [Benefit] = []
 
     @IBOutlet var popUpBackground: UIView!
     @IBOutlet var popUp: UIView!
@@ -50,7 +50,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.cellTitle.text = benefitAchieved.title
         } else {
             cell.cellImage.image = self.progressImages[indexPath.row]
-            cell.cellTitle.text = healthAchievement.healthBenefit[indexPath.row].title
+            cell.cellTitle.text = healthAchievement.benefits[indexPath.row].title
         }
 
         return cell
@@ -60,8 +60,8 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
 
-        popUpTitle.text = healthAchievement.healthBenefit[indexPath.row].title
-        popUpText.text = healthAchievement.healthBenefit[indexPath.row].description
+        popUpTitle.text = healthAchievement.benefits[indexPath.row].title
+        popUpText.text = healthAchievement.benefits[indexPath.row].description
         popUpImage.image = self.coloredProgressImages[indexPath.row]
         
         self.popUpBackground.isHidden = false
@@ -94,10 +94,10 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func notificate() {
         
-        let benefits = healthAchievement.healthBenefit
+        let benefits = healthAchievement.benefits
         for benefit in benefits {
             let notification:UILocalNotification = UILocalNotification()
-            let timeinterval = (user.quitDay) + benefit.completionTime!
+            let timeinterval = (user.quitDay) + benefit.completion_parameter
             let date = Date(timeIntervalSinceReferenceDate: timeinterval)
             notification.alertAction = "Ver"
             notification.alertBody = benefit.description
@@ -170,12 +170,14 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
 }
 
-extension ProgressViewController {
-    
+extension UIViewController {
     func initialize_timer(with_interval interval: TimeInterval, handler: @escaping (Timer) -> ()) {
         let timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true, block: handler)
         timer.fire()
     }
+}
+
+extension ProgressViewController {
     
     func updateNotSmokingTimeLabel(timer: Timer) {
             let quit_day = self.user.quitDay
@@ -187,7 +189,7 @@ extension ProgressViewController {
     }
     
     func updateMoneySavingsLabel(timer: Timer) {
-            let savings = self.user.moneySavings()
+            let savings = self.user.savings
             let savings_string = (savings == 0 || savings < 0.0001) ? "0.00" : self.trimNumbers(savings)
             DispatchQueue.main.async {
                 self.savedMoney.text = savings_string
@@ -195,7 +197,7 @@ extension ProgressViewController {
     }
     
     func updateCigarettesNotSmokedLabel(timer: Timer) {
-        let notSmokedCigarette = self.user.cigarettesNotSmoked()
+        let notSmokedCigarette = self.user.cigarettes_not_smoked
         let notSmoked = Int(notSmokedCigarette)
         DispatchQueue.main.async(execute: {
             self.notSmokedCigarrettes.text = String(notSmoked)
@@ -204,7 +206,7 @@ extension ProgressViewController {
     
     func updateBenefitsAchieved(timer: Timer) {
         guard let timeNotSmoking = self.user.dateManager.tp_in_seconds else {fatalError("User must have time passed in seconds")}
-        if let benefits = self.healthAchievement.benefitsAchieved(timeNotSmoking) {
+        if let benefits = self.healthAchievement.benefits_achieved(timeNotSmoking) {
             self.benefitsAchieved = benefits
             DispatchQueue.main.async(execute: {
                 self.collectionView.reloadData()

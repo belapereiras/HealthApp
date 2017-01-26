@@ -9,10 +9,10 @@
 import Foundation
 
 // HealthAchievement
-// class to manage the benefits
-class HealthAchievement {
+// class to manage the healthBenefits
+class HealthAchievement: Achievement {
     
-    var healthBenefit: [HealthBenefit] = []
+    var benefits: [Benefit] = []
     static var healthAchievement = HealthAchievement()
     var startingDay: Date {
         get {
@@ -24,16 +24,12 @@ class HealthAchievement {
     }
     
     fileprivate init(){
-        initialSetupHB()
+        initial_setup()
     }
     
-    func createHealhBenefit(_ title: String, _ description: String, _ interval: TimeInterval) -> HealthBenefit {
-        let healthBenefit = HealthBenefit(title: title, description: description, completion_time: interval)
-        return healthBenefit
-    }
-    
-    fileprivate func initialSetupHB() {
-        
+    internal func initial_setup() {
+        //key: time to achieve the benefit
+        //value: (title, description)
         let progress_info: [TimeInterval: (String, String)] = [1200:("20 minutos", "Sua frequência cardíaca começará a cair até voltar ao nível normal."),
                             7200:("2 horas", "Sua frequência cardíaca e pressão sanguínea estão pertinho de atingir o nível normal. Ah, e sua circulação sanguínea também vai começar a melhorar! Daqui a pouco você vai sentir as pontas dos seus dedos ficarem mais quentes."),
                             28800:("8 horas", "Os níveis de nicotina e monóxido de carbono no seu sangue já caíram pela metade. Agora, os níveis de oxigênio vão se normalizar e seu cabelo e sua pele ficarão bem bonitões!"),
@@ -53,39 +49,17 @@ class HealthAchievement {
             let description = text.value.1
             let completion_time = text.key
             
-            let benefit = createHealhBenefit(title, description, completion_time)
-            healthBenefit.append(benefit)
+            let benefit = create_benefit(title, description, completion_time)
+            benefits.append(benefit)
         }
+        
+        benefits.sort(by: {$0.completion_parameter <
+                                $1.completion_parameter})
     }
     
     static func getHASingleton() -> HealthAchievement {
         return healthAchievement
     }
-    
-    func benefitsAchieved(_ timePassed: TimeInterval) -> [HealthBenefit]? {
-        print("benefitsAchieved")
-        let time = timePassed
-        var benefitsAchieved: [HealthBenefit] = []
-        for benefit in healthBenefit {
-            if benefit.completionTime <= time {
-                benefitsAchieved.append(benefit)
-            }
-        }
-        print("***benefitsAchieved.count", benefitsAchieved.count)
-        if benefitsAchieved.count > 0 {
-            return benefitsAchieved
-        } else {
-            return nil
-        }
-    }
-    
-//    func adjustBenefitVector(benefitsAchieved: [HealthBenefit]) {
-//        let benefits = benefitsAchieved
-//        let range = 0..<benefits.endIndex
-//        healthBenefit.removeRange(range)
-//        healthBenefit.appendContentsOf(benefits)
-//    }
-//    
 
 }
 
