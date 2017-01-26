@@ -48,6 +48,12 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         stickerPicked = availableStickers[indexPath.row]
         
+//        stickerPicked = UIImageView()
+//        stickerPicked?.image = availableStickers[indexPath.row]
+        //        selfieImageView.addSubview(stickerPicked!)
+        //        selfieImageView.subviews.forEach{$0.isUserInteractionEnabled = true; $0.isHidden = false; $0.center = CGPoint(dictionaryRepresentation: selfieImageView.center as! CFDictionary)!}
+        //        print("*** selfieImageView.subviews.count", selfieImageView.subviews.count)
+        
     }
 
     override func viewDidLoad() {
@@ -115,7 +121,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         let stickerRect = CGRect(x: point.x, y: point.y, width: stickerSize.width, height: stickerSize.height)
 
         userImage.draw(in: selfieRect)
-        stickerImage.draw(stickerRect)
+        stickerImage.draw(in: stickerRect)
         
         let mergedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
