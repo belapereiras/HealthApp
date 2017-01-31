@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProgressViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
+class ProgressViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate{
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var notSmokingFor: UILabel!
@@ -19,19 +19,16 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     var healthAchievement = HealthAchievement.getHASingleton()
     var user = User.getUserSingleton()
     var benefitsAchieved: [Benefit] = []
+    
+    private var popupIsOpen = false
 
-    @IBOutlet var popUpBackground: UIView!
-    @IBOutlet var popUp: UIView!
-    @IBOutlet var popUpImage: UIImageView!
-    @IBOutlet var popUpTitle: UILabel!
-    @IBOutlet var popUpText: UILabel!
 
 // MARK: ARRAYS
     
-    var progressImages = [UIImage(named: "20minutesHeartGray"), UIImage(named: "2hoursHeartGray"), UIImage(named: "8hoursProgressGray"), UIImage(named: "12hoursProgressGray"), UIImage(named: "24hoursProgressGray"), UIImage(named: "48hoursProgressGray"), UIImage(named: "3daysProgressGray"), UIImage(named: "2to3weeksProgressGray"), UIImage(named: "1to9monthsProgressGray"), UIImage(named: "1yearProgressGray"), UIImage(named: "5yearsProgressGray"), UIImage(named: "10yearsProgressGray"), UIImage(named: "15yearsProgressGray")]
+    lazy var progressImages = [UIImage(named: "20minutesHeartGray"), UIImage(named: "2hoursHeartGray"), UIImage(named: "8hoursProgressGray"), UIImage(named: "12hoursProgressGray"), UIImage(named: "24hoursProgressGray"), UIImage(named: "48hoursProgressGray"), UIImage(named: "3daysProgressGray"), UIImage(named: "2to3weeksProgressGray"), UIImage(named: "1to9monthsProgressGray"), UIImage(named: "1yearProgressGray"), UIImage(named: "5yearsProgressGray"), UIImage(named: "10yearsProgressGray"), UIImage(named: "15yearsProgressGray")]
     
     
-    var coloredProgressImages = [UIImage(named: "20minutesHeart"), UIImage(named: "2hoursHeart"), UIImage(named: "8hoursProgress"), UIImage(named: "12hoursProgress"), UIImage(named: "24hoursProgress"), UIImage(named: "48hoursProgress"), UIImage(named: "3daysProgress"), UIImage(named: "2to3weeksProgress"), UIImage(named: "1to9monthsProgress"), UIImage(named: "1yearProgress"), UIImage(named: "5yearsProgress"), UIImage(named: "10yearsProgress"), UIImage(named: "15yearsProgress")]
+    lazy var coloredProgressImages = [UIImage(named: "20minutesHeart"), UIImage(named: "2hoursHeart"), UIImage(named: "8hoursProgress"), UIImage(named: "12hoursProgress"), UIImage(named: "24hoursProgress"), UIImage(named: "48hoursProgress"), UIImage(named: "3daysProgress"), UIImage(named: "2to3weeksProgress"), UIImage(named: "1to9monthsProgress"), UIImage(named: "1yearProgress"), UIImage(named: "5yearsProgress"), UIImage(named: "10yearsProgress"), UIImage(named: "15yearsProgress")]
     
 // MARK: COLLECTION VIEW
     
@@ -59,37 +56,62 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
 // MARK: SELECT COLLECTION VIEW CELL
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        
+        print("ENTROU")
+        guard let imageToPass = self.coloredProgressImages[indexPath.row] else { return }
+        let titleToPass = healthAchievement.benefits[indexPath.row].title
+        let textToPass = healthAchievement.benefits[indexPath.row].description
 
-        popUpTitle.text = healthAchievement.benefits[indexPath.row].title
-        popUpText.text = healthAchievement.benefits[indexPath.row].description
-        popUpImage.image = self.coloredProgressImages[indexPath.row]
         
-        self.popUpBackground.isHidden = false
-        self.popUp.isHidden = false
-        self.popUpImage.isHidden = false
-        self.popUpTitle.isHidden = false
-        self.popUpText.isHidden = false
+        presentPopUp(image: imageToPass, title: titleToPass, text: textToPass)
+//        popUpTitle.text = healthAchievement.benefits[indexPath.row].title
+//        popUpText.text = healthAchievement.benefits[indexPath.row].description
+//        popUpImage.image = self.coloredProgressImages[indexPath.row]
         
-        self.popUpBackground.alpha = 0
-        self.popUp.alpha = 0
-        self.popUpImage.alpha = 0
-        self.popUpTitle.alpha = 0
-        self.popUpText.alpha = 0
+    }
+
+    
+// MARK: POP UP METHODS
+    
+    private func presentPopUp(image: UIImage, title: String, text: String) {
         
-        UIView.animate(withDuration: 0.3, delay: 0, options:
-            UIViewAnimationOptions.curveEaseOut, animations: {
-                self.popUpBackground.alpha = 1.0
-                self.popUp.alpha = 1.0
-                self.popUpImage.alpha = 1.0
-                self.popUpTitle.alpha = 1.0
-                self.popUpText.alpha = 1.0
-            }, completion: { finished in
-                self.popUpBackground.isHidden = false
-                self.popUp.isHidden = false
-                self.popUpImage.isHidden = false
-                self.popUpTitle.isHidden = false
-                self.popUpText.isHidden = false
+        popupIsOpen = true
+        
+        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
+
+        popUpVC.imageReceived = image
+        popUpVC.titleReceived = title
+        popUpVC.textReceived = text
+        
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        
+        popUpVC.didMove(toParentViewController: self)
+        
+    }
+    
+    private func dismissPopUp() {
+        
+        let popUp = self.childViewControllers.first
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            popUp?.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            popUp?.view.alpha = 0
+        }, completion: { (isFinished) in
+                        
+            if isFinished{
+                popUp?.willMove(toParentViewController: self)
+                popUp?.view.removeFromSuperview()
+                popUp?.removeFromParentViewController()
+                            
+            }
         })
+    }
+    
+    func popUpViewControllerDidSelect(value: String) {
+        
     }
     
     func notificate() {
@@ -112,27 +134,19 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         initialize_timer(with_interval: 1, handler: updateCigarettesNotSmokedLabel)
         initialize_timer(with_interval: 5, handler: updateBenefitsAchieved)
         notificate()
-        popUp.layer.cornerRadius = 20
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(ProgressViewController.handleTap(_:)))
-        self.popUpBackground.addGestureRecognizer(tap)
+        tap.cancelsTouchesInView = false
+        super.view.addGestureRecognizer(tap)
     }
     
     func handleTap (_ sender: UIGestureRecognizer) {
-        UIView.animate(withDuration: 0.3, delay: 0, options:
-            UIViewAnimationOptions.curveEaseOut, animations: {
-                self.popUpBackground.alpha = 0
-                self.popUp.alpha = 0
-                self.popUpImage.alpha = 0
-                self.popUpTitle.alpha = 0
-                self.popUpText.alpha = 0
-            }, completion: { finished in
-                self.popUpBackground.isHidden = true
-                self.popUp.isHidden = true
-                self.popUpImage.isHidden = true
-                self.popUpTitle.isHidden = true
-                self.popUpText.isHidden = true
-        })
+        if popupIsOpen {
+            dismissPopUp()
+            popupIsOpen = false
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func goToSelfieView(_ sender: AnyObject) {
