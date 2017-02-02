@@ -90,40 +90,27 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 
         
         self.popUpBackground.isHidden = false
-        
         self.popUp.isHidden = false
-        
         self.popUpImage.isHidden = false
-        
         self.popUpText.isHidden = false
-        
         self.popUpBackground.alpha = 0
-        
         self.popUp.alpha = 0
-       
         self.popUpImage.alpha = 0
-        
         self.popUpText.alpha = 0
         
         UIView.animate(withDuration: 0.3, delay: 0, options:
             UIViewAnimationOptions.curveEaseOut, animations: {
                 
                 self.popUpBackground.alpha = 1.0
-                
                 self.popUp.alpha = 1.0
-                
                 self.popUpImage.alpha = 1.0
-                
                 self.popUpText.alpha = 1.0
             
             }, completion: { finished in
                 
                 self.popUpBackground.isHidden = false
-                
                 self.popUp.isHidden = false
-                
                 self.popUpImage.isHidden = false
-                
                 self.popUpText.isHidden = false
         })
         }
@@ -213,7 +200,16 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 
     }
     
-    @IBAction func openCamera(_ sender: AnyObject) {
+    @IBAction func didPressCameraButton(_ sender: Any) {
+        
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "AvailableStickers") as! AvailableStickersViewController
+        
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
+    
+    /*@IBAction func openCamera(_ sender: AnyObject) {
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
             
@@ -225,10 +221,10 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
             self.present(selfiePicker, animated: true, completion: nil)
         }
 
-    }
+    }*/
     
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    /*func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
         
         //selfieImageReceiver = pickedImage
@@ -242,6 +238,6 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 
         self.present(vc, animated: true, completion: nil)
         }
-    }
+    }*/
   
 }

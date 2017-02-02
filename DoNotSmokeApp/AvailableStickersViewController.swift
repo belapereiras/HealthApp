@@ -8,8 +8,9 @@
 
 import UIKit
 import Social
+import AVFoundation
 
-class AvailableStickersViewController: UIViewController, UICollectionViewDelegate, UIGestureRecognizerDelegate {
+class AvailableStickersViewController: UIViewController, UICollectionViewDelegate, UIGestureRecognizerDelegate, AVCapturePhotoCaptureDelegate {
     
     var savePhotos = SavePhotos.getSPSingleton()
 
@@ -20,9 +21,19 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     var benefitsAchieved: [Benefit] = []
     
     var tapGesture: UITapGestureRecognizer!
+    
+    var captureSesssion : AVCaptureSession!
+    var cameraOutput : AVCapturePhotoOutput!
+    var previewLayer : AVCaptureVideoPreviewLayer!
+    
+    
+    @IBOutlet weak var openCameraAgainOutlet: UIButton!
+    @IBOutlet weak var saveAndShareButtonsOutlet: UIStackView!
     @IBOutlet var AvailableStickersCollectionView: UICollectionView!
     @IBOutlet var selfieImageView: UIImageView!
     @IBOutlet var cancelButton: UIButton!
+    @IBOutlet weak var cameraView: UIView!
+    @IBOutlet weak var takePhotoButtonOutlet: UIButton!
     
     var availableStickers = [UIImage(named: "20dias"), UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "DinnerForTwo"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"), UIImage(named: "TeamTee"), UIImage(named: "Netflix"), UIImage(named: "Perfume")]
 
@@ -71,12 +82,87 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
                 })
             }
         })
-        //loadSelfieToImageView()
-        guard let image = selfieImage else { return }
-        selfieImageView.image = image
-        selfieImageView.contentMode = .scaleAspectFit
+        
+        saveAndShareButtonsOutlet.isHidden = true
+        openCameraAgainOutlet.isHidden = true
+        AvailableStickersCollectionView.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setUpCameraView()
     }
 
+    
+    func setUpCameraView() {
+        captureSesssion = AVCaptureSession()
+        captureSesssion.sessionPreset = AVCaptureSessionPresetPhoto
+        cameraOutput = AVCapturePhotoOutput()
+        
+        //let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        let device = AVCaptureDevice.defaultDevice(withDeviceType: AVCaptureDeviceType.builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: AVCaptureDevicePosition.front)
+        //device?.position = AVCaptureDevicePosition.front
+        
+        if let input = try? AVCaptureDeviceInput(device: device) {
+            if (captureSesssion.canAddInput(input)) {
+                captureSesssion.addInput(input)
+                if (captureSesssion.canAddOutput(cameraOutput)) {
+                    captureSesssion.addOutput(cameraOutput)
+                    previewLayer = AVCaptureVideoPreviewLayer(session: captureSesssion)
+                    previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+                    //previewLayer.connection.videoOrientation = AVCaptureVideoOrientation.portrait
+                    cameraView.layer.addSublayer(previewLayer)
+                    captureSesssion.startRunning()
+                    previewLayer.frame = cameraView.bounds
+                }
+            } else {
+                print("issue here : captureSesssion.canAddInput")
+            }
+        } else {
+            print("some problem here")
+        }
+    }
+    
+    func capture(_ captureOutput: AVCapturePhotoOutput,  didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?,  previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings:  AVCaptureResolvedPhotoSettings, bracketSettings:   AVCaptureBracketedStillImageSettings?, error: Error?) {
+        
+        if let error = error {
+            print("error occure : \(error.localizedDescription)")
+        }
+        
+        if  let sampleBuffer = photoSampleBuffer,
+            let previewBuffer = previewPhotoSampleBuffer,
+            let dataImage =  AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer:  sampleBuffer, previewPhotoSampleBuffer: previewBuffer) {
+            print(UIImage(data: dataImage)?.size as Any)
+            
+            let dataProvider = CGDataProvider(data: dataImage as CFData)
+            let cgImageRef: CGImage! = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: .defaultIntent)
+            let image = UIImage(cgImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.right)
+            
+            cameraView.isHidden = true
+            takePhotoButtonOutlet.isHidden = true
+            cancelButton.isHidden = true
+            saveAndShareButtonsOutlet.isHidden = false
+            openCameraAgainOutlet.isHidden = false
+            AvailableStickersCollectionView.isHidden = false
+            
+            self.selfieImageView.image = image
+        } else {
+            print("some error here")
+        }
+    }
+
+    @IBAction func didPressTakePhoto(_ sender: Any) {
+        
+        let settings = AVCapturePhotoSettings()
+        let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first!
+        let previewFormat = [
+            kCVPixelBufferPixelFormatTypeKey as String: previewPixelType,
+            kCVPixelBufferWidthKey as String: 160,
+            kCVPixelBufferHeightKey as String: 160
+        ]
+        settings.previewPhotoFormat = previewFormat
+        cameraOutput.capturePhoto(with: settings, delegate: self)
+        
+    }
 
     @IBAction func openCameraAgain(_ sender: AnyObject) {
     }
