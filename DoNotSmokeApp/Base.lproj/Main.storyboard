@@ -947,6 +947,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <gestureRecognizers/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeJ-EF-KMl">
+                                <rect key="frame" x="16" y="30" width="140" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="K3f-Jx-CvI"/>
+                                    <constraint firstAttribute="width" constant="140" id="wWV-nm-fka"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="20"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Tirar outra foto">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="openCameraAgain:" destination="dfX-1U-hUz" eventType="touchUpInside" id="rVP-bA-zLQ"/>
+                                </connections>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hEx-T7-M9G" userLabel="AvailableStickersCollectionView">
                                 <rect key="frame" x="0.0" y="440" width="320" height="128"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -1067,19 +1082,11 @@
                                     <segue destination="cIm-Ry-u1B" kind="show" identifier="cancel" id="fw7-RQ-RED"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeJ-EF-KMl">
-                                <rect key="frame" x="16" y="30" width="140" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="K3f-Jx-CvI"/>
-                                    <constraint firstAttribute="width" constant="140" id="wWV-nm-fka"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="20"/>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Tirar outra foto">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8M-VV-eF7">
+                                <rect key="frame" x="121" y="353" width="79" height="79"/>
+                                <state key="normal" backgroundImage="stickersButton"/>
                                 <connections>
-                                    <action selector="openCameraAgain:" destination="dfX-1U-hUz" eventType="touchUpInside" id="rVP-bA-zLQ"/>
+                                    <action selector="didPressStickersButton:" destination="dfX-1U-hUz" eventType="touchUpInside" id="8ju-kN-n42"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1087,6 +1094,7 @@
                         <constraints>
                             <constraint firstItem="KeJ-EF-KMl" firstAttribute="leading" secondItem="aSH-rQ-FJj" secondAttribute="leading" id="1lN-Xc-OwX"/>
                             <constraint firstItem="hEx-T7-M9G" firstAttribute="centerX" secondItem="DtQ-b2-WG7" secondAttribute="centerX" id="2cr-O8-W10"/>
+                            <constraint firstItem="hEx-T7-M9G" firstAttribute="top" secondItem="G8M-VV-eF7" secondAttribute="bottom" constant="8" id="3CK-7W-7Vw"/>
                             <constraint firstItem="k9g-Kq-TXS" firstAttribute="leading" secondItem="DtQ-b2-WG7" secondAttribute="leading" id="8Sp-gv-dac"/>
                             <constraint firstItem="YaJ-kf-Exh" firstAttribute="centerX" secondItem="DtQ-b2-WG7" secondAttribute="centerX" id="AE8-Nn-PQ6"/>
                             <constraint firstAttribute="bottom" secondItem="YaJ-kf-Exh" secondAttribute="bottom" constant="50" id="Bh5-q1-2ar"/>
@@ -1102,6 +1110,7 @@
                             <constraint firstAttribute="trailing" secondItem="NgM-8G-x3U" secondAttribute="trailing" id="W7Y-cy-C3p"/>
                             <constraint firstItem="NgM-8G-x3U" firstAttribute="top" secondItem="DtQ-b2-WG7" secondAttribute="top" id="X1g-Ig-yag"/>
                             <constraint firstItem="KeJ-EF-KMl" firstAttribute="top" secondItem="KMd-n1-egt" secondAttribute="bottom" constant="10" id="XNR-Y5-8OT"/>
+                            <constraint firstItem="G8M-VV-eF7" firstAttribute="centerX" secondItem="DtQ-b2-WG7" secondAttribute="centerX" id="XZu-Yf-u5I"/>
                             <constraint firstAttribute="bottom" secondItem="k9g-Kq-TXS" secondAttribute="bottom" id="b5U-vl-vAi"/>
                             <constraint firstItem="aSH-rQ-FJj" firstAttribute="top" secondItem="KMd-n1-egt" secondAttribute="bottom" id="eiS-MR-lnU"/>
                             <constraint firstAttribute="leadingMargin" secondItem="aSH-rQ-FJj" secondAttribute="leading" id="g2d-gy-HBg"/>
@@ -1112,9 +1121,11 @@
                         <outlet property="AvailableStickersCollectionView" destination="hEx-T7-M9G" id="Jfg-0S-Gnh"/>
                         <outlet property="cameraView" destination="k9g-Kq-TXS" id="R7M-Ka-50P"/>
                         <outlet property="cancelButton" destination="aSH-rQ-FJj" id="2mc-YN-fhF"/>
+                        <outlet property="collectionBottomContraint" destination="KhY-yF-t7D" id="y2w-0j-O7N"/>
                         <outlet property="openCameraAgainOutlet" destination="KeJ-EF-KMl" id="oxF-AC-nYW"/>
                         <outlet property="saveAndShareButtonsOutlet" destination="3JN-3p-m3I" id="Tha-5g-wKa"/>
                         <outlet property="selfieImageView" destination="NgM-8G-x3U" id="t2b-Jy-2BI"/>
+                        <outlet property="stickersButtonOutlet" destination="G8M-VV-eF7" id="4hR-iK-BgO"/>
                         <outlet property="takePhotoButtonOutlet" destination="YaJ-kf-Exh" id="8fZ-Kr-YxH"/>
                     </connections>
                 </viewController>
@@ -1135,6 +1146,7 @@
         <image name="saveToCameraRoll" width="48" height="49"/>
         <image name="sendFacebook" width="48" height="48"/>
         <image name="sendTwitter" width="48" height="48"/>
+        <image name="stickersButton" width="79" height="79"/>
         <image name="twitterButton" width="39" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
