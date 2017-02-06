@@ -175,6 +175,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
             stickersButtonOutlet.isHidden = false
             
             self.selfieImageView.image = image
+            selfieImageView.isHidden = false
         } else {
             print("some error here")
         }
@@ -195,6 +196,15 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     }
 
     @IBAction func openCameraAgain(_ sender: AnyObject) {
+        cameraView.isHidden = false
+        takePhotoButtonOutlet.isHidden = false
+        cancelButton.isHidden = false
+        saveAndShareButtonsOutlet.isHidden = true
+        openCameraAgainOutlet.isHidden = true
+        AvailableStickersCollectionView.isHidden = true
+        stickersButtonOutlet.isHidden = true
+        selfieImageView.isHidden = true
+        
     }
     
     @IBAction func cancelStickersCollage(_ sender: AnyObject) {

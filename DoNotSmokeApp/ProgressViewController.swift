@@ -145,43 +145,14 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
             dismissPopUp()
             popupIsOpen = false
         } else {
-            self.dismiss(animated: true, completion: nil)
+            //self.dismiss(animated: true, completion: nil)
         }
     }
     
     @IBAction func goToSelfieView(_ sender: AnyObject) {
         self.tabBarController?.selectedIndex = 1
     }
-    
-    @IBAction func longPressCell(_ sender: AnyObject) {
-//        if sender.state == .Began {
-//            print ("começou long")
-//            let p = sender.locationInView(self.collectionView)
-//            if let indexPath : NSIndexPath = (self.collectionView?.indexPathForItemAtPoint(p))!{
-//                
-//                popUpBackground.hidden = false
-//                popUp.hidden = false
-//                
-//                popUpImage.image = self.progressImages[indexPath.row]
-//                popUpImage.hidden = false
-//                
-//                popUpTitle.text = healthAchievement.healthBenefit[indexPath.row].name
-//                popUpTitle.hidden = false
-//                
-//                popUpText.text = healthAchievement.healthBenefit[indexPath.row].description
-//                popUpText.hidden = false
-//                
-//            }
-//        } else if sender.state == .Ended {
-//            print ("acabou")
-//            popUpBackground.hidden = true
-//            popUp.hidden = true
-//            popUpImage.hidden = true
-//            popUpTitle.hidden = true
-//            popUpText.hidden = true
-//        }
-//        
-    }
+
 }
 
 extension UIViewController {
