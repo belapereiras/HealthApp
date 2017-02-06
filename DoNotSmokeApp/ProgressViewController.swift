@@ -45,9 +45,11 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
             let benefitAchieved = benefitsAchieved[indexPath.row]
             cell.cellImage.image = self.coloredProgressImages[indexPath.row]
             cell.cellTitle.text = benefitAchieved.title
+            cell.cellTitle.textColor = UIColor.darkGray
         } else {
             cell.cellImage.image = self.progressImages[indexPath.row]
             cell.cellTitle.text = healthAchievement.benefits[indexPath.row].title
+            cell.cellTitle.textColor = UIColor.lightGray
         }
 
         return cell

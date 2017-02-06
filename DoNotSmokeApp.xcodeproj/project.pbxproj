@@ -25,6 +25,8 @@
 		1BC6B17E1D3E8D2D00567865 /* SF-UI-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B17C1D3E8D2D00567865 /* SF-UI-Text-Regular.otf */; };
 		1BC6B1801D3E8D6400567865 /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B17F1D3E8D6400567865 /* SF-UI-Display-Light.otf */; };
 		6E0C03001E3FB78000B85B96 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C02FF1E3FB78000B85B96 /* PopUpViewController.swift */; };
+		6E19CCC81E49102B00457559 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E19CCC61E49102B00457559 /* Lato-Light.ttf */; };
+		6E19CCC91E49102B00457559 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E19CCC71E49102B00457559 /* Lato-Medium.ttf */; };
 		6E32D5641D4FD3B00087EE74 /* SavePhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E32D5631D4FD3B00087EE74 /* SavePhotos.swift */; };
 		D11FFF071E3A1F810067738E /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11FFF061E3A1F810067738E /* Achievement.swift */; };
 		D136F4CF1D46797B0032B85D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136F4CE1D46797B0032B85D /* Extension.swift */; };
@@ -58,6 +60,8 @@
 		1BC6B17C1D3E8D2D00567865 /* SF-UI-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Regular.otf"; sourceTree = "<group>"; };
 		1BC6B17F1D3E8D6400567865 /* SF-UI-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Light.otf"; sourceTree = "<group>"; };
 		6E0C02FF1E3FB78000B85B96 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		6E19CCC61E49102B00457559 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		6E19CCC71E49102B00457559 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
 		6E32D5631D4FD3B00087EE74 /* SavePhotos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavePhotos.swift; sourceTree = "<group>"; };
 		D11FFF061E3A1F810067738E /* Achievement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
 		D136F4CE1D46797B0032B85D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 		1BC6B16C1D3D616600567865 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6E19CCC61E49102B00457559 /* Lato-Light.ttf */,
+				6E19CCC71E49102B00457559 /* Lato-Medium.ttf */,
 				1BAE02EC1D429D3F009C2BC7 /* SF-UI-Text-LightItalic.otf */,
 				1BC6B17F1D3E8D6400567865 /* SF-UI-Display-Light.otf */,
 				1BC6B17C1D3E8D2D00567865 /* SF-UI-Text-Regular.otf */,
@@ -260,8 +266,10 @@
 				1BC6B17A1D3E875400567865 /* Lato-Semibold.ttf in Resources */,
 				1BC6B1621D3D5AB200567865 /* LaunchScreen.storyboard in Resources */,
 				1BAE02ED1D429D3F009C2BC7 /* SF-UI-Text-LightItalic.otf in Resources */,
+				6E19CCC91E49102B00457559 /* Lato-Medium.ttf in Resources */,
 				D136F4D31D468A390032B85D /* UserPropertyList.plist in Resources */,
 				1BC6B1801D3E8D6400567865 /* SF-UI-Display-Light.otf in Resources */,
+				6E19CCC81E49102B00457559 /* Lato-Light.ttf in Resources */,
 				1BC6B15F1D3D5AB200567865 /* Assets.xcassets in Resources */,
 				1BC6B15D1D3D5AB200567865 /* Main.storyboard in Resources */,
 				1BC6B17E1D3E8D2D00567865 /* SF-UI-Text-Regular.otf in Resources */,
