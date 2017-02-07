@@ -235,7 +235,7 @@
 				TargetAttributes = {
 					1BC6B1531D3D5AB200567865 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 7S5BW22U4Y;
+						DevelopmentTeam = R3VU9CJ4FV;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -417,7 +417,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7S5BW22U4Y;
+				DEVELOPMENT_TEAM = R3VU9CJ4FV;
 				INFOPLIST_FILE = DoNotSmokeApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = StickWithMe;
@@ -433,7 +433,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7S5BW22U4Y;
+				DEVELOPMENT_TEAM = R3VU9CJ4FV;
 				INFOPLIST_FILE = DoNotSmokeApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = StickWithMe;
