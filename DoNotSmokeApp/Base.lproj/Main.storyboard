@@ -117,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nhn-sw-itf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="276" y="-430"/>
+            <point key="canvasLocation" x="994" y="-349"/>
         </scene>
         <!--ProgressScene-->
         <scene sceneID="2uj-hD-4M3">
@@ -464,7 +464,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D3a-P1-qwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="276" y="368"/>
+            <point key="canvasLocation" x="276" y="-350"/>
         </scene>
         <!--TabBarController-->
         <scene sceneID="Hrb-PY-BRa">
@@ -476,11 +476,12 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" red="1" green="0.58039215686274503" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.396078431372549" green="0.68627450980392157" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="PEm-xP-a09" kind="relationship" relationship="viewControllers" id="oqh-HW-1BH"/>
                         <segue destination="6LL-a7-2og" kind="relationship" relationship="viewControllers" id="Alt-VS-wa7"/>
+                        <segue destination="Awk-P8-YZR" kind="relationship" relationship="viewControllers" id="7SK-GW-r6T"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kh7-pd-h5g" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -664,7 +665,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5g-gz-JdN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-743" y="1113"/>
+            <point key="canvasLocation" x="-1770" y="368"/>
         </scene>
         <!--AchievementsScene-->
         <scene sceneID="9De-rR-nze">
@@ -918,7 +919,154 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rtw-Ze-lcH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1170" y="368"/>
+            <point key="canvasLocation" x="276" y="368"/>
+        </scene>
+        <!--Configurações-->
+        <scene sceneID="WqD-fL-beJ">
+            <objects>
+                <viewController storyboardIdentifier="SettingsScene" id="Awk-P8-YZR" customClass="SettingsViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Qw-Y2-zom"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Qp-fj-n3W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nti-BO-DnF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8EY-7g-KDk">
+                                <rect key="frame" x="0.0" y="51" width="320" height="188"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSW-zv-UFY">
+                                        <rect key="frame" x="8" y="15" width="37.5" height="17"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                        <color key="textColor" red="0.52941176470588236" green="0.53725490196078429" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preço do maço de cigarro" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eI7-Wo-6wd">
+                                        <rect key="frame" x="8" y="109" width="156" height="17"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                        <color key="textColor" red="0.52941176469999995" green="0.53725490200000003" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Número de cigarros por maço" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkS-rV-5tp">
+                                        <rect key="frame" x="8" y="156" width="182" height="17"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                        <color key="textColor" red="0.52941176469999995" green="0.53725490200000003" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cigarros por dia" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwN-Q0-yvf">
+                                        <rect key="frame" x="8" y="62" width="97" height="17"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                        <color key="textColor" red="0.52941176469999995" green="0.53725490200000003" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oiJ-DH-KBw">
+                                        <rect key="frame" x="0.0" y="47" width="320" height="1"/>
+                                        <color key="backgroundColor" red="0.85882352941176465" green="0.87450980392156863" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="QYF-6c-wrK"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYB-A2-IWh">
+                                        <rect key="frame" x="0.0" y="94" width="320" height="1"/>
+                                        <color key="backgroundColor" red="0.85882352939999995" green="0.87450980389999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="HNr-w9-pO8"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vea-L3-zVf">
+                                        <rect key="frame" x="0.0" y="141" width="320" height="1"/>
+                                        <color key="backgroundColor" red="0.85882352939999995" green="0.87450980389999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="aBf-GR-70Z"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVj-jQ-Hqg" userLabel="Nome Text Field">
+                                        <rect key="frame" x="60.5" y="15" width="251.5" height="17"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2aI-Qi-Pik" userLabel="Cigarros Text Field">
+                                        <rect key="frame" x="120" y="62" width="192" height="17"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hpm-SW-eS8" userLabel="Preco Text Field">
+                                        <rect key="frame" x="179" y="109" width="133" height="17"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DRY-uH-ukY" userLabel="N cigarros Text Field">
+                                        <rect key="frame" x="205" y="156" width="107" height="17"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="iSW-zv-UFY" firstAttribute="top" secondItem="8EY-7g-KDk" secondAttribute="top" constant="15" id="02R-dl-4oz"/>
+                                    <constraint firstItem="SYB-A2-IWh" firstAttribute="leading" secondItem="8EY-7g-KDk" secondAttribute="leading" id="2rs-qs-Wim"/>
+                                    <constraint firstItem="oiJ-DH-KBw" firstAttribute="leading" secondItem="8EY-7g-KDk" secondAttribute="leading" id="42O-7s-6Ah"/>
+                                    <constraint firstItem="hVj-jQ-Hqg" firstAttribute="top" secondItem="8EY-7g-KDk" secondAttribute="top" constant="15" id="4gt-rc-Lnu"/>
+                                    <constraint firstAttribute="trailing" secondItem="vea-L3-zVf" secondAttribute="trailing" id="6bt-KH-H2i"/>
+                                    <constraint firstAttribute="trailing" secondItem="oiJ-DH-KBw" secondAttribute="trailing" id="E0u-cX-bVY"/>
+                                    <constraint firstAttribute="trailing" secondItem="SYB-A2-IWh" secondAttribute="trailing" id="K5A-Hl-d8M"/>
+                                    <constraint firstItem="bwN-Q0-yvf" firstAttribute="leading" secondItem="iSW-zv-UFY" secondAttribute="leading" id="KR6-7E-MWS"/>
+                                    <constraint firstItem="OkS-rV-5tp" firstAttribute="leading" secondItem="bwN-Q0-yvf" secondAttribute="leading" id="LwK-6n-eTS"/>
+                                    <constraint firstItem="2aI-Qi-Pik" firstAttribute="top" secondItem="hVj-jQ-Hqg" secondAttribute="bottom" constant="30" id="PR9-IM-A1W"/>
+                                    <constraint firstItem="DRY-uH-ukY" firstAttribute="top" secondItem="hpm-SW-eS8" secondAttribute="bottom" constant="30" id="TTa-j1-KYg"/>
+                                    <constraint firstItem="DRY-uH-ukY" firstAttribute="trailing" secondItem="hpm-SW-eS8" secondAttribute="trailing" id="Twn-n3-HuB"/>
+                                    <constraint firstItem="hVj-jQ-Hqg" firstAttribute="leading" secondItem="iSW-zv-UFY" secondAttribute="trailing" constant="15" id="Vqm-Zf-VMm"/>
+                                    <constraint firstItem="DRY-uH-ukY" firstAttribute="leading" secondItem="OkS-rV-5tp" secondAttribute="trailing" constant="15" id="WLW-Cm-Leq"/>
+                                    <constraint firstItem="2aI-Qi-Pik" firstAttribute="leading" secondItem="bwN-Q0-yvf" secondAttribute="trailing" constant="15" id="XGe-3B-LqK"/>
+                                    <constraint firstItem="vea-L3-zVf" firstAttribute="leading" secondItem="8EY-7g-KDk" secondAttribute="leading" id="XRE-Yf-VLF"/>
+                                    <constraint firstItem="eI7-Wo-6wd" firstAttribute="top" secondItem="bwN-Q0-yvf" secondAttribute="bottom" constant="30" id="YUB-bd-27I"/>
+                                    <constraint firstItem="bwN-Q0-yvf" firstAttribute="top" secondItem="iSW-zv-UFY" secondAttribute="bottom" constant="30" id="ZSu-jr-czw"/>
+                                    <constraint firstItem="hpm-SW-eS8" firstAttribute="trailing" secondItem="2aI-Qi-Pik" secondAttribute="trailing" id="bP9-TS-ogA"/>
+                                    <constraint firstItem="hpm-SW-eS8" firstAttribute="leading" secondItem="eI7-Wo-6wd" secondAttribute="trailing" constant="15" id="eO9-NE-Dj6"/>
+                                    <constraint firstItem="oiJ-DH-KBw" firstAttribute="top" secondItem="iSW-zv-UFY" secondAttribute="bottom" constant="15" id="ghp-MR-dmN"/>
+                                    <constraint firstAttribute="trailing" secondItem="hVj-jQ-Hqg" secondAttribute="trailing" constant="8" id="hM7-0D-C5Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="OkS-rV-5tp" secondAttribute="bottom" constant="15" id="jVO-Ng-uF7"/>
+                                    <constraint firstItem="SYB-A2-IWh" firstAttribute="top" secondItem="bwN-Q0-yvf" secondAttribute="bottom" constant="15" id="mgr-XB-bfD"/>
+                                    <constraint firstItem="vea-L3-zVf" firstAttribute="top" secondItem="eI7-Wo-6wd" secondAttribute="bottom" constant="15" id="pm6-KC-ksi"/>
+                                    <constraint firstItem="OkS-rV-5tp" firstAttribute="top" secondItem="eI7-Wo-6wd" secondAttribute="bottom" constant="30" id="rbZ-Y4-vrj"/>
+                                    <constraint firstItem="iSW-zv-UFY" firstAttribute="leading" secondItem="8EY-7g-KDk" secondAttribute="leading" constant="8" id="res-zb-EE6"/>
+                                    <constraint firstItem="2aI-Qi-Pik" firstAttribute="trailing" secondItem="hVj-jQ-Hqg" secondAttribute="trailing" id="tvv-Yt-PHU"/>
+                                    <constraint firstItem="OkS-rV-5tp" firstAttribute="leading" secondItem="eI7-Wo-6wd" secondAttribute="leading" id="vLg-Zm-IzU"/>
+                                    <constraint firstItem="hpm-SW-eS8" firstAttribute="top" secondItem="2aI-Qi-Pik" secondAttribute="bottom" constant="30" id="wB6-l7-WGt"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONFIGURAÇÕES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVH-h9-egK">
+                                <rect key="frame" x="8" y="27" width="117.5" height="17"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                <color key="textColor" red="0.52941176469999995" green="0.53725490200000003" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.9137254901960784" green="0.92549019607843142" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8EY-7g-KDk" firstAttribute="top" secondItem="uVH-h9-egK" secondAttribute="bottom" constant="7" id="9nE-SK-0dR"/>
+                            <constraint firstAttribute="trailing" secondItem="8EY-7g-KDk" secondAttribute="trailing" id="LPP-I8-iGx"/>
+                            <constraint firstItem="8EY-7g-KDk" firstAttribute="leading" secondItem="Nti-BO-DnF" secondAttribute="leading" id="OWc-iH-HO9"/>
+                            <constraint firstItem="uVH-h9-egK" firstAttribute="leading" secondItem="iSW-zv-UFY" secondAttribute="leading" id="Qr0-TZ-753"/>
+                            <constraint firstItem="uVH-h9-egK" firstAttribute="top" secondItem="7Qw-Y2-zom" secondAttribute="bottom" constant="7" id="hNU-US-UMp"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Configurações" image="settings" id="M7I-Dy-fFp"/>
+                    <connections>
+                        <outlet property="cigarettesPerDayTextField" destination="2aI-Qi-Pik" id="mi9-i3-PJJ"/>
+                        <outlet property="cigarettesPerPackTextField" destination="DRY-uH-ukY" id="aqR-DJ-1n2"/>
+                        <outlet property="nameTextField" destination="hVj-jQ-Hqg" id="tUW-RS-vDG"/>
+                        <outlet property="priceTextField" destination="hpm-SW-eS8" id="EnL-af-uG9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vRb-C9-ecd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="275.625" y="1147.1830985915492"/>
         </scene>
         <!--Available Stickers View Controller-->
         <scene sceneID="bbT-d2-2w2">
@@ -1124,7 +1272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weN-ga-CoS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="559" y="1355"/>
+            <point key="canvasLocation" x="994" y="368"/>
         </scene>
     </scenes>
     <resources>
@@ -1139,11 +1287,12 @@
         <image name="saveToCameraRoll" width="48" height="49"/>
         <image name="sendFacebook" width="48" height="48"/>
         <image name="sendTwitter" width="48" height="48"/>
+        <image name="settings" width="27" height="27"/>
         <image name="stickersButton" width="79" height="79"/>
         <image name="twitterButton" width="39" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fw7-RQ-RED"/>
-        <segue reference="t1d-0t-7Kb"/>
+        <segue reference="Mth-gd-VGD"/>
+        <segue reference="Alt-VS-wa7"/>
     </inferredMetricsTieBreakers>
 </document>
