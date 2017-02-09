@@ -21,7 +21,11 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     var captureSesssion : AVCaptureSession!
     var cameraOutput : AVCapturePhotoOutput!
     var previewLayer : AVCaptureVideoPreviewLayer!
+    var stickersIsOpen = true
     
+    
+    @IBOutlet weak var collectionBottomContraint: NSLayoutConstraint!
+    @IBOutlet weak var stickersButtonOutlet: UIButton!
     @IBOutlet weak var openCameraAgainOutlet: UIButton!
     @IBOutlet weak var saveAndShareButtonsOutlet: UIStackView!
     @IBOutlet var AvailableStickersCollectionView: UICollectionView!
@@ -53,7 +57,38 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let sticker_picked = availableStickers[indexPath.row] else {return}
         let _ = Sticker(sticker: sticker_picked, view: self.view)
+
+        stickerPicked = availableStickers[indexPath.row]
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            self.collectionBottomContraint.constant = -130
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        
+//        stickerPicked = UIImageView()
+//        stickerPicked?.image = availableStickers[indexPath.row]
+        //        selfieImageView.addSubview(stickerPicked!)
+        //        selfieImageView.subviews.forEach{$0.isUserInteractionEnabled = true; $0.isHidden = false; $0.center = CGPoint(dictionaryRepresentation: selfieImageView.center as! CFDictionary)!}
+        //        print("*** selfieImageView.subviews.count", selfieImageView.subviews.count)
     }
+    
+    @IBAction func didPressStickersButton(_ sender: Any) {
+        if stickersIsOpen {
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            self.collectionBottomContraint.constant = -130
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+            stickersIsOpen = false
+        } else {
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                self.collectionBottomContraint.constant = 0
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+            stickersIsOpen = true
+        }
+        
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +98,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         saveAndShareButtonsOutlet.isHidden = true
         openCameraAgainOutlet.isHidden = true
         AvailableStickersCollectionView.isHidden = true
+        stickersButtonOutlet.isHidden = true
     }
 }
 
@@ -122,7 +158,9 @@ extension AvailableStickersViewController {
             saveAndShareButtonsOutlet.isHidden = false
             openCameraAgainOutlet.isHidden = false
             AvailableStickersCollectionView.isHidden = false
+            stickersButtonOutlet.isHidden = false
             self.selfieImageView.image = image
+            selfieImageView.isHidden = false
             
         } else {
             print("some error here")
@@ -144,6 +182,15 @@ extension AvailableStickersViewController {
     }
 
     @IBAction func openCameraAgain(_ sender: AnyObject) {
+        cameraView.isHidden = false
+        takePhotoButtonOutlet.isHidden = false
+        cancelButton.isHidden = false
+        saveAndShareButtonsOutlet.isHidden = true
+        openCameraAgainOutlet.isHidden = true
+        AvailableStickersCollectionView.isHidden = true
+        stickersButtonOutlet.isHidden = true
+        selfieImageView.isHidden = true
+        
     }
     
     @IBAction func cancelStickersCollage(_ sender: AnyObject) {

@@ -167,21 +167,15 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
             UIViewAnimationOptions.curveEaseOut, animations: {
                 
                 self.popUpBackground.alpha = 0
-                
                 self.popUp.alpha = 0
-                
                 self.popUpImage.alpha = 0
-                
                 self.popUpText.alpha = 0
             
             }, completion: { finished in
                 
                 self.popUpBackground.isHidden = true
-                
                 self.popUp.isHidden = true
-                
                 self.popUpImage.isHidden = true
-                
                 self.popUpText.isHidden = true
         })
     }
