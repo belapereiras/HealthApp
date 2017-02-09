@@ -30,6 +30,7 @@
 		D136F4CF1D46797B0032B85D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136F4CE1D46797B0032B85D /* Extension.swift */; };
 		D136F4D31D468A390032B85D /* UserPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = D136F4D21D468A390032B85D /* UserPropertyList.plist */; };
 		D19EB6E91E43B9630051E48E /* Sticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19EB6E81E43B9630051E48E /* Sticker.swift */; };
+		D1B457951E4CA630002DC030 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D1B457941E4CA630002DC030 /* .gitignore */; };
 		D1F0A35D1D40038F002C83A8 /* HealthAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A35C1D40038F002C83A8 /* HealthAchievement.swift */; };
 		D1F0A35F1D4003B4002C83A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A35E1D4003B4002C83A8 /* User.swift */; };
 		D1F0A3611D400A5E002C83A8 /* MoneyAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A3601D400A5E002C83A8 /* MoneyAchievement.swift */; };
@@ -64,6 +65,7 @@
 		D136F4CE1D46797B0032B85D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D136F4D21D468A390032B85D /* UserPropertyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserPropertyList.plist; sourceTree = "<group>"; };
 		D19EB6E81E43B9630051E48E /* Sticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sticker.swift; sourceTree = "<group>"; };
+		D1B457941E4CA630002DC030 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D1F0A35C1D40038F002C83A8 /* HealthAchievement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAchievement.swift; sourceTree = "<group>"; };
 		D1F0A35E1D4003B4002C83A8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D1F0A3601D400A5E002C83A8 /* MoneyAchievement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyAchievement.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				1BC6B15E1D3D5AB200567865 /* Assets.xcassets */,
 				1BC6B1631D3D5AB200567865 /* Info.plist */,
 				D136F4CE1D46797B0032B85D /* Extension.swift */,
+				D1B457941E4CA630002DC030 /* .gitignore */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1B457951E4CA630002DC030 /* .gitignore in Resources */,
 				1BC6B17A1D3E875400567865 /* Lato-Semibold.ttf in Resources */,
 				1BC6B1621D3D5AB200567865 /* LaunchScreen.storyboard in Resources */,
 				1BAE02ED1D429D3F009C2BC7 /* SF-UI-Text-LightItalic.otf in Resources */,
