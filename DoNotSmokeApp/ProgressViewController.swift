@@ -62,7 +62,6 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         let titleToPass = healthAchievement.benefits[indexPath.row].title
         let textToPass = healthAchievement.benefits[indexPath.row].description
 
-        
         presentPopUp(image: imageToPass, title: titleToPass, text: textToPass)
 //        popUpTitle.text = healthAchievement.benefits[indexPath.row].title
 //        popUpText.text = healthAchievement.benefits[indexPath.row].description
