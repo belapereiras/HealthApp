@@ -42,7 +42,7 @@ extension Double {
     var minutes: Double { return self / 60 }
     var hours: Double { return self.minutes / 60 }
     var days: Double { return self.hours / 24 }
-    var months: Double { return self.days / 30 }
+    
     var stringfy_seconds: (String,String) { return ("\(Int(self))" , (self>1) ? "segundos" : "segundo") }
     var stringfy_minutes: (String, String) { return ("\(Int(self))" , (Int(self)>1) ? "minutos" : "minuto") }
     var stringfy_hours: (String, String) { return ("\(Int(self))" , (Int(self)>1) ? "horas" : "hora") }

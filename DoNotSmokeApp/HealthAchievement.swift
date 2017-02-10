@@ -53,13 +53,14 @@ class HealthAchievement: Achievement {
             benefits.append(benefit)
         }
         
-        benefits.sort(by: {$0.completion_parameter <
-                                $1.completion_parameter})
+//        benefits.sort(by: {$0 < $1})
+        benefits.sort()
     }
     
     static func getHASingleton() -> HealthAchievement {
         return healthAchievement
     }
+    
 
 }
 

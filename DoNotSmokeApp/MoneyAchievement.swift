@@ -28,8 +28,7 @@ class MoneyAchievement: Achievement {
             benefits.append(benefit)
         })
         
-        benefits.sort(by: {$0.completion_parameter <
-                                  $1.completion_parameter})
+        benefits.sort()
     }
     
     static func getMASingleton() -> MoneyAchievement {
