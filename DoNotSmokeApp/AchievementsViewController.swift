@@ -39,7 +39,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     
 // MARK: ARRAYS
     
-    var achievementsStickers = [UIImage(named: "20dias"), UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "DinnerForTwo"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"), UIImage(named: "TeamTee"), UIImage(named: "Netflix"), UIImage(named: "Perfume")]
+    var achievementsStickers = [UIImage(named: "20dias"), UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "DinnerForTwo"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"),UIImage(named:"Spotify"), UIImage(named: "TeamTee"), UIImage(named: "Netflix"), UIImage(named: "Perfume")]
     
     
     func conditional_collection(_ collection: UICollectionView,is_sticker func1: ()->Any,is_selfie func2: ()->Any) -> Any {
@@ -53,7 +53,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 // MARK: COLLECTION VIEW
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return conditional_collection(collectionView, is_sticker: {return self.achievementsStickers.count}, is_selfie: { return images.count }) as! Int
+        return conditional_collection(collectionView, is_sticker: {return user.nbr_of_benefits}, is_selfie: { return images.count }) as! Int
     }
 
 // MARK: COLLECTION VIEW CELL
@@ -204,37 +204,5 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         self.present(vc, animated: true, completion: nil)
         
     }
-    
-    
-    /*@IBAction func openCamera(_ sender: AnyObject) {
-        
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
-            
-            let selfiePicker = UIImagePickerController()
-            selfiePicker.delegate = self
-            selfiePicker.sourceType = UIImagePickerControllerSourceType.camera;
-            selfiePicker.allowsEditing = false
-            
-            self.present(selfiePicker, animated: true, completion: nil)
-        }
-
-    }*/
-    
-    
-    /*func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-        
-        //selfieImageReceiver = pickedImage
-        //self.dismissViewControllerAnimated(true, completion: nil)
-
-        let vc = self.storyboard!.instantiateViewController(withIdentifier: "AvailableStickers") as! AvailableStickersViewController
-        print("VIEW CONTROLLER \(vc)")
-        print("IMAGE \(pickedImage)")
-        vc.selfieImage = pickedImage
-        self.dismiss(animated: true, completion: nil)
-
-        self.present(vc, animated: true, completion: nil)
-        }
-    }*/
   
 }

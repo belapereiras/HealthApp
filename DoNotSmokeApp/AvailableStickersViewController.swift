@@ -94,7 +94,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         super.viewDidLoad()
         //AvailableStickersCollectionView.delegate = self
         self.AvailableStickersCollectionView.reloadData()
-        views = [openCameraAgainOutlet, saveAndShareButtonsOutlet, AvailableStickersCollectionView, cancelButton, cameraView, takePhotoButtonOutlet]
+        views = [openCameraAgainOutlet, saveAndShareButtonsOutlet, AvailableStickersCollectionView, cancelButton, cameraView, takePhotoButtonOutlet, stickersButtonOutlet]
         saveAndShareButtonsOutlet.isHidden = true
         openCameraAgainOutlet.isHidden = true
         AvailableStickersCollectionView.isHidden = true
@@ -216,10 +216,9 @@ extension AvailableStickersViewController {
         views(are_hidden: true)
         UIGraphicsBeginImageContextWithOptions(self.view.frame.size, true, 0)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
-        //finalImage = UIGraphicsGetImageFromCurrentImageContext()
-        selfieImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        finalImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        //views(are_hidden: false)
+        views(are_hidden: false)
     }
     
     func views(are_hidden hide: Bool) {

@@ -15,12 +15,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var cigarettesPerPackTextField: UITextField!
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        
         setupView()
         
     }
@@ -78,9 +75,5 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    
-
 
 }

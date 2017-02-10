@@ -34,6 +34,8 @@
 		D136F4D31D468A390032B85D /* UserPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = D136F4D21D468A390032B85D /* UserPropertyList.plist */; };
 		D19EB6E91E43B9630051E48E /* Sticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19EB6E81E43B9630051E48E /* Sticker.swift */; };
 		D1B457951E4CA630002DC030 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D1B457941E4CA630002DC030 /* .gitignore */; };
+		D1B4579D1E4CAAB0002DC030 /* DoNotSmokeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4579C1E4CAAB0002DC030 /* DoNotSmokeAppTests.swift */; };
+		D1B457A71E4CB9C9002DC030 /* DateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B457A61E4CB9C9002DC030 /* DateManagerTests.swift */; };
 		D1F0A35D1D40038F002C83A8 /* HealthAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A35C1D40038F002C83A8 /* HealthAchievement.swift */; };
 		D1F0A35F1D4003B4002C83A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A35E1D4003B4002C83A8 /* User.swift */; };
 		D1F0A3611D400A5E002C83A8 /* MoneyAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A3601D400A5E002C83A8 /* MoneyAchievement.swift */; };
@@ -41,6 +43,16 @@
 		D1F0A3651D400FB7002C83A8 /* Benefit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A3641D400FB7002C83A8 /* Benefit.swift */; };
 		D1F0A3691D42B20F002C83A8 /* Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A3681D42B20F002C83A8 /* Plist.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D1B4579F1E4CAAB0002DC030 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1BC6B14C1D3D5AB200567865 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1BC6B1531D3D5AB200567865;
+			remoteInfo = DoNotSmokeApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1BAE02E91D3FF6EC009C2BC7 /* ProgressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressCell.swift; sourceTree = "<group>"; };
@@ -72,6 +84,10 @@
 		D136F4D21D468A390032B85D /* UserPropertyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserPropertyList.plist; sourceTree = "<group>"; };
 		D19EB6E81E43B9630051E48E /* Sticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sticker.swift; sourceTree = "<group>"; };
 		D1B457941E4CA630002DC030 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		D1B4579A1E4CAAB0002DC030 /* DoNotSmokeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoNotSmokeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1B4579C1E4CAAB0002DC030 /* DoNotSmokeAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoNotSmokeAppTests.swift; sourceTree = "<group>"; };
+		D1B4579E1E4CAAB0002DC030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1B457A61E4CB9C9002DC030 /* DateManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManagerTests.swift; sourceTree = "<group>"; };
 		D1F0A35C1D40038F002C83A8 /* HealthAchievement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAchievement.swift; sourceTree = "<group>"; };
 		D1F0A35E1D4003B4002C83A8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D1F0A3601D400A5E002C83A8 /* MoneyAchievement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyAchievement.swift; sourceTree = "<group>"; };
@@ -82,6 +98,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		1BC6B1511D3D5AB200567865 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1B457971E4CAAAF002DC030 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -123,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				1BC6B1561D3D5AB200567865 /* DoNotSmokeApp */,
+				D1B4579B1E4CAAB0002DC030 /* DoNotSmokeAppTests */,
 				1BC6B1551D3D5AB200567865 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				1BC6B1541D3D5AB200567865 /* DoNotSmokeApp.app */,
+				D1B4579A1E4CAAB0002DC030 /* DoNotSmokeAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,6 +245,16 @@
 			name = Achievements;
 			sourceTree = "<group>";
 		};
+		D1B4579B1E4CAAB0002DC030 /* DoNotSmokeAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1B4579C1E4CAAB0002DC030 /* DoNotSmokeAppTests.swift */,
+				D1B4579E1E4CAAB0002DC030 /* Info.plist */,
+				D1B457A61E4CB9C9002DC030 /* DateManagerTests.swift */,
+			);
+			path = DoNotSmokeAppTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -240,13 +275,31 @@
 			productReference = 1BC6B1541D3D5AB200567865 /* DoNotSmokeApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D1B457991E4CAAAF002DC030 /* DoNotSmokeAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1B457A31E4CAAB0002DC030 /* Build configuration list for PBXNativeTarget "DoNotSmokeAppTests" */;
+			buildPhases = (
+				D1B457961E4CAAAF002DC030 /* Sources */,
+				D1B457971E4CAAAF002DC030 /* Frameworks */,
+				D1B457981E4CAAAF002DC030 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D1B457A01E4CAAB0002DC030 /* PBXTargetDependency */,
+			);
+			name = DoNotSmokeAppTests;
+			productName = DoNotSmokeAppTests;
+			productReference = D1B4579A1E4CAAB0002DC030 /* DoNotSmokeAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		1BC6B14C1D3D5AB200567865 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Isabela Pereira";
 				TargetAttributes = {
@@ -254,6 +307,12 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 56YN57ZN7X;
 						LastSwiftMigration = 0820;
+					};
+					D1B457991E4CAAAF002DC030 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 56YN57ZN7X;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1BC6B1531D3D5AB200567865;
 					};
 				};
 			};
@@ -271,6 +330,7 @@
 			projectRoot = "";
 			targets = (
 				1BC6B1531D3D5AB200567865 /* DoNotSmokeApp */,
+				D1B457991E4CAAAF002DC030 /* DoNotSmokeAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -292,6 +352,13 @@
 				1BC6B15D1D3D5AB200567865 /* Main.storyboard in Resources */,
 				1BC6B17E1D3E8D2D00567865 /* SF-UI-Text-Regular.otf in Resources */,
 				1BC6B1791D3E875400567865 /* Lato-Regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1B457981E4CAAAF002DC030 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +393,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D1B457961E4CAAAF002DC030 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1B4579D1E4CAAB0002DC030 /* DoNotSmokeAppTests.swift in Sources */,
+				D1B457A71E4CB9C9002DC030 /* DateManagerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D1B457A01E4CAAB0002DC030 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1BC6B1531D3D5AB200567865 /* DoNotSmokeApp */;
+			targetProxy = D1B4579F1E4CAAB0002DC030 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1BC6B15B1D3D5AB200567865 /* Main.storyboard */ = {
@@ -463,6 +547,44 @@
 			};
 			name = Release;
 		};
+		D1B457A11E4CAAB0002DC030 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEVELOPMENT_TEAM = 56YN57ZN7X;
+				INFOPLIST_FILE = DoNotSmokeAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = bepid.DoNotSmokeAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DoNotSmokeApp.app/DoNotSmokeApp";
+			};
+			name = Debug;
+		};
+		D1B457A21E4CAAB0002DC030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEVELOPMENT_TEAM = 56YN57ZN7X;
+				INFOPLIST_FILE = DoNotSmokeAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = bepid.DoNotSmokeAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DoNotSmokeApp.app/DoNotSmokeApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -483,6 +605,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D1B457A31E4CAAB0002DC030 /* Build configuration list for PBXNativeTarget "DoNotSmokeAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1B457A11E4CAAB0002DC030 /* Debug */,
+				D1B457A21E4CAAB0002DC030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
