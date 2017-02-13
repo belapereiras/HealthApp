@@ -31,7 +31,17 @@ class PulmaoCustomView: UIView, CAAnimationDelegate {
 		setupLayers()
 	}
 	
+	override var frame: CGRect{
+		didSet{
+			setupLayerFrames()
+		}
+	}
 	
+	override var bounds: CGRect{
+		didSet{
+			setupLayerFrames()
+		}
+	}
 	
 	func setupProperties(){
 		
@@ -39,47 +49,39 @@ class PulmaoCustomView: UIView, CAAnimationDelegate {
 	
 	func setupLayers(){
 		let pulmao = CALayer()
-		pulmao.frame = CGRect(x: 3.5, y: 17.38, width: 193.71, height: 167.68)
 		self.layer.addSublayer(pulmao)
 		layers["pulmao"] = pulmao
 		
 		let path = CAShapeLayer()
-		path.frame = CGRect(x: 0, y: 200, width: 0, height: 0)
-		path.path = pathPath().cgPath
 		self.layer.addSublayer(path)
 		layers["path"] = path
 		
 		let BShine1 = CALayer()
-		BShine1.frame = CGRect(x: 36.98, y: 52.01, width: 32.85, height: 32.85)
 		self.layer.addSublayer(BShine1)
 		layers["BShine1"] = BShine1
 		
 		let BShine5 = CALayer()
-		BShine5.frame = CGRect(x: 67.95, y: 111.6, width: 14.35, height: 14.35)
 		self.layer.addSublayer(BShine5)
 		layers["BShine5"] = BShine5
 		
 		let BShine2 = CALayer()
-		BShine2.frame = CGRect(x: 138.13, y: 88.43, width: 25.57, height: 25.57)
 		self.layer.addSublayer(BShine2)
 		layers["BShine2"] = BShine2
 		
 		let BShine3 = CALayer()
-		BShine3.frame = CGRect(x: 12.7, y: 152, width: 25.57, height: 25.57)
 		self.layer.addSublayer(BShine3)
 		layers["BShine3"] = BShine3
 		
 		let BShine4 = CALayer()
-		BShine4.frame = CGRect(x: 128.84, y: 144.8, width: 19.98, height: 19.98)
 		self.layer.addSublayer(BShine4)
 		layers["BShine4"] = BShine4
 		
 		let BShine6 = CALayer()
-		BShine6.frame = CGRect(x: 128.84, y: 47.09, width: 12.4, height: 12.4)
 		self.layer.addSublayer(BShine6)
 		layers["BShine6"] = BShine6
 		
 		resetLayerProperties(forLayerIdentifiers: nil)
+		setupLayerFrames()
 	}
 	
 	func resetLayerProperties(forLayerIdentifiers layerIds: [String]!){
@@ -123,12 +125,54 @@ class PulmaoCustomView: UIView, CAAnimationDelegate {
 		CATransaction.commit()
 	}
 	
+	func setupLayerFrames(){
+		CATransaction.begin()
+		CATransaction.setDisableActions(true)
+		
+		if let pulmao : CALayer = layers["pulmao"] as? CALayer{
+			pulmao.frame = CGRect(x: 0.0175 * pulmao.superlayer!.bounds.width, y: 0.08688 * pulmao.superlayer!.bounds.height, width: 0.96853 * pulmao.superlayer!.bounds.width, height: 0.83838 * pulmao.superlayer!.bounds.height)
+		}
+		
+		if let path : CAShapeLayer = layers["path"] as? CAShapeLayer{
+			path.frame = CGRect(x: 0, y:  path.superlayer!.bounds.height, width: 0, height: 0)
+			path.path  = pathPath(bounds: (layers["path"] as! CAShapeLayer).bounds).cgPath
+		}
+		
+		if let BShine1 : CALayer = layers["BShine1"] as? CALayer{
+			BShine1.frame = CGRect(x: 0.18491 * BShine1.superlayer!.bounds.width, y: 0.26005 * BShine1.superlayer!.bounds.height, width: 0.16424 * BShine1.superlayer!.bounds.width, height: 0.16424 * BShine1.superlayer!.bounds.height)
+		}
+		
+		if let BShine5 : CALayer = layers["BShine5"] as? CALayer{
+			BShine5.frame = CGRect(x: 0.33974 * BShine5.superlayer!.bounds.width, y: 0.558 * BShine5.superlayer!.bounds.height, width: 0.07174 * BShine5.superlayer!.bounds.width, height: 0.07174 * BShine5.superlayer!.bounds.height)
+		}
+		
+		if let BShine2 : CALayer = layers["BShine2"] as? CALayer{
+			BShine2.frame = CGRect(x: 0.69066 * BShine2.superlayer!.bounds.width, y: 0.44216 * BShine2.superlayer!.bounds.height, width: 0.12783 * BShine2.superlayer!.bounds.width, height: 0.12783 * BShine2.superlayer!.bounds.height)
+		}
+		
+		if let BShine3 : CALayer = layers["BShine3"] as? CALayer{
+			BShine3.frame = CGRect(x: 0.06352 * BShine3.superlayer!.bounds.width, y: 0.75998 * BShine3.superlayer!.bounds.height, width: 0.12783 * BShine3.superlayer!.bounds.width, height: 0.12783 * BShine3.superlayer!.bounds.height)
+		}
+		
+		if let BShine4 : CALayer = layers["BShine4"] as? CALayer{
+			BShine4.frame = CGRect(x: 0.6442 * BShine4.superlayer!.bounds.width, y: 0.72402 * BShine4.superlayer!.bounds.height, width: 0.09991 * BShine4.superlayer!.bounds.width, height: 0.09991 * BShine4.superlayer!.bounds.height)
+		}
+		
+		if let BShine6 : CALayer = layers["BShine6"] as? CALayer{
+			BShine6.frame = CGRect(x: 0.64421 * BShine6.superlayer!.bounds.width, y: 0.23543 * BShine6.superlayer!.bounds.height, width: 0.062 * BShine6.superlayer!.bounds.width, height: 0.062 * BShine6.superlayer!.bounds.height)
+		}
+		
+		CATransaction.commit()
+	}
+	
 	//MARK: - Animation Setup
 	
 	func addPulmao(){
 		let fillMode : String = kCAFillModeForwards
 		
 		////An infinity animation
+		
+		let BShine1 = layers["BShine1"] as! CALayer
 		
 		////BShine1 animation
 		let BShine1TransformAnim         = CAKeyframeAnimation(keyPath:"transform")
@@ -140,7 +184,9 @@ class PulmaoCustomView: UIView, CAAnimationDelegate {
 		BShine1TransformAnim.repeatCount = Float.infinity
 		
 		let BShine1Pulmao_animationAnim : CAAnimationGroup = QCMethod.group(animations: [BShine1TransformAnim], fillMode:fillMode)
-		layers["BShine1"]?.add(BShine1Pulmao_animationAnim, forKey:"BShine1Pulmao_animationAnim")
+		BShine1.add(BShine1Pulmao_animationAnim, forKey:"BShine1Pulmao_animationAnim")
+		
+		let BShine5 = layers["BShine5"] as! CALayer
 		
 		////BShine5 animation
 		let BShine5TransformAnim         = CAKeyframeAnimation(keyPath:"transform")
@@ -152,7 +198,9 @@ class PulmaoCustomView: UIView, CAAnimationDelegate {
 		BShine5TransformAnim.repeatCount = Float.infinity
 		
 		let BShine5Pulmao_animationAnim : CAAnimationGroup = QCMethod.group(animations: [BShine5TransformAnim], fillMode:fillMode)
-		layers["BShine5"]?.add(BShine5Pulmao_animationAnim, forKey:"BShine5Pulmao_animationAnim")
+		BShine5.add(BShine5Pulmao_animationAnim, forKey:"BShine5Pulmao_animationAnim")
+		
+		let BShine2 = layers["BShine2"] as! CALayer
 		
 		////BShine2 animation
 		let BShine2TransformAnim         = CAKeyframeAnimation(keyPath:"transform")
@@ -164,7 +212,9 @@ class PulmaoCustomView: UIView, CAAnimationDelegate {
 		BShine2TransformAnim.repeatCount = Float.infinity
 		
 		let BShine2Pulmao_animationAnim : CAAnimationGroup = QCMethod.group(animations: [BShine2TransformAnim], fillMode:fillMode)
-		layers["BShine2"]?.add(BShine2Pulmao_animationAnim, forKey:"BShine2Pulmao_animationAnim")
+		BShine2.add(BShine2Pulmao_animationAnim, forKey:"BShine2Pulmao_animationAnim")
+		
+		let BShine3 = layers["BShine3"] as! CALayer
 		
 		////BShine3 animation
 		let BShine3TransformAnim         = CAKeyframeAnimation(keyPath:"transform")
@@ -176,7 +226,9 @@ class PulmaoCustomView: UIView, CAAnimationDelegate {
 		BShine3TransformAnim.repeatCount = Float.infinity
 		
 		let BShine3Pulmao_animationAnim : CAAnimationGroup = QCMethod.group(animations: [BShine3TransformAnim], fillMode:fillMode)
-		layers["BShine3"]?.add(BShine3Pulmao_animationAnim, forKey:"BShine3Pulmao_animationAnim")
+		BShine3.add(BShine3Pulmao_animationAnim, forKey:"BShine3Pulmao_animationAnim")
+		
+		let BShine4 = layers["BShine4"] as! CALayer
 		
 		////BShine4 animation
 		let BShine4TransformAnim         = CAKeyframeAnimation(keyPath:"transform")
@@ -188,7 +240,9 @@ class PulmaoCustomView: UIView, CAAnimationDelegate {
 		BShine4TransformAnim.repeatCount = Float.infinity
 		
 		let BShine4Pulmao_animationAnim : CAAnimationGroup = QCMethod.group(animations: [BShine4TransformAnim], fillMode:fillMode)
-		layers["BShine4"]?.add(BShine4Pulmao_animationAnim, forKey:"BShine4Pulmao_animationAnim")
+		BShine4.add(BShine4Pulmao_animationAnim, forKey:"BShine4Pulmao_animationAnim")
+		
+		let BShine6 = layers["BShine6"] as! CALayer
 		
 		////BShine6 animation
 		let BShine6TransformAnim         = CAKeyframeAnimation(keyPath:"transform")
@@ -200,7 +254,7 @@ class PulmaoCustomView: UIView, CAAnimationDelegate {
 		BShine6TransformAnim.repeatCount = Float.infinity
 		
 		let BShine6Pulmao_animationAnim : CAAnimationGroup = QCMethod.group(animations: [BShine6TransformAnim], fillMode:fillMode)
-		layers["BShine6"]?.add(BShine6Pulmao_animationAnim, forKey:"BShine6Pulmao_animationAnim")
+		BShine6.add(BShine6Pulmao_animationAnim, forKey:"BShine6Pulmao_animationAnim")
 	}
 	
 	//MARK: - Animation Cleanup
@@ -246,9 +300,9 @@ class PulmaoCustomView: UIView, CAAnimationDelegate {
 	
 	//MARK: - Bezier Path
 	
-	func pathPath() -> UIBezierPath{
+	func pathPath(bounds: CGRect) -> UIBezierPath{
 		let pathPath = UIBezierPath()
-		pathPath.move(to: CGPoint(x: -27.004, y: -64.667))
+		//bounds height or width must be higher than 0!
 		
 		return pathPath
 	}

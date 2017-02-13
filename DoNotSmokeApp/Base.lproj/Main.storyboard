@@ -527,12 +527,11 @@
                                 <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="38"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R1F-Jo-Kqe" customClass="PulmaoCustomView" customModule="DoNotSmokeApp" customModuleProvider="target">
-                                <rect key="frame" x="60" y="55" width="200" height="200"/>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="R1F-Jo-Kqe" customClass="PulmaoCustomView" customModule="DoNotSmokeApp" customModuleProvider="target">
+                                <rect key="frame" x="52.5" y="40" width="215" height="215"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="NZM-lp-vTp"/>
-                                    <constraint firstAttribute="height" constant="200" id="Yj2-5r-Nci"/>
+                                    <constraint firstAttribute="width" secondItem="R1F-Jo-Kqe" secondAttribute="height" multiplier="1:1" id="2iG-kp-qY9"/>
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="psp-kT-KmO">
@@ -555,6 +554,7 @@ Continue para preencher suas informações.</string>
                             <constraint firstItem="hX9-8B-peZ" firstAttribute="centerX" secondItem="cqf-BD-fmc" secondAttribute="centerX" id="B0p-dC-YBy"/>
                             <constraint firstItem="qUy-hA-hSg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cqf-BD-fmc" secondAttribute="leading" multiplier="0.9" constant="220" id="Dhi-6q-Dew"/>
                             <constraint firstItem="hX9-8B-peZ" firstAttribute="top" secondItem="R1F-Jo-Kqe" secondAttribute="bottom" constant="20" id="G6P-Kx-7jU"/>
+                            <constraint firstItem="R1F-Jo-Kqe" firstAttribute="top" secondItem="1sy-gy-XlJ" secondAttribute="bottom" constant="20" id="Glp-8z-hYR"/>
                             <constraint firstItem="psp-kT-KmO" firstAttribute="top" secondItem="hX9-8B-peZ" secondAttribute="bottom" id="LQp-O2-7Di"/>
                             <constraint firstItem="2UT-xT-nq6" firstAttribute="top" secondItem="qUy-hA-hSg" secondAttribute="bottom" constant="26" id="Lw6-K4-y4Z"/>
                             <constraint firstItem="R1F-Jo-Kqe" firstAttribute="centerX" secondItem="cqf-BD-fmc" secondAttribute="centerX" id="PT6-7h-6Yk"/>
@@ -896,17 +896,17 @@ Continue para preencher suas informações.</string>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FhQ-F3-zlD" userLabel="Pop Up">
-                                <rect key="frame" x="81" y="100" width="160" height="171"/>
+                                <rect key="frame" x="80" y="100" width="160" height="171"/>
                                 <subviews>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G25-Vh-Egu">
-                                        <rect key="frame" x="29" y="5" width="100" height="100"/>
+                                        <rect key="frame" x="30" y="5" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="4pz-yc-ssr"/>
                                             <constraint firstAttribute="width" constant="100" id="LM8-k3-HXV"/>
                                         </constraints>
                                     </imageView>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXh-49-mxz">
-                                        <rect key="frame" x="-21" y="110" width="200" height="50"/>
+                                        <rect key="frame" x="-20" y="110" width="200" height="50"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="3cP-Pv-4w2"/>
