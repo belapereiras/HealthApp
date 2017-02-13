@@ -16,6 +16,7 @@ protocol Achievement {
 }
 
 extension Achievement {
+    
     func create_benefit(_ title: String, _ description: String, _ interval: TimeInterval) -> Benefit {
         let benefit = Benefit(title: title, description: description, completion_parameter: interval)
         return benefit
@@ -24,4 +25,12 @@ extension Achievement {
     func benefits_achieved(_ accumulated: Double) -> [Benefit]? {
         return benefits.filter{ $0.is_achieved(accumulated) }
     }
+    
 }
+
+
+
+
+
+
+

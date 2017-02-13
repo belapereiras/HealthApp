@@ -25,10 +25,6 @@ class User {
     var quitDay: TimeInterval
     static var user = User()
     
-    var cigarettes_not_smoked: Double { return cigarettesPerDay * dateManager.tp_in_days }
-    var nOf_packs_smoked_perDay: Double { return cigarettesPerDay / cigarettesPerPack }
-    var savings: Double { return nOf_packs_smoked_perDay*packPrice*dateManager.tp_in_days }
-    
     fileprivate init?() {
         
         guard let data = Plist(name: "UserPropertyList") else { return nil }
@@ -55,4 +51,17 @@ class User {
         connections.append(connection)
     }
     
+}
+
+extension User {
+    var cigarettes_not_smoked: Double { return cigarettesPerDay * dateManager.tp_in_days }
+    var nOf_packs_smoked_perDay: Double { return cigarettesPerDay / cigarettesPerPack }
+    var savings: Double { return nOf_packs_smoked_perDay*packPrice*dateManager.tp_in_days }
+    var nbr_of_benefits: Int {
+        let savings = User.getUserSingleton().savings
+        if let benefits = User.getUserSingleton().moneyAchievements.benefits_achieved(savings) {
+            return benefits.count
+        }
+        return 0
+    }
 }

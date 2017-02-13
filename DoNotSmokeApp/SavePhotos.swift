@@ -36,7 +36,7 @@ class SavePhotos {
         }
     }
     
-    func saveLocally(_ finalImage: UIImage){
+    func saveLocally(_ finalImage: UIImage) {
         var imagePath = Date().description
         imagePath = imagePath.replacingOccurrences(of: " ", with: "")
         imagePath = imagesDirectoryPath + "/\(imagePath).png"

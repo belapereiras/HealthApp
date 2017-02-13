@@ -20,8 +20,6 @@ class ContractViewController: UIViewController {
     @IBOutlet var facebookButton: UIButton!
     @IBOutlet var twitterButton: UIButton!
    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -80,9 +78,5 @@ class ContractViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
 
-    
-    override func viewWillAppear(_ animated: Bool) {
-    }
 }

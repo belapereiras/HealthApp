@@ -18,20 +18,14 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     var stickerPicked: UIImage?
     var finalImage: UIImage?
     var user = User.getUserSingleton()
-    var benefitsAchieved: [Benefit] = []
-    
-    var tapGesture: UITapGestureRecognizer!
-    
     var captureSesssion : AVCaptureSession!
     var cameraOutput : AVCapturePhotoOutput!
     var previewLayer : AVCaptureVideoPreviewLayer!
-    
     var stickersIsOpen = true
     
     
     @IBOutlet weak var collectionBottomContraint: NSLayoutConstraint!
     @IBOutlet weak var stickersButtonOutlet: UIButton!
-    
     @IBOutlet weak var openCameraAgainOutlet: UIButton!
     @IBOutlet weak var saveAndShareButtonsOutlet: UIStackView!
     @IBOutlet var AvailableStickersCollectionView: UICollectionView!
@@ -39,29 +33,31 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var takePhotoButtonOutlet: UIButton!
+    lazy var views: [UIView] = []
     
-    var availableStickers = [UIImage(named: "20dias"), UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "DinnerForTwo"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"), UIImage(named: "TeamTee"), UIImage(named: "Netflix"), UIImage(named: "Perfume")]
+    lazy var availableStickers = [UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"), UIImage(named:"Spotify"), UIImage(named: "DinnerForTwo"),  UIImage(named: "TeamTee"), UIImage (named: "Netflix"), UIImage(named: "Perfume")]
+    
 
 // MARK: COLLECTION VIEW
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.availableStickers.count
+        return user.nbr_of_benefits
     }
 
 // MARK: COLLECTION VIEW CELL
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPath) -> UICollectionViewCell {
-        
+        print("Collection View")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell3", for: indexPath) as! AvailableStickersCell
-        
-        //TODO: - Change the cells images if the benefit has been achieved -
-        
         cell.cellImage.image = self.availableStickers[indexPath.row]
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let sticker_picked = availableStickers[indexPath.row] else {return}
+        let _ = Sticker(sticker: sticker_picked, view: self.view)
+
         stickerPicked = availableStickers[indexPath.row]
         
         UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
@@ -74,7 +70,6 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         //        selfieImageView.addSubview(stickerPicked!)
         //        selfieImageView.subviews.forEach{$0.isUserInteractionEnabled = true; $0.isHidden = false; $0.center = CGPoint(dictionaryRepresentation: selfieImageView.center as! CFDictionary)!}
         //        print("*** selfieImageView.subviews.count", selfieImageView.subviews.count)
-        
     }
     
     @IBAction func didPressStickersButton(_ sender: Any) {
@@ -97,25 +92,18 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        AvailableStickersCollectionView.delegate = self
-        tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
-        tapGesture.delegate = self
-        selfieImageView.addGestureRecognizer(tapGesture)
-        initialize_timer(with_interval: 5, handler: { (timer: Timer) in
-            let savings = self.user.savings
-            if let benefits = self.user.moneyAchievements.benefits_achieved(savings) {
-                self.benefitsAchieved = benefits
-                DispatchQueue.main.async(execute: {
-                    self.AvailableStickersCollectionView.reloadData()
-                })
-            }
-        })
-        
+        //AvailableStickersCollectionView.delegate = self
+        self.AvailableStickersCollectionView.reloadData()
+        views = [openCameraAgainOutlet, saveAndShareButtonsOutlet, AvailableStickersCollectionView, cancelButton, cameraView, takePhotoButtonOutlet, stickersButtonOutlet]
         saveAndShareButtonsOutlet.isHidden = true
         openCameraAgainOutlet.isHidden = true
         AvailableStickersCollectionView.isHidden = true
         stickersButtonOutlet.isHidden = true
     }
+}
+
+//MARK: Extension that handles all camera related methods
+extension AvailableStickersViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setUpCameraView()
@@ -126,10 +114,8 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         captureSesssion = AVCaptureSession()
         captureSesssion.sessionPreset = AVCaptureSessionPresetPhoto
         cameraOutput = AVCapturePhotoOutput()
-        
-        //let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+    
         let device = AVCaptureDevice.defaultDevice(withDeviceType: AVCaptureDeviceType.builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: AVCaptureDevicePosition.front)
-        //device?.position = AVCaptureDevicePosition.front
         
         if let input = try? AVCaptureDeviceInput(device: device) {
             if (captureSesssion.canAddInput(input)) {
@@ -173,9 +159,9 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
             openCameraAgainOutlet.isHidden = false
             AvailableStickersCollectionView.isHidden = false
             stickersButtonOutlet.isHidden = false
-            
             self.selfieImageView.image = image
             selfieImageView.isHidden = false
+            
         } else {
             print("some error here")
         }
@@ -214,78 +200,30 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     
     @IBAction func saveToCameraRoll(_ sender: AnyObject) {
         
-        finalImage = selfieImageView.image
-        guard let final_image = finalImage else {fatalError("MergedImage shouldn't be nil")}
-        
-        UIImageWriteToSavedPhotosAlbum(final_image, nil, nil, nil)
-        savePhotos.saveLocally(final_image)
-        
-    }
-    
-    func imageTapped(_ sender: UITapGestureRecognizer) {
-        print("Entrei")
-        let point = sender.location(in: self.selfieImageView)
-        if let image = mergeStickerAndSelfie(point) {
-            selfieImageView.image = image
+        mergeStickerAndSelfie()
+        if let image = finalImage {
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+            savePhotos.saveLocally(image)
         }
-        
     }
-    
-    func mergeStickerAndSelfie(_ point: CGPoint) -> UIImage? {
-    
-        guard let userImage = selfieImageView.image else { fatalError("Selfie must not be nil") }
-        guard let stickerImage = stickerPicked else { fatalError("Sticker must not be nil") }
+}
 
-        let size = CGSize(width: userImage.size.width, height: userImage.size.height)
-        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-        let selfieRect = CGRect(origin: CGPoint.zero, size: size)
+//MARK: Extension that handles the creation of the final image
+extension AvailableStickersViewController {
+    
+    func mergeStickerAndSelfie() {
         
-        let stickerSize = CGSize(width: stickerImage.size.width * 3, height: stickerImage.size.height * 3)
-        
-        print(point)
-        let point = checkPosition(selfieRect, stickerSize: stickerSize, point: point)
-        let stickerRect = CGRect(x: point.x, y: point.y, width: stickerSize.width, height: stickerSize.height)
-
-        userImage.draw(in: selfieRect)
-        stickerImage.draw(in: stickerRect)
-        
-        let mergedImage = UIGraphicsGetImageFromCurrentImageContext()
+        views(are_hidden: true)
+        UIGraphicsBeginImageContextWithOptions(self.view.frame.size, true, 0)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        finalImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
-        return mergedImage
+        views(are_hidden: false)
     }
     
-    func checkPosition(_ selfieRect: CGRect, stickerSize: CGSize, point: CGPoint) -> CGPoint {
-        let xMultiplier = selfieRect.width / stickerSize.width
-        let yMultiplier = selfieRect.height / stickerSize.height
-    
-        let newX = point.x * xMultiplier
-        let newY = point.y * yMultiplier
-        
-        let newPoint = CGPoint(x: newX, y: newY)
-        
-        return newPoint
+    func views(are_hidden hide: Bool) {
+        views.forEach{$0.isHidden = hide}
     }
-    
-//    func mergeImages (image1: UIImage, image2: UIImage) -> UIImage {
-//        
-//        let size = CGSizeMake(image1.size.width, image1.size.height);
-//        
-//        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-//        
-//        let imageRect = CGRect(origin: CGPointZero, size: size)
-//        
-//        image1.drawInRect(imageRect)
-//        image2.drawInRect(CGRect(x: CGRectGetMidX(imageRect) - (image2.size.width * 4 / 2.0), y: CGRectGetMidY(imageRect) - (image2.size.height * 4 / 2.0), width: image2.size.width * 4, height: image2.size.height * 4))
-//        
-//        let imageToSave = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        
-//        return imageToSave
-//        
-//    }
-    
-    // escolher o sticker -> sticker aparece no centro da selfie -> arrastar o sticker para posição final -> merge imagens
     
 }
 

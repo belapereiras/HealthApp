@@ -62,8 +62,6 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         var textToPass : String
         var imageToPass: UIImage
         
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ProgressCell
         if benefitsAchieved.count > 0 && benefitsAchieved.endIndex > indexPath.row {
             textToPass = healthAchievement.benefits[indexPath.row].description
             imageToPass = coloredProgressImages[indexPath.row]!
@@ -72,12 +70,8 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
             imageToPass = progressImages[indexPath.row]!
         }
         let titleToPass = healthAchievement.benefits[indexPath.row].title
-        
         presentPopUp(image: imageToPass, title: titleToPass, text: textToPass)
         
-//        popUpTitle.text = healthAchievement.benefits[indexPath.row].title
-//        popUpText.text = healthAchievement.benefits[indexPath.row].description
-//        popUpImage.image = self.coloredProgressImages[indexPath.row]
         
     }
 

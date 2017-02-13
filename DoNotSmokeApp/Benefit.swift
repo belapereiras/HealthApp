@@ -24,3 +24,15 @@ class Benefit {
         return completion_parameter <= accumulated
     }
 }
+
+extension Benefit: Comparable {
+    
+    static func < (lhs: Benefit, rhs: Benefit) -> Bool {
+        return lhs.completion_parameter < rhs.completion_parameter
+    }
+    
+    static func == (lhs: Benefit, rhs: Benefit) -> Bool {
+        return lhs.completion_parameter == rhs.completion_parameter
+    }
+    
+}
