@@ -37,6 +37,7 @@
 		D136F4CF1D46797B0032B85D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136F4CE1D46797B0032B85D /* Extension.swift */; };
 		D136F4D31D468A390032B85D /* UserPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = D136F4D21D468A390032B85D /* UserPropertyList.plist */; };
 		D140871B1E531DC800C74269 /* BenefitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140871A1E531DC800C74269 /* BenefitTests.swift */; };
+		D140871D1E532ECF00C74269 /* HealthAchievementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140871C1E532ECF00C74269 /* HealthAchievementTests.swift */; };
 		D19EB6E91E43B9630051E48E /* Sticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19EB6E81E43B9630051E48E /* Sticker.swift */; };
 		D1B457951E4CA630002DC030 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D1B457941E4CA630002DC030 /* .gitignore */; };
 		D1B457A71E4CB9C9002DC030 /* DateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B457A61E4CB9C9002DC030 /* DateManagerTests.swift */; };
@@ -91,6 +92,7 @@
 		D136F4CE1D46797B0032B85D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D136F4D21D468A390032B85D /* UserPropertyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserPropertyList.plist; sourceTree = "<group>"; };
 		D140871A1E531DC800C74269 /* BenefitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BenefitTests.swift; sourceTree = "<group>"; };
+		D140871C1E532ECF00C74269 /* HealthAchievementTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAchievementTests.swift; sourceTree = "<group>"; };
 		D19EB6E81E43B9630051E48E /* Sticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sticker.swift; sourceTree = "<group>"; };
 		D1B457941E4CA630002DC030 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D1B4579A1E4CAAB0002DC030 /* DoNotSmokeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoNotSmokeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -271,6 +273,7 @@
 				D1B4579E1E4CAAB0002DC030 /* Info.plist */,
 				D1B457A61E4CB9C9002DC030 /* DateManagerTests.swift */,
 				D140871A1E531DC800C74269 /* BenefitTests.swift */,
+				D140871C1E532ECF00C74269 /* HealthAchievementTests.swift */,
 			);
 			path = DoNotSmokeAppTests;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1B457A71E4CB9C9002DC030 /* DateManagerTests.swift in Sources */,
+				D140871D1E532ECF00C74269 /* HealthAchievementTests.swift in Sources */,
 				D140871B1E531DC800C74269 /* BenefitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

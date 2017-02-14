@@ -44,16 +44,19 @@ class HealthAchievement: Achievement {
                             315360000:("10 anos", "Pode ter levado bastante tempo, mas agora seu risco de contrair câncer de pulmão já caiu pela metade! Assim como o risco de outros tipor de câncer, é claro."),
                             473040000:("15 anos", "Agora seu risco de ter uma doença cardíaca é exatamente o mesmo que de uma pessoa que nunca fumou. Parabéns por ter chegado até aqui!")]
         
-        progress_info.forEach{ text in
-            let title = text.value.0
-            let description = text.value.1
-            let completion_time = text.key
-            
-            let benefit = create_benefit(title, description, completion_time)
-            benefits.append(benefit)
-        }
+        progress_info.forEach {add_benefit_from_dic_elem(key: $0.key, value: $0.value)}
         
+    }
+    
+    func add_benefit_from_dic_elem(key: TimeInterval, value: (String, String)) {
+        let title = value.0
+        let description = value.1
+        let completion_time = key
+        
+        let benefit = create_benefit(title, description, completion_time)
+        benefits.append(benefit)
         benefits.sort()
+        
     }
     
     static func getHASingleton() -> HealthAchievement {
