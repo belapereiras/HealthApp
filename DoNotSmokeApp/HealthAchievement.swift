@@ -30,7 +30,7 @@ class HealthAchievement: Achievement {
     internal func initial_setup() {
         //key: time to achieve the benefit
         //value: (title, description)
-        let progress_info: [TimeInterval: (String, String)] = [1200:("20 minutos", "Sua frequência cardíaca começará a cair até voltar ao nível normal."),
+        let progress_info: [TimeInterval: (String, String)] = [
                             7200:("2 horas", "Sua frequência cardíaca e pressão sanguínea estão pertinho de atingir o nível normal. Ah, e sua circulação sanguínea também vai começar a melhorar! Daqui a pouco você vai sentir as pontas dos seus dedos ficarem mais quentes."),
                             28800:("8 horas", "Os níveis de nicotina e monóxido de carbono no seu sangue já caíram pela metade. Agora, os níveis de oxigênio vão se normalizar e seu cabelo e sua pele ficarão bem bonitões!"),
                             43200:("12 horas", "O nível de monóxido de carbono no seu corpo está caindo! E com isso, a quantidade de oxigênio no seu sangue tá quaaase chegando a um valor normal. Falta bem pouquinho!"),
@@ -53,7 +53,6 @@ class HealthAchievement: Achievement {
             benefits.append(benefit)
         }
         
-//        benefits.sort(by: {$0 < $1})
         benefits.sort()
     }
     
