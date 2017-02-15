@@ -19,11 +19,13 @@ class ContractViewController: UIViewController {
     @IBOutlet var cigarettesPerPack: UITextField!
     @IBOutlet var facebookButton: UIButton!
     @IBOutlet var twitterButton: UIButton!
+    @IBOutlet weak var agreedOutlet: UIButton!
    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
 
+        agreedOutlet.layer.cornerRadius = 30
     }
     
     @IBAction func agreedContract(_ sender: AnyObject) {
