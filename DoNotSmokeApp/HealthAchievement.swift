@@ -30,7 +30,7 @@ class HealthAchievement: Achievement {
     internal func initial_setup() {
         //key: time to achieve the benefit
         //value: (title, description)
-        let progress_info: [TimeInterval: (String, String)] = [1200:("20 minutos", "Sua frequência cardíaca começará a cair até voltar ao nível normal."),
+        let progress_info: [TimeInterval: (String, String)] = [
                             7200:("2 horas", "Sua frequência cardíaca e pressão sanguínea estão pertinho de atingir o nível normal. Ah, e sua circulação sanguínea também vai começar a melhorar! Daqui a pouco você vai sentir as pontas dos seus dedos ficarem mais quentes."),
                             28800:("8 horas", "Os níveis de nicotina e monóxido de carbono no seu sangue já caíram pela metade. Agora, os níveis de oxigênio vão se normalizar e seu cabelo e sua pele ficarão bem bonitões!"),
                             43200:("12 horas", "O nível de monóxido de carbono no seu corpo está caindo! E com isso, a quantidade de oxigênio no seu sangue tá quaaase chegando a um valor normal. Falta bem pouquinho!"),
@@ -44,17 +44,19 @@ class HealthAchievement: Achievement {
                             315360000:("10 anos", "Pode ter levado bastante tempo, mas agora seu risco de contrair câncer de pulmão já caiu pela metade! Assim como o risco de outros tipor de câncer, é claro."),
                             473040000:("15 anos", "Agora seu risco de ter uma doença cardíaca é exatamente o mesmo que de uma pessoa que nunca fumou. Parabéns por ter chegado até aqui!")]
         
-        progress_info.forEach{ text in
-            let title = text.value.0
-            let description = text.value.1
-            let completion_time = text.key
-            
-            let benefit = create_benefit(title, description, completion_time)
-            benefits.append(benefit)
-        }
+        progress_info.forEach {add_benefit_from_dic_elem(key: $0.key, value: $0.value)}
         
-//        benefits.sort(by: {$0 < $1})
+    }
+    
+    func add_benefit_from_dic_elem(key: TimeInterval, value: (String, String)) {
+        let title = value.0
+        let description = value.1
+        let completion_time = key
+        
+        let benefit = create_benefit(title, description, completion_time)
+        benefits.append(benefit)
         benefits.sort()
+        
     }
     
     static func getHASingleton() -> HealthAchievement {

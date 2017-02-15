@@ -36,9 +36,10 @@
 		D11FFF071E3A1F810067738E /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11FFF061E3A1F810067738E /* Achievement.swift */; };
 		D136F4CF1D46797B0032B85D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136F4CE1D46797B0032B85D /* Extension.swift */; };
 		D136F4D31D468A390032B85D /* UserPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = D136F4D21D468A390032B85D /* UserPropertyList.plist */; };
+		D140871B1E531DC800C74269 /* BenefitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140871A1E531DC800C74269 /* BenefitTests.swift */; };
+		D140871D1E532ECF00C74269 /* HealthAchievementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140871C1E532ECF00C74269 /* HealthAchievementTests.swift */; };
 		D19EB6E91E43B9630051E48E /* Sticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19EB6E81E43B9630051E48E /* Sticker.swift */; };
 		D1B457951E4CA630002DC030 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D1B457941E4CA630002DC030 /* .gitignore */; };
-		D1B4579D1E4CAAB0002DC030 /* DoNotSmokeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B4579C1E4CAAB0002DC030 /* DoNotSmokeAppTests.swift */; };
 		D1B457A71E4CB9C9002DC030 /* DateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B457A61E4CB9C9002DC030 /* DateManagerTests.swift */; };
 		D1F0A35D1D40038F002C83A8 /* HealthAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A35C1D40038F002C83A8 /* HealthAchievement.swift */; };
 		D1F0A35F1D4003B4002C83A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F0A35E1D4003B4002C83A8 /* User.swift */; };
@@ -90,10 +91,11 @@
 		D11FFF061E3A1F810067738E /* Achievement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
 		D136F4CE1D46797B0032B85D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D136F4D21D468A390032B85D /* UserPropertyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserPropertyList.plist; sourceTree = "<group>"; };
+		D140871A1E531DC800C74269 /* BenefitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BenefitTests.swift; sourceTree = "<group>"; };
+		D140871C1E532ECF00C74269 /* HealthAchievementTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAchievementTests.swift; sourceTree = "<group>"; };
 		D19EB6E81E43B9630051E48E /* Sticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sticker.swift; sourceTree = "<group>"; };
 		D1B457941E4CA630002DC030 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D1B4579A1E4CAAB0002DC030 /* DoNotSmokeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoNotSmokeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1B4579C1E4CAAB0002DC030 /* DoNotSmokeAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoNotSmokeAppTests.swift; sourceTree = "<group>"; };
 		D1B4579E1E4CAAB0002DC030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1B457A61E4CB9C9002DC030 /* DateManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManagerTests.swift; sourceTree = "<group>"; };
 		D1F0A35C1D40038F002C83A8 /* HealthAchievement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthAchievement.swift; sourceTree = "<group>"; };
@@ -268,9 +270,10 @@
 		D1B4579B1E4CAAB0002DC030 /* DoNotSmokeAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				D1B4579C1E4CAAB0002DC030 /* DoNotSmokeAppTests.swift */,
 				D1B4579E1E4CAAB0002DC030 /* Info.plist */,
 				D1B457A61E4CB9C9002DC030 /* DateManagerTests.swift */,
+				D140871A1E531DC800C74269 /* BenefitTests.swift */,
+				D140871C1E532ECF00C74269 /* HealthAchievementTests.swift */,
 			);
 			path = DoNotSmokeAppTests;
 			sourceTree = "<group>";
@@ -325,7 +328,9 @@
 				TargetAttributes = {
 					1BC6B1531D3D5AB200567865 = {
 						CreatedOnToolsVersion = 7.3.1;
+
 						DevelopmentTeam = 7S5BW22U4Y;
+
 						LastSwiftMigration = 0820;
 					};
 					D1B457991E4CAAAF002DC030 = {
@@ -421,8 +426,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1B4579D1E4CAAB0002DC030 /* DoNotSmokeAppTests.swift in Sources */,
 				D1B457A71E4CB9C9002DC030 /* DateManagerTests.swift in Sources */,
+				D140871D1E532ECF00C74269 /* HealthAchievementTests.swift in Sources */,
+				D140871B1E531DC800C74269 /* BenefitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,7 +551,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7S5BW22U4Y;
+
+				DEVELOPMENT_TEAM = 56YN57ZN7X;
+
 				INFOPLIST_FILE = DoNotSmokeApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = StickWithMe;
@@ -561,7 +569,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7S5BW22U4Y;
+
+				DEVELOPMENT_TEAM = 56YN57ZN7X;
+
 				INFOPLIST_FILE = DoNotSmokeApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = StickWithMe;
