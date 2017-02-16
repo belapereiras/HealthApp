@@ -24,6 +24,7 @@
 		1BC6B17A1D3E875400567865 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B1781D3E875400567865 /* Lato-Semibold.ttf */; };
 		1BC6B17E1D3E8D2D00567865 /* SF-UI-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B17C1D3E8D2D00567865 /* SF-UI-Text-Regular.otf */; };
 		1BC6B1801D3E8D6400567865 /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B17F1D3E8D6400567865 /* SF-UI-Display-Light.otf */; };
+		6E04E9211E5622AD0050CC28 /* PopUpStickersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E04E9201E5622AD0050CC28 /* PopUpStickersViewController.swift */; };
 		6E0C03001E3FB78000B85B96 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C02FF1E3FB78000B85B96 /* PopUpViewController.swift */; };
 		6E19CCC81E49102B00457559 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E19CCC61E49102B00457559 /* Lato-Light.ttf */; };
 		6E19CCC91E49102B00457559 /* Lato-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E19CCC71E49102B00457559 /* Lato-Medium.ttf */; };
@@ -80,6 +81,7 @@
 		1BC6B1781D3E875400567865 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		1BC6B17C1D3E8D2D00567865 /* SF-UI-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Regular.otf"; sourceTree = "<group>"; };
 		1BC6B17F1D3E8D6400567865 /* SF-UI-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Light.otf"; sourceTree = "<group>"; };
+		6E04E9201E5622AD0050CC28 /* PopUpStickersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpStickersViewController.swift; sourceTree = "<group>"; };
 		6E0C02FF1E3FB78000B85B96 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		6E19CCC61E49102B00457559 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		6E19CCC71E49102B00457559 /* Lato-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Medium.ttf"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			children = (
 				1BC6B1731D3E864500567865 /* AchievementsViewController.swift */,
 				1BB3E2931D47D6CF00820DDB /* AchievementsCell.swift */,
+				6E04E9201E5622AD0050CC28 /* PopUpStickersViewController.swift */,
 			);
 			name = Achievements;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				6E0C03001E3FB78000B85B96 /* PopUpViewController.swift in Sources */,
 				D1F0A35D1D40038F002C83A8 /* HealthAchievement.swift in Sources */,
 				D1F0A3631D400CBB002C83A8 /* DateManager.swift in Sources */,
+				6E04E9211E5622AD0050CC28 /* PopUpStickersViewController.swift in Sources */,
 				D1F0A35F1D4003B4002C83A8 /* User.swift in Sources */,
 				D11FFF071E3A1F810067738E /* Achievement.swift in Sources */,
 			);

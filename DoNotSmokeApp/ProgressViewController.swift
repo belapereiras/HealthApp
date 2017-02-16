@@ -70,8 +70,8 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
             imageToPass = progressImages[indexPath.row]!
         }
         let titleToPass = healthAchievement.benefits[indexPath.row].title
-        presentPopUp(image: imageToPass, title: titleToPass, text: textToPass)
         
+        presentPopUp(image: imageToPass, title: titleToPass, text: textToPass)
         
     }
 
@@ -82,7 +82,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         popupIsOpen = true
         
-        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
+        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpProgressViewController
 
         popUpVC.imageReceived = image
         popUpVC.titleReceived = title

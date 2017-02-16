@@ -18,6 +18,9 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     var images:[UIImage] = []
     var titles:[String]!
 
+    private var popupIsOpen = false
+    private var haveStickers = true
+    private var havePhotos = true
     
     @IBOutlet var cameraButton: UIButton!
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -33,6 +36,8 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet var popUpImage: UIImageView!
     @IBOutlet var popUpText: UILabel!
     
+    @IBOutlet weak var noStickersImage: UIImageView!
+    @IBOutlet weak var noPhotosImage: UIImageView!
     
     //var selfieImageReceiver = UIImage()
 
@@ -53,6 +58,11 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 // MARK: COLLECTION VIEW
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if user.nbr_of_benefits > 0 { haveStickers = true }
+        else { haveStickers = false }
+        if images.count > 0 { havePhotos = true }
+        else { havePhotos = false }
+        
         return conditional_collection(collectionView, is_sticker: {return user.nbr_of_benefits}, is_selfie: { return images.count }) as! Int
     }
 
@@ -84,42 +94,23 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         
         if collectionView == self.stickersCollectionView {
-            popUpImage.image = self.achievementsStickers[indexPath.row]
+        var textToPass : String
+        var imageToPass: UIImage
+        
             if indexPath.row == 0 {
-                popUpText.text = "20 dias sem fumar"
+                textToPass = "20 dias sem fumar"
             } else {
-                popUpText.text = String(self.user.moneyAchievements.benefits[indexPath.row - 1].completion_parameter)
+                textToPass = String(self.user.moneyAchievements.benefits[indexPath.row - 1].completion_parameter)
             }
-
-        
-        self.popUpBackground.isHidden = false
-        self.popUp.isHidden = false
-        self.popUpImage.isHidden = false
-        self.popUpText.isHidden = false
-        self.popUpBackground.alpha = 0
-        self.popUp.alpha = 0
-        self.popUpImage.alpha = 0
-        self.popUpText.alpha = 0
-        
-        UIView.animate(withDuration: 0.3, delay: 0, options:
-            UIViewAnimationOptions.curveEaseOut, animations: {
-                
-                self.popUpBackground.alpha = 1.0
-                self.popUp.alpha = 1.0
-                self.popUpImage.alpha = 1.0
-                self.popUpText.alpha = 1.0
             
-            }, completion: { finished in
-                
-                self.popUpBackground.isHidden = false
-                self.popUp.isHidden = false
-                self.popUpImage.isHidden = false
-                self.popUpText.isHidden = false
-        })
+        imageToPass = self.achievementsStickers[indexPath.row]!
+    
+        presentPopUp(image: imageToPass, text: textToPass)
         }
+        
     }
 
-    func refreshTable(){
+    func refreshTable() {
         
         do {
             print (">>>>>>>ENTROU NO REFRESH<<<<<<<<<")
@@ -152,32 +143,30 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         selfiesCollectionView.dataSource = self
         stickersCollectionView.dataSource = self
         
-        popUp.layer.cornerRadius = 20
+        //popUp.layer.cornerRadius = 20
         
         let tapOnBackground = UITapGestureRecognizer(target: self, action: #selector(ProgressViewController.handleTap(_:)))
-        self.popUpBackground.addGestureRecognizer(tapOnBackground)
+        tapOnBackground.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapOnBackground)
 
         refreshTable()
 
         selfiesView.isHidden = true
-    }
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        stickersCollectionView.reloadData()
+    }
+    
     func handleTap (_ sender: UIGestureRecognizer) {
-        UIView.animate(withDuration: 0.3, delay: 0, options:
-            UIViewAnimationOptions.curveEaseOut, animations: {
-                
-                self.popUpBackground.alpha = 0
-                self.popUp.alpha = 0
-                self.popUpImage.alpha = 0
-                self.popUpText.alpha = 0
-            
-            }, completion: { finished in
-                
-                self.popUpBackground.isHidden = true
-                self.popUp.isHidden = true
-                self.popUpImage.isHidden = true
-                self.popUpText.isHidden = true
-        })
+        
+        if popupIsOpen {
+            dismissPopUp()
+            popupIsOpen = false
+        } else {
+            //self.dismiss(animated: true, completion: nil)
+        }
     }
  
     
@@ -187,10 +176,17 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         case 0:
             selfiesView.isHidden = true
             stickersView.isHidden = false
+            if haveStickers { noStickersImage.isHidden = true }
+            else { noStickersImage.isHidden = false }
+            noPhotosImage.isHidden = true
             
         case 1:
             selfiesView.isHidden = false
             stickersView.isHidden = true
+            if havePhotos { noPhotosImage.isHidden = true }
+            else { noPhotosImage.isHidden = false }
+            noStickersImage.isHidden = true
+            
         default:
             break;
         }
@@ -200,9 +196,47 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     @IBAction func didPressCameraButton(_ sender: Any) {
         
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "AvailableStickers") as! AvailableStickersViewController
-        
         self.present(vc, animated: true, completion: nil)
         
     }
+    
+    // MARK: POP UP METHODS
+    
+    private func presentPopUp(image: UIImage, text: String) {
+        
+        popupIsOpen = true
+        
+        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpStickers") as! PopUpStickersViewController
+        
+        popUpVC.ppStickersImageReceived = image
+        popUpVC.ppStickersTextReceived = text
+        
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        
+        popUpVC.didMove(toParentViewController: self)
+        
+    }
+    
+    private func dismissPopUp() {
+        
+        let popUp = self.childViewControllers.first
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            popUp?.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            popUp?.view.alpha = 0
+        }, completion: { (isFinished) in
+            
+            if isFinished{
+                popUp?.willMove(toParentViewController: self)
+                popUp?.view.removeFromSuperview()
+                popUp?.removeFromParentViewController()
+                
+            }
+        })
+    }
+
   
 }
