@@ -8,6 +8,7 @@
 
 import UIKit
 import Social
+import UserNotifications
 
 class ContractViewController: UIViewController {
     
@@ -23,7 +24,6 @@ class ContractViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-
     }
     
     @IBAction func agreedContract(_ sender: AnyObject) {
@@ -47,6 +47,12 @@ class ContractViewController: UIViewController {
         } catch {
             print(error)
         }
+        Notifications.service.check()
+        Notifications.schedule("titulo", "body", 5)
+        let user = User.getUserSingleton()
+        user.healthAchievements.benefits.forEach{
+            Notifications.schedule($0.title, $0.description, $0.completion_parameter)
+        }
         
         performSegue(withIdentifier: "contractToController", sender: sender)
         
@@ -59,7 +65,7 @@ class ContractViewController: UIViewController {
             facebookSheet.setInitialText("A partir de hoje, sou um ex-fumante! #StickWithMeApp")
             self.present(facebookSheet, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o login na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
@@ -73,7 +79,7 @@ class ContractViewController: UIViewController {
             twitterSheet.setInitialText("A partir de hoje, sou um ex-fumante! #StickWithMeApp")
             self.present(twitterSheet, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o login na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }

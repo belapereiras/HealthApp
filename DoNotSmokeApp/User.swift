@@ -15,30 +15,33 @@ struct Connection {
 
 class User {
     
-    var name: String
-    var cigarettesPerDay, cigarettesPerPack: Double
-    var packPrice: Double
+    var name: String = ""
+    var cigarettesPerDay: Double = 0
+    var cigarettesPerPack: Double = 0
+    var packPrice: Double = 0
     var connections: [Connection] = []
     var healthAchievements: HealthAchievement
     var moneyAchievements: MoneyAchievement
     var dateManager: DateManager
-    var quitDay: TimeInterval
+    var quitDay: TimeInterval = 0
     static var user = User()
     
     fileprivate init?() {
-        
-        guard let data = Plist(name: "UserPropertyList") else { return nil }
-        guard let userInfo: NSDictionary = data.getValuesInPlistFile() else { return nil }
-        let quitDayTimeInterval = Double(userInfo["QuitDay"] as! NSNumber)
         dateManager = DateManager()
-        self.quitDay = quitDayTimeInterval
-        self.name = String(describing: userInfo["Name"])
-        self.cigarettesPerDay = Double(userInfo["CigarettesSmokedPerDay"] as! NSNumber)
-        self.cigarettesPerPack = Double(userInfo["CigarettesPerPack"] as! NSNumber)
-        self.packPrice = Double(userInfo["PackPrice"] as! NSNumber)
         healthAchievements = HealthAchievement.getHASingleton()
         moneyAchievements = MoneyAchievement.getMASingleton()
+        set_user_properties()
+    }
     
+    func set_user_properties() {
+        guard let data = Plist(name: "UserPropertyList") else { return }
+        guard let userInfo: NSDictionary = data.getValuesInPlistFile() else { return }
+        let quitDayTimeInterval = Double(userInfo["QuitDay"] as! NSNumber)
+        quitDay = quitDayTimeInterval
+        name = String(describing: userInfo["Name"])
+        cigarettesPerDay = Double(userInfo["CigarettesSmokedPerDay"] as! NSNumber)
+        cigarettesPerPack = Double(userInfo["CigarettesPerPack"] as! NSNumber)
+        packPrice = Double(userInfo["PackPrice"] as! NSNumber)
     }
     
     static func getUserSingleton() -> User {
