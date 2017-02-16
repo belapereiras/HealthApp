@@ -25,15 +25,22 @@ class ContractViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
+        agreedOutlet.layer.cornerRadius = 30
     }
     
     @IBAction func agreedContract(_ sender: AnyObject) {
         
+        
+        guard let name = smokerName.text else { return }
         guard let plist = Plist(name: "UserPropertyList") else { return }
         guard let userDic = plist.getMutablePListFile() else { return }
         guard let pricePerPack = pricePerPack.text else { return }
         guard let cigarretesSmokerPerDay = nbrPerDay.text else { return }
         guard let cigarsPerPack = cigarettesPerPack.text else { return }
+        
+        if pricePerPack != "" && cigarretesSmokerPerDay != "" && cigarsPerPack != "" && name != "" {
+            
         
         userDic["Name"] = smokerName.text
         userDic["CigarettesPerPack"] = Int(cigarsPerPack)! as NSNumber
@@ -56,6 +63,9 @@ class ContractViewController: UIViewController {
         }
         
         performSegue(withIdentifier: "contractToController", sender: sender)
+        } else {
+            self.showAlert(title: "Campo vazio", msg: "Todos os campos devem ser preenchidos para continuar.", actionButton: "OK")
+        }
         
     }
    
@@ -86,4 +96,14 @@ class ContractViewController: UIViewController {
         }
     }
 
+}
+
+extension UIViewController {
+    func showAlert(title: String, msg: String, actionButton: String
+        ){
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        let action = UIAlertAction(title: actionButton , style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
