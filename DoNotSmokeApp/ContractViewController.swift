@@ -31,11 +31,16 @@ class ContractViewController: UIViewController {
     
     @IBAction func agreedContract(_ sender: AnyObject) {
         
+        
+        guard let name = smokerName.text else { return }
         guard let plist = Plist(name: "UserPropertyList") else { return }
         guard let userDic = plist.getMutablePListFile() else { return }
         guard let pricePerPack = pricePerPack.text else { return }
         guard let cigarretesSmokerPerDay = nbrPerDay.text else { return }
         guard let cigarsPerPack = cigarettesPerPack.text else { return }
+        
+        if pricePerPack != "" && cigarretesSmokerPerDay != "" && cigarsPerPack != "" && name != "" {
+            
         
         userDic["Name"] = smokerName.text
         userDic["CigarettesPerPack"] = Int(cigarsPerPack)! as NSNumber
@@ -58,6 +63,9 @@ class ContractViewController: UIViewController {
         }
         
         performSegue(withIdentifier: "contractToController", sender: sender)
+        } else {
+            self.showAlert(title: "Campo vazio", msg: "Todos os campos devem ser preenchidos para continuar.", actionButton: "OK")
+        }
         
     }
    
@@ -70,4 +78,14 @@ class ContractViewController: UIViewController {
         sm_service.twitter_share(with_image: nil, and_text: "A partir de hoje, sou um ex-fumante! #StickWithMeApp")
     }
 
+}
+
+extension UIViewController {
+    func showAlert(title: String, msg: String, actionButton: String
+        ){
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        let action = UIAlertAction(title: actionButton , style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
 }

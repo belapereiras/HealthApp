@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 
-
-class AchievementsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
+class AchievementsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     var savePhotos = SavePhotos.getSPSingleton()
     var user = User.getUserSingleton()
@@ -18,6 +18,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     var images:[UIImage] = []
     var titles:[String]!
 
+    private var popupIsOpen = false
     
     @IBOutlet var cameraButton: UIButton!
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -55,6 +56,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 // MARK: COLLECTION VIEW
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return conditional_collection(collectionView, is_sticker: {return user.nbr_of_benefits}, is_selfie: { return images.count }) as! Int
     }
 
@@ -98,9 +100,10 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
                 self.popUp_info.forEach{ $0.isHidden = false}
             })
         }
+        
     }
 
-    func refreshTable(){
+    func refreshTable() {
         
         do {
             print (">>>>>>>ENTROU NO REFRESH<<<<<<<<<")
@@ -135,16 +138,78 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         selfiesCollectionView.dataSource = self
         stickersCollectionView.dataSource = self
         
-        popUp.layer.cornerRadius = 20
+        //popUp.layer.cornerRadius = 20
         
-        let tapOnBackground = UITapGestureRecognizer(target: self, action: #selector(ProgressViewController.handleTap(_:)))
-        self.popUpBackground.addGestureRecognizer(tapOnBackground)
+        self.selfiesCollectionView.emptyDataSetSource = self
+        self.selfiesCollectionView.emptyDataSetDelegate = self
+        self.stickersCollectionView.emptyDataSetSource = self
+        self.stickersCollectionView.emptyDataSetDelegate = self
 
         refreshTable()
 
         selfiesView.isHidden = true
+
+        setupGestureRecognizer()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        stickersCollectionView.reloadData()
+    }
+    
+    // MARK: Empty DataSet DataSource
+    
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        if selfiesView.isHidden {
+            return UIImage(named: "noStickers")
+        } else {
+            return UIImage(named: "noPhotos")
+        }
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let text: NSString = "Você não tem selfies ainda."
+        let font = UIFont(name: "Lato-Medium", size: 16)
+        let attributes = NSAttributedString(string: text as String, attributes: [NSForegroundColorAttributeName : UIColor.black, NSFontAttributeName : font!])
+        
+        return attributes
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let description: NSString = "Clique na câmera para tirar uma foto com seus stickers!"
+        let font = UIFont(name: "Lato-Light", size: 12)
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .center
+        paragraph.lineBreakMode = .byWordWrapping
+        
+        let attributes: NSDictionary = [NSFontAttributeName: font!, NSForegroundColorAttributeName: UIColor.black,
+                                        NSParagraphStyleAttributeName: paragraph]
+        
+        
+        return NSAttributedString(string: description as String, attributes: attributes as? [String : AnyObject])
+        
+    }
+    
+    
+    func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
+        return -self.view.frame.height/10.0
+    }
+    
+    // MARK: Empty DataSet Delegate
+    
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+    
+    func emptyDataSetShouldAllowTouch(_ scrollView: UIScrollView!) -> Bool {
+        return true
     }
 
+    func setupGestureRecognizer() {
+        let tapOnBackground = UITapGestureRecognizer(target: self, action: #selector(ProgressViewController.handleTap(_:)))
+        tapOnBackground.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapOnBackground)
+    }
+    
     func handleTap (_ sender: UIGestureRecognizer) {
         UIView.animate(withDuration: 0.3, delay: 0, options:
             UIViewAnimationOptions.curveEaseOut, animations: {
@@ -168,6 +233,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         case 1:
             selfiesView.isHidden = false
             stickersView.isHidden = true
+            
         default:
             break;
         }
@@ -177,9 +243,47 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     @IBAction func didPressCameraButton(_ sender: Any) {
         
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "AvailableStickers") as! AvailableStickersViewController
-        
         self.present(vc, animated: true, completion: nil)
         
     }
+    
+    // MARK: POP UP METHODS
+    
+    private func presentPopUp(image: UIImage, text: String) {
+        
+        popupIsOpen = true
+        
+        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpStickers") as! PopUpStickersViewController
+        
+        popUpVC.ppStickersImageReceived = image
+        popUpVC.ppStickersTextReceived = text
+        
+        self.addChildViewController(popUpVC)
+        
+        popUpVC.view.frame = self.view.frame
+        self.view.addSubview(popUpVC.view)
+        
+        popUpVC.didMove(toParentViewController: self)
+        
+    }
+    
+    private func dismissPopUp() {
+        
+        let popUp = self.childViewControllers.first
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            popUp?.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            popUp?.view.alpha = 0
+        }, completion: { (isFinished) in
+            
+            if isFinished{
+                popUp?.willMove(toParentViewController: self)
+                popUp?.view.removeFromSuperview()
+                popUp?.removeFromParentViewController()
+                
+            }
+        })
+    }
+
   
 }

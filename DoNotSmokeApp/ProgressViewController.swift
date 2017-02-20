@@ -8,13 +8,16 @@
 
 import UIKit
 
-class ProgressViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate{
+class ProgressViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var notSmokingFor: UILabel!
     @IBOutlet var notSmokedCigarrettes: UILabel!
     @IBOutlet var unityOfTimeWithoutSmoking: UILabel!
     @IBOutlet var savedMoney: UILabel!
+    @IBOutlet weak var novoStickerLabel: UILabel!
+    @IBOutlet weak var novoStickerImage: UIImageView!
+    @IBOutlet weak var novoStickerButton: UIButton!
     
     var healthAchievement = HealthAchievement.getHASingleton()
     var user = User.getUserSingleton()
@@ -55,6 +58,11 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.width, height: 100)
+    }
+    
+    
 // MARK: SELECT COLLECTION VIEW CELL
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -70,8 +78,8 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
             imageToPass = progressImages[indexPath.row]!
         }
         let titleToPass = healthAchievement.benefits[indexPath.row].title
-        presentPopUp(image: imageToPass, title: titleToPass, text: textToPass)
         
+        presentPopUp(image: imageToPass, title: titleToPass, text: textToPass)
         
     }
 
@@ -82,7 +90,7 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         popupIsOpen = true
         
-        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpViewController
+        let popUpVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpVC") as! PopUpProgressViewController
 
         popUpVC.imageReceived = image
         popUpVC.titleReceived = title

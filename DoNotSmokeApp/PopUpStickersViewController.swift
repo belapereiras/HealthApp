@@ -1,24 +1,22 @@
 //
-//  PopUpViewProgressController.swift
+//  PopUpStickersViewController.swift
 //  DoNotSmokeApp
 //
-//  Created by Priscila Rosa on 1/30/17.
+//  Created by Priscila Rosa on 2/16/17.
 //  Copyright © 2017 Isabela Pereira. All rights reserved.
 //
 
 import UIKit
 
+class PopUpStickersViewController: UIViewController {
 
-class PopUpProgressViewController: UIViewController {
+    lazy var ppStickersImageReceived = UIImage()
+    var ppStickersTextReceived = String()
     
-    lazy var imageReceived = UIImage()
-    var textReceived = String()
-    var titleReceived = String()
-
-    @IBOutlet weak var popUpView: UIView!
-    @IBOutlet weak var popUpTitle: UILabel!
-    @IBOutlet weak var popUpImage: UIImageView!
-    @IBOutlet weak var popUpText: UILabel!
+    @IBOutlet weak var popUpStickersView: UIView!
+    @IBOutlet weak var ppStickersLabel: UILabel!
+    @IBOutlet weak var ppStickersImage: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,16 +31,17 @@ class PopUpProgressViewController: UIViewController {
     }
     
     private func setupView() {
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        self.popUpView.layer.cornerRadius = 5
-        self.popUpView.layer.shadowOpacity = 0.8
-        self.popUpView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         
-        popUpImage.image = imageReceived
-        popUpTitle.text = titleReceived
-        popUpText.text = textReceived
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        self.popUpStickersView.layer.cornerRadius = 5
+        self.popUpStickersView.layer.shadowOpacity = 0.8
+        self.popUpStickersView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        
+        ppStickersImage.image = ppStickersImageReceived
+        ppStickersLabel.text = ppStickersTextReceived
     }
     
+
     func showAnimation() {
         self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         self.view.alpha = 0
@@ -63,5 +62,4 @@ class PopUpProgressViewController: UIViewController {
             }
         }
     }
-
 }
