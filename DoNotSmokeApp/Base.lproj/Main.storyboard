@@ -958,7 +958,7 @@ Continue para preencher suas informações.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8EY-7g-KDk">
-                                <rect key="frame" x="0.0" y="51" width="320" height="188"/>
+                                <rect key="frame" x="0.0" y="51" width="320" height="235"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSW-zv-UFY">
                                         <rect key="frame" x="8" y="15" width="38" height="17"/>
@@ -967,13 +967,13 @@ Continue para preencher suas informações.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preço do maço de cigarro" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eI7-Wo-6wd">
-                                        <rect key="frame" x="8" y="109" width="155.5" height="17"/>
+                                        <rect key="frame" x="8" y="109" width="156" height="17"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                         <color key="textColor" red="0.52941176469999995" green="0.53725490200000003" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Número de cigarros por maço" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkS-rV-5tp">
-                                        <rect key="frame" x="8" y="156" width="181.5" height="17"/>
+                                        <rect key="frame" x="8" y="156" width="182" height="17"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                         <color key="textColor" red="0.52941176469999995" green="0.53725490200000003" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -984,21 +984,21 @@ Continue para preencher suas informações.</string>
                                         <color key="textColor" red="0.52941176469999995" green="0.53725490200000003" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oiJ-DH-KBw">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oiJ-DH-KBw" userLabel="line1">
                                         <rect key="frame" x="0.0" y="47" width="320" height="1"/>
                                         <color key="backgroundColor" red="0.85882352941176465" green="0.87450980392156863" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="QYF-6c-wrK"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYB-A2-IWh">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYB-A2-IWh" userLabel="line2">
                                         <rect key="frame" x="0.0" y="94" width="320" height="1"/>
                                         <color key="backgroundColor" red="0.85882352939999995" green="0.87450980389999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="HNr-w9-pO8"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vea-L3-zVf">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vea-L3-zVf" userLabel="line3">
                                         <rect key="frame" x="0.0" y="141" width="320" height="1"/>
                                         <color key="backgroundColor" red="0.85882352939999995" green="0.87450980389999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1018,17 +1018,36 @@ Continue para preencher suas informações.</string>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hpm-SW-eS8" userLabel="Preco Text Field">
-                                        <rect key="frame" x="178.5" y="109" width="133.5" height="17"/>
+                                        <rect key="frame" x="179" y="109" width="133" height="17"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DRY-uH-ukY" userLabel="N cigarros Text Field">
-                                        <rect key="frame" x="204.5" y="156" width="107.5" height="17"/>
+                                        <rect key="frame" x="205" y="156" width="107" height="17"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ac4-zE-cXd" userLabel="line4">
+                                        <rect key="frame" x="0.0" y="188" width="320" height="1"/>
+                                        <color key="backgroundColor" red="0.85882352939999995" green="0.87450980389999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="b0T-eQ-gBW"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-6p-gA2">
+                                        <rect key="frame" x="108" y="203" width="204" height="17"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dia de parada" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAN-Gh-rms">
+                                        <rect key="frame" x="8" y="203" width="85" height="17"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                        <color key="textColor" red="0.52941176469999995" green="0.53725490200000003" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1037,7 +1056,12 @@ Continue para preencher suas informações.</string>
                                     <constraint firstItem="oiJ-DH-KBw" firstAttribute="leading" secondItem="8EY-7g-KDk" secondAttribute="leading" id="42O-7s-6Ah"/>
                                     <constraint firstItem="hVj-jQ-Hqg" firstAttribute="top" secondItem="8EY-7g-KDk" secondAttribute="top" constant="15" id="4gt-rc-Lnu"/>
                                     <constraint firstAttribute="trailing" secondItem="vea-L3-zVf" secondAttribute="trailing" id="6bt-KH-H2i"/>
+                                    <constraint firstItem="dVB-6p-gA2" firstAttribute="top" secondItem="DRY-uH-ukY" secondAttribute="bottom" constant="30" id="6uh-nU-TXJ"/>
+                                    <constraint firstItem="dVB-6p-gA2" firstAttribute="leading" secondItem="MAN-Gh-rms" secondAttribute="trailing" constant="15" id="8An-pV-FGN"/>
+                                    <constraint firstItem="MAN-Gh-rms" firstAttribute="top" secondItem="OkS-rV-5tp" secondAttribute="bottom" constant="30" id="Bvg-bd-m1j"/>
                                     <constraint firstAttribute="trailing" secondItem="oiJ-DH-KBw" secondAttribute="trailing" id="E0u-cX-bVY"/>
+                                    <constraint firstItem="ac4-zE-cXd" firstAttribute="top" secondItem="OkS-rV-5tp" secondAttribute="bottom" constant="15" id="F1j-2X-kWq"/>
+                                    <constraint firstItem="ac4-zE-cXd" firstAttribute="leading" secondItem="8EY-7g-KDk" secondAttribute="leading" id="G1B-Pj-1u5"/>
                                     <constraint firstAttribute="trailing" secondItem="SYB-A2-IWh" secondAttribute="trailing" id="K5A-Hl-d8M"/>
                                     <constraint firstItem="bwN-Q0-yvf" firstAttribute="leading" secondItem="iSW-zv-UFY" secondAttribute="leading" id="KR6-7E-MWS"/>
                                     <constraint firstItem="OkS-rV-5tp" firstAttribute="leading" secondItem="bwN-Q0-yvf" secondAttribute="leading" id="LwK-6n-eTS"/>
@@ -1051,12 +1075,15 @@ Continue para preencher suas informações.</string>
                                     <constraint firstItem="eI7-Wo-6wd" firstAttribute="top" secondItem="bwN-Q0-yvf" secondAttribute="bottom" constant="30" id="YUB-bd-27I"/>
                                     <constraint firstItem="bwN-Q0-yvf" firstAttribute="top" secondItem="iSW-zv-UFY" secondAttribute="bottom" constant="30" id="ZSu-jr-czw"/>
                                     <constraint firstItem="hpm-SW-eS8" firstAttribute="trailing" secondItem="2aI-Qi-Pik" secondAttribute="trailing" id="bP9-TS-ogA"/>
+                                    <constraint firstAttribute="bottom" secondItem="MAN-Gh-rms" secondAttribute="bottom" constant="15" id="bmF-ih-NYb"/>
                                     <constraint firstItem="hpm-SW-eS8" firstAttribute="leading" secondItem="eI7-Wo-6wd" secondAttribute="trailing" constant="15" id="eO9-NE-Dj6"/>
                                     <constraint firstItem="oiJ-DH-KBw" firstAttribute="top" secondItem="iSW-zv-UFY" secondAttribute="bottom" constant="15" id="ghp-MR-dmN"/>
+                                    <constraint firstAttribute="trailing" secondItem="ac4-zE-cXd" secondAttribute="trailing" id="hDO-ij-Xf5"/>
                                     <constraint firstAttribute="trailing" secondItem="hVj-jQ-Hqg" secondAttribute="trailing" constant="8" id="hM7-0D-C5Q"/>
-                                    <constraint firstAttribute="bottom" secondItem="OkS-rV-5tp" secondAttribute="bottom" constant="15" id="jVO-Ng-uF7"/>
                                     <constraint firstItem="SYB-A2-IWh" firstAttribute="top" secondItem="bwN-Q0-yvf" secondAttribute="bottom" constant="15" id="mgr-XB-bfD"/>
+                                    <constraint firstItem="MAN-Gh-rms" firstAttribute="leading" secondItem="OkS-rV-5tp" secondAttribute="leading" id="ndo-NY-0uL"/>
                                     <constraint firstItem="vea-L3-zVf" firstAttribute="top" secondItem="eI7-Wo-6wd" secondAttribute="bottom" constant="15" id="pm6-KC-ksi"/>
+                                    <constraint firstItem="dVB-6p-gA2" firstAttribute="trailing" secondItem="DRY-uH-ukY" secondAttribute="trailing" id="r4p-t0-Wup"/>
                                     <constraint firstItem="OkS-rV-5tp" firstAttribute="top" secondItem="eI7-Wo-6wd" secondAttribute="bottom" constant="30" id="rbZ-Y4-vrj"/>
                                     <constraint firstItem="iSW-zv-UFY" firstAttribute="leading" secondItem="8EY-7g-KDk" secondAttribute="leading" constant="8" id="res-zb-EE6"/>
                                     <constraint firstItem="2aI-Qi-Pik" firstAttribute="trailing" secondItem="hVj-jQ-Hqg" secondAttribute="trailing" id="tvv-Yt-PHU"/>
@@ -1065,7 +1092,7 @@ Continue para preencher suas informações.</string>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONFIGURAÇÕES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVH-h9-egK">
-                                <rect key="frame" x="8" y="27" width="117.5" height="17"/>
+                                <rect key="frame" x="8" y="27" width="118" height="17"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                 <color key="textColor" red="0.52941176469999995" green="0.53725490200000003" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1086,11 +1113,12 @@ Continue para preencher suas informações.</string>
                         <outlet property="cigarettesPerPackTextField" destination="DRY-uH-ukY" id="aqR-DJ-1n2"/>
                         <outlet property="nameTextField" destination="hVj-jQ-Hqg" id="tUW-RS-vDG"/>
                         <outlet property="priceTextField" destination="hpm-SW-eS8" id="EnL-af-uG9"/>
+                        <outlet property="stopDayTextField" destination="dVB-6p-gA2" id="4R1-lH-Nvm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRb-C9-ecd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-743" y="1161"/>
+            <point key="canvasLocation" x="-744.375" y="1160.9154929577464"/>
         </scene>
         <!--Pop Up Stickers View Controller-->
         <scene sceneID="H4m-4b-JJK">

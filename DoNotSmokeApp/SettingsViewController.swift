@@ -14,14 +14,38 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cigarettesPerDayTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var cigarettesPerPackTextField: UITextField!
+    @IBOutlet weak var stopDayTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.hideKeyboardWhenTappedAround()
         setupView()
+        stopDayTextField.delegate = self
         
     }
     
+    func handleDatePicker(sender: UIDatePicker) {
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        formatter.dateFormat = "dd MMM yyy"
+        stopDayTextField.text = formatter.string(from: sender.date)
+        
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        if textField == stopDayTextField {
+            
+            let datePicker = UIDatePicker()
+            datePicker.datePickerMode = UIDatePickerMode.date
+            textField.inputView = datePicker
+            datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControlEvents.valueChanged)
+
+        }
+    }
+
     func setupView() {
         
         guard let plist = Plist(name: "UserPropertyList") else { return }
