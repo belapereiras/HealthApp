@@ -8,18 +8,13 @@
 
 import Foundation
 
-struct Connection {
-    var name: String
-    var email: String
-}
-
 class User {
     
     var name: String = ""
     var cigarettesPerDay: Double = 0
     var cigarettesPerPack: Double = 0
     var packPrice: Double = 0
-    var connections: [Connection] = []
+//    var connections: [Connection] = []
     var healthAchievements: HealthAchievement
     var moneyAchievements: MoneyAchievement
     var dateManager: DateManager
@@ -45,17 +40,13 @@ class User {
     }
     
     static func getUserSingleton() -> User {
-        guard let u = user else { fatalError("Error getting the user") }
+        guard let u = user else { fatalError("Error getting user") }
         return u
-    }
-    
-    func addConnection(_ name: String, email: String) {
-        let connection = Connection(name: name, email: email)
-        connections.append(connection)
     }
     
 }
 
+// MARK: - Computed Properties Extension
 extension User {
     var cigarettes_not_smoked: Double { return cigarettesPerDay * dateManager.tp_in_days }
     var nOf_packs_smoked_perDay: Double { return cigarettesPerDay / cigarettesPerPack }
@@ -68,3 +59,20 @@ extension User {
         return 0
     }
 }
+
+//# TODO: - Connections
+/*
+struct Connection {
+    var name: String
+    var email: String
+}
+
+extension User {
+    
+    func addConnection(_ name: String, email: String) {
+        let connection = Connection(name: name, email: email)
+        connections.append(connection)
+    }
+    
+}
+ */

@@ -21,10 +21,12 @@ class ContractViewController: UIViewController {
     @IBOutlet var facebookButton: UIButton!
     @IBOutlet var twitterButton: UIButton!
     @IBOutlet weak var agreedOutlet: UIButton!
+    var sm_service: SocialMediaService!
    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        sm_service = SocialMediaService(vc: self)
     }
     
     @IBAction func agreedContract(_ sender: AnyObject) {
@@ -48,8 +50,8 @@ class ContractViewController: UIViewController {
         } catch {
             print(error)
         }
+        
         Notifications.service.check()
-        Notifications.schedule("titulo", "body", 5)
         let user = User.getUserSingleton()
         user.healthAchievements.benefits.forEach{
             Notifications.schedule($0.title, $0.description, $0.completion_parameter)
@@ -60,30 +62,12 @@ class ContractViewController: UIViewController {
     }
    
     @IBAction func FacebookAction(_ sender: AnyObject) {
-        
-        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
-            let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            facebookSheet.setInitialText("A partir de hoje, sou um ex-fumante! #StickWithMeApp")
-            self.present(facebookSheet, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o login na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-
+        sm_service.facebook_share(with_image: nil, and_text: "A partir de hoje, sou um ex-fumante! #StickWithMeApp")
     }
     
     
     @IBAction func TwitterAction(_ sender: AnyObject) {
-        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter){
-            let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            twitterSheet.setInitialText("A partir de hoje, sou um ex-fumante! #StickWithMeApp")
-            self.present(twitterSheet, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o login na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+        sm_service.twitter_share(with_image: nil, and_text: "A partir de hoje, sou um ex-fumante! #StickWithMeApp")
     }
 
 }

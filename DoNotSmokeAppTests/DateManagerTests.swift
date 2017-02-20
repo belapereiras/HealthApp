@@ -106,7 +106,7 @@ class DateManagerTests: XCTestCase {
     }
     
     func test_stringfyed_timeSince_one_second_passed() {
-        let quitDay = Date.timeIntervalSinceReferenceDate - 59
+        let quitDay = Date.timeIntervalSinceReferenceDate - 1
         let stringfied_time = date_manager.stringfyed_timeSince(quitDay)
         XCTAssert(stringfied_time.0 == "1" && stringfied_time.1 == "segundo")
     }

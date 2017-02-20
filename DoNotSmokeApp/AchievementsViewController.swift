@@ -33,6 +33,8 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet var popUpImage: UIImageView!
     @IBOutlet var popUpText: UILabel!
     
+    var popUp_info: [UIView]!
+    
     
     //var selfieImageReceiver = UIImage()
 
@@ -60,7 +62,6 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        
         return conditional_collection(collectionView, is_sticker: {
             let cellStickers = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! AchievementsCell
             
@@ -85,37 +86,17 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         
         if collectionView == self.stickersCollectionView {
             popUpImage.image = self.achievementsStickers[indexPath.row]
-            if indexPath.row == 0 {
-                popUpText.text = "20 dias sem fumar"
-            } else {
-                popUpText.text = String(self.user.moneyAchievements.benefits[indexPath.row - 1].completion_parameter)
-            }
-
+            let value = self.user.moneyAchievements.benefits[indexPath.row].completion_parameter
+            popUpText.text = "R$ \(value)"
         
-        self.popUpBackground.isHidden = false
-        self.popUp.isHidden = false
-        self.popUpImage.isHidden = false
-        self.popUpText.isHidden = false
-        self.popUpBackground.alpha = 0
-        self.popUp.alpha = 0
-        self.popUpImage.alpha = 0
-        self.popUpText.alpha = 0
-        
-        UIView.animate(withDuration: 0.3, delay: 0, options:
-            UIViewAnimationOptions.curveEaseOut, animations: {
-                
-                self.popUpBackground.alpha = 1.0
-                self.popUp.alpha = 1.0
-                self.popUpImage.alpha = 1.0
-                self.popUpText.alpha = 1.0
+            popUp_info.forEach{ $0.isHidden = false; $0.alpha = 0}
             
+            UIView.animate(withDuration: 0.3, delay: 0, options:
+                UIViewAnimationOptions.curveEaseOut, animations: {
+                    self.popUp_info.forEach{ $0.alpha = 1}
             }, completion: { finished in
-                
-                self.popUpBackground.isHidden = false
-                self.popUp.isHidden = false
-                self.popUpImage.isHidden = false
-                self.popUpText.isHidden = false
-        })
+                self.popUp_info.forEach{ $0.isHidden = false}
+            })
         }
     }
 
@@ -142,6 +123,8 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        popUp_info = [popUpBackground, popUp, popUpImage, popUpText]
+        
         savePhotos.createImageFolder()
         
         selfiesCollectionView.reloadData()
@@ -165,18 +148,12 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     func handleTap (_ sender: UIGestureRecognizer) {
         UIView.animate(withDuration: 0.3, delay: 0, options:
             UIViewAnimationOptions.curveEaseOut, animations: {
+
+                self.popUp_info.forEach{$0.alpha = 0}
                 
-                self.popUpBackground.alpha = 0
-                self.popUp.alpha = 0
-                self.popUpImage.alpha = 0
-                self.popUpText.alpha = 0
-            
             }, completion: { finished in
-                
-                self.popUpBackground.isHidden = true
-                self.popUp.isHidden = true
-                self.popUpImage.isHidden = true
-                self.popUpText.isHidden = true
+
+                self.popUp_info.forEach{$0.isHidden = true}
         })
     }
  
