@@ -462,6 +462,9 @@
                         <outlet property="collectionView" destination="jH7-Km-LbF" id="aJD-hx-ZNc"/>
                         <outlet property="notSmokedCigarrettes" destination="fpb-X2-Vys" id="0tq-eF-Fzo"/>
                         <outlet property="notSmokingFor" destination="HTw-Yn-cJL" id="vfl-gg-E06"/>
+                        <outlet property="novoStickerButton" destination="0hj-AM-Zap" id="uVT-1Y-MBI"/>
+                        <outlet property="novoStickerImage" destination="gYC-LL-z32" id="fM0-X1-UYz"/>
+                        <outlet property="novoStickerLabel" destination="XSH-oV-xA5" id="tyT-cj-vxz"/>
                         <outlet property="savedMoney" destination="aDf-wD-qa4" id="qdw-Hb-ztp"/>
                         <outlet property="unityOfTimeWithoutSmoking" destination="Zy3-bA-58v" id="iNM-xD-SGa"/>
                         <segue destination="6LL-a7-2og" kind="show" identifier="ProgressToAchievements" id="t1d-0t-7Kb"/>
