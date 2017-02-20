@@ -7,10 +7,10 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 
-
-class AchievementsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
+class AchievementsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
     var savePhotos = SavePhotos.getSPSingleton()
     var user = User.getUserSingleton()
@@ -19,8 +19,6 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     var titles:[String]!
 
     private var popupIsOpen = false
-    private var haveStickers = true
-    private var havePhotos = true
     
     @IBOutlet var cameraButton: UIButton!
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -35,9 +33,7 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet var popUp: UIView!
     @IBOutlet var popUpImage: UIImageView!
     @IBOutlet var popUpText: UILabel!
-    
-    @IBOutlet weak var noStickersImage: UIImageView!
-    @IBOutlet weak var noPhotosImage: UIImageView!
+
     
     //var selfieImageReceiver = UIImage()
 
@@ -58,10 +54,6 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 // MARK: COLLECTION VIEW
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if user.nbr_of_benefits > 0 { haveStickers = true }
-        else { haveStickers = false }
-        if images.count > 0 { havePhotos = true }
-        else { havePhotos = false }
         
         return conditional_collection(collectionView, is_sticker: {return user.nbr_of_benefits}, is_selfie: { return images.count }) as! Int
     }
@@ -145,18 +137,74 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         
         //popUp.layer.cornerRadius = 20
         
-        let tapOnBackground = UITapGestureRecognizer(target: self, action: #selector(ProgressViewController.handleTap(_:)))
-        tapOnBackground.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(tapOnBackground)
+        self.selfiesCollectionView.emptyDataSetSource = self
+        self.selfiesCollectionView.emptyDataSetDelegate = self
+        self.stickersCollectionView.emptyDataSetSource = self
+        self.stickersCollectionView.emptyDataSetDelegate = self
 
         refreshTable()
 
         selfiesView.isHidden = true
 
+        setupGestureRecognizer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         stickersCollectionView.reloadData()
+    }
+    
+    // MARK: Empty DataSet DataSource
+    
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        if selfiesView.isHidden {
+            return UIImage(named: "noStickers")
+        } else {
+            return UIImage(named: "noPhotos")
+        }
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let text: NSString = "Você não tem selfies ainda."
+        let font = UIFont(name: "Lato-Medium", size: 16)
+        let attributes = NSAttributedString(string: text as String, attributes: [NSForegroundColorAttributeName : UIColor.black, NSFontAttributeName : font!])
+        
+        return attributes
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let description: NSString = "Clique na câmera para tirar uma foto com seus stickers!"
+        let font = UIFont(name: "Lato-Light", size: 12)
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .center
+        paragraph.lineBreakMode = .byWordWrapping
+        
+        let attributes: NSDictionary = [NSFontAttributeName: font!, NSForegroundColorAttributeName: UIColor.black,
+                                        NSParagraphStyleAttributeName: paragraph]
+        
+        
+        return NSAttributedString(string: description as String, attributes: attributes as? [String : AnyObject])
+        
+    }
+    
+    
+    func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
+        return -self.view.frame.height/10.0
+    }
+    
+    // MARK: Empty DataSet Delegate
+    
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+    
+    func emptyDataSetShouldAllowTouch(_ scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+
+    func setupGestureRecognizer() {
+        let tapOnBackground = UITapGestureRecognizer(target: self, action: #selector(ProgressViewController.handleTap(_:)))
+        tapOnBackground.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapOnBackground)
     }
     
     func handleTap (_ sender: UIGestureRecognizer) {
@@ -176,16 +224,10 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
         case 0:
             selfiesView.isHidden = true
             stickersView.isHidden = false
-            if haveStickers { noStickersImage.isHidden = true }
-            else { noStickersImage.isHidden = false }
-            noPhotosImage.isHidden = true
             
         case 1:
             selfiesView.isHidden = false
             stickersView.isHidden = true
-            if havePhotos { noPhotosImage.isHidden = true }
-            else { noPhotosImage.isHidden = false }
-            noStickersImage.isHidden = true
             
         default:
             break;

@@ -24,6 +24,8 @@
 		1BC6B17A1D3E875400567865 /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B1781D3E875400567865 /* Lato-Semibold.ttf */; };
 		1BC6B17E1D3E8D2D00567865 /* SF-UI-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B17C1D3E8D2D00567865 /* SF-UI-Text-Regular.otf */; };
 		1BC6B1801D3E8D6400567865 /* SF-UI-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1BC6B17F1D3E8D6400567865 /* SF-UI-Display-Light.otf */; };
+		22DCD1C4E17B2E7D5639B955 /* Pods_DoNotSmokeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C7962C5662E35611E76330 /* Pods_DoNotSmokeAppTests.framework */; };
+		2DE4847E6393F4AC4D4328D9 /* Pods_DoNotSmokeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADDF2FD1FC64D5D6D7B65BD8 /* Pods_DoNotSmokeApp.framework */; };
 		6E04E9211E5622AD0050CC28 /* PopUpStickersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E04E9201E5622AD0050CC28 /* PopUpStickersViewController.swift */; };
 		6E0C03001E3FB78000B85B96 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0C02FF1E3FB78000B85B96 /* PopUpViewController.swift */; };
 		6E19CCC81E49102B00457559 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E19CCC61E49102B00457559 /* Lato-Light.ttf */; };
@@ -62,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15F09DE35AEA9B7957BF96C2 /* Pods-DoNotSmokeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoNotSmokeAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoNotSmokeAppTests/Pods-DoNotSmokeAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		1BAE02E91D3FF6EC009C2BC7 /* ProgressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressCell.swift; sourceTree = "<group>"; };
 		1BAE02EC1D429D3F009C2BC7 /* SF-UI-Text-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-LightItalic.otf"; sourceTree = "<group>"; };
 		1BAE02EE1D42AF95009C2BC7 /* ContractViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 		1BC6B1781D3E875400567865 /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		1BC6B17C1D3E8D2D00567865 /* SF-UI-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Regular.otf"; sourceTree = "<group>"; };
 		1BC6B17F1D3E8D6400567865 /* SF-UI-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Light.otf"; sourceTree = "<group>"; };
+		27E404A89DAE5F2A04731F7B /* Pods-DoNotSmokeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoNotSmokeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoNotSmokeApp/Pods-DoNotSmokeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6E04E9201E5622AD0050CC28 /* PopUpStickersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpStickersViewController.swift; sourceTree = "<group>"; };
 		6E0C02FF1E3FB78000B85B96 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		6E19CCC61E49102B00457559 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
@@ -91,6 +95,10 @@
 		6E19CD441E520C4600457559 /* PulmaoCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulmaoCustomView.swift; sourceTree = "<group>"; };
 		6E19CD451E520C4600457559 /* QCMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QCMethod.swift; sourceTree = "<group>"; };
 		6E32D5631D4FD3B00087EE74 /* SavePhotos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavePhotos.swift; sourceTree = "<group>"; };
+		A14BF542CD3245D0BBC5641C /* Pods-DoNotSmokeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoNotSmokeApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoNotSmokeApp/Pods-DoNotSmokeApp.release.xcconfig"; sourceTree = "<group>"; };
+		AD0014D03AB74EB3CE8B0184 /* Pods-DoNotSmokeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoNotSmokeAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoNotSmokeAppTests/Pods-DoNotSmokeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ADDF2FD1FC64D5D6D7B65BD8 /* Pods_DoNotSmokeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoNotSmokeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1C7962C5662E35611E76330 /* Pods_DoNotSmokeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoNotSmokeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D11FFF061E3A1F810067738E /* Achievement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
 		D136F4CE1D46797B0032B85D /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D136F4D21D468A390032B85D /* UserPropertyList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserPropertyList.plist; sourceTree = "<group>"; };
@@ -115,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DE4847E6393F4AC4D4328D9 /* Pods_DoNotSmokeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,12 +131,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22DCD1C4E17B2E7D5639B955 /* Pods_DoNotSmokeAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		103C03414059FD315ECAB404 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				27E404A89DAE5F2A04731F7B /* Pods-DoNotSmokeApp.debug.xcconfig */,
+				A14BF542CD3245D0BBC5641C /* Pods-DoNotSmokeApp.release.xcconfig */,
+				AD0014D03AB74EB3CE8B0184 /* Pods-DoNotSmokeAppTests.debug.xcconfig */,
+				15F09DE35AEA9B7957BF96C2 /* Pods-DoNotSmokeAppTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		1BAE02EB1D3FF6F8009C2BC7 /* Progress */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +184,8 @@
 				1BC6B1561D3D5AB200567865 /* DoNotSmokeApp */,
 				D1B4579B1E4CAAB0002DC030 /* DoNotSmokeAppTests */,
 				1BC6B1551D3D5AB200567865 /* Products */,
+				103C03414059FD315ECAB404 /* Pods */,
+				35C65C57C585762555FE22C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -244,6 +267,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		35C65C57C585762555FE22C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADDF2FD1FC64D5D6D7B65BD8 /* Pods_DoNotSmokeApp.framework */,
+				C1C7962C5662E35611E76330 /* Pods_DoNotSmokeAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6E19CCEA1E4A51CD00457559 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,9 +323,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1BC6B1661D3D5AB200567865 /* Build configuration list for PBXNativeTarget "DoNotSmokeApp" */;
 			buildPhases = (
+				1102E8A5815F424BE935589C /* [CP] Check Pods Manifest.lock */,
 				1BC6B1501D3D5AB200567865 /* Sources */,
 				1BC6B1511D3D5AB200567865 /* Frameworks */,
 				1BC6B1521D3D5AB200567865 /* Resources */,
+				7514BCD33AD64B4379A8A0CD /* [CP] Embed Pods Frameworks */,
+				5BBBEB6EB475AA9B3F0441FE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -308,9 +343,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1B457A31E4CAAB0002DC030 /* Build configuration list for PBXNativeTarget "DoNotSmokeAppTests" */;
 			buildPhases = (
+				72977848BB103467F0D6C527 /* [CP] Check Pods Manifest.lock */,
 				D1B457961E4CAAAF002DC030 /* Sources */,
 				D1B457971E4CAAAF002DC030 /* Frameworks */,
 				D1B457981E4CAAAF002DC030 /* Resources */,
+				DFE85C8520BAF4ACF2E056B9 /* [CP] Embed Pods Frameworks */,
+				8C4EC5319C7EFB554221E4FF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -393,6 +431,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1102E8A5815F424BE935589C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5BBBEB6EB475AA9B3F0441FE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoNotSmokeApp/Pods-DoNotSmokeApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72977848BB103467F0D6C527 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7514BCD33AD64B4379A8A0CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoNotSmokeApp/Pods-DoNotSmokeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C4EC5319C7EFB554221E4FF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoNotSmokeAppTests/Pods-DoNotSmokeAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFE85C8520BAF4ACF2E056B9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoNotSmokeAppTests/Pods-DoNotSmokeAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1BC6B1501D3D5AB200567865 /* Sources */ = {
@@ -553,6 +684,7 @@
 		};
 		1BC6B1671D3D5AB200567865 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27E404A89DAE5F2A04731F7B /* Pods-DoNotSmokeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -569,6 +701,7 @@
 		};
 		1BC6B1681D3D5AB200567865 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A14BF542CD3245D0BBC5641C /* Pods-DoNotSmokeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -585,6 +718,7 @@
 		};
 		D1B457A11E4CAAB0002DC030 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD0014D03AB74EB3CE8B0184 /* Pods-DoNotSmokeAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -604,6 +738,7 @@
 		};
 		D1B457A21E4CAAB0002DC030 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15F09DE35AEA9B7957BF96C2 /* Pods-DoNotSmokeAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;

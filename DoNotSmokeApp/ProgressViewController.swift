@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProgressViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate{
+class ProgressViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var notSmokingFor: UILabel!
@@ -54,6 +54,11 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
 
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.width, height: 100)
+    }
+    
     
 // MARK: SELECT COLLECTION VIEW CELL
     
