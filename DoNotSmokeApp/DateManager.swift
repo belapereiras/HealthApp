@@ -47,4 +47,6 @@ extension Double {
     var stringfy_minutes: (String, String) { return ("\(Int(self))" , (Int(self)>1) ? "minutos" : "minuto") }
     var stringfy_hours: (String, String) { return ("\(Int(self))" , (Int(self)>1) ? "horas" : "hora") }
     var stringfy_days: (String, String) { return ("\(Int(self))" , (Int(self)>1) ? "dias" : "dia") }
+    
+    var day_to_second: Double { return (((self / 24) / 60) / 60 ) }
 }

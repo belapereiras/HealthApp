@@ -38,7 +38,9 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     lazy var stickers_views: [UIView] = []
     lazy var superior_views: [UIView] = []
     
-    lazy var availableStickers = [UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"), UIImage(named:"Spotify"), UIImage(named: "DinnerForTwo"),  UIImage(named: "TeamTee"), UIImage (named: "Netflix"), UIImage(named: "Perfume")]
+//    lazy var availableStickers = [UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"), UIImage(named:"Spotify"), UIImage(named: "DinnerForTwo"),  UIImage(named: "TeamTee"), UIImage (named: "Netflix"), UIImage(named: "Perfume")]
+    
+    lazy var availableStickers = [UIImage(named: "Barra de Chocolate"), UIImage(named: "Fast-food"), UIImage(named: "Livro"), UIImage(named: "Pizza"),UIImage(named: "Cinema"),UIImage(named: "Corte de cabelo"), UIImage(named: "Vinho"), UIImage(named: "Tênis") , UIImage(named: "Tanque de gasolina"),UIImage(named: "Spotify"),UIImage(named: "Jantar"), UIImage(named: "Camisa do time"), /*212.5:"camisa social" ,*/ UIImage(named: "Netflix"), UIImage(named: "Perfume")]
     
 
 // MARK: COLLECTION VIEW

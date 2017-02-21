@@ -129,9 +129,9 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         initialize_timer(with_interval: 1, handler: updateNotSmokingTimeLabel)
-        initialize_timer(with_interval: 5, handler: updateMoneySavingsLabel)
+        initialize_timer(with_interval: 1, handler: updateMoneySavingsLabel)
         initialize_timer(with_interval: 1, handler: updateCigarettesNotSmokedLabel)
-        initialize_timer(with_interval: 5, handler: updateBenefitsAchieved)
+        initialize_timer(with_interval: 1, handler: updateBenefitsAchieved)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(ProgressViewController.handleTap(_:)))
         tap.cancelsTouchesInView = false

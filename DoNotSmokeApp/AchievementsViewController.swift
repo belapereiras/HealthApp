@@ -29,14 +29,6 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet var selfiesView: UIView!
     @IBOutlet var selfiesCollectionView: UICollectionView!
     
-    @IBOutlet var popUpBackground: UIView!
-    @IBOutlet var popUp: UIView!
-    @IBOutlet var popUpImage: UIImageView!
-    @IBOutlet var popUpText: UILabel!
-    
-    var popUp_info: [UIView]!
-    
-    
     //var selfieImageReceiver = UIImage()
 
     
@@ -87,18 +79,14 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         
         if collectionView == self.stickersCollectionView {
-            popUpImage.image = self.achievementsStickers[indexPath.row]
-            let value = self.user.moneyAchievements.benefits[indexPath.row].completion_parameter
-            popUpText.text = "R$ \(value)"
-        
-            popUp_info.forEach{ $0.isHidden = false; $0.alpha = 0}
+            var textToPass : String
+            var imageToPass: UIImage
             
-            UIView.animate(withDuration: 0.3, delay: 0, options:
-                UIViewAnimationOptions.curveEaseOut, animations: {
-                    self.popUp_info.forEach{ $0.alpha = 1}
-            }, completion: { finished in
-                self.popUp_info.forEach{ $0.isHidden = false}
-            })
+            textToPass = "R$"+String(self.user.moneyAchievements.benefits[indexPath.row].completion_parameter)
+            
+            imageToPass = self.achievementsStickers[indexPath.row]!
+    
+            presentPopUp(image: imageToPass, text: textToPass)
         }
         
     }
@@ -125,8 +113,6 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        popUp_info = [popUpBackground, popUp, popUpImage, popUpText]
         
         savePhotos.createImageFolder()
         
@@ -211,15 +197,13 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     func handleTap (_ sender: UIGestureRecognizer) {
-        UIView.animate(withDuration: 0.3, delay: 0, options:
-            UIViewAnimationOptions.curveEaseOut, animations: {
-
-                self.popUp_info.forEach{$0.alpha = 0}
-                
-            }, completion: { finished in
-
-                self.popUp_info.forEach{$0.isHidden = true}
-        })
+        
+        if popupIsOpen {
+            dismissPopUp()
+            popupIsOpen = false
+        } else {
+            //self.dismiss(animated: true, completion: nil)
+        }
     }
  
     

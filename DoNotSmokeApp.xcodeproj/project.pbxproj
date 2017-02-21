@@ -268,7 +268,6 @@
 				1BC6B1571D3D5AB200567865 /* AppDelegate.swift */,
 				1BC6B15E1D3D5AB200567865 /* Assets.xcassets */,
 				1BC6B1631D3D5AB200567865 /* Info.plist */,
-				D136F4CE1D46797B0032B85D /* Extension.swift */,
 				D1B457941E4CA630002DC030 /* .gitignore */,
 			);
 			name = "Supporting Files";
@@ -340,6 +339,7 @@
 				6E32D5631D4FD3B00087EE74 /* SavePhotos.swift */,
 				D140871E1E534E3400C74269 /* Notification.swift */,
 				D1D846941E5B286B002F42AA /* SocialMediaService.swift */,
+				D136F4CE1D46797B0032B85D /* Extension.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -474,7 +474,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5BBBEB6EB475AA9B3F0441FE /* [CP] Copy Pods Resources */ = {
@@ -504,7 +504,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7514BCD33AD64B4379A8A0CD /* [CP] Embed Pods Frameworks */ = {
