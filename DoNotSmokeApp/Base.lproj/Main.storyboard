@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yhg-5b-hFt">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yhg-5b-hFt">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -276,10 +276,10 @@
                                 <rect key="frame" x="246" y="175" width="26" height="26"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGJ-S9-X20" userLabel="CollectionView">
-                                <rect key="frame" x="0.0" y="261" width="319.5" height="258"/>
+                                <rect key="frame" x="0.0" y="261" width="318.5" height="258"/>
                                 <subviews>
                                     <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jH7-Km-LbF">
-                                        <rect key="frame" x="0.0" y="1.5" width="319.5" height="255"/>
+                                        <rect key="frame" x="0.0" y="1" width="318.5" height="256"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="2Sa-3b-h7L"/>
@@ -293,7 +293,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="cell" id="Z0o-gT-l6o" customClass="ProgressCell" customModule="DoNotSmokeApp" customModuleProvider="target">
-                                                <rect key="frame" x="14" y="0.0" width="302.5" height="100"/>
+                                                <rect key="frame" x="13" y="0.0" width="302.5" height="100"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="302.5" height="100"/>
@@ -482,7 +482,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="continueButton"/>
                                 <connections>
-                                    <segue destination="o2y-bv-QbG" kind="show" id="QEe-vC-Cm1"/>
+                                    <segue destination="J6P-75-gr1" kind="show" id="Bjj-yt-ucK"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="HOJE É UM GRANDE DIA!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hX9-8B-peZ">
@@ -539,6 +539,76 @@ Continue para preencher suas informações.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohj-SP-NWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2962.5" y="367.6056338028169"/>
+        </scene>
+        <!--Tutorial-->
+        <scene sceneID="EYU-ai-Kpm">
+            <objects>
+                <viewController title="Tutorial" id="J6P-75-gr1" customClass="TutorialViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xx2-1K-Yva"/>
+                        <viewControllerLayoutGuide type="bottom" id="cYz-kE-VKO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wnz-I5-1kn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhn-aB-tU6">
+                                <rect key="frame" x="0.0" y="-1" width="320" height="489"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kIv-FE-EVJ" customClass="Tutorial1View" customModule="DoNotSmokeApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="36" width="320" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Acompanhe os progressos na sua saúde a cada cigarro que você deixa de fumar." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxS-rP-wgd">
+                                <rect key="frame" x="42" y="364" width="236" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="BF0-C2-b3P">
+                                <rect key="frame" x="140" y="458" width="40" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.99232822659999997" green="0.58009934429999999" blue="0.43455001710000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.99232822659999997" green="0.58009934429999999" blue="0.43455001710000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RGF-9p-GXF" userLabel="LineView">
+                                <rect key="frame" x="110" y="354" width="100" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.9923282265663147" green="0.58009934425354004" blue="0.43455001711845398" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFi-QE-Pv7">
+                                <rect key="frame" x="64" y="501.5" width="192" height="48.5"/>
+                                <state key="normal" backgroundImage="tutorialButton"/>
+                                <connections>
+                                    <segue destination="o2y-bv-QbG" kind="show" id="oyW-YQ-AOs"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vhn-aB-tU6" firstAttribute="width" secondItem="wnz-I5-1kn" secondAttribute="width" id="5JO-MD-Uia"/>
+                            <constraint firstItem="XFi-QE-Pv7" firstAttribute="centerX" secondItem="wnz-I5-1kn" secondAttribute="centerX" id="5T8-lg-mEy"/>
+                            <constraint firstItem="vhn-aB-tU6" firstAttribute="centerX" secondItem="wnz-I5-1kn" secondAttribute="centerX" id="Fgn-zb-K9r"/>
+                            <constraint firstItem="XFi-QE-Pv7" firstAttribute="height" secondItem="wnz-I5-1kn" secondAttribute="height" multiplier="0.085:1" id="Xzb-hU-jCe"/>
+                            <constraint firstItem="XFi-QE-Pv7" firstAttribute="width" secondItem="wnz-I5-1kn" secondAttribute="width" multiplier="0.6:1" id="ekX-8r-fMb"/>
+                            <constraint firstItem="vhn-aB-tU6" firstAttribute="centerY" secondItem="wnz-I5-1kn" secondAttribute="centerY" multiplier="0.86:1" id="hbw-Dt-gVZ"/>
+                            <constraint firstItem="vhn-aB-tU6" firstAttribute="height" secondItem="wnz-I5-1kn" secondAttribute="height" multiplier="0.86:1" id="kyq-TI-mQy"/>
+                            <constraint firstItem="cYz-kE-VKO" firstAttribute="top" secondItem="XFi-QE-Pv7" secondAttribute="bottom" constant="18" id="qea-TD-Npg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="XFi-QE-Pv7" id="lXa-ok-qEm"/>
+                        <outlet property="pageControl" destination="BF0-C2-b3P" id="sSq-Ar-2u2"/>
+                        <outlet property="scrollView" destination="vhn-aB-tU6" id="8CS-C6-LEL"/>
+                        <outlet property="textView" destination="RxS-rP-wgd" id="OlP-wK-iip"/>
+                        <outlet property="tutorialView" destination="kIv-FE-EVJ" id="evZ-ab-pcC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Lg-2m-NMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2377.5" y="-351.76056338028167"/>
         </scene>
         <!--ContractScene-->
         <scene sceneID="77A-up-vXw">
@@ -606,7 +676,7 @@ Continue para preencher suas informações.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOm-KQ-Jrw" userLabel="Line1">
-                                <rect key="frame" x="30" y="148" width="260" height="1"/>
+                                <rect key="frame" x="30" y="147.5" width="260" height="1"/>
                                 <color key="backgroundColor" red="0.69019607839999997" green="0.89019607840000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="bvJ-WT-dDl"/>
@@ -623,7 +693,7 @@ Continue para preencher suas informações.</string>
                                 <rect key="frame" x="263" y="20" width="41" height="62"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gjz-1V-oTz" userLabel="PhraseView">
-                                <rect key="frame" x="16" y="169" width="288" height="230.5"/>
+                                <rect key="frame" x="16" y="168.5" width="288" height="231"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eu," lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5os-NO-BQR">
                                         <rect key="frame" x="0.0" y="0.0" width="21.5" height="19.5"/>
@@ -637,12 +707,12 @@ Continue para preencher suas informações.</string>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SRH-Z7-NOY">
-                                        <rect key="frame" x="79.5" y="50" width="34" height="30"/>
+                                        <rect key="frame" x="79.5" y="49.5" width="34" height="30"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cigarros por dia e gasto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfd-be-odm">
-                                        <rect key="frame" x="125.5" y="55.5" width="162.5" height="19.5"/>
+                                        <rect key="frame" x="125.5" y="55" width="162.5" height="19.5"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -659,7 +729,7 @@ Continue para preencher suas informações.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* número de cigarros por maço:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIB-1P-q63">
-                                        <rect key="frame" x="0.0" y="213.5" width="192" height="17"/>
+                                        <rect key="frame" x="0.0" y="214" width="192" height="17"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -671,12 +741,12 @@ Continue para preencher suas informações.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bTp-zW-RiO">
-                                        <rect key="frame" x="204" y="206.5" width="34" height="30"/>
+                                        <rect key="frame" x="204" y="207" width="34" height="30"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reais por maço, prometo parar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gC-Ug-KWX">
-                                        <rect key="frame" x="77.5" y="110" width="210.5" height="19.5"/>
+                                        <rect key="frame" x="77.5" y="109.5" width="210.5" height="19.5"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -1427,9 +1497,10 @@ Continue para preencher suas informações.</string>
         <image name="sendTwitter" width="48" height="48"/>
         <image name="settings" width="27" height="27"/>
         <image name="stickersButton" width="79" height="79"/>
+        <image name="tutorialButton" width="200" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fw7-RQ-RED"/>
+        <segue reference="Mth-gd-VGD"/>
         <segue reference="t1d-0t-7Kb"/>
     </inferredMetricsTieBreakers>
 </document>
