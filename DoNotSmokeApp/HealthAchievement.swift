@@ -14,14 +14,6 @@ class HealthAchievement: Achievement {
     
     var benefits: [Benefit] = []
     static var healthAchievement = HealthAchievement()
-    var startingDay: Date {
-        get {
-            return self.startingDay
-        }
-        set(date) {
-            self.startingDay = date
-        }
-    }
     
     fileprivate init(){
         initial_setup()
@@ -45,17 +37,6 @@ class HealthAchievement: Achievement {
                             473040000:("15 anos", "Agora seu risco de ter uma doença cardíaca é exatamente o mesmo que de uma pessoa que nunca fumou. Parabéns por ter chegado até aqui!")]
         
         progress_info.forEach {add_benefit_from_dic_elem(key: $0.key, value: $0.value)}
-        
-    }
-    
-    func add_benefit_from_dic_elem(key: TimeInterval, value: (String, String)) {
-        let title = value.0
-        let description = value.1
-        let completion_time = key
-        
-        let benefit = create_benefit(title, description, completion_time)
-        benefits.append(benefit)
-        benefits.sort()
         
     }
     

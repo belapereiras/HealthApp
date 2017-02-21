@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import UserNotifications
 
 class NotificationService: NSObject {
@@ -38,7 +39,7 @@ class NotificationService: NSObject {
     }
     
     func requestAuthorization(callback: ((Bool) -> Void)?) {
-        center.requestAuthorization(options: [.alert]) { (granted, error) in
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
             if error != nil {
                 print(error?.localizedDescription as String!)
             }
@@ -66,6 +67,11 @@ class NotificationService: NSObject {
         }
     }
     
+    func remove_all_notifications() {
+        center.removeAllDeliveredNotifications()
+        center.removeAllPendingNotificationRequests()
+    }
+    
 }
 
 extension NotificationService: UNUserNotificationCenterDelegate {
@@ -75,7 +81,7 @@ extension NotificationService: UNUserNotificationCenterDelegate {
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler( [.alert, .badge] )
+        completionHandler( [.alert, .badge, .badge] )
     }
 }
 

@@ -29,12 +29,6 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet var selfiesView: UIView!
     @IBOutlet var selfiesCollectionView: UICollectionView!
     
-    @IBOutlet var popUpBackground: UIView!
-    @IBOutlet var popUp: UIView!
-    @IBOutlet var popUpImage: UIImageView!
-    @IBOutlet var popUpText: UILabel!
-
-    
     //var selfieImageReceiver = UIImage()
 
     
@@ -62,7 +56,6 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        
         return conditional_collection(collectionView, is_sticker: {
             let cellStickers = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! AchievementsCell
             
@@ -86,18 +79,14 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         
         if collectionView == self.stickersCollectionView {
-        var textToPass : String
-        var imageToPass: UIImage
-        
-            if indexPath.row == 0 {
-                textToPass = "20 dias sem fumar"
-            } else {
-                textToPass = String(self.user.moneyAchievements.benefits[indexPath.row - 1].completion_parameter)
-            }
+            var textToPass : String
+            var imageToPass: UIImage
             
-        imageToPass = self.achievementsStickers[indexPath.row]!
+            textToPass = "R$"+String(self.user.moneyAchievements.benefits[indexPath.row].completion_parameter)
+            
+            imageToPass = self.achievementsStickers[indexPath.row]!
     
-        presentPopUp(image: imageToPass, text: textToPass)
+            presentPopUp(image: imageToPass, text: textToPass)
         }
         
     }
@@ -164,24 +153,23 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let text: NSString = "Você não tem selfies ainda."
-        let font = UIFont(name: "Lato-Medium", size: 16)
-        let attributes = NSAttributedString(string: text as String, attributes: [NSForegroundColorAttributeName : UIColor.black, NSFontAttributeName : font!])
         
+        let text: NSString = selfiesView.isHidden ? "Você não tem stickers ainda." : "Você não tem selfies ainda."
+        let font = UIFont(name: "Lato-Medium", size: 16)
+        let attributes = NSAttributedString(string: text as String, attributes: [NSForegroundColorAttributeName : UIColor.gray, NSFontAttributeName : font!])
         return attributes
+        
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let description: NSString = "Clique na câmera para tirar uma foto com seus stickers!"
+        
+        let description: NSString = selfiesView.isHidden ? "Continue economizando dinheiro para ganhar stickers." : "Clique na câmera para tirar uma foto com seus stickers!"
         let font = UIFont(name: "Lato-Light", size: 12)
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
         paragraph.lineBreakMode = .byWordWrapping
-        
-        let attributes: NSDictionary = [NSFontAttributeName: font!, NSForegroundColorAttributeName: UIColor.black,
+        let attributes: NSDictionary = [NSFontAttributeName: font!, NSForegroundColorAttributeName: UIColor.gray,
                                         NSParagraphStyleAttributeName: paragraph]
-        
-        
         return NSAttributedString(string: description as String, attributes: attributes as? [String : AnyObject])
         
     }
