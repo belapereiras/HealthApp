@@ -46,6 +46,7 @@ class ContractViewController: UIViewController {
         userDic["CigarettesPerPack"] = Int(cigarsPerPack)! as NSNumber
         userDic["CigarettesSmokedPerDay"] = Int(cigarretesSmokerPerDay)! as NSNumber
         userDic["QuitDay"] = Date().timeIntervalSinceReferenceDate as NSNumber
+            
         userDic["PackPrice"] = Double(pricePerPack)! as NSNumber
         let firstTime = NSNumber.init(value: false as Bool)
         userDic["FirstTime"] = firstTime

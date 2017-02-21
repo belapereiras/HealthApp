@@ -38,7 +38,7 @@ class User {
         guard let userInfo: NSDictionary = data.getValuesInPlistFile() else { return }
         let quitDayTimeInterval = Double(userInfo["QuitDay"] as! NSNumber)
         quitDay = quitDayTimeInterval
-        name = String(describing: userInfo["Name"])
+        name = userInfo["Name"] as! String
         cigarettesPerDay = Double(userInfo["CigarettesSmokedPerDay"] as! NSNumber)
         cigarettesPerPack = Double(userInfo["CigarettesPerPack"] as! NSNumber)
         packPrice = Double(userInfo["PackPrice"] as! NSNumber)

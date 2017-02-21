@@ -21,7 +21,12 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         
         self.hideKeyboardWhenTappedAround()
         setupView()
+        
         stopDayTextField.delegate = self
+        nameTextField.delegate = self
+        cigarettesPerDayTextField.delegate = self
+        priceTextField.delegate = self
+        cigarettesPerPackTextField.delegate = self
         
     }
     
@@ -41,6 +46,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             let datePicker = UIDatePicker()
             datePicker.datePickerMode = UIDatePickerMode.date
             textField.inputView = datePicker
+            datePicker.locale = Locale(identifier: "pt_BR")
             datePicker.addTarget(self, action: #selector(handleDatePicker(sender:)), for: UIControlEvents.valueChanged)
 
         }
@@ -48,27 +54,30 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
 
     func setupView() {
         
-        guard let plist = Plist(name: "UserPropertyList") else { return }
-        guard let userDic = plist.getMutablePListFile() else { return }
+        let user = User.getUserSingleton()
         
-        let name = userDic["Name"] as! String
-        let cigarettes = String(describing: userDic["CigarettesSmokedPerDay"]!)
-        let price = String(describing: userDic["PackPrice"]!)
-        let perPack = String(describing: userDic["CigarettesPerPack"]!)
-        
+        let name = user.name
+        let cigarettes = String(describing: user.cigarettesPerDay)
+        let price = String(describing: user.packPrice)
+        let perPack = String(describing: user.cigarettesPerPack)
+        let quitDay = user.quitDay
+
         nameTextField.text = name
         cigarettesPerDayTextField.text = cigarettes
         priceTextField.text = price
         cigarettesPerPackTextField.text = perPack
+        stopDayTextField.text = quitDay.toDay
         
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
+        let user = User.getUserSingleton()
         guard let plist = Plist(name: "UserPropertyList") else { return }
         guard let userDic = plist.getMutablePListFile() else { return }
+
         guard let pricePerPack = priceTextField.text else { return }
-        guard let cigarretesSmokerPerDay = cigarettesPerDayTextField.text else { return }
+        guard let cigarretesSmokedPerDay = cigarettesPerDayTextField.text else { return }
         guard let cigarsPerPack = cigarettesPerPackTextField.text else { return }
         
         if textField == nameTextField {
@@ -76,7 +85,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
         
         if textField == cigarettesPerDayTextField {
-            userDic["CigarettesSmokedPerDay"] = Int(cigarretesSmokerPerDay)! as NSNumber
+            userDic["CigarettesSmokedPerDay"] = Double(cigarretesSmokedPerDay)! as NSNumber
         }
         
         if textField == priceTextField {
@@ -84,7 +93,13 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
         
         if textField == cigarettesPerPackTextField {
-            userDic["CigarettesPerPack"] = Int(cigarsPerPack)! as NSNumber
+            userDic["CigarettesPerPack"] = Double(cigarsPerPack)! as NSNumber
+        }
+        
+        if textField == stopDayTextField {
+            let manager = DateManager()
+            let interval = manager.stringToDate(timeString: stopDayTextField.text!)
+            userDic["QuitDay"] = interval
         }
         
         do {
@@ -92,7 +107,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         } catch {
             print(error)
         }
-        
+
+        user.set_user_properties()
+
     }
 
     override func didReceiveMemoryWarning() {
