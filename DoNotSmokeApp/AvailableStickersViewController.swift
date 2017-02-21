@@ -22,7 +22,7 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     var cameraOutput : AVCapturePhotoOutput!
     var previewLayer : AVCaptureVideoPreviewLayer!
     var stickersIsOpen = true
-    
+    var sm_service: SocialMediaService!
     
     @IBOutlet weak var collectionBottomContraint: NSLayoutConstraint!
     @IBOutlet weak var stickersButtonOutlet: UIButton!
@@ -33,9 +33,14 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var takePhotoButtonOutlet: UIButton!
-    lazy var views: [UIView] = []
+    lazy var stickers: [Sticker] = []
+    lazy var take_photo_views: [UIView] = []
+    lazy var stickers_views: [UIView] = []
+    lazy var superior_views: [UIView] = []
     
-    lazy var availableStickers = [UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"), UIImage(named:"Spotify"), UIImage(named: "DinnerForTwo"),  UIImage(named: "TeamTee"), UIImage (named: "Netflix"), UIImage(named: "Perfume")]
+//    lazy var availableStickers = [UIImage(named: "ChocolateBar"), UIImage(named: "FastFood"), UIImage(named: "NewBook"), UIImage(named: "Pizza"), UIImage(named: "MovieTime"), UIImage(named: "HairCut"), UIImage(named: "Wine"), UIImage(named: "NewKicks"), UIImage(named: "FullTank"), UIImage(named:"Spotify"), UIImage(named: "DinnerForTwo"),  UIImage(named: "TeamTee"), UIImage (named: "Netflix"), UIImage(named: "Perfume")]
+    
+    lazy var availableStickers = [UIImage(named: "Barra de Chocolate"), UIImage(named: "Fast-food"), UIImage(named: "Livro"), UIImage(named: "Pizza"),UIImage(named: "Cinema"),UIImage(named: "Corte de cabelo"), UIImage(named: "Vinho"), UIImage(named: "Tênis") , UIImage(named: "Tanque de gasolina"),UIImage(named: "Spotify"),UIImage(named: "Jantar"), UIImage(named: "Camisa do time"), /*212.5:"camisa social" ,*/ UIImage(named: "Netflix"), UIImage(named: "Perfume")]
     
 
 // MARK: COLLECTION VIEW
@@ -55,21 +60,17 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         guard let sticker_picked = availableStickers[indexPath.row] else {return}
-        let _ = Sticker(sticker: sticker_picked, view: self.view)
-
-        stickerPicked = availableStickers[indexPath.row]
+        
+        let sticker = Sticker(sticker: sticker_picked, view: self.view)
+        stickers.append(sticker)
         
         UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
             self.collectionBottomContraint.constant = -130
             self.view.layoutIfNeeded()
         }, completion: nil)
-        
-//        stickerPicked = UIImageView()
-//        stickerPicked?.image = availableStickers[indexPath.row]
-        //        selfieImageView.addSubview(stickerPicked!)
-        //        selfieImageView.subviews.forEach{$0.isUserInteractionEnabled = true; $0.isHidden = false; $0.center = CGPoint(dictionaryRepresentation: selfieImageView.center as! CFDictionary)!}
-        //        print("*** selfieImageView.subviews.count", selfieImageView.subviews.count)
+
     }
     
     @IBAction func didPressStickersButton(_ sender: Any) {
@@ -94,11 +95,16 @@ class AvailableStickersViewController: UIViewController, UICollectionViewDelegat
         super.viewDidLoad()
         //AvailableStickersCollectionView.delegate = self
         self.AvailableStickersCollectionView.reloadData()
-        views = [openCameraAgainOutlet, saveAndShareButtonsOutlet, AvailableStickersCollectionView, cancelButton, cameraView, takePhotoButtonOutlet, stickersButtonOutlet]
+        
+        take_photo_views = [cameraView, takePhotoButtonOutlet, cancelButton]
+        stickers_views = [stickersButtonOutlet, AvailableStickersCollectionView]
+        superior_views = [openCameraAgainOutlet, saveAndShareButtonsOutlet]
+        
         saveAndShareButtonsOutlet.isHidden = true
         openCameraAgainOutlet.isHidden = true
         AvailableStickersCollectionView.isHidden = true
         stickersButtonOutlet.isHidden = true
+        sm_service = SocialMediaService(vc: self)
     }
 }
 
@@ -190,7 +196,9 @@ extension AvailableStickersViewController {
         AvailableStickersCollectionView.isHidden = true
         stickersButtonOutlet.isHidden = true
         selfieImageView.isHidden = true
-        
+        //TODO: - Sticker Manager
+        stickers.forEach{$0.removeFromSuperview();}
+        stickers.removeAll()
     }
     
     @IBAction func cancelStickersCollage(_ sender: AnyObject) {
@@ -213,16 +221,18 @@ extension AvailableStickersViewController {
     
     func mergeStickerAndSelfie() {
         
-        views(are_hidden: true)
+        take_photo_views.forEach{$0.isHidden = true}
+        stickers_views.forEach{$0.isHidden = true}
+        superior_views.forEach{$0.isHidden = true}
+        
         UIGraphicsBeginImageContextWithOptions(self.view.frame.size, true, 0)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
         finalImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        views(are_hidden: false)
-    }
-    
-    func views(are_hidden hide: Bool) {
-        views.forEach{$0.isHidden = hide}
+        
+        stickers_views.forEach{$0.isHidden = false}
+        superior_views.forEach{$0.isHidden = false}
+        
     }
     
 }
@@ -235,31 +245,14 @@ extension AvailableStickersViewController {
         //TODO: Share with trusted connections(contract witnesses; not implemented yet)
     }
     
-    
     @IBAction func twitterShare(_ sender: AnyObject) {
-        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeTwitter){
-            let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            twitterSheet.setInitialText("Olhe o que já posso comprar com o dinheiro economizado ao parar de fumar! #StickWithMeApp")
-            twitterSheet.add(finalImage)
-            self.present(twitterSheet, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+        mergeStickerAndSelfie()
+        sm_service.twitter_share(with_image: finalImage, and_text: "Olhe o que já posso comprar com o dinheiro economizado ao parar de fumar! #StickWithMeApp")
     }
     
     @IBAction func facebookShare(_ sender: AnyObject) {
-        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
-            let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            facebookSheet.setInitialText("Olhe o que já posso comprar com o dinheiro economizado ao parar de fumar! #StickWithMeApp")
-            facebookSheet.add(finalImage)
-            self.present(facebookSheet, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: "Você não está logado!", message: "Vá nas configurações e faça o loign na sua conta do Facebook para compartilhar.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+        mergeStickerAndSelfie()
+        sm_service.facebook_share(with_image: finalImage, and_text: "Olhe o que já posso comprar com o dinheiro economizado ao parar de fumar! #StickWithMeApp")
     }
     
 }

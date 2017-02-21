@@ -8,11 +8,9 @@
 
 import Foundation
 
-protocol Achievement {
-    
+protocol Achievement: class {
     var benefits: [Benefit] { get set }
     func initial_setup()
-
 }
 
 extension Achievement {
@@ -24,6 +22,16 @@ extension Achievement {
     
     func benefits_achieved(_ accumulated: Double) -> [Benefit]? {
         return benefits.filter{ $0.is_achieved(accumulated) }
+    }
+    
+    func add_benefit_from_dic_elem(key: TimeInterval, value: (String, String)) {
+        let title = value.0
+        let description = value.1
+        let completion_time = key
+        
+        let benefit = create_benefit(title, description, completion_time)
+        benefits.append(benefit)
+        benefits.sort()
     }
     
 }

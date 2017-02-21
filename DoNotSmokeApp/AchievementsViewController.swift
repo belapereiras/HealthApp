@@ -29,12 +29,6 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet var selfiesView: UIView!
     @IBOutlet var selfiesCollectionView: UICollectionView!
     
-    @IBOutlet var popUpBackground: UIView!
-    @IBOutlet var popUp: UIView!
-    @IBOutlet var popUpImage: UIImageView!
-    @IBOutlet var popUpText: UILabel!
-
-    
     //var selfieImageReceiver = UIImage()
 
     
@@ -62,7 +56,6 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        
         return conditional_collection(collectionView, is_sticker: {
             let cellStickers = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! AchievementsCell
             
@@ -86,18 +79,14 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         
         if collectionView == self.stickersCollectionView {
-        var textToPass : String
-        var imageToPass: UIImage
-        
-            if indexPath.row == 0 {
-                textToPass = "20 dias sem fumar"
-            } else {
-                textToPass = String(self.user.moneyAchievements.benefits[indexPath.row - 1].completion_parameter)
-            }
+            var textToPass : String
+            var imageToPass: UIImage
             
-        imageToPass = self.achievementsStickers[indexPath.row]!
+            textToPass = "R$"+String(self.user.moneyAchievements.benefits[indexPath.row].completion_parameter)
+            
+            imageToPass = self.achievementsStickers[indexPath.row]!
     
-        presentPopUp(image: imageToPass, text: textToPass)
+            presentPopUp(image: imageToPass, text: textToPass)
         }
         
     }
