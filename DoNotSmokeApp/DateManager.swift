@@ -36,11 +36,13 @@ class DateManager {
                (tp_in_hours < 24) ? tp_in_hours.stringfy_hours : tp_in_days.stringfy_days
     }
     
-    func stringToDate(timeString: String) -> TimeInterval {
+    func stringToDate(timeString: String) -> TimeInterval? {
         let myDateString = timeString
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
-        let myDate = dateFormatter.date(from: myDateString)!
+        guard let myDate = dateFormatter.date(from: myDateString) else {
+            return nil
+        }
         
         return myDate.timeIntervalSinceReferenceDate
     }

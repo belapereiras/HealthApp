@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class Tutorial1View: UIView, CAAnimationDelegate {
+class TutorialProgressView: UIView, CAAnimationDelegate {
 	
 	var layers : Dictionary<String, AnyObject> = [:]
 	var completionBlocks : Dictionary<CAAnimation, (Bool) -> Void> = [:]
@@ -247,9 +247,9 @@ class Tutorial1View: UIView, CAAnimationDelegate {
 		
 		////Prog animation
 		let progPositionAnim       = CAKeyframeAnimation(keyPath:"position")
-		progPositionAnim.values    = [NSValue(cgPoint: CGPoint(x: 0.08511 * prog.superlayer!.bounds.width, y: 1.23667 * prog.superlayer!.bounds.height)), NSValue(cgPoint: CGPoint(x: 0.08511 * prog.superlayer!.bounds.width, y: 0.31 * prog.superlayer!.bounds.height))]
-		progPositionAnim.keyTimes  = [0, 1]
-		progPositionAnim.duration  = 0.49
+		progPositionAnim.values    = [NSValue(cgPoint: CGPoint(x: 0.08511 * prog.superlayer!.bounds.width, y: 1.23667 * prog.superlayer!.bounds.height)), NSValue(cgPoint: CGPoint(x: 0.08511 * prog.superlayer!.bounds.width, y: 0.31 * prog.superlayer!.bounds.height)), NSValue(cgPoint: CGPoint(x: 0.08511 * prog.superlayer!.bounds.width, y: 0.31 * prog.superlayer!.bounds.height))]
+		progPositionAnim.keyTimes  = [0, 0.693, 1]
+		progPositionAnim.duration  = 0.707
 		progPositionAnim.beginTime = 3.47
 		
 		let progOpacityAnim      = CAKeyframeAnimation(keyPath:"opacity")
@@ -264,9 +264,9 @@ class Tutorial1View: UIView, CAAnimationDelegate {
 		
 		////Prog2 animation
 		let prog2PositionAnim       = CAKeyframeAnimation(keyPath:"position")
-		prog2PositionAnim.values    = [NSValue(cgPoint: CGPoint(x: 0.08511 * prog2.superlayer!.bounds.width, y: 1.23667 * prog2.superlayer!.bounds.height)), NSValue(cgPoint: CGPoint(x: 0.08511 * prog2.superlayer!.bounds.width, y: 0.62 * prog2.superlayer!.bounds.height))]
-		prog2PositionAnim.keyTimes  = [0, 1]
-		prog2PositionAnim.duration  = 0.59
+		prog2PositionAnim.values    = [NSValue(cgPoint: CGPoint(x: 0.08511 * prog2.superlayer!.bounds.width, y: 1.23667 * prog2.superlayer!.bounds.height)), NSValue(cgPoint: CGPoint(x: 0.08511 * prog2.superlayer!.bounds.width, y: 0.62 * prog2.superlayer!.bounds.height)), NSValue(cgPoint: CGPoint(x: 0.08511 * prog2.superlayer!.bounds.width, y: 0.62 * prog2.superlayer!.bounds.height))]
+		prog2PositionAnim.keyTimes  = [0, 0.834, 1]
+		prog2PositionAnim.duration  = 0.707
 		prog2PositionAnim.beginTime = 3.47
 		
 		let prog2OpacityAnim      = CAKeyframeAnimation(keyPath:"opacity")

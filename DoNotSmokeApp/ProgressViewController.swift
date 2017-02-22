@@ -203,8 +203,10 @@ extension ProgressViewController {
         let trimmedNumber: String
         if number >= 1000 {
             trimmedNumber = numberString.substring(with: numberString.startIndex..<numberString.characters.index(numberString.startIndex, offsetBy: 6, limitedBy: numberString.endIndex)!)
+        } else if number >= 100{
+            trimmedNumber = numberString.substring(with: numberString.startIndex..<numberString.characters.index(numberString.startIndex, offsetBy: 6, limitedBy: numberString.endIndex)!)
         } else {
-            trimmedNumber = numberString.substring(with: numberString.startIndex..<numberString.characters.index(numberString.startIndex, offsetBy: 4, limitedBy: numberString.endIndex)!)
+                        trimmedNumber = numberString.substring(with: numberString.startIndex..<numberString.characters.index(numberString.startIndex, offsetBy: 5, limitedBy: numberString.endIndex)!)
         }
         return trimmedNumber
     }
