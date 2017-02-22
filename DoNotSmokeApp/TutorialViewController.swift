@@ -19,28 +19,26 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tutorialView.addProgressAnimation()
+        self.initialize_timer(with_interval: 4, handler: { timer in
+            self.tutorialView.addProgressAnimation()
+        })
         
         //1
         self.scrollView.frame = CGRect(x:0, y:0, width:self.view.frame.width, height:self.view.frame.height)
-        let scrollViewWidth:CGFloat = self.scrollView.frame.width
-        let scrollViewHeight:CGFloat = self.scrollView.frame.height
         
         //2
-        let imgOne = Tutorial1View(frame: CGRect(x:0, y:0,width:scrollViewWidth, height:scrollViewHeight))
+        textView.textAlignment = .center
         
-        //let imgThree = UIImageView(frame: CGRect(x:scrollViewWidth*2, y:0,width:scrollViewWidth, height:scrollViewHeight))
-        //imgThree.image = UIImage(named: "noStickers")
         
-        self.scrollView.addSubview(tutorialView)
-        //self.scrollView.addSubview(imgThree)
         
-        //3
+        
+        //4
         self.scrollView.contentSize = CGSize(width:self.scrollView.frame.width * 4, height:self.scrollView.frame.height)
         self.scrollView.delegate = self
         self.pageControl.currentPage = 0
         
     }
+    
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView){
         // Test the offset and calculate the current page after scrolling ends
@@ -48,11 +46,16 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
         let currentPage:CGFloat = floor((scrollView.contentOffset.x-pageWidth/2)/pageWidth)+1
         // Change the indicator
         self.pageControl.currentPage = Int(currentPage);
-        
-        // Show the "Let's Start" button in the last slide (with a fade in animation)                     UIView.animate(withDuration: 1.0, animations: { () -> Void in
-        self.button.alpha = 1.0
-        
+        // Change the text accordingly
+        if Int(currentPage) == 0{
+            textView.text = "Acompanhe os progressos na sua saúde a cada cigarro que você deixa de fumar."
+        }else{
+            textView.text = "Com o dinheiro economizado conquiste stickers e mostre aos amigos sua evolução"
+            // Show the "Let's Start" button in the last slide (with a fade in animation)                     UIView.animate(withDuration: 1.0, animations: { () -> Void in
+            self.button.alpha = 1.0
+        }
     }
-    
 }
+    
+
 
