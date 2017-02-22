@@ -98,7 +98,9 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         
         if textField == stopDayTextField {
             let manager = DateManager()
-            let interval = manager.stringToDate(timeString: stopDayTextField.text!)
+            guard let interval = manager.stringToDate(timeString: stopDayTextField.text!) else {
+                return
+            }
             userDic["QuitDay"] = interval
         }
         

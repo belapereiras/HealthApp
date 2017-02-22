@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yhg-5b-hFt">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yhg-5b-hFt">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -482,7 +482,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="continueButton"/>
                                 <connections>
-                                    <segue destination="o2y-bv-QbG" kind="show" id="QEe-vC-Cm1"/>
+                                    <segue destination="J6P-75-gr1" kind="show" id="Bjj-yt-ucK"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="HOJE É UM GRANDE DIA!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hX9-8B-peZ">
@@ -539,6 +539,111 @@ Continue para preencher suas informações.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohj-SP-NWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2962.5" y="367.6056338028169"/>
+        </scene>
+        <!--Tutorial-->
+        <scene sceneID="EYU-ai-Kpm">
+            <objects>
+                <viewController title="Tutorial" id="J6P-75-gr1" customClass="TutorialViewController" customModule="DoNotSmokeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xx2-1K-Yva"/>
+                        <viewControllerLayoutGuide type="bottom" id="cYz-kE-VKO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wnz-I5-1kn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kIv-FE-EVJ" userLabel="DontSmoke View" customClass="TutorialProgressView" customModule="DoNotSmokeApp" customModuleProvider="target">
+                                <rect key="frame" x="23" y="40" width="275" height="220"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kIv-FE-EVJ" secondAttribute="height" multiplier="1.25" id="W9W-ZW-w7g"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="61z-k7-7Mi" userLabel="Stickers View" customClass="Tutorial2View" customModule="DoNotSmokeApp" customModuleProvider="target">
+                                <rect key="frame" x="23" y="40" width="275" height="220"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhn-aB-tU6">
+                                <rect key="frame" x="0.0" y="-1" width="320" height="489"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7z-tm-dOL">
+                                <rect key="frame" x="0.0" y="364" width="320" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Acompanhe os progressos na sua saúde a cada cigarro que você deixa de fumar." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxS-rP-wgd">
+                                <rect key="frame" x="42" y="364" width="236" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="CZZ-Dj-B6R"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="BF0-C2-b3P">
+                                <rect key="frame" x="140" y="479" width="40" height="16"/>
+                                <color key="tintColor" red="0.99232822659999997" green="0.58009934429999999" blue="0.43455001710000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Icl-Fq-0M0"/>
+                                </constraints>
+                                <color key="currentPageIndicatorTintColor" red="0.99232822659999997" green="0.58009934429999999" blue="0.43455001710000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGF-9p-GXF" userLabel="LineView">
+                                <rect key="frame" x="110" y="354" width="100" height="2"/>
+                                <color key="backgroundColor" red="0.9923282265663147" green="0.58009934425354004" blue="0.43455001711845398" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="YqZ-Ah-b88"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFi-QE-Pv7">
+                                <rect key="frame" x="64" y="501" width="192" height="49"/>
+                                <state key="normal" backgroundImage="tutorialButton"/>
+                                <connections>
+                                    <segue destination="o2y-bv-QbG" kind="show" id="oyW-YQ-AOs"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vhn-aB-tU6" firstAttribute="width" secondItem="wnz-I5-1kn" secondAttribute="width" id="5JO-MD-Uia"/>
+                            <constraint firstItem="XFi-QE-Pv7" firstAttribute="centerX" secondItem="wnz-I5-1kn" secondAttribute="centerX" id="5T8-lg-mEy"/>
+                            <constraint firstItem="I7z-tm-dOL" firstAttribute="leading" secondItem="wnz-I5-1kn" secondAttribute="leading" id="7Wf-Tp-PO2"/>
+                            <constraint firstItem="I7z-tm-dOL" firstAttribute="top" secondItem="RGF-9p-GXF" secondAttribute="bottom" constant="8" symbolic="YES" id="8mz-h9-o9j"/>
+                            <constraint firstItem="vhn-aB-tU6" firstAttribute="centerX" secondItem="wnz-I5-1kn" secondAttribute="centerX" id="Fgn-zb-K9r"/>
+                            <constraint firstItem="XFi-QE-Pv7" firstAttribute="top" secondItem="BF0-C2-b3P" secondAttribute="bottom" constant="6" id="GMx-dL-wum"/>
+                            <constraint firstItem="BF0-C2-b3P" firstAttribute="top" secondItem="I7z-tm-dOL" secondAttribute="bottom" constant="15" id="JEO-ao-Qmo"/>
+                            <constraint firstItem="RGF-9p-GXF" firstAttribute="centerX" secondItem="I7z-tm-dOL" secondAttribute="centerX" id="Jy3-0K-7Yl"/>
+                            <constraint firstItem="kIv-FE-EVJ" firstAttribute="top" secondItem="Xx2-1K-Yva" secondAttribute="bottom" constant="20" id="MC0-MW-e4I"/>
+                            <constraint firstItem="kIv-FE-EVJ" firstAttribute="centerX" secondItem="wnz-I5-1kn" secondAttribute="centerX" id="Rjg-ag-YrG"/>
+                            <constraint firstItem="RGF-9p-GXF" firstAttribute="leading" secondItem="wnz-I5-1kn" secondAttribute="leadingMargin" constant="94" id="Ssu-7d-0xK"/>
+                            <constraint firstItem="XFi-QE-Pv7" firstAttribute="height" secondItem="wnz-I5-1kn" secondAttribute="height" multiplier="0.085:1" id="Xzb-hU-jCe"/>
+                            <constraint firstAttribute="trailing" secondItem="I7z-tm-dOL" secondAttribute="trailing" id="bCJ-03-kSZ"/>
+                            <constraint firstItem="I7z-tm-dOL" firstAttribute="centerY" secondItem="RxS-rP-wgd" secondAttribute="centerY" id="bbx-QI-8Us"/>
+                            <constraint firstItem="XFi-QE-Pv7" firstAttribute="width" secondItem="wnz-I5-1kn" secondAttribute="width" multiplier="0.6:1" id="ekX-8r-fMb"/>
+                            <constraint firstItem="RxS-rP-wgd" firstAttribute="leading" secondItem="wnz-I5-1kn" secondAttribute="leadingMargin" constant="26" id="fPu-Yb-MIp"/>
+                            <constraint firstItem="vhn-aB-tU6" firstAttribute="centerY" secondItem="wnz-I5-1kn" secondAttribute="centerY" multiplier="0.86:1" id="hbw-Dt-gVZ"/>
+                            <constraint firstItem="vhn-aB-tU6" firstAttribute="height" secondItem="wnz-I5-1kn" secondAttribute="height" multiplier="0.86:1" id="kyq-TI-mQy"/>
+                            <constraint firstItem="RGF-9p-GXF" firstAttribute="top" secondItem="kIv-FE-EVJ" secondAttribute="bottom" constant="94" id="lTw-ME-gro"/>
+                            <constraint firstItem="cYz-kE-VKO" firstAttribute="top" secondItem="XFi-QE-Pv7" secondAttribute="bottom" constant="18" id="qea-TD-Npg"/>
+                            <constraint firstItem="RGF-9p-GXF" firstAttribute="centerX" secondItem="RxS-rP-wgd" secondAttribute="centerX" id="sf1-Aj-yqo"/>
+                            <constraint firstItem="RGF-9p-GXF" firstAttribute="centerX" secondItem="BF0-C2-b3P" secondAttribute="centerX" id="t6L-BS-hCW"/>
+                            <constraint firstItem="XFi-QE-Pv7" firstAttribute="top" secondItem="RxS-rP-wgd" secondAttribute="bottom" constant="37" id="vIO-EB-bo7"/>
+                            <constraint firstItem="I7z-tm-dOL" firstAttribute="top" secondItem="RxS-rP-wgd" secondAttribute="top" id="y9O-4w-kP6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="XFi-QE-Pv7" id="lXa-ok-qEm"/>
+                        <outlet property="pageControl" destination="BF0-C2-b3P" id="sSq-Ar-2u2"/>
+                        <outlet property="scrollView" destination="vhn-aB-tU6" id="8CS-C6-LEL"/>
+                        <outlet property="textView" destination="RxS-rP-wgd" id="OlP-wK-iip"/>
+                        <outlet property="tutorial1View" destination="kIv-FE-EVJ" id="m8e-Dh-FtG"/>
+                        <outlet property="tutorial2View" destination="61z-k7-7Mi" id="5Um-5O-YaS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Lg-2m-NMR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2377.5" y="-351.76056338028167"/>
         </scene>
         <!--ContractScene-->
         <scene sceneID="77A-up-vXw">
@@ -1445,9 +1550,10 @@ Continue para preencher suas informações.</string>
         <image name="sendTwitter" width="48" height="48"/>
         <image name="settings" width="27" height="27"/>
         <image name="stickersButton" width="79" height="79"/>
+        <image name="tutorialButton" width="200" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fw7-RQ-RED"/>
+        <segue reference="Mth-gd-VGD"/>
         <segue reference="t1d-0t-7Kb"/>
     </inferredMetricsTieBreakers>
 </document>
