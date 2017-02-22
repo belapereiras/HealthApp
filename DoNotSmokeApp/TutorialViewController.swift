@@ -16,12 +16,15 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var button: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initialize_timer(with_interval: 4, handler: { timer in
+        self.initialize_timer(with_interval: 5, handler: { timer in
             self.tutorialView.addProgressAnimation()
         })
+
+        
         
         //1
         self.scrollView.frame = CGRect(x:0, y:0, width:self.view.frame.width, height:self.view.frame.height)

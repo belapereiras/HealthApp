@@ -552,34 +552,42 @@ Continue para preencher suas informações.</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kIv-FE-EVJ" customClass="Tutorial1View" customModule="DoNotSmokeApp" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kIv-FE-EVJ" userLabel="DontSmoke View" customClass="Tutorial1View" customModule="DoNotSmokeApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="36" width="320" height="300"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <scrollView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhn-aB-tU6">
                                 <rect key="frame" x="0.0" y="-1" width="320" height="489"/>
                             </scrollView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Acompanhe os progressos na sua saúde a cada cigarro que você deixa de fumar." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxS-rP-wgd">
-                                <rect key="frame" x="42" y="364" width="236" height="100"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I7z-tm-dOL">
+                                <rect key="frame" x="0.0" y="337" width="320" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Acompanhe os progressos na sua saúde a cada cigarro que você deixa de fumar." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxS-rP-wgd">
+                                <rect key="frame" x="42" y="364" width="236" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="CZZ-Dj-B6R"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="BF0-C2-b3P">
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="BF0-C2-b3P">
                                 <rect key="frame" x="140" y="458" width="40" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.99232822659999997" green="0.58009934429999999" blue="0.43455001710000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Icl-Fq-0M0"/>
+                                </constraints>
                                 <color key="currentPageIndicatorTintColor" red="0.99232822659999997" green="0.58009934429999999" blue="0.43455001710000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RGF-9p-GXF" userLabel="LineView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGF-9p-GXF" userLabel="LineView">
                                 <rect key="frame" x="110" y="354" width="100" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.9923282265663147" green="0.58009934425354004" blue="0.43455001711845398" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFi-QE-Pv7">
-                                <rect key="frame" x="64" y="501.5" width="192" height="48.5"/>
+                                <rect key="frame" x="64" y="501" width="192" height="49"/>
                                 <state key="normal" backgroundImage="tutorialButton"/>
                                 <connections>
                                     <segue destination="o2y-bv-QbG" kind="show" id="oyW-YQ-AOs"/>
@@ -588,14 +596,28 @@ Continue para preencher suas informações.</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="kIv-FE-EVJ" firstAttribute="leading" secondItem="vhn-aB-tU6" secondAttribute="leading" id="2T8-6P-taI"/>
+                            <constraint firstAttribute="bottom" secondItem="RGF-9p-GXF" secondAttribute="bottom" constant="212" id="3IB-3U-J7v"/>
+                            <constraint firstItem="RGF-9p-GXF" firstAttribute="centerX" secondItem="RxS-rP-wgd" secondAttribute="centerX" id="3Re-BP-8Bl"/>
+                            <constraint firstItem="kIv-FE-EVJ" firstAttribute="trailing" secondItem="vhn-aB-tU6" secondAttribute="trailing" id="3yg-vN-NVo"/>
                             <constraint firstItem="vhn-aB-tU6" firstAttribute="width" secondItem="wnz-I5-1kn" secondAttribute="width" id="5JO-MD-Uia"/>
                             <constraint firstItem="XFi-QE-Pv7" firstAttribute="centerX" secondItem="wnz-I5-1kn" secondAttribute="centerX" id="5T8-lg-mEy"/>
+                            <constraint firstAttribute="bottom" secondItem="kIv-FE-EVJ" secondAttribute="bottom" constant="232" id="6sP-MM-xNy"/>
                             <constraint firstItem="vhn-aB-tU6" firstAttribute="centerX" secondItem="wnz-I5-1kn" secondAttribute="centerX" id="Fgn-zb-K9r"/>
+                            <constraint firstItem="XFi-QE-Pv7" firstAttribute="top" secondItem="BF0-C2-b3P" secondAttribute="bottom" constant="6" id="GMx-dL-wum"/>
+                            <constraint firstItem="RGF-9p-GXF" firstAttribute="leading" secondItem="wnz-I5-1kn" secondAttribute="leadingMargin" constant="94" id="L97-y2-vkL"/>
                             <constraint firstItem="XFi-QE-Pv7" firstAttribute="height" secondItem="wnz-I5-1kn" secondAttribute="height" multiplier="0.085:1" id="Xzb-hU-jCe"/>
                             <constraint firstItem="XFi-QE-Pv7" firstAttribute="width" secondItem="wnz-I5-1kn" secondAttribute="width" multiplier="0.6:1" id="ekX-8r-fMb"/>
+                            <constraint firstItem="RxS-rP-wgd" firstAttribute="leading" secondItem="wnz-I5-1kn" secondAttribute="leadingMargin" constant="26" id="fPu-Yb-MIp"/>
+                            <constraint firstItem="kIv-FE-EVJ" firstAttribute="top" secondItem="Xx2-1K-Yva" secondAttribute="bottom" constant="16" id="fU2-2b-dWp"/>
+                            <constraint firstItem="RxS-rP-wgd" firstAttribute="top" secondItem="RGF-9p-GXF" secondAttribute="bottom" constant="8" symbolic="YES" id="h8V-Kg-1XY"/>
                             <constraint firstItem="vhn-aB-tU6" firstAttribute="centerY" secondItem="wnz-I5-1kn" secondAttribute="centerY" multiplier="0.86:1" id="hbw-Dt-gVZ"/>
+                            <constraint firstItem="RGF-9p-GXF" firstAttribute="centerX" secondItem="XFi-QE-Pv7" secondAttribute="centerX" id="iyh-zg-fFc"/>
                             <constraint firstItem="vhn-aB-tU6" firstAttribute="height" secondItem="wnz-I5-1kn" secondAttribute="height" multiplier="0.86:1" id="kyq-TI-mQy"/>
+                            <constraint firstItem="RGF-9p-GXF" firstAttribute="centerX" secondItem="BF0-C2-b3P" secondAttribute="centerX" id="p9d-63-fpP"/>
                             <constraint firstItem="cYz-kE-VKO" firstAttribute="top" secondItem="XFi-QE-Pv7" secondAttribute="bottom" constant="18" id="qea-TD-Npg"/>
+                            <constraint firstItem="XFi-QE-Pv7" firstAttribute="top" secondItem="RxS-rP-wgd" secondAttribute="bottom" constant="37" id="vIO-EB-bo7"/>
+                            <constraint firstItem="RGF-9p-GXF" firstAttribute="top" secondItem="kIv-FE-EVJ" secondAttribute="bottom" constant="18" id="zd4-nL-dkx"/>
                         </constraints>
                     </view>
                     <connections>
