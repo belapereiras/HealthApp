@@ -30,15 +30,20 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
         
         //1
         self.scrollView.frame = CGRect(x:0, y:0, width:self.view.frame.width, height:self.view.frame.height)
+    
         
         //2
         textView.textAlignment = .center
         
+    
         
         //4
         self.scrollView.contentSize = CGSize(width:self.scrollView.frame.width * 4, height:self.scrollView.frame.height)
         self.scrollView.delegate = self
         self.pageControl.currentPage = 0
+        
+        
+        
         
     }
     
