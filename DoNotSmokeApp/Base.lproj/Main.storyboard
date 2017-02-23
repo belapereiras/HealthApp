@@ -738,7 +738,7 @@ Continue para preencher suas informações.</string>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SRH-Z7-NOY">
-                                        <rect key="frame" x="79" y="49.5" width="34.5" height="30"/>
+                                        <rect key="frame" x="75.5" y="49.5" width="42" height="30"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad"/>
                                     </textField>
@@ -772,7 +772,7 @@ Continue para preencher suas informações.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bTp-zW-RiO">
-                                        <rect key="frame" x="204" y="207" width="34.5" height="30"/>
+                                        <rect key="frame" x="204" y="207" width="42" height="30"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad"/>
                                     </textField>
@@ -788,7 +788,7 @@ Continue para preencher suas informações.</string>
                                     <constraint firstItem="HIB-1P-q63" firstAttribute="top" secondItem="rJ8-jb-8hh" secondAttribute="bottom" constant="30" id="0AL-uA-TEl"/>
                                     <constraint firstItem="rJ8-jb-8hh" firstAttribute="top" secondItem="DBj-jS-fX6" secondAttribute="bottom" constant="30" id="2ZF-KA-90K"/>
                                     <constraint firstItem="YVa-3b-32c" firstAttribute="top" secondItem="d4a-Wd-GON" secondAttribute="bottom" constant="30" id="78B-Uc-6kM"/>
-                                    <constraint firstItem="bfd-be-odm" firstAttribute="leading" secondItem="SRH-Z7-NOY" secondAttribute="trailing" constant="12" id="83V-uH-MHQ"/>
+                                    <constraint firstItem="bfd-be-odm" firstAttribute="leading" secondItem="SRH-Z7-NOY" secondAttribute="trailing" constant="8" id="83V-uH-MHQ"/>
                                     <constraint firstItem="bTp-zW-RiO" firstAttribute="width" secondItem="SRH-Z7-NOY" secondAttribute="width" id="9AB-8Q-j3T"/>
                                     <constraint firstItem="DBj-jS-fX6" firstAttribute="centerY" secondItem="2gC-Ug-KWX" secondAttribute="centerY" id="9sN-P2-ngm"/>
                                     <constraint firstItem="d4a-Wd-GON" firstAttribute="centerY" secondItem="5os-NO-BQR" secondAttribute="centerY" id="APG-Lf-jjf"/>
@@ -809,7 +809,7 @@ Continue para preencher suas informações.</string>
                                     <constraint firstItem="bfd-be-odm" firstAttribute="centerY" secondItem="SRH-Z7-NOY" secondAttribute="centerY" id="onj-Lc-OAt"/>
                                     <constraint firstItem="d4a-Wd-GON" firstAttribute="leading" secondItem="5os-NO-BQR" secondAttribute="trailing" constant="12" id="ueu-As-Myj"/>
                                     <constraint firstItem="DBj-jS-fX6" firstAttribute="top" secondItem="YVa-3b-32c" secondAttribute="bottom" constant="30" id="v4O-4Z-hZe"/>
-                                    <constraint firstItem="SRH-Z7-NOY" firstAttribute="leading" secondItem="YVa-3b-32c" secondAttribute="trailing" constant="12" id="xNk-oA-VE9"/>
+                                    <constraint firstItem="SRH-Z7-NOY" firstAttribute="leading" secondItem="YVa-3b-32c" secondAttribute="trailing" constant="8" id="xNk-oA-VE9"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Termo de compromisso" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="my4-el-hJp">
