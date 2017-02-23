@@ -208,7 +208,12 @@ class Tutorial2View: UIView, CAAnimationDelegate {
 		cabeloPositionAnim.duration  = 0.285
 		cabeloPositionAnim.beginTime = 1.67
 		
-		let cabeloStickersAnim : CAAnimationGroup = QCMethod.group(animations: [cabeloPositionAnim], fillMode:fillMode)
+		let cabeloOpacityAnim      = CAKeyframeAnimation(keyPath:"opacity")
+		cabeloOpacityAnim.values   = [0, 0, 1]
+		cabeloOpacityAnim.keyTimes = [0, 0.999, 1]
+		cabeloOpacityAnim.duration = 1.67
+		
+		let cabeloStickersAnim : CAAnimationGroup = QCMethod.group(animations: [cabeloPositionAnim, cabeloOpacityAnim], fillMode:fillMode)
 		cabelo.add(cabeloStickersAnim, forKey:"cabeloStickersAnim")
 		
 		let time = layers["time"] as! CALayer
@@ -220,7 +225,12 @@ class Tutorial2View: UIView, CAAnimationDelegate {
 		timePositionAnim.duration  = 0.312
 		timePositionAnim.beginTime = 1.95
 		
-		let timeStickersAnim : CAAnimationGroup = QCMethod.group(animations: [timePositionAnim], fillMode:fillMode)
+		let timeOpacityAnim      = CAKeyframeAnimation(keyPath:"opacity")
+		timeOpacityAnim.values   = [0, 0, 1]
+		timeOpacityAnim.keyTimes = [0, 0.999, 1]
+		timeOpacityAnim.duration = 1.96
+		
+		let timeStickersAnim : CAAnimationGroup = QCMethod.group(animations: [timePositionAnim, timeOpacityAnim], fillMode:fillMode)
 		time.add(timeStickersAnim, forKey:"timeStickersAnim")
 		
 		let cinema = layers["cinema"] as! CALayer
@@ -232,7 +242,12 @@ class Tutorial2View: UIView, CAAnimationDelegate {
 		cinemaPositionAnim.duration  = 0.332
 		cinemaPositionAnim.beginTime = 2.1
 		
-		let cinemaStickersAnim : CAAnimationGroup = QCMethod.group(animations: [cinemaPositionAnim], fillMode:fillMode)
+		let cinemaOpacityAnim      = CAKeyframeAnimation(keyPath:"opacity")
+		cinemaOpacityAnim.values   = [0, 0, 1]
+		cinemaOpacityAnim.keyTimes = [0, 0.999, 1]
+		cinemaOpacityAnim.duration = 2.1
+		
+		let cinemaStickersAnim : CAAnimationGroup = QCMethod.group(animations: [cinemaPositionAnim, cinemaOpacityAnim], fillMode:fillMode)
 		cinema.add(cinemaStickersAnim, forKey:"cinemaStickersAnim")
 	}
 	
