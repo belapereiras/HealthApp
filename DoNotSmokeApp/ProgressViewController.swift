@@ -153,13 +153,6 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
 
 }
 
-extension UIViewController {
-    func initialize_timer(with_interval interval: TimeInterval, handler: @escaping (Timer) -> ()) {
-        let timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true, block: handler)
-        timer.fire()
-    }
-}
-
 extension ProgressViewController {
     
     func updateNotSmokingTimeLabel(timer: Timer) {

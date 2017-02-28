@@ -40,7 +40,7 @@ class ContractViewController: UIViewController {
         }
         guard let plist = Plist(name: "UserPropertyList") else { return }
         guard let userDic = plist.getMutablePListFile() else { return }
-        guard let cigarretesSmokerPerDay = nbrPerDay.text else {
+        guard let cigarretesSmokerPerDay = Int(nbrPerDay.text!) else {
             self.showAlert(title: "Valor inválido", msg: "Campo de cigarros fumados por dia deve ser preenchido com um número.", actionButton: "OK")
             return
         }
@@ -48,14 +48,14 @@ class ContractViewController: UIViewController {
             self.showAlert(title: "Valor inválido", msg: "Campo de preço do maço deve ser preenchido com um número.", actionButton: "OK")
             return
         }
-        guard let cigarsPerPack = cigarettesPerPack.text else {
+        guard let cigarsPerPack = Int(cigarettesPerPack.text!) else {
             self.showAlert(title: "Valor inválido", msg: "Campo de cigarros fumados por dia deve ser preenchido com um número.", actionButton: "OK")
             return
         }
         
         userDic["Name"] = name
-        userDic["CigarettesPerPack"] = Int(cigarsPerPack)! as NSNumber
-        userDic["CigarettesSmokedPerDay"] = Int(cigarretesSmokerPerDay)! as NSNumber
+        userDic["CigarettesPerPack"] = cigarsPerPack as NSNumber
+        userDic["CigarettesSmokedPerDay"] = cigarretesSmokerPerDay as NSNumber
         userDic["QuitDay"] = Date().timeIntervalSinceReferenceDate as NSNumber
         userDic["PackPrice"] = pricePerPack as NSNumber
         let firstTime = NSNumber.init(value: false as Bool)
