@@ -153,24 +153,23 @@ class AchievementsViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let text: NSString = "Você não tem selfies ainda."
-        let font = UIFont(name: "Lato-Medium", size: 16)
-        let attributes = NSAttributedString(string: text as String, attributes: [NSForegroundColorAttributeName : UIColor.black, NSFontAttributeName : font!])
         
+        let text: NSString = selfiesView.isHidden ? "Você não tem stickers ainda." : "Você não tem selfies ainda."
+        let font = UIFont(name: "Lato-Medium", size: 16)
+        let attributes = NSAttributedString(string: text as String, attributes: [NSForegroundColorAttributeName : UIColor.gray, NSFontAttributeName : font!])
         return attributes
+        
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let description: NSString = "Clique na câmera para tirar uma foto com seus stickers!"
+        
+        let description: NSString = selfiesView.isHidden ? "Continue economizando dinheiro para ganhar stickers." : "Clique na câmera para tirar uma foto com seus stickers!"
         let font = UIFont(name: "Lato-Light", size: 12)
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
         paragraph.lineBreakMode = .byWordWrapping
-        
-        let attributes: NSDictionary = [NSFontAttributeName: font!, NSForegroundColorAttributeName: UIColor.black,
+        let attributes: NSDictionary = [NSFontAttributeName: font!, NSForegroundColorAttributeName: UIColor.gray,
                                         NSParagraphStyleAttributeName: paragraph]
-        
-        
         return NSAttributedString(string: description as String, attributes: attributes as? [String : AnyObject])
         
     }
