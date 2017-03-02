@@ -14,7 +14,11 @@ import Foundation
  */
 class DateManager {
     
-    var tp_in_seconds: TimeInterval?
+    var tp_in_seconds: TimeInterval? {
+        didSet {
+            tp_in_seconds = tp_in_seconds! < 0.0 ? 0 : tp_in_seconds
+        }
+    }
     var tp_in_minutes: TimeInterval {
         return tp_in_seconds?.minutes ?? 0
     }
@@ -72,7 +76,7 @@ extension Double {
     var hours: Double { return self.minutes / 60 }
     var days: Double { return self.hours / 24 }
     
-    var stringfy_seconds: (String,String) { return ("\(Int(self))" , (self>1) ? "segundos" : "segundo") }
+    var stringfy_seconds: (String,String) { return ("\(Int(self))" , (self>1 || self == 0) ? "segundos" : "segundo") }
     var stringfy_minutes: (String, String) { return ("\(Int(self))" , (Int(self)>1) ? "minutos" : "minuto") }
     var stringfy_hours: (String, String) { return ("\(Int(self))" , (Int(self)>1) ? "horas" : "hora") }
     var stringfy_days: (String, String) { return ("\(Int(self))" , (Int(self)>1) ? "dias" : "dia") }

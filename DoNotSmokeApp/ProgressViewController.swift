@@ -153,30 +153,23 @@ class ProgressViewController: UIViewController, UICollectionViewDelegate, UIColl
 
 }
 
-extension UIViewController {
-    func initialize_timer(with_interval interval: TimeInterval, handler: @escaping (Timer) -> ()) {
-        let timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true, block: handler)
-        timer.fire()
-    }
-}
-
 extension ProgressViewController {
     
     func updateNotSmokingTimeLabel(timer: Timer) {
-            let quit_day = self.user.quitDay
-            let time_not_smoking = self.user.dateManager.stringfyed_timeSince(quit_day)
-            DispatchQueue.main.async {
-                self.notSmokingFor.text = time_not_smoking.0
-                self.unityOfTimeWithoutSmoking.text = time_not_smoking.1
-            }
+        let quit_day = self.user.quitDay
+        let time_not_smoking = self.user.dateManager.stringfyed_timeSince(quit_day)
+        DispatchQueue.main.async {
+            self.notSmokingFor.text = time_not_smoking.0
+            self.unityOfTimeWithoutSmoking.text = time_not_smoking.1
+        }
     }
     
     func updateMoneySavingsLabel(timer: Timer) {
-            let savings = self.user.savings
-            let savings_string = (savings == 0 || savings < 0.0001) ? "0.00" : self.trimNumbers(savings)
-            DispatchQueue.main.async {
-                self.savedMoney.text = savings_string
-            }
+        let savings = self.user.savings
+        let savings_string = NSString(format: "%.2f", savings) as String
+        DispatchQueue.main.async {
+            self.savedMoney.text = savings_string
+        }
     }
     
     func updateCigarettesNotSmokedLabel(timer: Timer) {
@@ -195,20 +188,6 @@ extension ProgressViewController {
                 self.collectionView.reloadData()
             })
         }
-    }
-    
-    func trimNumbers(_ number: Double) -> String {
-        let numberString = String(number)
-        print(numberString)
-        let trimmedNumber: String
-        if number >= 1000 {
-            trimmedNumber = numberString.substring(with: numberString.startIndex..<numberString.characters.index(numberString.startIndex, offsetBy: 6, limitedBy: numberString.endIndex)!)
-        } else if number >= 100{
-            trimmedNumber = numberString.substring(with: numberString.startIndex..<numberString.characters.index(numberString.startIndex, offsetBy: 6, limitedBy: numberString.endIndex)!)
-        } else {
-                        trimmedNumber = numberString.substring(with: numberString.startIndex..<numberString.characters.index(numberString.startIndex, offsetBy: 5, limitedBy: numberString.endIndex)!)
-        }
-        return trimmedNumber
     }
     
 }
