@@ -102,6 +102,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             userDic["QuitDay"] = interval
+            Notifications.service.remove_all_notifications()
+            user.set_notifications()
         }
         
         do {
@@ -111,7 +113,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
 
         user.set_user_properties()
-
     }
 
     override func didReceiveMemoryWarning() {

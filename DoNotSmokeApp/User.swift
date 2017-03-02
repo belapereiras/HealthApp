@@ -14,7 +14,6 @@ class User {
     var cigarettesPerDay: Double = 0
     var cigarettesPerPack: Double = 0
     var packPrice: Double = 0
-//    var connections: [Connection] = []
     var healthAchievements: HealthAchievement
     var moneyAchievements: MoneyAchievement
     var dateManager: DateManager
@@ -37,6 +36,17 @@ class User {
         cigarettesPerDay = Double(userInfo["CigarettesSmokedPerDay"] as! NSNumber)
         cigarettesPerPack = Double(userInfo["CigarettesPerPack"] as! NSNumber)
         packPrice = Double(userInfo["PackPrice"] as! NSNumber)
+    }
+    
+    func set_notifications() {
+        self.healthAchievements.benefits.forEach{
+            Notifications.schedule($0.title, $0.description, $0.completion_parameter)
+        }
+        
+        self.moneyAchievements.benefits.forEach{
+            let time_interval = self.moneyAchievements.convert_money_for_time(cost: $0.completion_parameter)
+            Notifications.schedule("Novo Sticker!", $0.title, time_interval)
+        }
     }
     
     static func getUserSingleton() -> User {

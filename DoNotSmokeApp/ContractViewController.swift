@@ -68,15 +68,8 @@ class ContractViewController: UIViewController {
         
         Notifications.service.check()
         let user = User.getUserSingleton()
-        user.healthAchievements.benefits.forEach{
-            Notifications.schedule($0.title, $0.description, $0.completion_parameter)
-        }
+        user.set_notifications()
         
-        user.moneyAchievements.benefits.forEach{
-            let time_interval = user.moneyAchievements.convert_money_for_time(cost: $0.completion_parameter)
-            print("Time_interval", time_interval)
-            Notifications.schedule("Sticker Novo!", $0.title, time_interval)
-        }
         performSegue(withIdentifier: "contractToController", sender: sender)
 
     }
